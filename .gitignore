@@ -1,0 +1,16 @@
+# macOS cruft
+.DS_Store
+.Trashes
+
+# VB6 workspace & build artifacts
+*.vbw
+*.exp
+*.lib
+*.scc
+*.tmp
+*.csi
+*.OBJ
+
+# Your compiled binaries (if you build into the same folder)
+*.dll
+*.exe

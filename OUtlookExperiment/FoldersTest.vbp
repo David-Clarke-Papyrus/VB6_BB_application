@@ -1,0 +1,37 @@
+Type=Exe
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
+Reference=*\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.2#0#..\..\..\Program Files\Common Files\Microsoft Shared\Office10\MSO.DLL#Microsoft Office 10.0 Object Library
+Reference=*\G{00062FFF-0000-0000-C000-000000000046}#9.1#0#..\..\..\Program Files\Microsoft Office\Office10\msoutl.olb#Microsoft Outlook 10.0 Object Library
+Reference=*\G{0006F062-0000-0000-C000-000000000046}#1.0#0#..\..\..\PROGRA~1\MICROS~4\Office10\OUTLCTL.DLL#Microsoft Outlook View Control
+Form=FoldersTest.frm
+Module=mGetProfileString; ..\bas\PrivateProfileString.bas
+Startup="Form1"
+ExeName32="FoldersTest.exe"
+Command32=""
+Name="Project1"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=0
+AutoIncrementVer=0
+ServerSupportFiles=0
+VersionCompanyName="Papyrus Services"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

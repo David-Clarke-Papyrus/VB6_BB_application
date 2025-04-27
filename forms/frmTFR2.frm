@@ -1,0 +1,1863 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Begin VB.Form frmTFR2 
+   BackColor       =   &H00D3D3CB&
+   Caption         =   "Transfer"
+   ClientHeight    =   6285
+   ClientLeft      =   165
+   ClientTop       =   165
+   ClientWidth     =   11595
+   ControlBox      =   0   'False
+   Icon            =   "frmTFR2.frx":0000
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   ScaleHeight     =   6285
+   ScaleWidth      =   11595
+   Begin VB.CommandButton cmdIssue 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "Issu&e"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   675
+      Left            =   9660
+      Picture         =   "frmTFR2.frx":27A2
+      Style           =   1  'Graphical
+      TabIndex        =   26
+      TabStop         =   0   'False
+      Top             =   5220
+      UseMaskColor    =   -1  'True
+      Width           =   1110
+   End
+   Begin VB.CommandButton cmdCancel 
+      BackColor       =   &H00C4BCA4&
+      Cancel          =   -1  'True
+      Caption         =   "&Cancel"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   675
+      Left            =   7410
+      MaskColor       =   &H00C4BCA4&
+      Picture         =   "frmTFR2.frx":2B2C
+      Style           =   1  'Graphical
+      TabIndex        =   25
+      TabStop         =   0   'False
+      Top             =   5220
+      Width           =   1110
+   End
+   Begin VB.CommandButton cmdSave 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "Sa&ve"
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   675
+      Left            =   8520
+      MaskColor       =   &H00C4BCA4&
+      Picture         =   "frmTFR2.frx":2EB6
+      Style           =   1  'Graphical
+      TabIndex        =   24
+      TabStop         =   0   'False
+      Top             =   5220
+      UseMaskColor    =   -1  'True
+      Width           =   1110
+   End
+   Begin VB.TextBox txtRunningQty 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H00DBFAFB&
+      Height          =   285
+      Left            =   3750
+      TabIndex        =   23
+      TabStop         =   0   'False
+      Top             =   5535
+      Width           =   750
+   End
+   Begin VB.CommandButton cmdBatch 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Batch"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   345
+      Left            =   6060
+      Style           =   1  'Graphical
+      TabIndex        =   21
+      TabStop         =   0   'False
+      Top             =   5475
+      Width           =   690
+   End
+   Begin MSComctlLib.ListView lvw 
+      Height          =   3300
+      Left            =   75
+      TabIndex        =   15
+      TabStop         =   0   'False
+      Top             =   105
+      Width           =   10695
+      _ExtentX        =   18865
+      _ExtentY        =   5821
+      SortKey         =   7
+      View            =   3
+      SortOrder       =   -1  'True
+      Sorted          =   -1  'True
+      LabelWrap       =   -1  'True
+      HideSelection   =   0   'False
+      FullRowSelect   =   -1  'True
+      TextBackground  =   -1  'True
+      _Version        =   393217
+      ForeColor       =   -2147483640
+      BackColor       =   14416635
+      BorderStyle     =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Arial Narrow"
+         Size            =   11.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      NumItems        =   9
+      BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Text            =   "Code"
+         Object.Width           =   3881
+      EndProperty
+      BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   1
+         Text            =   "Title / Author / Publisher"
+         Object.Width           =   7056
+      EndProperty
+      BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   2
+         SubItemIndex    =   2
+         Text            =   "Qty"
+         Object.Width           =   883
+      EndProperty
+      BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   1
+         SubItemIndex    =   3
+         Text            =   "Price"
+         Object.Width           =   1940
+      EndProperty
+      BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   2
+         SubItemIndex    =   4
+         Text            =   "Disc."
+         Object.Width           =   1587
+      EndProperty
+      BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   5
+         Text            =   "Ref"
+         Object.Width           =   1834
+      EndProperty
+      BeginProperty ColumnHeader(7) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   1
+         SubItemIndex    =   6
+         Text            =   "Total"
+         Object.Width           =   1940
+      EndProperty
+      BeginProperty ColumnHeader(8) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   7
+         Text            =   "Key"
+         Object.Width           =   0
+      EndProperty
+      BeginProperty ColumnHeader(9) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   8
+         Object.Width           =   0
+      EndProperty
+   End
+   Begin VB.TextBox txtError 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00D3D3CB&
+      BorderStyle     =   0  'None
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000C0&
+      Height          =   975
+      Left            =   1050
+      MultiLine       =   -1  'True
+      TabIndex        =   17
+      TabStop         =   0   'False
+      Top             =   5235
+      Width           =   2565
+   End
+   Begin VB.CommandButton cmdNewRows 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Add"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   690
+      Left            =   30
+      Style           =   1  'Graphical
+      TabIndex        =   0
+      TabStop         =   0   'False
+      Top             =   5340
+      Width           =   795
+   End
+   Begin VB.TextBox txtRunningTotal 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H00DBFAFB&
+      Height          =   285
+      Left            =   4515
+      TabIndex        =   16
+      TabStop         =   0   'False
+      Top             =   5535
+      Width           =   1530
+   End
+   Begin VB.Frame fr1 
+      BackColor       =   &H00D3D3CB&
+      Height          =   1815
+      Left            =   60
+      TabIndex        =   9
+      Top             =   3375
+      Width           =   10710
+      Begin VB.CommandButton cmdFind 
+         Height          =   345
+         Left            =   105
+         Picture         =   "frmTFR2.frx":3240
+         Style           =   1  'Graphical
+         TabIndex        =   27
+         TabStop         =   0   'False
+         Top             =   375
+         Width           =   375
+      End
+      Begin VB.CommandButton cmdEnter 
+         BackColor       =   &H00C4BCA4&
+         Caption         =   "&Post"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   9585
+         MaskColor       =   &H00C4BCA4&
+         Picture         =   "frmTFR2.frx":35CA
+         Style           =   1  'Graphical
+         TabIndex        =   7
+         Top             =   780
+         Width           =   1000
+      End
+      Begin VB.TextBox txtSP 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   4455
+         TabIndex        =   4
+         Top             =   405
+         Width           =   1275
+      End
+      Begin VB.TextBox txtNote 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   6675
+         MaxLength       =   100
+         MultiLine       =   -1  'True
+         TabIndex        =   6
+         Top             =   405
+         Width           =   3915
+      End
+      Begin VB.TextBox txtQty 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   2505
+         TabIndex        =   2
+         Top             =   405
+         Width           =   630
+      End
+      Begin VB.TextBox txtDiscount 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   5760
+         TabIndex        =   5
+         Top             =   405
+         Width           =   885
+      End
+      Begin VB.TextBox txtLineTotal 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00D3D3CB&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   390
+         Left            =   8100
+         Locked          =   -1  'True
+         TabIndex        =   8
+         TabStop         =   0   'False
+         Top             =   810
+         Width           =   1215
+      End
+      Begin VB.TextBox txtTitle 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00D3D3CB&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H8000000D&
+         Height          =   450
+         Left            =   90
+         Locked          =   -1  'True
+         TabIndex        =   10
+         TabStop         =   0   'False
+         Top             =   765
+         Width           =   6060
+      End
+      Begin VB.TextBox txtPrice 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   3165
+         TabIndex        =   3
+         Top             =   405
+         Width           =   1260
+      End
+      Begin VB.TextBox txtCode 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   600
+         TabIndex        =   1
+         Top             =   405
+         Width           =   1875
+      End
+      Begin VB.Label Label10 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "S.P."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   4905
+         TabIndex        =   22
+         Top             =   195
+         Width           =   705
+      End
+      Begin VB.Label Label3 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Note"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   210
+         Left            =   6870
+         TabIndex        =   19
+         Top             =   195
+         Width           =   510
+      End
+      Begin VB.Label Label1 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Qty"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   2640
+         TabIndex        =   18
+         Top             =   195
+         Width           =   720
+      End
+      Begin VB.Label Label7 
+         Alignment       =   2  'Center
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Disc."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   5625
+         TabIndex        =   14
+         Top             =   195
+         Width           =   1350
+      End
+      Begin VB.Label Label11 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Total"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   7350
+         TabIndex        =   13
+         Top             =   885
+         Width           =   690
+      End
+      Begin VB.Label Label9 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Code"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   225
+         Left            =   585
+         TabIndex        =   12
+         Top             =   210
+         Width           =   1410
+      End
+      Begin VB.Label Label6 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "R.R.P."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   3495
+         TabIndex        =   11
+         Top             =   195
+         Width           =   900
+      End
+   End
+   Begin VB.Label Label4 
+      BackColor       =   &H00E0E0E0&
+      BackStyle       =   0  'Transparent
+      Caption         =   "Calculated totals"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   240
+      Left            =   3810
+      TabIndex        =   20
+      Top             =   5310
+      Width           =   2205
+   End
+End
+Attribute VB_Name = "frmTFR2"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim WithEvents oTFR As a_TF
+Attribute oTFR.VB_VarHelpID = -1
+Dim WithEvents oTFRL As a_TFL
+Attribute oTFRL.VB_VarHelpID = -1
+Dim oStore As a_Store
+Private tlSections As z_TextList
+Dim oProd As a_Product
+Dim bValidTFR As Boolean
+Dim bValidTFRLine As Boolean
+Dim oCurrentForeignCurrency As a_Currency
+Dim lngCurrentExtension As Long
+Dim lngCurrentTotal As Long
+Dim lngCurrentVATTotal As Long
+
+Dim lngSelectedRowIndex As String
+Dim lngILEditingIdx As String
+Dim vMode As EnumMode  ' 1:TPExists,Adding row;  2:TPExists, not adding row;  3 TPAbsent,not adding row
+Dim bFrameEnabled As Boolean
+Dim lngStockBal As Long
+Dim curDeposit As Currency
+Dim curTotal As Double
+Dim curPrice As Currency
+Dim dblQty As Double
+Dim currPrice As Currency
+
+Dim blnReadOnly As Boolean
+Dim flgLoading As Boolean
+Dim WithEvents vCanAdd As z_BrokenRules
+Attribute vCanAdd.VB_VarHelpID = -1
+Dim WithEvents vCanIssue As z_BrokenRules
+Attribute vCanIssue.VB_VarHelpID = -1
+Dim strTFRErrMsg As String
+Dim strTFRLErrMsg As String
+Dim bSubstitute As Boolean
+Dim StoreName As String
+
+
+
+Public Sub component(pDir As String, pCancel As Boolean, Optional pTPID As Long, Optional pTFR As a_TF, Optional pStorename As String)
+    On Error GoTo errHandler
+Dim frm As frmHeader_TFR
+
+    pCancel = False
+    flgLoading = True
+    If pTFR Is Nothing Then
+        Set oTFR = New a_TF
+        oTFR.BeginEdit
+        oTFR.SetStatus stInProcess
+        oTFR.DestID = pTPID
+        StoreName = pStorename
+        If pDir = "IN" Then
+            Set frm = New frmHeader_TFR
+            frm.component oTFR
+            frm.Show vbModal
+            If frm.Cancelled Then
+                Unload frm
+                Unload Me
+                pCancel = True
+                Exit Sub
+            End If
+            Unload frm
+            oTFR.InOut = "IN"
+        Else
+            oTFR.InOut = "OUT"
+        End If
+        Me.lvw.Enabled = False
+        ChangeState enAddingRow
+      '  Set oTFRL = oTFR.TFLines.Add
+        oTFRL.SetQty 1
+        ClearLineControls
+        oTFR.GetStatus
+        mSetfocus txtCode
+    Else
+        Set oTFR = pTFR
+        oTFR.BeginEdit
+     '   LoadSupplier
+        LoadListView
+        oTFR.GetStatus
+        ChangeState enNotEditing
+    End If
+    If oTFR.InOut = "OUT" Then
+        Me.cmdBatch.Enabled = False
+        Me.Caption = "Transfer OUT (edit) to " & StoreName
+    Else
+        Me.Caption = "Transfer IN (edit) from " & StoreName
+    End If
+    oTFR.GetStatus
+    Me.txtRunningTotal = oTFR.ExtLessDiscExVATF
+    Me.txtRunningqty = oTFR.TotalQtyItemsF
+    SetMenu
+    flgLoading = False
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.component(pDir,pCancel,pTPID,pTFR,pStorename)", Array(pDir, pCancel, pTPID, pTFR, _
+         pStorename)
+End Sub
+
+
+Private Sub cmdSub_Click()
+    On Error GoTo errHandler
+Dim frm As New frmSubstitute
+    frm.component Trim(txtCode)
+    frm.Show
+    
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.cmdSub_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+
+Private Sub cmdFind_Click()
+    On Error GoTo errHandler
+Dim frm As New frmQuickProductFind
+Dim strCode As String
+    strCode = txtCode
+    
+    frm.Show vbModal
+    If frm.QtyQuickFound = 0 Then
+        MsgBox "Nothing found", vbInformation, "Status"
+    End If
+    If frm.Cancelled = False Then
+        If frm.EAN > "" Then txtCode = frm.EAN
+    End If
+    txtCode.SetFocus
+    Unload frm
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.cmdFind_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Form_Activate()
+    On Error GoTo errHandler
+    SetMenu
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.Form_Activate", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.Form_Activate", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Form_Deactivate()
+    On Error GoTo errHandler
+    UnsetMenu
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.Form_Deactivate", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.Form_Deactivate", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub SetMenu()
+    On Error GoTo errHandler
+    Forms(0).mnuVoid.Enabled = (oTFR.StatusF = "IN PROCESS" And oTFR.IsNew = False)
+    Forms(0).mnuDelLine.Enabled = True
+    Forms(0).mnuMemo.Enabled = True
+    Forms(0).mnuSaveColumnWidths.Enabled = True
+    
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.SetMenu"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.SetMenu"
+End Sub
+
+
+Private Sub cmdBatch_Click()
+    On Error GoTo errHandler
+Dim frm As New frmHeader_TFR
+    frm.component oTFR
+    frm.Show vbModal
+    oTFR.CalculateTotal
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.cmdBatch_Click", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.cmdBatch_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+'Private Sub cbTP_Click()
+'    On Error GoTo errHandler
+'Dim frm As New frmSupplierPreview
+'
+'    If oTFR.Supplier.ID > 0 Then
+'        frm.component oTFR.Supplier
+'        frm.Show
+'    End If
+'
+'    Exit Sub
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.cbTP_Click", , EA_NORERAISE
+'    HandleError
+'End Sub
+
+Private Sub cmdNote_Click()
+    On Error GoTo errHandler
+Dim frm As New frmILNote
+    frm.component oTFRL
+    frm.Show vbModal
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.cmdNote_Click", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.cmdNote_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub Form_Terminate()
+    On Error GoTo errHandler
+    Set vCanAdd = Nothing
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.Form_Terminate", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.Form_Terminate", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Public Sub mnuDelLine()
+    On Error GoTo errHandler
+    RemoveLine
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.mnuTFRLine"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.mnuDelLine"
+End Sub
+
+Private Sub lvw_Click()
+    On Error GoTo errHandler
+    If lvw Is Nothing Then Exit Sub
+    If lvw.SelectedItem Is Nothing Then Exit Sub
+    If Me.lvw.SelectedItem.Index > 0 Then
+    On Error Resume Next
+        Clipboard.Clear
+        Clipboard.SetText Left(lvw.SelectedItem.SubItems(8), ISBNLENGTH)
+    End If
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.lvw_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub oTFR_ValidToSave(pOK As Boolean)
+    On Error GoTo errHandler
+'    cmdSave.Enabled = (pOK And oTFR.TFLines.Count > 0 And vMode = enNotEditing And oTFR.IsDirty)
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.oTFR_ValidToSave(pOK)", pOK, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.oTFR_ValidToSave(pOK)", pOK, EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub oTFR_Valid(pMsg As String)
+    On Error GoTo errHandler
+    bValidTFR = (pMsg = "")
+    cmdIssue.Enabled = (bValidTFR And oTFR.TFLines.Count > 0 And vMode = enNotEditing) ' And oTFR.Status <> stISSUED And oTFR.Status <> stCOMPLETE)
+    cmdSave.Enabled = (bValidTFR And vMode = enNotEditing)
+    strTFRErrMsg = pMsg
+    If vMode = enNotEditing Then
+        txtError = strTFRErrMsg
+    Else
+        txtError = strTFRLErrMsg
+    End If
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.oTFR_Valid(pMsg)", pMsg, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.oTFR_Valid(pMsg)", pMsg, EA_NORERAISE
+    HandleError
+End Sub
+
+'Sub oTFRL_ExtensionChange(lngExtension As Long, strExtension As String)
+'    On Error GoTo errHandler
+'MsgBox "Is this being used?"
+'    flgLoading = True
+'    Me.txtLineTotal = strExtension
+'    flgLoading = False
+'    lngCurrentExtension = lngExtension
+'    Exit Sub
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.oTFRL_ExtensionChange(lngExtension,strExtension)", Array(lngExtension, _
+'         strExtension), EA_NORERAISE
+'    HandleError
+'End Sub
+
+Private Sub oTFRL_Valid(msg As String)
+    On Error GoTo errHandler
+    Me.cmdEnter.Enabled = (msg = "")
+    strTFRLErrMsg = msg
+    If vMode = enNotEditing Then
+        txtError = strTFRErrMsg
+    Else
+        txtError = strTFRLErrMsg
+    End If
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.oTFRL_Valid(Msg)", msg, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.oTFRL_Valid(msg)", msg, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub oTFR_TotalChange(strtotal As String, strQtyTotal As String)
+    On Error GoTo errHandler
+    flgLoading = True
+    
+    Me.txtRunningTotal = strtotal
+    Me.txtRunningqty = strQtyTotal
+    oTFR.GetStatus
+    
+    flgLoading = False
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR2.oTFR_TotalChange(strtotal,strQtyTotal)", Array(strtotal, strQtyTotal)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.oTFR_TotalChange(strtotal,strQtyTotal)", Array(strtotal, strQtyTotal), _
+         EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub oTFR_Reloadlist()
+    On Error GoTo errHandler
+    LoadListView
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.oTFR_Reloadlist", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.oTFR_Reloadlist", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub oTFR_Dirty(pVal As Boolean)
+    On Error GoTo errHandler
+    If pVal = True Then
+        Me.cmdSave.Enabled = (True And Not bFrameEnabled)
+        Me.cmdCancel.Caption = "&Cancel"
+    Else
+        Me.cmdSave.Enabled = False
+        Me.cmdCancel.Caption = "&Close"
+    End If
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.oTFR_Dirty(pVal)", pVal, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.oTFR_Dirty(pVal)", pVal, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub oTFR_CurrRowStatus(pMsg As String)
+    On Error GoTo errHandler
+  ''  MsgBox "CurrentRow Status = " & pMsg
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.oTFR_CurrRowStatus(pMsg)", pMsg, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.oTFR_CurrRowStatus(pMsg)", pMsg, EA_NORERAISE
+    HandleError
+End Sub
+
+
+
+Private Sub oTFRL_ValueChanges()
+    On Error GoTo errHandler
+    txtLineTotal = oTFRL.ExtLessDiscExVATF
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.oTFRL_ValueChanges", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub txtDiscount_GotFocus()
+    On Error GoTo errHandler
+    AutoSelect txtDiscount
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.txtDiscount_GotFocus", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtDiscount_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub txtQtyFirm_GotFocus()
+    On Error GoTo errHandler
+    AutoSelect txtQty
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.txtQtyFirm_GotFocus", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtQtyFirm_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub txtQtyFirm_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    If Not oTFRL.SetQty(txtQty) Then
+        Cancel = True
+    End If
+    oTFR.CalculateTotal
+   ' txtLineTotal = oTFRL.ExtPayableF
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.txtQtyFirm_Validate(Cancel)", Cancel, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtQtyFirm_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub txtNote_Change()
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    txtNote = HandleTextWithBites(txtNote)
+    oTFRL.Note = txtNote
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtNote_Change", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub txtNote_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    oTFRL.Note = txtNote
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtNote_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub txtQty_GotFocus()
+    On Error GoTo errHandler
+    AutoSelect txtQty
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtQty_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub txtQty_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    oTFRL.SetQty txtQty
+    oTFRL.RecalculateLine
+   ' txtTotal = oTFRL.ExtF
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtQty_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+'
+'
+'Private Sub txtSP_Validate(Cancel As Boolean)
+'Dim lngTmp As Long
+'
+'    If ConvertToLng(Trim(txtSP), lngTmp) Then
+'        oTFRL.SetPriceSell Trim(txtSP)
+'    End If
+'End Sub
+
+Sub vCanAdd_NobrokenRules()
+    On Error GoTo errHandler
+    Me.cmdNewRows.Enabled = True
+    Me.cmdCancel.Enabled = True
+    Me.cmdSave.Enabled = True
+    Me.cmdIssue.Enabled = True
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.vCanAdd_NobrokenRules", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.vCanAdd_NobrokenRules", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub Form_Load()
+    On Error GoTo errHandler
+Dim curTotalDeposit As Currency
+Dim strAddress As String
+    If Me.WindowState <> 2 Then
+        Left = 10
+        top = 10
+        Width = 11100
+        Height = 6700
+    End If
+    flgLoading = True
+    flgLoading = False
+   ' oTFR.GetStatus
+  '  SetLvw
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.Form_Load", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.Form_Load", , EA_NORERAISE
+    HandleError
+End Sub
+Public Sub mnuMemo()
+    On Error GoTo errHandler
+Dim ofrm As New frmNote
+    ofrm.component oTFR.Memo
+    ofrm.Show vbModal
+    oTFR.SetMemo ofrm.Memo
+    Unload ofrm
+    Set ofrm = Nothing
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.mnuMemo"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.mnuMemo"
+End Sub
+
+Private Sub Form_Initialize()
+    On Error GoTo errHandler
+    
+    Set vCanAdd = New z_BrokenRules
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.Form_Initialize", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.Form_Initialize", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub Form_Unload(Cancel As Integer)
+    On Error GoTo errHandler
+    If oTFR.IsEditing Then oTFR.CancelEdit
+    UnsetMenu
+    
+    Set oStore = Nothing
+    Set oTFR = Nothing
+    Set oTFRL = Nothing
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.Form_Unload(Cancel)", Cancel, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.Form_Unload(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdEnter_Click()
+    On Error GoTo errHandler
+Dim currDeposit As Currency
+Dim blnResult As Boolean
+Dim strCurrFormat As String
+Dim curTotalDeposit As Currency
+Dim i As Integer
+Dim iDiff As Integer
+Dim dblMU As Double
+Dim strItemsDebug As String
+
+    If oTFRL Is Nothing Then Exit Sub
+    If oTFR Is Nothing Then Exit Sub
+  
+    If txtCode = "" Then
+        MsgBox "Enter a code", vbOKOnly + vbInformation, "Papyrus Invoicing Information"
+        If txtCode.Enabled Then mSetfocus txtCode
+        Exit Sub
+    End If
+    oTFRL.ApplyEdit
+    oTFRL.BeginEdit
+  For i = 1 To lvw.ListItems.Count
+      strItemsDebug = strItemsDebug & "," & lvw.ListItems(i).Key
+  Next
+'MsgBox strItemsDebug
+    If vMode = enAddingRow Then
+      '    If lvw.ListItems.Count < val(oTFRL.key) And val(oTFRL.key) > 0 Then
+              lvw.ListItems.Add Key:=oTFRL.Key
+              LoadListViewLine lvw.ListItems(lvw.ListItems.Count), oTFRL
+      '    End If
+          lvw.Refresh
+          ChangeState enAddingRow
+          mSetfocus txtCode
+    ElseIf vMode = eneditingrow Then
+        LoadListViewLine lvw.ListItems(lngSelectedRowIndex), oTFRL
+        ChangeState enNotEditing
+    End If
+    oTFR.CalculateTotal
+    oTFR.GetStatus
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.cmdEnter_Click", , EA_NORERAISE, , "Error lines", Array(Erl())
+    HandleError
+End Sub
+
+
+Private Sub cmdNewRows_Click()
+    On Error GoTo errHandler
+    'Editing: A line has been seleted from the listview for editing
+    'Adding: a new line is being prepared
+    'notediting: in editing mode but no row selected
+    
+    If vMode = eneditingrow Then
+        If oTFRL.IsEditing Then
+            oTFRL.CancelEdit
+            oTFRL.BeginEdit
+        End If
+        ChangeState enNotEditing
+    ElseIf vMode = enAddingRow Then
+        If txtCode > "" Then  'THis is not after a post but is an aborted  add row action
+           oTFR.TFLines.DecrementMaxKeyUsed
+        End If
+        ChangeState enNotEditing
+    ElseIf vMode = enNotEditing Then
+       ' LogSaveToFile "GRN New row button:enNotEditing"
+        ChangeState enAddingRow
+    End If
+
+
+    ClearLineControls
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.cmdNewRows_Click", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub LoadListView()
+    On Error GoTo errHandler
+Dim lstItem As ListItem
+Dim i As Long
+    For i = 1 To lvw.ColumnHeaders.Count
+        lvw.ColumnHeaders(i).Width = GetSetting("PBKS", Me.Name, CStr(i), lvw.ColumnHeaders(i).Width)
+    Next
+    lvw.ListItems.Clear
+    For i = 1 To oTFR.TFLines.Count
+        Set lstItem = lvw.ListItems.Add
+        LoadListViewLine lstItem, oTFR.TFLines(i)
+    Next i
+EXIT_Handler:
+    Set lstItem = Nothing
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.LoadListView"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.LoadListView"
+End Sub
+Public Sub mnuSaveLayout()
+    On Error Resume Next
+    SaveLayoutLvw Me.lvw, Me.Name
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn Me.Name & ":mnuSaveLayout", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.mnuSaveLayout"
+End Sub
+
+Private Sub LoadListViewLine(lstItem As ListItem, oTFRL As a_TFL)
+    On Error GoTo errHandler
+Dim currPrice As Currency
+    With oTFRL
+        lstItem.text = .CodeF
+        lstItem.Key = .Key
+        lstItem.SubItems(1) = .Title
+        lstItem.SubItems(2) = .Qty
+        lstItem.SubItems(3) = .PriceF
+        lstItem.SubItems(4) = .DiscountF
+        lstItem.SubItems(6) = .ExtLessDiscExVATF
+        lstItem.SubItems(7) = Format(.Key, "@@@@@@@@@@")
+        lstItem.SubItems(8) = .EAN
+        
+    End With
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.LoadListViewLine(lstItem,oTFRL)", Array(lstItem, oTFRL)
+End Sub
+Private Sub Lvw_DblClick()
+    On Error GoTo errHandler
+'This must load the editing line with the current line's data
+    If lvw.ListItems.Count = 0 Then Exit Sub
+    If lvw.SelectedItem.Index < 1 Then Exit Sub
+    
+    lngILEditingIdx = lvw.SelectedItem.Key
+    
+    Set oTFRL = Nothing
+    If lvw.SelectedItem Is Nothing Then Exit Sub
+    Set oTFRL = oTFR.TFLines(lngILEditingIdx)
+    If oTFRL Is Nothing Then Exit Sub
+    lngSelectedRowIndex = lvw.SelectedItem.Key
+    
+    ChangeState eneditingrow
+    
+    Set oProd = Nothing
+    Set oProd = New a_Product
+    If oTFRL.PID > "" Then
+        oProd.Load oTFRL.PID, 0
+        
+        Me.txtCode = IIf(CStr(oTFRL.EAN) = "", Replace(lvw.SelectedItem.text, "-", ""), CStr(oTFRL.EAN))
+        Me.txtTitle = oTFRL.Title
+        Me.txtQty = oTFRL.Qty
+        txtPrice = oTFRL.Price
+        txtNote = oTFRL.Note
+        oTFRL.GetStatus
+        Me.txtSP = oTFRL.Price
+    
+        Me.txtDiscount = CStr(oTFRL.DiscountF)
+        If oTFRL.Qty > 1 Then
+            mSetfocus Me.txtQty
+        Else
+            mSetfocus txtPrice
+        End If
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.Lvw_DblClick", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub ChangeState(pToMode As EnumMode)
+    On Error GoTo errHandler
+Dim lngColour As Long
+    vMode = pToMode
+
+    Select Case pToMode
+    Case eneditingrow
+        fr1.Visible = True
+        Me.txtCode.Enabled = True
+        txtNote.Enabled = True
+        txtDiscount.Enabled = True
+        txtPrice.Enabled = True
+        txtTitle.Enabled = True
+      '  txtlineTotal.Enabled = True
+        txtQty.Enabled = True
+        UnsetMenu
+        cmdEnter.Enabled = False
+        cmdCancel.Enabled = False
+        cmdIssue.Enabled = False
+        cmdSave.Enabled = False
+        cmdNewRows.Caption = "&Stop"
+        cmdNewRows.Enabled = (oTFR.TFLines.Count > 0)
+        cmdCancel.Caption = "&Close"
+        Me.lvw.Enabled = False
+        lvw.Height = 3200
+        fr1.ZOrder 1
+    Case enAddingRow
+        fr1.Visible = True
+        txtCode.Enabled = True
+        txtNote.Enabled = True
+        txtDiscount.Enabled = True
+        txtPrice.Enabled = True
+        'txtRef.Enabled = True
+        txtTitle.Enabled = True
+      '  txtTotal.Enabled = True
+        txtQty.Enabled = True
+        txtError = ""
+        flgLoading = True
+        UnsetMenu
+        flgLoading = False
+        cmdEnter.Enabled = False
+        cmdCancel.Enabled = True
+        cmdIssue.Enabled = False
+        cmdSave.Enabled = False
+        cmdNewRows.Enabled = (oTFR.TFLines.Count > 0)
+        cmdNewRows.Caption = "&Stop"
+      '  lblTPPhone.Caption = ""
+        lvw.Enabled = False
+        lvw.Height = 3200
+        ClearLineControls
+        fr1.ZOrder 1
+        mSetfocus txtCode
+        Set oTFRL = oTFR.TFLines.Add
+        oTFRL.SetQty 1
+        
+    Case enNotEditing
+        flgLoading = True
+        fr1.Visible = False
+        txtError = ""
+        SetMenu
+        flgLoading = False
+        cmdEnter.Enabled = False
+        cmdCancel.Enabled = True
+        cmdIssue.Enabled = True
+        cmdSave.Enabled = True
+        cmdNewRows.Enabled = True '(oTFR.TFLines.Count > 0)
+        cmdNewRows.Caption = "&Add"
+
+        lvw.Enabled = True
+        lvw.Height = 4900
+        fr1.ZOrder 1
+    End Select
+    oTFR.GetStatus
+        If Not oTFR.IsDirty Then
+            cmdCancel.Caption = "&Close"
+        Else
+            cmdCancel.Caption = "&Cancel"
+        End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.ChangeState(pToMode)", pToMode
+End Sub
+
+
+Private Sub mnuFile()
+    On Error GoTo errHandler
+    oTFR.SetStatus stVOID
+    oTFR.ApplyEdit
+    Unload Me
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.mnuFile"
+End Sub
+Private Function AcceptCode() As Boolean
+    On Error GoTo errHandler
+Dim pQty As Integer
+Dim pApproID As Long
+Dim pNumOfApproLines As Long
+Dim bOK As Boolean
+Dim frmPubRep As frmPublishersReport
+Dim oPCode As New z_ProdCode
+Dim tmp As String
+    If flgLoading Then Exit Function
+START:
+    AcceptCode = True
+    If txtCode = "" Or vMode = eneditingrow Then Exit Function
+    If Not (IsISBN13(txtCode) Or IsISBN10(txtCode) Or IsHashCode(txtCode) Or IsPrivateCode(txtCode)) Then
+        MsgBox "This is an invalid code, retry.", vbInformation, "Warning"
+        AcceptCode = False
+        GoTo EXIT_Handler
+    End If
+
+    bOK = oTFRL.SetLineProduct("", txtCode)
+    If bOK Then
+    Else   'Book nof found on database
+        If CheckThisPoint(M_NEWPRODUCTINADHOCFORM) Then
+            If SecurityControl(enSECURITY_CREATENEWSTOCKITEM, , "Creating new stock item", "You do not have permission to create new stock items (or your signature is invalid).") = False Then
+                AcceptCode = False
+                Exit Function
+            End If
+        End If
+        Dim frmAdHoc As frmAdHocProduct
+        Set frmAdHoc = New frmAdHocProduct
+        frmAdHoc.component txtCode
+        frmAdHoc.Show vbModal
+        txtCode = frmAdHoc.code
+        Unload frmAdHoc
+        Set frmAdHoc = Nothing
+        AcceptCode = False
+        GoTo START
+    End If
+
+    oTFRL.Title = oTFRL.Product.TitleAuthorPublisherL(35)
+    txtTitle = oTFRL.Title
+    txtPrice = oTFRL.Price
+    txtQty = oTFRL.Qty
+    txtNote = oTFRL.Note
+    txtDiscount = oTFRL.Discount
+    oTFRL.RecalculateLine
+   ' txtTotal = oTFRL.ExtF
+    mSetfocus txtQty
+    oTFRL.GetStatus
+    
+EXIT_Handler:
+    Exit Function
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.AcceptCode"
+End Function
+Private Sub txtCode_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    Cancel = Not AcceptCode
+EXIT_Handler:
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtCode_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub txtDiscount_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    If Not oTFRL.SetDiscount(txtDiscount) Then
+        Cancel = True
+    End If
+    oTFRL.RecalculateLine
+    oTFR.GetStatus
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtDiscount_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub txtPrice_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Or oTFRL.Product Is Nothing Then Exit Sub
+    If Not oTFRL.SetPrice(txtPrice) Then
+        Cancel = True
+    End If
+    oTFR.CalculateTotal
+  '  txtTotal = oTFRL.ExtF
+    txtSP = oTFRL.Price
+    oTFRL.RecalculateLine
+ '   txtTotal = oTFRL.ExtF
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtPrice_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub txtPrice_GotFocus()
+    On Error GoTo errHandler
+    AutoSelect txtPrice
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.txtPrice_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub RemoveLine()
+    On Error GoTo errHandler
+Dim i As Integer
+Dim iMax As Integer
+    iMax = lvw.ListItems.Count
+    For i = iMax To 1 Step -1
+        If lvw.ListItems(i).Selected Then
+            oTFR.TFLines.Remove lvw.ListItems(i).Key
+            Exit For
+        End If
+    Next i
+    If i = 0 Then
+        MsgBox "Select an item prior to deleting.", vbOKOnly + vbInformation, "Papyrus Invoicing Information"
+        Exit Sub
+    End If
+    lvw.ListItems.Remove i
+    lvw.Refresh
+    oTFR.CalculateTotal
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.RemoveLine"
+End Sub
+
+'Private Sub LoadSupplier()
+'    On Error GoTo errHandler
+'    With oTFR
+'        SetIssueButtonCaption
+'        Me.txtSuppname = .Supplier.NameAndCode(20)
+'        If Not .Supplier.BillTOAddress Is Nothing Then
+'            txtPhone = .Supplier.BillTOAddress.Phone
+'            txtFax = .Supplier.BillTOAddress.Fax
+'        End If
+'    End With
+'    Exit Sub
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.LoadSupplier"
+'End Sub
+'
+
+Private Sub SaveTRansfer()
+    On Error GoTo errHandler
+    
+    oTFR.Post
+    
+EXIT_Handler:
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.SaveInvoice"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.SaveTRansfer"
+End Sub
+
+Public Sub PrintTransfer()
+    On Error GoTo errHandler
+Dim blnDeposit As Boolean
+Dim blnDiscount As Boolean
+Dim blnRoundedUp As Boolean
+Dim blnNoTFRLs As Boolean
+Dim blnHideVAT As Boolean
+Dim iCurrency As Integer
+
+    
+    Me.MousePointer = vbHourglass
+    oTFR.Load oTFR.TRID
+    blnDiscount = False
+    
+    If blnNoTFRLs Then
+        MsgBox "There are no records to print on this transfer.", vbOKOnly + vbInformation, "Papyrus Invoicing Status"
+        GoTo EXIT_Handler
+    End If
+    
+EXIT_Handler:
+    Me.MousePointer = vbDefault
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.PrintTFRivery"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.PrintTransfer"
+End Sub
+Private Sub cmdIssue_Click()
+10        On Error GoTo errHandler
+      Dim blnDeposit As Boolean
+      Dim blnDiscount As Boolean
+      Dim blnRoundedUp As Boolean
+      Dim blnNoTFRLs As Boolean
+      Dim iCurrency As Integer
+      Dim strResult As String
+      Dim frm As frmTFPreview
+      Dim cCOLALLOC As chex_COLAllocation
+      Dim frmAlloc As frmCOLAllocation_FromDel
+
+20        If oPC.Configuration.SignTransactions = True Then
+30            If SecurityControl(enSECURITY_TFR_SIGN, , "Sign this transfer.", DOCAPPROVAL) = False Then
+40                   Exit Sub
+50            End If
+60        Else
+70            If oTFR.Status = stInProcess Then
+80                If MsgBox("Issue this transfer.? ", vbYesNo + vbQuestion, "Confirm") = vbNo Then
+90                    Exit Sub
+100               End If
+110           End If
+120       End If
+          
+130       WaitMsg "Issuing transfer. . .", True, Me
+          
+140       oTFR.SetStatus stISSUED
+150       oTFR.StaffID = gSTAFFID
+160       strResult = oTFR.Post
+170       If strResult = "" Then
+180           Set frm = New frmTFPreview
+190           frm.component oTFR.TRID
+200           frm.Show
+210       End If
+220       If oTFR.InOut = "IN" Then
+230           If Not oPC.IncludeSupplierFeatures Then  ' this is a retail environment and customer orders are held back at counter, not invoiced immediately
+240               Set cCOLALLOC = Nothing
+250               Set cCOLALLOC = New chex_COLAllocation
+260               cCOLALLOC.GenerateCOLAllocationset_TFR oTFR.TRID
+270               cCOLALLOC.Load oTFR.TRID
+280               If cCOLALLOC.Count > 0 Then
+290                   Set frmAlloc = New frmCOLAllocation_FromDel
+300                   frmAlloc.component cCOLALLOC, "TRANSFER", False
+310                   frmAlloc.Show
+320               End If
+330               Set cCOLALLOC = Nothing
+340           End If
+350       End If
+360       WaitMsg "", False, Me
+370       Unload Me
+
+380       Exit Sub
+errHandler:
+390       If ErrMustStop Then Debug.Assert False: Resume
+400       ErrorIn "frmTFR2.cmdIssue_Click", , EA_NORERAISE
+410       HandleError
+End Sub
+Private Sub cmdSave_Click()
+    On Error GoTo errHandler
+    oTFR.SetStatus stInProcess
+    SaveTFR
+    LoadListView
+    oTFR.BeginEdit
+  '  Set oTFRL = oTFR.TFLines.Add
+    cmdCancel.Caption = "&Close"
+    cmdSave.Enabled = False
+ '   LoadListView
+Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.cmdSave_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdCancel_Click()
+    On Error GoTo errHandler
+Dim frm As frmTFPreview
+    If cmdCancel.Caption <> "&Close" Then
+        If MsgBox("You wish to cancel your changes?", vbQuestion + vbYesNo, "Confirm") = vbNo Then
+            Exit Sub
+        End If
+    End If
+    oTFR.CancelEdit
+    If cmdCancel.Caption = "&Close" Then
+        Set frm = New frmTFPreview
+        frm.ComponentObject oTFR
+        frm.Show
+    End If
+    Unload Me
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.cmdCancel_Click", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.cmdCancel_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub ClearLineControls()
+    On Error GoTo errHandler
+    flgLoading = True
+    Me.txtCode = ""
+    Me.txtDiscount = ""
+    Me.txtQty = ""
+    Me.txtPrice = ""
+    txtSP = ""
+    Me.txtTitle = ""
+    Me.txtLineTotal = ""
+    Me.txtNote = ""
+    flgLoading = False
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.ClearLineControls"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.ClearLineControls"
+End Sub
+
+Private Sub Lvw_BeforeLabelEdit(Cancel As Integer)
+    On Error GoTo errHandler
+    Cancel = True
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.Lvw_BeforeLabelEdit(Cancel)", Cancel, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.lvw_BeforeLabelEdit(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub SetIssueButtonCaption()
+    On Error GoTo errHandler
+        If oTFR.StatusF = "IN PROCESS" Then
+            cmdIssue.Caption = "Issue"
+        ElseIf oTFR.IsDirty Then
+            cmdIssue.Caption = "Save"
+        Else
+            cmdIssue.Caption = "Print"
+        End If
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.SetIssueButtonCaption"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.SetIssueButtonCaption"
+End Sub
+
+
+Private Sub Lvw_ColumnClick(ByVal ColumnHeader As ColumnHeader)
+    On Error GoTo errHandler
+   ' When a ColumnHeader object is clicked, the ListView control is
+   ' sorted by the subitems of that column.
+   ' Set the SortKey to the Index of the ColumnHeader - 1
+   lvw.SortKey = ColumnHeader.Index - 1
+   ' Set Sorted to True to sort the list.
+    If lvw.SortOrder = lvwAscending Then
+        lvw.SortOrder = lvwDescending
+    Else
+        lvw.SortOrder = lvwAscending
+    End If
+   lvw.Sorted = True
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.Lvw_ColumnClick(ColumnHeader)", ColumnHeader, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.Lvw_ColumnClick(ColumnHeader)", ColumnHeader, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub SetLvw()
+    On Error GoTo errHandler
+Dim Style As Long
+Dim hHeader As Long
+   
+  'get the handle to the listview header
+   hHeader = SendMessage(lvw.hWnd, LVM_GETHEADER, 0, ByVal 0&)
+   
+  'get the current style attributes for the header
+   Style = GetWindowLong(hHeader, GWL_STYLE)
+   
+  'modify the style by toggling the HDS_BUTTONS style
+   Style = Style Xor HDS_BUTTONS
+   
+  'set the new style and redraw the listview
+   If Style Then
+      Call SetWindowLong(hHeader, GWL_STYLE, Style)
+      Call SetWindowPos(lvw.hWnd, Me.hWnd, 0, 0, 0, 0, SWP_FLAGS)
+   End If
+
+
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.SetLvw"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.SetLvw"
+End Sub
+
+Private Sub vCanAdd_Status(errors As String)
+    On Error GoTo errHandler
+MsgBox errors & "CANAADD"
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.vCanAdd_Status(errors)", errors, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.vCanAdd_Status(errors)", errors, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub SaveTFR()
+    On Error GoTo errHandler
+    
+    oTFR.Post
+    
+EXIT_Handler:
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmTFR.SaveTFR"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmTFR2.SaveTFR"
+End Sub
+

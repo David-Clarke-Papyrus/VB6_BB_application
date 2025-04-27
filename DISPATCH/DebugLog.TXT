@@ -1,0 +1,15 @@
+_____________
+FROM DIspatch at 10/10/2005 10:19 AM
+Printer does not exist (printing Purchase order): 
+Filename = \\pbks-svr\pbks_s\Printing\PO_LP18100.txt
+=============
+_____________
+FROM DIspatch at 10/10/2005 10:19 AM
+Printer does not exist (printing Purchase order): 
+Filename = \\pbks-svr\pbks_s\Printing\PO_LP18600X.txt
+=============
+_____________
+FROM DIspatch at 10/10/2005 10:19 AM
+Printer does not exist (printing Purchase order): 
+Filename = \\pbks-svr\pbks_s\Printing\PO_LP18717.txt
+=============

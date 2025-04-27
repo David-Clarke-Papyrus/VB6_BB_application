@@ -1,0 +1,44 @@
+[Version]
+Version=1.0.0.0
+
+[STReaderDLL.dll <0009>]
+Dest=$(AppPath)
+Date=20/09/2003
+Time=14:00
+Version=1.0.0.0
+CABFilename=STReaderDLL.CAB
+CABINFFile=STReaderDLL.INF
+Uses1=MSVBVM60.DLL
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=actrpt.dll
+Uses8=scrrun.dll
+Uses9=ARRegistry.dll
+Uses10=dao360.dll
+Uses11=xarraydb.ocx
+Uses12=RegionalSet.dll
+Uses13=msado15.dll
+Uses14=COMCTL32.OCX
+Uses15=Mscomctl.ocx
+Uses16=MSCOMCT2.OCX
+
+[actrpt.dll <0009>]
+Dest=$(WinSysPath)
+Date=21/11/2000
+Time=10:32
+Version=1.2.0.1057
+
+[ARRegistry.dll <0009>]
+Dest=$(WinSysPath)
+Date=28/02/1999
+Time=03:54
+Version=1.5.0.0
+
+[RegionalSet.dll <0009>]
+Dest=$(WinSysPath)
+Date=25/11/2002
+Time=22:06
+Version=1.0.0.0

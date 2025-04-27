@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="/" title="Home" description="Home">
+    <siteMapNode url="~/index.aspx" title="Home" description="Go to the homepage" />
+    <siteMapNode url="~/Pages_Administration/BrowseDocuments.aspx" title="Browse documents" />
+    <siteMapNode url="~/Pages_Administration/Browse_stock.aspx" title="Browse stock" description="Go to browse stock cartons" />
+    <siteMapNode url="" title="Factory actions" description="Go to Factory actions">
+      <siteMapNode url="~/Pages_Factory/Dispatch.aspx" title="Dispatch from factory" description="Go to the Dispatch from factory" />
+      <siteMapNode url="" title="Packing">
+        <siteMapNode url="~/Pages_Factory/Packing.aspx" title="Pack Intermediate and Outer cartons" description="Go to the Packing page" />
+        <siteMapNode url="~/Pages_Factory/Miscellaneous.aspx" title="Pack Miscellaneous cartons" />
+      </siteMapNode>
+      <siteMapNode url="~/Pages_Factory/CurrentSettingsAtFactory.aspx" title="Software revision" description="Set current control panel software revision" />
+    </siteMapNode>
+    <siteMapNode url="~/Pages_Administration/PlaceOrder.aspx" title="Place orders" description="Go to the Order placement">
+      <siteMapNode url="~/Pages_Administration/Uploads.aspx" title="Uploads" description="Upload files to web site" />
+    </siteMapNode>
+    <siteMapNode url="" title="Administration" description="Administration">
+      <siteMapNode url="~/Pages_Administration/MasterStock.aspx" title="Master stock types" description="Manage master stock" />
+      <siteMapNode url="~/Pages_Administration/CaptureOrder.aspx" title="Capture order" />
+      <siteMapNode url="~/Pages_Administration/Manufacturers.aspx" title="Manufacturers" description="Go to manufacturer list" />
+      <siteMapNode url="~/admin/access/access_rules.aspx" title="User administration" description="Go to User administration" />
+    </siteMapNode>
+    <siteMapNode url="~/Account/ChangePassword.aspx" title="Change your password" />
+  </siteMapNode>
+</siteMap>

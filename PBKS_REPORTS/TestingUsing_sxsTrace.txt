@@ -1,0 +1,3 @@
+sxstrace.exe Trace -logfile:results.log
+
+sxstrace.exe Parse -logfile:results.log -outfile:c:\sxsresults.txt

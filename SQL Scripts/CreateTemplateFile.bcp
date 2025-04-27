@@ -1,0 +1,1 @@
+bcp  PBKS.dbo.tImportBookfindFeed format nul -c -x -f "C:\PBKS\Downloadfolder\BFFormat.txt" -n -x -f"c:\PBKS\Templates\BookfindFeed.XML" -e"c:\err.txt" -SPBKS-SVR -Usa -Pcar

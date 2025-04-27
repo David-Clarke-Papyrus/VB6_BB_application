@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SOH_RECON" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:group name="BF">
+    <xs:sequence>
+      <xs:element name="IQTY" />
+      <xs:element name="Cost" />
+      <xs:element name="Retail" />
+      <xs:element name="PQTY" />
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="REC">
+    <xs:sequence>
+      <xs:element name="IQTY" />
+      <xs:element name="Cost" />
+      <xs:element name="Retail" />
+      <xs:element name="PQTY" />
+    </xs:sequence>
+  </xs:group>
+</xs:schema>

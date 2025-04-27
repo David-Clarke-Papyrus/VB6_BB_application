@@ -1,0 +1,10 @@
+Cannot insert the value NULL into column 'T_Description', table 'PBKS_SUPPORT.dbo.tTask'; column does not allow nulls. INSERT fails. 
+  Time='02/03/09 15:10:28' App='PapyrusSupport:1.0.0' ADO-version='2.8' Computer='PBKS-SVR' 
+  Method: frmMain.Grid1_AfterColUpdate 
+  Number: -2147217873 = &H80040E2F = vbObjectError + 3631 = ERRMAP_APP_FIRST - 1567 
+  Source: Microsoft OLE DB Provider for SQL Server 
+  Description: Cannot insert the value NULL into column 'T_Description', table 'PBKS_SUPPORT.dbo.tTask'; column does not allow nulls. INSERT fails.
+  Call Stack: frmMain.Grid1_AfterColUpdate(ColIndex=1) ---------------------------------------------
+
+
+

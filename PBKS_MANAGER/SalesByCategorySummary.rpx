@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ActiveReportsLayout 
+	GUIDLIB="{81DE18F5-473E-4665-8919-F10D83DCC942}" GUIDREP="{E6F2971C-6962-4EE1-98CA-271B02DE86F9}" 
+	LICENSE="10000000"
+	PrintWidth="9390"
+	DocumentName="ActiveReports Document"
+	ScriptLang="VBScript"
+>
+<Watermark
+		>
+</Watermark>
+<PageSettings>
+</PageSettings>
+<StyleSheet>
+	<Style Name="Normal"
+	Value="font-family: &apos;Arial&apos;; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-color: rgb(255,255,255); background-image: inherit; background-repeat: inherit; background-attachment: inherit; background-x-position: inherit; background-y-position: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-can-grow: inherit; ddo-can-shrink: inherit; ddo-char-set: 0; "
+	/>
+	<Style Name="Heading1"
+	Value="font-family: &apos;inherit&apos;; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; "
+	/>
+	<Style Name="Heading2"
+	Value="font-family: &apos;Times New Roman&apos;; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; "
+	/>
+	<Style Name="Heading3"
+	Value="font-family: &apos;inherit&apos;; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; "
+	/>
+	<Style Name="Heading4"
+	/>
+</StyleSheet>
+<Sections>
+	<Section Type="ReportHeader" Name="ReportHeader"
+		Height="0"
+	>
+	</Section>
+	<Section Type="PageHeader" Name="PageHeader"
+		Height="390"
+	>
+		<Control 
+		Type="AR.Label"
+		Name="Label1"
+		Left="0"
+		Top="0"
+		Width="8646"
+		Height="425"
+		Caption="Sales summary by category (1/6/2020 to 1/7/2020)"
+		ClassName="Normal"
+		Style="font-weight: bold; "
+		>
+		</Control>
+	</Section>
+	<Section Type="Detail" Name="Detail"
+		Height="285"
+		BackStyle="1"
+		BackColor="16514042"
+	>
+		<Control 
+		Type="AR.DataControl"
+		Name="ADOData"
+		Left="8929"
+		Top="0"
+		Width="1417"
+		Height="425"
+		Visible="0"
+		ConnectionString="Provider=SQLOLEDB.1;Persist Security Info=False;Data Source=25.28.101.135\PBKSINSTANCE2;Initial Catalog=PBKS;User Id=sa;Password=car;Connect Timeout=150"
+		RecordSource="SELECT TOP 100 PERCENT SUM(Qty) * -1 AS QTY, SUM(CAST(TotalRetail AS NUMERIC(18, 2))) AS TOTALRETAIL, SUM(CAST(TotalRetailExVAT AS NUMERIC(18, 2))) AS TOTALRETAILEXVAT, MAX(TOTALCOSTEXVAT) COST,MainSection as category FROM vSalesSummary WHERE DTE &gt; =dbo.startOfDay(&apos;2020-05-01&apos;) and dte &lt;= dbo.endofDay(&apos;2020-06-01&apos;) GROUP BY MainSection ORDER BY MainSection"
+		Password="car"
+		LockType="1"
+		>
+		</Control>
+		<Control 
+		Type="AR.Field"
+		Name="txtcategory"
+		DataField="category"
+		Left="0"
+		Top="0"
+		Width="3827"
+		Height="283"
+		Text="category"
+		ClassName="Normal"
+		>
+		</Control>
+		<Control 
+		Type="AR.Field"
+		Name="txtQTY"
+		DataField="QTY"
+		Left="4252"
+		Top="0"
+		Width="850"
+		Height="283"
+		Text="QTY"
+		OutputFormat="#,##0"
+		ClassName="Normal"
+		Style="text-align: right; "
+		>
+		</Control>
+		<Control 
+		Type="AR.Field"
+		Name="txtTOTALRETAIL"
+		DataField="TOTALRETAIL"
+		Left="5244"
+		Top="0"
+		Width="1417"
+		Height="283"
+		Text="TOTALRETAIL"
+		OutputFormat="#,##0.00"
+		ClassName="Normal"
+		Style="text-align: right; "
+		>
+		</Control>
+	</Section>
+	<Section Type="PageFooter" Name="PageFooter"
+		Height="360"
+	>
+	</Section>
+	<Section Type="ReportFooter" Name="ReportFooter"
+		Height="360"
+	>
+		<Control 
+		Type="AR.Label"
+		Name="Label2"
+		Left="0"
+		Top="0"
+		Width="4394"
+		Height="283"
+		Caption="End of report"
+		ClassName="Normal"
+		>
+		</Control>
+	</Section>
+</Sections>
+</ActiveReportsLayout>

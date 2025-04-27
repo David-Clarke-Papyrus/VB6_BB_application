@@ -1,0 +1,4 @@
+VBGROUP 5.0
+StartupProject=Gateway_U.vbp
+Project=Gateway_D.vbp
+Project=GatewayFiltersDLL.vbp

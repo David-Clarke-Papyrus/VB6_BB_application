@@ -1,0 +1,216 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
+Begin VB.Form frmImportTransferFile 
+   BackColor       =   &H00E8E8DD&
+   Caption         =   "Import IBT from scanned file"
+   ClientHeight    =   3300
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   7035
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   ScaleHeight     =   3300
+   ScaleWidth      =   7035
+   StartUpPosition =   2  'CenterScreen
+   Begin MSComctlLib.ProgressBar PB1 
+      Height          =   165
+      Left            =   1425
+      TabIndex        =   1
+      Top             =   2775
+      Visible         =   0   'False
+      Width           =   4440
+      _ExtentX        =   7832
+      _ExtentY        =   291
+      _Version        =   393216
+      Appearance      =   0
+   End
+   Begin VB.CommandButton cmdImportSimple 
+      BackColor       =   &H00D8D9C4&
+      Caption         =   "Import scanned file"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   705
+      Left            =   1860
+      Style           =   1  'Graphical
+      TabIndex        =   0
+      Top             =   540
+      Width           =   3345
+   End
+   Begin MSComDlg.CommonDialog CD1 
+      Left            =   165
+      Top             =   900
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+      CancelError     =   -1  'True
+      DefaultExt      =   "*.txt"
+      DialogTitle     =   "Locate scanner files"
+      MaxFileSize     =   30000
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "This form controls the creation of an IBT from a file scanned at the loading station. "
+      ForeColor       =   &H80000001&
+      Height          =   390
+      Left            =   300
+      TabIndex        =   4
+      Top             =   165
+      Width           =   6510
+   End
+   Begin VB.Label lblSharedFolder 
+      BackStyle       =   0  'Transparent
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   240
+      Left            =   900
+      TabIndex        =   3
+      Top             =   2070
+      Width           =   5130
+   End
+   Begin VB.Label lblFilename 
+      BackStyle       =   0  'Transparent
+      ForeColor       =   &H8000000D&
+      Height          =   510
+      Left            =   555
+      TabIndex        =   2
+      Top             =   1290
+      Width           =   6270
+   End
+End
+Attribute VB_Name = "frmImportTransferFile"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim oSQL As New z_SQL
+
+Dim strFilename As String
+
+
+
+
+Private Sub cmdImportSimple_Click()
+    On Error GoTo errHandler
+Dim iresult As Integer
+Dim fs As New Scripting.FileSystemObject
+Dim lngBadRecords As Long
+Dim dteEffectiveDate As Date
+Dim lngLastSAID As Long
+Dim rs As ADODB.Recordset
+Dim lngFilecount As Long
+Dim oSM As New z_StockManager
+
+    If Not fs.FolderExists(oPC.SharedFolderRoot & "\TEMP") Then
+        fs.CreateFolder oPC.SharedFolderRoot & "\TEMP"
+    End If
+    CD1.InitDir = oPC.SharedFolderRoot & "\TEMP"
+    CD1.FLAGS = cdlOFNHideReadOnly Or cdlOFNPathMustExist Or cdlOFNExplorer
+    CD1.CancelError = True
+    CD1.Filter = "Text Files (*.txt)|*.txt"
+    CD1.ShowOpen
+    If CD1.FileName = "" Then
+        MsgBox "You must specify an existing file name!", vbInformation, "Invalid filename"
+    Else
+        strFilename = CD1.FileName
+    End If
+
+    Me.PB1.Visible = True
+    
+    
+    
+    Screen.MousePointer = vbHourglass
+    Me.Refresh
+    
+    oSM.ImportIBTFromFile strFilename, lngBadRecords
+    Me.lblFilename = "Checking for missing items"
+    DoEvents
+    Screen.MousePointer = vbHourglass
+    
+    lblFilename.Caption = ""
+    PB1.Visible = False
+    DoEvents
+    Screen.MousePointer = vbDefault
+    MsgBox "Import complete. ", vbOKOnly, "Status"
+
+    Me.Refresh
+EXIT_Handler:
+    Me.PB1.Visible = False
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmImportTransferFile.cmdImportSimple_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub oSA_ImportFile(pFilename As String)
+    On Error GoTo errHandler
+    lblFilename.Caption = "Importing . . . " & pFilename
+    DoEvents
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmImportTransferFile.oSA_ImportFile(pFilename)", pFilename, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub oSA_LineCOuntChange(pCnt As Long)
+    On Error GoTo errHandler
+    PB1.Value = pCnt
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmImportTransferFile.oSA_LineCOuntChange(pCnt)", pCnt, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub oSA_MaxImportRows(pMax As Long)
+    On Error GoTo errHandler
+    PB1.Max = pMax
+    PB1.Min = 0
+    PB1.Value = 0
+    PB1.Visible = True
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmImportTransferFile.oSA_MaxImportRows(pMax)", pMax, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub oSA_FinishedImporting()
+    On Error GoTo errHandler
+    PB1.Visible = False
+    lblFilename.Caption = ""
+    DoEvents
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmImportTransferFile.oSA_FinishedImporting", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub Form_Load()
+    On Error GoTo errHandler
+    lblSharedFolder.Caption = oPC.SharedFolderRoot & "\TEMP)"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmImportTransferFile.Form_Load", , EA_NORERAISE
+    HandleError
+End Sub
+

@@ -1,0 +1,27 @@
+VERSION 5.00
+Begin {82282820-C017-11D0-A87C-00A0C90F29FC} arListDetails 
+   Caption         =   "List details"
+   ClientHeight    =   14955
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   19080
+   StartUpPosition =   1  'CenterOwner
+   _ExtentX        =   33655
+   _ExtentY        =   26379
+   SectionData     =   "arListDetails.dsx":0000
+End
+Attribute VB_Name = "arListDetails"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim rs As ADODB.Recordset
+
+Public Sub Component(pRS As ADODB.Recordset, pTitle As String)
+    Me.Width = 12000
+    Me.Height = 5000
+    Set rs = pRS
+    Set DataControl1.Recordset = rs
+    Me.fTitle = pTitle
+End Sub

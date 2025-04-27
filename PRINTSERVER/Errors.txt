@@ -1,0 +1,41 @@
+Input past end of file 
+  Time='03/04/04 20:37:03' App='PS:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: frmMain.GetFilesToPRint 
+  Number: 62 = &H3E = vbObjectError + 2147221566 = ERRMAP_APP_FIRST + 2147216368 
+  Source: Project1 
+  Description: Input past end of file
+  Call Stack: frmMain.GetFilesToPRint() ------------------------------------------------------------
+  Call Stack: frmMain.objT_Timer() -----------------------------------------------------------------
+
+
+
+Input past end of file 
+  Time='03/04/04 22:26:56' App='PS:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: frmMain.GetFilesToPRint 
+  Number: 62 = &H3E = vbObjectError + 2147221566 = ERRMAP_APP_FIRST + 2147216368 
+  Source: Project1 
+  Description: Input past end of file
+  Call Stack: frmMain.GetFilesToPRint() ------------------------------------------------------------
+  Call Stack: frmMain.objT_Timer() -----------------------------------------------------------------
+
+
+
+Automation error
+The object invoked has disconnected from its clients.  
+  Time='03/05/04 08:52:29' App='PS:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: ManageDocument.Builddocument_INV 
+  Number: -2147417848 = &H80010108 = vbObjectError - 196344 = ERRMAP_APP_FIRST - 201542 
+  Source: Project1 
+  Description: Automation error
+The object invoked has disconnected from its clients. 
+  API Error: (2) The system cannot find the file specified.
+  Call Stack: ManageDocument.Builddocument_INV(pFilename={Text}, pTemplate={Text}, pPrintingDevice='', pstrLogoPath='') 
+    Value Of pFilename:
+      '\\papyrus-94tnp9s\pbks_s\Printing\IN1_NBI21752.txt'
+    Value Of pTemplate:
+      '\\PAPYRUS-94TNP9S\PBKS_S\Templates\invoice.dot'
+  Call Stack: frmMain.PrintAllWaiting() ------------------------------------------------------------
+  Call Stack: frmMain.objT_Timer() -----------------------------------------------------------------
+
+
+

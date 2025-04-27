@@ -1,0 +1,205 @@
+VERSION 5.00
+Begin VB.Form Login 
+   BackColor       =   &H00FFFFFF&
+   BorderStyle     =   3  'Fixed Dialog
+   ClientHeight    =   2415
+   ClientLeft      =   2835
+   ClientTop       =   3195
+   ClientWidth     =   6300
+   ControlBox      =   0   'False
+   Icon            =   "frmLoginMaster.frx":0000
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   Picture         =   "frmLoginMaster.frx":000C
+   ScaleHeight     =   161
+   ScaleMode       =   3  'Pixel
+   ScaleWidth      =   420
+   ShowInTaskbar   =   0   'False
+   StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton cmdCancel 
+      BackColor       =   &H00C4BCA4&
+      Cancel          =   -1  'True
+      Caption         =   "Cancel"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   450
+      Left            =   1305
+      Style           =   1  'Graphical
+      TabIndex        =   3
+      Top             =   90
+      Visible         =   0   'False
+      Width           =   855
+   End
+   Begin VB.CommandButton cmdOK 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "OK"
+      Default         =   -1  'True
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   480
+      Left            =   195
+      Style           =   1  'Graphical
+      TabIndex        =   2
+      Top             =   60
+      Visible         =   0   'False
+      Width           =   855
+   End
+   Begin VB.TextBox txtUserName 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   360
+      Left            =   2370
+      TabIndex        =   1
+      Top             =   45
+      Visible         =   0   'False
+      Width           =   1290
+   End
+   Begin VB.TextBox txtPassword 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   360
+      IMEMode         =   3  'DISABLE
+      Left            =   3870
+      PasswordChar    =   "*"
+      TabIndex        =   0
+      Top             =   75
+      Visible         =   0   'False
+      Width           =   1290
+   End
+End
+Attribute VB_Name = "Login"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim gPassword As String
+Dim gUserName As String
+Dim bSuccessfulConnection As Boolean
+Dim bCancelled As Boolean
+
+Public Property Get Cancelled() As Boolean
+    Cancelled = bCancelled
+End Property
+Public Property Get SuccessfulConnection() As Boolean
+    SuccessfulConnection = bSuccessfulConnection
+End Property
+Private Sub cmdCancel_Click()
+    bCancelled = True
+    Me.Hide
+End Sub
+
+Public Sub cmdOK_Click()
+    On Error GoTo errHandler
+Dim lngResult As Long
+    
+    bCancelled = False
+    
+    Set oPC = New PapyConn
+    Screen.MousePointer = vbHourglass
+    
+    If UBound(arCommandLine) > 0 Then
+        oPC.DatabaseName = arCommandLine(0)
+    Else
+        oPC.DatabaseName = ""
+    End If
+    
+    If UBound(arCommandLine) > 1 Then
+        oPC.InitializeSettings True
+    Else
+        oPC.InitializeSettings
+    End If
+    
+    'Just checking
+    bSuccessfulConnection = (oPC.OpenDB() = 0)
+    If bSuccessfulConnection Then
+        oPC.Disconnect
+        SaveSetting "PBKS", "Users", "Username", Me.txtUserName
+    Else
+        MsgBox "Invalid login.", vbOKOnly, "Login status"
+    End If
+    
+    Screen.MousePointer = vbDefault
+    
+EXIT_Handler:
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrPreserve
+    ErrorIn "Login.cmdOK_Click", , EA_NORERAISE
+    bCancelled = True
+    HandleError
+End Sub
+
+
+Private Sub Form_Load()
+  'Place under splash form
+    If Me.WindowState <> 2 Then
+        Left = (Screen.Width - Width) / 2
+        top = (Screen.Height - Height) / 2 + 2000
+    End If
+End Sub
+
+Public Property Get Password() As String
+  Password = gPassword
+End Property
+
+Public Property Get UserName() As String
+  UserName = gUserName
+End Property
+
+Private Sub txtPassword_GotFocus()
+    With txtPassword
+    If Len(.Text) > 0 Then
+      .SelStart = 0
+      .SelLength = Len(.Text)
+    End If
+  End With
+
+End Sub
+
+Private Sub txtUserName_GotFocus()
+  With txtUserName
+    If Len(.Text) > 0 Then
+      .SelStart = 0
+      .SelLength = Len(.Text)
+    End If
+  End With
+End Sub

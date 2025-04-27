@@ -1,0 +1,14 @@
+2012-08-08 07:45:28.9032 Error:  System.Exception: Error executing query ---> System.Data.SqlClient.SqlException: Error Message: Cannot insert duplicate key row in object 'dbo.tStockItem' with unique index 'IX_tStockItem'., Error Procedure: PackMiscellaneousItem, Error Line: 16
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 224
+   --- End of inner exception stack trace ---
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 228
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.PackMiscellaneousItem(PackedItemInstanceEx dto) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 88

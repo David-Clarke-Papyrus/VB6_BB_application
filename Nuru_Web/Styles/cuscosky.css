@@ -1,0 +1,72 @@
+/* 
+	Cusco Sky table styles
+	written by Braulio Soncco http://www.buayacorp.com
+*/
+
+.BrowseDocuments .lv1 table, th, td
+{
+	border: 1px solid #D4E0EE;
+	border-collapse: collapse;
+	font-family: "Trebuchet MS" , Arial, sans-serif;
+	color: #555;
+}
+
+.BrowseDocuments .lv1 caption {
+	font-size: 150%;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.BrowseDocuments .lv1 td, th {
+	padding: 4px;
+}
+
+.BrowseDocuments .lv1 thead th {
+	text-align: center;
+	background: #E6EDF5;
+	color: #4F76A3;
+	font-size: 100% !important;
+}
+
+.BrowseDocuments .lv1 tbody th {
+	font-weight: bold;
+}
+
+.BrowseDocuments .lv1 tbody tr { background: #FCFDFE; }
+
+.BrowseDocuments .lv1 tbody tr.odd { background: #F7F9FC; }
+
+.SelectedRow_top
+{
+	border-style: solid solid none solid;
+	border-width: 3px 3px 0px 3px;
+	border-color: #008000;
+	background-position: #F7F9FC;
+	background: #FEFEED;
+}
+.SelectedRow_bottom
+{
+	border-style: none solid solid solid;
+	border-width: 0px 3px 3px 3px;
+	border-color: #008000;
+	background-position: #F7F9FC;
+	background: #FEFEED;
+}
+.BrowseDocuments .lv1 table a:link {
+	color: #718ABE;
+	text-decoration: none;
+}
+
+.BrowseDocuments .lv1 table a:visited {
+	color: #718ABE;
+	text-decoration: none;
+}
+
+.BrowseDocuments .lv1 table a:hover{
+	color: #718ABE;
+	text-decoration: underline !important;
+}
+
+.BrowseDocuments .lv1 tfoot th, tfoot td {
+	font-size: 85%;
+}

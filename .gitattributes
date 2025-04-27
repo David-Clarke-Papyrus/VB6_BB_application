@@ -1,0 +1,20 @@
+# Set default behavior if core.autocrlf isn’t set
+* text=auto
+
+# VB6 source files — always CRLF
+*.bas   text eol=crlf
+*.cls   text eol=crlf
+*.frm   text eol=crlf
+*.vbp   text eol=crlf
+*.vbw   text eol=crlf
+*.dsr   text eol=crlf
+*.pag   text eol=crlf
+*.ctl   text eol=crlf
+
+# True binaries — never touched by Git
+*.frx   binary
+*.res   binary
+*.ocx   binary
+*.dll   binary
+*.exe   binary
+*.tlb   binary

@@ -1,0 +1,101 @@
+VERSION 5.00
+Begin {9EB8768B-CDFA-44DF-8F3E-857A8405E1DB} arDeliveries 
+   Caption         =   "Deliveries"
+   ClientHeight    =   8715
+   ClientLeft      =   165
+   ClientTop       =   450
+   ClientWidth     =   14070
+   StartUpPosition =   3  'Windows Default
+   _ExtentX        =   24818
+   _ExtentY        =   15372
+   SectionData     =   "arDeliveries.dsx":0000
+End
+Attribute VB_Name = "arDeliveries"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Public rs As ADODB.Recordset
+Dim cTotal As Currency
+Dim cTotalDisc As Currency
+Dim cGrandTotal As Currency
+Dim cGrandTotalDisc As Currency
+Dim strTPName As String
+
+Public Sub Component(pRs As ADODB.Recordset, ByVal pHeader As String)
+    Set rs = pRs
+    lblRptHeader.Caption = pHeader
+End Sub
+
+Private Sub ActiveReport_ReportStart()
+    Me.Left = 1000
+    Me.top = 500
+    Me.Height = 7000
+    Me.Width = 10000
+    
+    ghSupplierName.GroupValue = rs!TP_Name
+    txtghSupplier.text = rs!TP_Name
+    
+    lblFooter.Caption = "Deliveries"
+End Sub
+
+Private Sub Detail_AfterPrint()
+    If rs.EOF Then Exit Sub
+    
+    ghSupplierName.GroupValue = rs!TP_Name
+End Sub
+
+Private Sub Detail_Format()
+    If rs.EOF Then GoTo EXIT_Handler
+    
+    txtCode.text = FNS(rs!TR_CODE)
+    txtDate.text = Format(FND(rs!TR_DATE), "dd/mm/yyyy")
+    txtValIncl.text = Format(FNCURR(rs!Amt) / 100, "Standard")
+    txtValExcl.text = Format((FNCURR(rs!Amt) / 100) / (1 + (oPC.Configuration.VATRate / 100)), "Standard")
+    txtDiscountedValIncl.text = Format(FNCURR(rs!DiscountedVal) / 100, "Standard")
+    txtDiscountedValExcl.text = Format((FNCURR(rs!DiscountedVal) / 100) / (1 + (oPC.Configuration.VATRate / 100)), "Standard")
+    txtDiscount.text = Format((rs!DELL_Discount / 100), "##0.0%")
+    
+    cTotal = cTotal + FNCURR(rs!Amt)
+    cTotalDisc = cTotalDisc + FNCURR(rs!DiscountedVal)
+    
+    Detail.PrintSection
+    rs.MoveNext
+    
+EXIT_Handler:
+    Exit Sub
+End Sub
+
+Private Sub ghSupplierName_Format()
+        strTPName = rs!TP_Name
+        txtghSupplier.text = strTPName
+End Sub
+
+Private Sub GroupFooter1_AfterPrint()
+    cGrandTotal = cGrandTotal + cTotal
+    cGrandTotalDisc = cGrandTotalDisc + cTotalDisc
+    cTotal = 0
+    cTotalDisc = 0
+End Sub
+
+Private Sub GroupFooter1_Format()
+    txtTotalValIncl.text = Format(cTotal / 100, "Currency")
+    txtTotalValExcl.text = Format((cTotal / 100) / (1 + (oPC.Configuration.VATRate / 100)), "Currency")
+    
+    txtTotalDiscountedValIncl.text = Format(cTotalDisc / 100, "Currency")
+    txtTotalDiscountedValExcl.text = Format((cTotalDisc / 100) / (1 + (oPC.Configuration.VATRate / 100)), "Currency")
+    
+    lblSubTotal.Caption = "Total (" & LCase(Trim$(strTPName)) & ")"
+End Sub
+
+Private Sub PageFooter_Format()
+    lblFooterDate.Caption = Format(Date, "dddd, dd mmm yyyy")
+End Sub
+
+Private Sub ReportFooter_Format()
+    txtGrandTotalValIncl.text = Format(cGrandTotal / 100, "Currency")
+    txtGrandTotalValExcl.text = Format((cGrandTotal / 100) / (1 + (oPC.Configuration.VATRate / 100)), "Currency")
+    txtGrandTotalDiscValIncl.text = Format(cGrandTotalDisc / 100, "Currency")
+    txtGrandTotalDiscValExcl.text = Format((cGrandTotalDisc / 100) / (1 + (oPC.Configuration.VATRate / 100)), "Currency")
+End Sub

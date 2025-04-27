@@ -1,0 +1,28 @@
+Attribute VB_Name = "Colours"
+
+
+Public Const COLOR_PALEYELLOW = &HDBFAFB
+Public Const COLOR_CANCELLED = &HC0C0C0
+Public Const COLOR_FULFILLED = &HFEABAD
+Public Const COLOR_SALES_0 = &HFFFFFF
+Public Const COLOR_SALES_1 = &HD2CCFF
+Public Const COLOR_SALES_2 = &HBEB3FF
+Public Const COLOR_SALES_3 = &HB197FF
+Public Const COLOR_SALES_4 = &H817DFF
+Public Const COLOR_SALES_5 = &H7157FF
+Public Const COLOR_SALES_6 = &H4D3EFF
+Public Const COLOR_SALES_7 = &H2F11FF
+Public Const COLOR_SALES_8 = &H1600DF
+Public Const COLOR_SALES_Future = &HE0E0E0
+Public Const COLOR_Lightblue = &HD3D3CB
+Public Const COLOR_White = &H80000005
+Public Const COLOR_InProcessGreen = &H80FF80
+
+'Order fulfilment
+Public Const COLOUR_FULFIL_MORETHANONHAND = &HFFC0FF   'Purple '&H817DFF
+Public Const COLOUR_FULFIL_OK = &HDBFAFB
+Public Const COLOUR_FULFIL_LESSTHANORDERED = &HC0FFC0  'green
+Public Const COLOUR_FULFIL_MORETHANORDERED = &H8080FF    'red
+Public Const COLOUR_FULFIL_OTHERORDERS = &H8080FF
+Public Const COLOUR_FULFIL_PREDELIVERY = &H80FF&
+

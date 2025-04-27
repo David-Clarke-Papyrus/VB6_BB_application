@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3">
+  <!-- Make My Manifest 0.12.309 -->
+  <assemblyIdentity name="Papyrus.Services.BWPBKS" processorArchitecture="X86" type="win32" version="2.0.0.3" />
+  
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity language="*" name="Microsoft.Windows.Common-Controls" processorArchitecture="X86" publicKeyToken="6595b64144ccf1df" type="win32" version="6.0.0.0" />
+    </dependentAssembly>
+  </dependency>
+  <file name="ExComboBox.dll">
+    <typelib tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{CF170E7A-4391-44BD-8D93-29F8D2801EF7}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" progid="Exontrol.ComboBox.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="ComboBox Class" />
+    <comClass clsid="{8739709B-9538-4237-A3B4-7A1C213F4B7D}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" progid="ExComboBox.Column.1" description="Column Class" />
+    <comClass clsid="{C270941E-90FF-491A-998B-8378C6B08925}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" progid="ExComboBox.Columns.1" description="Columns Class" />
+    <comClass clsid="{28CB5CD2-889A-40F3-8769-60904F7A6611}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" progid="ExComboBox.Items.1" description="Items Class" />
+    <comClass clsid="{F8EAE3B2-E898-4BBC-811F-3E29D203391C}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" description="TemplatePage Class" />
+  </file>
+  <file name="msbind.dll">
+    <typelib tlbid="{56BF9020-7A2F-11D0-9482-00A0C91110ED}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{3E60C551-7BD6-11D0-9482-00A0C91110ED}" tlbid="{56BF9020-7A2F-11D0-9482-00A0C91110ED}" description="Binding Object" />
+    <comClass clsid="{59245250-7A2F-11D0-9482-00A0C91110ED}" tlbid="{56BF9020-7A2F-11D0-9482-00A0C91110ED}" threadingModel="Apartment" progid="MSBind.BindingCollection.1" description="Binding Collection Object" />
+  </file>
+  <file name="MSStdFmt.Dll">
+    <typelib tlbid="{6B263850-900B-11D0-9484-00A0C91110ED}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{2B11E9B0-9F09-11D0-9484-00A0C91110ED}" tlbid="{6B263850-900B-11D0-9484-00A0C91110ED}" threadingModel="Apartment" progid="MSSTDFMT.StdDataValue.1" description="StdDataValue Object" />
+    <comClass clsid="{6D835690-900B-11D0-9484-00A0C91110ED}" tlbid="{6B263850-900B-11D0-9484-00A0C91110ED}" threadingModel="Apartment" progid="MSSTDFMT.StdDataFormat.1" description="StdDataFormat Object" />
+    <comClass clsid="{99FF4677-FFC3-11D0-BD02-00C04FC2FB86}" tlbid="{6B263850-900B-11D0-9484-00A0C91110ED}" threadingModel="Apartment" progid="MSSTDFMT.StdDataFormats.1" description="StdDataFormats Object" />
+  </file>
+  <file name="exclexpt.dll">
+    <typelib tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{A31CC8F8-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.DDSheets.1" description="Sheet Collection" />
+    <comClass clsid="{A31CC8F4-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" description="Sheet object for SpreadBuilder" />
+    <comClass clsid="{A31CC8F5-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" description="Spreadsheet Cell used by SpreadBuilder" />
+    <comClass clsid="{1A422D40-A2C4-11D2-ACAA-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.DDRow.1" description="Row Class" />
+    <comClass clsid="{E031E36A-A34B-11D2-ACAA-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.DDColumn.1" description="" />
+    <comClass clsid="{A31CC8EE-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.ARExportExcel.1" description="ActiveReports Excel Export" />
+    <comClass clsid="{A31CC8F2-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.SpreadBuilder.1" description="Generic component to build BIFF files" />
+  </file>
+  <file name="XpdfPrint.dll">
+    <typelib tlbid="{868DC9E0-7705-11D7-BD2E-08004608C318}" version="3.1" flags="" helpdir="" />
+    <comClass clsid="{8BFD63E0-7705-11D7-BD2E-08004608C318}" tlbid="{868DC9E0-7705-11D7-BD2E-08004608C318}" progid="Xpdf.XpdfPrint.3" description="XpdfPrint Class" />
+  </file>
+  <file name="RegionalSet.dll">
+    <typelib tlbid="{13852F1A-9758-48EC-B05E-63CBCFF972D9}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{569C00A0-4ACA-4FE3-8FF2-A27DA4DBA4CF}" tlbid="{13852F1A-9758-48EC-B05E-63CBCFF972D9}" threadingModel="Apartment" progid="RegionalSet.z_RegionalSettings" description="" />
+  </file>
+  <file name="comsvcs.dll">
+    <typelib tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{ECABB0A4-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="COM+ Services Security - certificate collection" />
+    <comClass clsid="{ECABB0A5-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="COM+ Services Security - identity collection" />
+    <comClass clsid="{ECABB0A6-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="COM+ Services Security - callers collection" />
+    <comClass clsid="{ECABB0A7-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="COM+ Services Security - call context collection" />
+    <comClass clsid="{7999FC25-D3C6-11CF-ACAB-00A024A55AEF}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="TxCTx.TransactionContext" description="Transaction Context Class" />
+    <comClass clsid="{5CB66670-D3D4-11CF-ACAB-00A024A55AEF}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="TxCTx.TransactionContextEx" description="Transaction Context Extended Class" />
+    <comClass clsid="{ECABB0C8-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" progid="COMSVCS.CServiceConfig.1" description="CServiceConfig Class" />
+    <comClass clsid="{ECABB0C9-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="both" description="ServicePool Class" />
+    <comClass clsid="{ECABB0CA-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="both" description="ServicePoolConfig Class" />
+    <comClass clsid="{2A005C05-A5DE-11CF-9E66-00AA00A3F464}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="Shared Property Class" />
+    <comClass clsid="{2A005C0B-A5DE-11CF-9E66-00AA00A3F464}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="SharedPropertyGroup Class" />
+    <comClass clsid="{2A005C11-A5DE-11CF-9E66-00AA00A3F464}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="MTxSpm.SharedPropertyGroupManager.1" description="SharedPropertyGroupManager Class" />
+    <comClass clsid="{ECABB0AB-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" description="MTSEvents Class" />
+    <comClass clsid="{ECABB0AC-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" description="MTSLocator Class" />
+    <comClass clsid="{4B2E958D-0393-11D1-B1AB-00AA00BA3258}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" progid="Mts.MtsGrp" description="MtxGrp Class" />
+    <comClass clsid="{ECABB0BD-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" progid="CrmClerk.CrmClerk.1" description="CRMClerk Class" />
+    <comClass clsid="{ECABB0BE-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" progid="CrmRecoveryClerk.CrmRecoveryClerk.1" description="CRMRecoveryClerk Class" />
+    <comClass clsid="{ECABB0BF-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="QC.MessageMover.1" description="QC MessageMover Class" />
+    <comClass clsid="{ECABAFB5-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" description="" />
+    <comClass clsid="{ECABB0C5-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="partition" description="" />
+    <comClass clsid="{ECABB0C7-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="soap" description="" />
+    <comClass clsid="{EF24F689-14F8-4D92-B4AF-D7B1F0E70FD4}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="System.EnterpriseServices.Internal.AppDomainHelper" description="" />
+    <comClass clsid="{458AA3B5-265A-4B75-BC05-9BEA4630CF18}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="System.EnterpriseServices.Internal.AssemblyLocator" description="" />
+  </file>
+  <file name="dsofile.dll">
+    <typelib tlbid="{58968145-CF00-4341-995F-2EE093F6ABA3}" version="2.1" flags="" helpdir="" />
+    <comClass clsid="{58968145-CF05-4341-995F-2EE093F6ABA3}" tlbid="{58968145-CF00-4341-995F-2EE093F6ABA3}" threadingModel="Apartment" progid="DSOFile.OleDocumentProperties" description="DSOFile OleDocumentProperties" />
+  </file>
+  <file name="pdfexpt.dll">
+    <typelib tlbid="{013A8BB0-A25B-11D1-8BB6-00A0C98CD92B}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{013A8BB1-A25B-11D1-8BB6-00A0C98CD92B}" tlbid="{013A8BB0-A25B-11D1-8BB6-00A0C98CD92B}" threadingModel="Apartment" progid="ActiveReportsPDFExport.ARExportPDF.1" description="ActiveReports PDF Export" />
+  </file>
+  <file name="arpro2.dll">
+    <typelib tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" version="2.0" flags="" helpdir="" />
+    <comClass clsid="{21CE2C92-48AF-11D1-AA0B-0060081C43D9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Border Style Object" />
+    <comClass clsid="{C1D9E21A-EA25-40C7-BD9D-1D7425220B27}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports Navigation History" />
+    <comClass clsid="{CCC6DCD3-8A14-4ABA-A615-3BC4A69E4E84}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{DFEB15D8-6753-4E54-BA71-40C83C2F3A32}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports Table Of Contents" />
+    <comClass clsid="{B31B60C2-64FC-11D1-AA58-0060081C43D9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{0014F800-74B1-46A7-9060-DDD9653306F9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" progid="DDActiveReports2.Canvas.1" description="Canvas Object" />
+    <comClass clsid="{5C210E01-F309-11D0-A8E9-00A0C90F29FC}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" progid="DDActiveReports2.Printer.1" description="" />
+    <comClass clsid="{4AB670E2-96C7-11D1-8B77-3C346B000000}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{3CB5B0C2-8CF9-11D1-8B5E-9AD7CD000000}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" description="ActiveReports Toolbar Object" />
+    <comClass clsid="{3CB5B0C4-8CF9-11D1-8B5E-9AD7CD000000}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" description="" />
+    <comClass clsid="{FA0BFF22-8D3D-11D1-8B5E-9AD7CD000000}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" description="" />
+    <comClass clsid="{55CCD8A2-FD9F-11D2-A933-00C04FA372BC}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Report Field Object" />
+    <comClass clsid="{B0678828-EEDD-4A0C-8760-0117D90D1F87}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{C30B4E1C-E47D-4E2B-AE2B-3401CC6AB4B4}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{565572DE-EE6D-4B3C-A3AD-04B84BBB75D8}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{CFDA4F68-E23A-4704-BE78-108ECED908DD}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports Label Control" />
+    <comClass clsid="{5A941F30-775E-11D1-8B19-56CB34000000}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{8B635B5C-0C12-4E1A-904B-E94FFB443E81}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports Field Object" />
+    <comClass clsid="{9B69B132-2F2C-4D19-8776-61D81C36F4DD}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports Image Control" />
+    <comClass clsid="{00D27F3B-261B-4556-94C4-8DAC4C674BED}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{C567D337-ABB7-44A8-90F6-7729442476D9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports OLEDB Data Control" />
+    <comClass clsid="{47B7C2A1-168C-11D1-A956-0060081C43D9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{4A47A995-000C-48A9-BFED-12DE0DA9123B}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{0F0BBB91-18EF-11D1-A95E-0060081C43D9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports DAO FileBrowser" />
+    <comClass clsid="{1C2C8EC2-EFE0-4400-9AA1-1E5D86689759}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{F95EFF3C-11D7-41F6-BCC7-19736C333AC8}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReport OLE Object" />
+    <comClass clsid="{1B7607B5-A47D-41C8-981C-9DC5A46BF684}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports CheckBox Control" />
+    <comClass clsid="{365E5E1D-9596-44F0-B292-AC77E740F31F}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports Shape Control" />
+    <comClass clsid="{9A474B20-0E43-4776-8B80-D78D1378569A}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports PageBreak Object" />
+    <comClass clsid="{A5A3F5A3-1AD4-48B4-B904-D5319C1D7BFE}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{9EB8768B-CDFA-44DF-8F3E-857A8405E1DB}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" progid="DDActiveReports2.ActiveReport.2" description="ActiveReport Object" />
+    <comClass clsid="{FB759E03-99D3-4A0A-9285-8D0AC65C2A5A}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports RichEdit Control" />
+    <comClass clsid="{1102A4ED-0604-11D2-AB23-00C04FA372BC}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{1102A4EF-0604-11D2-AB23-00C04FA372BC}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReport Error Object" />
+    <comClass clsid="{BC252217-EEAD-11D2-AD21-00C04FA372BC}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Report Fields Collection" />
+    <comClass clsid="{2FAC5CD7-8133-4D38-8854-139CB0582CA0}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Page settings for Report" />
+    <comClass clsid="{2070E619-B3E4-4010-852D-374DC2B3E09A}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{5139C978-F1E5-4195-AD53-80F94ADDE3C5}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{390A8480-5DB2-4206-8840-2218CEF8BF12}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{B806D35C-2CA3-4809-99C0-E5E1BD88BBBF}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{8C0E9534-9699-4FFE-9EBB-AB4EFF7C8D72}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="" />
+    <comClass clsid="{D6B8644A-6F1E-44F3-B1EF-153DAA316911}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports Barcode Control" />
+    <comClass clsid="{899D15B1-73EA-47B5-BFCF-6AD6A43F03A3}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" description="" />
+    <comClass clsid="{9F340342-B4E7-44D5-BE9C-D44AAC9B854E}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" description="" />
+  </file>
+  <file name="ARVIEW2.OCX">
+    <typelib tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{21CE2C92-48AF-11D1-AA0B-0060081C43D9}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="Border Style Object" />
+    <comClass clsid="{C1D9E21A-EA25-40C7-BD9D-1D7425220B27}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="ActiveReports Navigation History" />
+    <comClass clsid="{CCC6DCD3-8A14-4ABA-A615-3BC4A69E4E84}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="" />
+    <comClass clsid="{DFEB15D8-6753-4E54-BA71-40C83C2F3A32}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="ActiveReports Table Of Contents" />
+    <comClass clsid="{B31B60C2-64FC-11D1-AA58-0060081C43D9}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="" />
+    <comClass clsid="{0014F800-74B1-46A7-9060-DDD9653306F9}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" progid="DDActiveReports2.Canvas.1" description="Canvas Object" />
+    <comClass clsid="{5C210E01-F309-11D0-A8E9-00A0C90F29FC}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" progid="DDActiveReports2.Printer.1" description="" />
+    <comClass clsid="{4AB670E2-96C7-11D1-8B77-3C346B000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="" />
+    <comClass clsid="{3CB5B0C2-8CF9-11D1-8B5E-9AD7CD000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" description="ActiveReports Toolbar Object" />
+    <comClass clsid="{3CB5B0C4-8CF9-11D1-8B5E-9AD7CD000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" description="" />
+    <comClass clsid="{FA0BFF22-8D3D-11D1-8B5E-9AD7CD000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" description="" />
+    <comClass clsid="{6BFD6850-94D9-11D1-8B70-B25105000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" description="ActiveReports OutputFormat PropertyPage" />
+    <comClass clsid="{8569D715-FF88-44BA-8D1D-AD3E59543DDE}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" progid="DDActiveReportsViewer2.ARViewer2.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Data Dynamics ActiveReports Viewer 2.0" />
+    <comClass clsid="{F10AA491-22EA-4B11-A070-4B6A5AFF26FA}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="" />
+  </file>
+  <file name="xarraydb.ocx">
+    <typelib tlbid="{0D623539-DBA2-11D1-B5DF-0060976089D0}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{0D62353B-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D623539-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" progid="XArrayDB.XArrayDB.1" description="APEX XArrayDB Object" />
+  </file>
+  <file name="wiaaut.dll">
+    <typelib tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{0C5672F9-3EDC-4B24-95B5-A6C54C0B79AD}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" threadingModel="Apartment" progid="WIA.Rational.1" description="The Rational object is a container for the rational values found in Exif tags. It is a supported element type of the Vector object and may be created using &quot;WIA.Rational&quot; in a call to CreateObject." />
+    <comClass clsid="{4DD1D1C3-B36A-4EB4-AAEF-815891A58A30}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" threadingModel="Apartment" progid="WIA.Vector.1" description="The Vector object is a collection of values of the same type. It is used throughout the library in many different ways. The Vector object may be created using &quot;WIA.Vector&quot; in a call to CreateObject." />
+    <comClass clsid="{2014DE3F-3723-4178-8643-3317A32D4A2B}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The Property object is a container for a property associated with a Device, DeviceInfo, Filter, ImageFile or Item object. See the Properties property on any of these objects for details on accessing Property objects." />
+    <comClass clsid="{96F887FC-08B1-4F97-A69C-75280C6A9CF8}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The Properties object is a collection of all the Property objects associated with a given Device, DeviceInfo, Filter, ImageFile or Item object. See the Properties property on any of these objects for detail on accessing the Properties object." />
+    <comClass clsid="{A2E6DDA0-06EF-4DF3-B7BD-5AA224BB06E8}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" threadingModel="Apartment" progid="WIA.ImageFile.1" description="The ImageFile object is a container for images transferred to your computer when you call Transfer or ShowTransfer. It also supports image files through LoadFile. An ImageFile object can be created using &quot;WIA.ImageFile&quot; in a call to CreateObject." />
+    <comClass clsid="{318D6B52-9B1C-4E3B-8D90-1F0E857FA9B0}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The FilterInfo object is a container that describes a Filter object without requiring a Filter to be Added to the process chain. See the FilterInfos property on the ImageProcess object for details on accessing FilterInfo objects." />
+    <comClass clsid="{56FA88D3-F3DA-4DE3-94E8-811040C3CCD4}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The FilterInfos object is a collection of all the available FilterInfo objects. See the FilterInfos property on the ImageProcess object for detail on accessing the FilterInfos object." />
+    <comClass clsid="{52AD8A74-F064-4F4C-8544-FF494D349F7B}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The Filter object represents a unit of modification on an ImageFile. To use a Filter, add it to the Filters collection, then set the filter&apos;s properties and finally use the Apply method of the ImageProcess object to filter an ImageFile." />
+    <comClass clsid="{31CDD60C-C04C-424D-95FC-36A52646D71C}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The Filters object is a collection of the Filters that will be applied to an ImageFile when you call the Apply method on the ImageProcess object." />
+    <comClass clsid="{BD0D38E4-74C8-4904-9B5A-269F8E9994E9}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" threadingModel="Apartment" progid="WIA.ImageProcess.1" description="The ImageProcess object manages the filter chain. An ImageProcess object can be created using &quot;WIA.ImageProcess&quot; in a call to CreateObject." />
+    <comClass clsid="{6F62E261-0FE6-476B-A244-50CF7440DDEB}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The Formats object is a collection of supported FormatIDs that you can use when calling Transfer on an Item object or ShowTransfer on a CommonDialog object for this Item." />
+    <comClass clsid="{72226184-AFBB-4059-BF55-0F6C076E669D}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The DeviceCommand object describes a CommandID that can be used when calling ExecuteCommand on a Device or Item object." />
+    <comClass clsid="{25B047DB-4AAD-4FC2-A0BE-31DDA687FF32}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The DeviceCommands object is a collection of all the supported DeviceCommands for an imaging device. See the Commands property of a Device or Item object for more details on determining the collection of supported device commands." />
+    <comClass clsid="{36F479F3-C258-426E-B5FA-2793DCFDA881}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The Item object is a container for an item on an imaging device object. See the Items property on the Device or Item object for details on accessing Item objects." />
+    <comClass clsid="{B243B765-CA9C-4F30-A457-C8B2B57A585E}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The Items object contains a collection of Item objects. See the Items property on the Device or Item object for details on accessing the Items object." />
+    <comClass clsid="{617CF892-783C-43D3-B04B-F0F1DE3B326D}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The DeviceEvent object describes an EventID that can be used when calling RegisterEvent or RegisterPersistentEvent on a DeviceManager object." />
+    <comClass clsid="{3563A59A-BBCD-4C86-94A0-92136C80A8B4}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The DeviceEvents object is a collection of all the supported DeviceEvent for an imaging device. See the Events property of a Device object for more details on determining the collection of supported device events." />
+    <comClass clsid="{F09CFB7A-E561-4625-9BB5-208BCA0DE09F}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The DeviceInfo object is a container that describes the unchanging (static) properties of an imaging device that is currently connected to the computer." />
+    <comClass clsid="{2DFEE16B-E4AC-4A19-B660-AE71A745D34F}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The DeviceInfos object is a collection of all the imaging devices currently connected to the computer. See the DeviceInfos property on the DeviceManager object for detail on accessing the DeviceInfos object." />
+    <comClass clsid="{DBAA8843-B1C4-4EDC-B7E0-D6F61162BE58}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" description="The Device object represents an active connection to an imaging device." />
+    <comClass clsid="{850D1D11-70F3-4BE5-9A11-77AA6B2BB201}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" threadingModel="Apartment" progid="WIA.CommonDialog.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,invisibleatruntime,setclientsitefirst" description="The CommonDialog control is an invisible-at-runtime control that contains all the methods that display a User Interface. A CommonDialog control can be created using &quot;WIA.CommonDialog&quot; in a call to CreateObject or by dropping a CommonDialog on a form." />
+    <comClass clsid="{E1C5D730-7E97-4D8A-9E42-BBAE87C2059F}" tlbid="{94A0E92D-43C0-494E-AC29-FD45948A5221}" threadingModel="Apartment" progid="WIA.DeviceManager.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,invisibleatruntime,setclientsitefirst" description="The DeviceManager control is an invisible-at-runtime control that manages the imaging devices connected to the computer. A DeviceManager control can be created using &quot;WIA.DeviceManager&quot; in a call to CreateObject or by dropping a DeviceManager on a form." />
+  </file>
+  <file name="OUTLCTL.DLL">
+    <typelib tlbid="{0006F062-0000-0000-C000-000000000046}" version="1.1" flags="" helpdir="" />
+    <comClass clsid="{0006F069-0000-0000-C000-000000000046}" tlbid="{0006F062-0000-0000-C000-000000000046}" description="ObjectModelCtl Class" />
+    <comClass clsid="{261B8CA9-3BAF-4BD0-B0C2-BF04286785C6}" tlbid="{0006F062-0000-0000-C000-000000000046}" description="ViewCtl Class" />
+    <comClass clsid="{0468C085-CA5B-11D0-AF08-00609797F0E0}" tlbid="{0006F062-0000-0000-C000-000000000046}" description="DataCtl Class" />
+  </file>
+  <file name="SQLDMO.DLL">
+    <typelib tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" version="8.5" flags="" helpdir="" />
+    <comClass clsid="{10020100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Application.8.0" description="SQLDMO Application" />
+    <comClass clsid="{10020200-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.SQLServer.8.0" description="SQLDMO Server" />
+    <comClass clsid="{10020300-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Database.8.0" description="SQLDMO Database" />
+    <comClass clsid="{10020400-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Table.8.0" description="SQLDMO Table" />
+    <comClass clsid="{10020500-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Column.8.0" description="SQLDMO Column" />
+    <comClass clsid="{10020F00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Key.8.0" description="SQLDMO DRI Key" />
+    <comClass clsid="{10020E00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Index.8.0" description="SQLDMO Index" />
+    <comClass clsid="{10020700-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.View.8.0" description="SQLDMO View" />
+    <comClass clsid="{10021C00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.BulkCopy.8.0" description="SQLDMO BulkCopy" />
+    <comClass clsid="{10021000-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Trigger.8.0" description="SQLDMO Trigger" />
+    <comClass clsid="{10021700-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Check.8.0" description="SQLDMO DRI Check" />
+    <comClass clsid="{10020D00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.StoredProcedure.8.0" description="SQLDMO StoredProcedure" />
+    <comClass clsid="{10020900-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Default.8.0" description="SQLDMO Default" />
+    <comClass clsid="{10020A00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Rule.8.0" description="SQLDMO Rule" />
+    <comClass clsid="{10020800-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.UserDefinedDatatype.8.0" description="SQLDMO UserDefinedDatatype" />
+    <comClass clsid="{10020B00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.User.8.0" description="SQLDMO User" />
+    <comClass clsid="{10022E00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.LogFile.8.0" description="SQLDMO Log File" />
+    <comClass clsid="{10021E00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Transfer.8.0" description="SQLDMO DB Transfer" />
+    <comClass clsid="{10022C00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.FileGroup.8.0" description="SQLDMO File Group" />
+    <comClass clsid="{10022D00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DBFile.8.0" description="SQLDMO DB File" />
+    <comClass clsid="{10023100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DatabaseRole.8.0" description="SQLDMO Database Role" />
+    <comClass clsid="{10023500-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.FullTextCatalog.8.0" description="SQLDMO FullText Catalog" />
+    <comClass clsid="{10023700-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.UserDefinedFunction.8.0" description="SQLDMO UserDefinedFunction" />
+    <comClass clsid="{10021100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.BackupDevice.8.0" description="SQLDMO BackupDevice" />
+    <comClass clsid="{10021400-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Language.8.0" description="SQLDMO Language" />
+    <comClass clsid="{10021500-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.RemoteServer.8.0" description="SQLDMO RemoteServer" />
+    <comClass clsid="{10021600-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.RemoteLogin.8.0" description="SQLDMO RemoteLogin" />
+    <comClass clsid="{10021300-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Login.8.0" description="SQLDMO Login" />
+    <comClass clsid="{10040200-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Operator.8.0" description="SQLDMO Operator" />
+    <comClass clsid="{10040600-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Alert.8.0" description="SQLDMO Alert" />
+    <comClass clsid="{10040800-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Job.8.0" description="SQLDMO Job" />
+    <comClass clsid="{10040900-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.JobStep.8.0" description="SQLDMO JobStep" />
+    <comClass clsid="{10041600-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.JobSchedule.8.0" description="SQLDMO JobSchedule" />
+    <comClass clsid="{10041000-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TargetServer.8.0" description="SQLDMO TargetServer" />
+    <comClass clsid="{10041100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TargetServerGroup.8.0" description="SQLDMO TargetServerGroup" />
+    <comClass clsid="{10041500-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Category.8.0" description="SQLDMO Category" />
+    <comClass clsid="{10023200-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Restore.8.0" description="SQLDMO DB Restore" />
+    <comClass clsid="{10031000-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Replication.8.0" description="SQLDMO Replication" />
+    <comClass clsid="{10030900-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.RegisteredSubscriber.8.0" description="SQLDMO RegisteredSubscriber" />
+    <comClass clsid="{10031200-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.ReplicationSecurity.8.0" description="SQLDMO ReplicationSecurity" />
+    <comClass clsid="{10030700-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionPublisher.8.0" description="SQLDMO DistributionPublisher" />
+    <comClass clsid="{10032100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionPublication.8.0" description="SQLDMO DistributionPublication" />
+    <comClass clsid="{10033100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionArticle.8.0" description="SQLDMO DistributionArticle" />
+    <comClass clsid="{10034100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionSubscription.8.0" description="SQLDMO DistributionSubscription" />
+    <comClass clsid="{10031300-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionDatabase.8.0" description="SQLDMO DistributionDatabase" />
+    <comClass clsid="{10030100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TransPublication.8.0" description="SQLDMO TransPublication" />
+    <comClass clsid="{10030200-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TransArticle.8.0" description="SQLDMO TransArticle" />
+    <comClass clsid="{10030300-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TransSubscription.8.0" description="SQLDMO TransSubscription" />
+    <comClass clsid="{10030400-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergePublication.8.0" description="SQLDMO MergePublication" />
+    <comClass clsid="{10030500-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergeArticle.8.0" description="SQLDMO MergeArticle" />
+    <comClass clsid="{10035100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergeSubsetFilter.8.0" description="SQLDMO MergeSubsetFilter" />
+    <comClass clsid="{10030600-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergeSubscription.8.0" description="SQLDMO MergeSubscription" />
+    <comClass clsid="{10036100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergeDynamicSnapshotJob.8.0" description="SQLDMO MergeDynamicSnapshotJob" />
+    <comClass clsid="{10030B00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TransPullSubscription.8.0" description="SQLDMO TransPullSubscription" />
+    <comClass clsid="{10031100-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergePullSubscription.8.0" description="SQLDMO MergePullSubscription" />
+    <comClass clsid="{10022F00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.ServerRole.8.0" description="SQLDMO Server Role" />
+    <comClass clsid="{10023300-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.LinkedServer.8.0" description="SQLDMO LinkedServer" />
+    <comClass clsid="{10023400-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.LinkedServerLogin.8.0" description="SQLDMO LinkedServerLogin" />
+    <comClass clsid="{10021800-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.ServerGroup.8.0" description="SQLDMO Server Group" />
+    <comClass clsid="{10021900-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.RegisteredServer.8.0" description="SQLDMO Registered Server" />
+    <comClass clsid="{100202C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.SQLServer2.8.0" description="SQLDMO Server" />
+    <comClass clsid="{100203C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Database2.8.0" description="SQLDMO Database" />
+    <comClass clsid="{100204C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Table2.8.0" description="SQLDMO Table" />
+    <comClass clsid="{100205C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Column2.8.0" description="SQLDMO Column" />
+    <comClass clsid="{100207C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.View2.8.0" description="SQLDMO View" />
+    <comClass clsid="{100208C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.UserDefinedDatatype2.8.0" description="SQLDMO UserDefinedDatatype" />
+    <comClass clsid="{100209C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Default2.8.0" description="SQLDMO Default" />
+    <comClass clsid="{10020AC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Rule2.8.0" description="SQLDMO Rule" />
+    <comClass clsid="{10020BC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.User2.8.0" description="SQLDMO User" />
+    <comClass clsid="{10020DC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.StoredProcedure2.8.0" description="SQLDMO StoredProcedure" />
+    <comClass clsid="{10020EC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Index2.8.0" description="SQLDMO Index" />
+    <comClass clsid="{100210C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Trigger2.8.0" description="SQLDMO Trigger" />
+    <comClass clsid="{100213C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Login2.8.0" description="SQLDMO Login" />
+    <comClass clsid="{100215C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.RemoteServer2.8.0" description="SQLDMO RemoteServer" />
+    <comClass clsid="{10021EC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Transfer2.8.0" description="SQLDMO DB Transfer" />
+    <comClass clsid="{10021F00-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Backup.8.0" description="SQLDMO DB Backup" />
+    <comClass clsid="{10021FC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Backup2.8.0" description="SQLDMO DB Backup" />
+    <comClass clsid="{10021CC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.BulkCopy2.8.0" description="SQLDMO BulkCopy" />
+    <comClass clsid="{10022CC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.FileGroup2.8.0" description="SQLDMO File Group" />
+    <comClass clsid="{10022EC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.LogFile2.8.0" description="SQLDMO Log File" />
+    <comClass clsid="{100231C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DatabaseRole2.8.0" description="SQLDMO Database Role" />
+    <comClass clsid="{100232C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Restore2.8.0" description="SQLDMO DB Restore" />
+    <comClass clsid="{100233C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.LinkedServer2.8.0" description="SQLDMO LinkedServer" />
+    <comClass clsid="{100235C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.FullTextCatalog2.8.0" description="SQLDMO FullText Catalog" />
+    <comClass clsid="{100310C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.Replication2.8.0" description="SQLDMO Replication" />
+    <comClass clsid="{100307C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionPublisher2.8.0" description="SQLDMO DistributionPublisher" />
+    <comClass clsid="{100313C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionDatabase2.8.0" description="SQLDMO DistributionDatabase" />
+    <comClass clsid="{100301C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TransPublication2.8.0" description="SQLDMO TransPublication" />
+    <comClass clsid="{100302C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TransArticle2.8.0" description="SQLDMO TransArticle" />
+    <comClass clsid="{100303C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TransSubscription2.8.0" description="SQLDMO TransSubscription" />
+    <comClass clsid="{10030BC1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.TransPullSubscription2.8.0" description="SQLDMO TransPullSubscription" />
+    <comClass clsid="{100304C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergePublication2.8.0" description="SQLDMO MergePublication" />
+    <comClass clsid="{100305C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergeArticle2.8.0" description="SQLDMO MergeArticle" />
+    <comClass clsid="{100306C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergeSubscription2.8.0" description="SQLDMO MergeSubscription" />
+    <comClass clsid="{100311C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.MergePullSubscription2.8.0" description="SQLDMO MergePullSubscription" />
+    <comClass clsid="{100321C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionPublication2.8.0" description="SQLDMO DistributionPublication" />
+    <comClass clsid="{100331C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionArticle2.8.0" description="SQLDMO DistributionArticle" />
+    <comClass clsid="{100341C1-E260-11CF-AE68-00AA004A34D5}" tlbid="{10010001-E260-11CF-AE68-00AA004A34D5}" threadingModel="Both" progid="SQLDMO.DistributionSubscription2.8.0" description="SQLDMO DistributionSubscription" />
+  </file>
+  <file name="wshom.ocx">
+    <typelib tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{0D43FE01-F093-11CF-8940-00A0C9054228}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" threadingModel="Both" progid="Scripting.FileSystemObject" description="" />
+    <comClass clsid="{C7C3F5B1-88A3-11D0-ABCB-00A0C90FFFC0}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="" />
+    <comClass clsid="{C7C3F5B2-88A3-11D0-ABCB-00A0C90FFFC0}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="" />
+    <comClass clsid="{C7C3F5B3-88A3-11D0-ABCB-00A0C90FFFC0}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="" />
+    <comClass clsid="{C7C3F5B4-88A3-11D0-ABCB-00A0C90FFFC0}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="" />
+    <comClass clsid="{C7C3F5B5-88A3-11D0-ABCB-00A0C90FFFC0}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="" />
+    <comClass clsid="{C7C3F5B6-88A3-11D0-ABCB-00A0C90FFFC0}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="" />
+    <comClass clsid="{0BB02EC0-EF49-11CF-8940-00A0C9054228}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="" />
+    <comClass clsid="{72C24DD5-D70A-438B-8A42-98424B88AFB8}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" threadingModel="Apartment" progid="WScript.Shell.1" description="Shell Object" />
+    <comClass clsid="{A548B8E4-51D5-4661-8824-DAA1D893DFB2}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="Shortcut Object" />
+    <comClass clsid="{093FF999-1EA0-4079-9525-9614C3504B74}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" threadingModel="Apartment" progid="WScript.Network.1" description="Network Object" />
+    <comClass clsid="{387DAFF4-DA03-44D2-B0D1-80C927C905AC}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="Generic Collection Object" />
+    <comClass clsid="{F48229AF-E28C-42B5-BB92-E114E62BDD54}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="Environment Variables Collection Object" />
+    <comClass clsid="{50E13488-6F1E-4450-96B0-873755403955}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="URLShortcut Object" />
+    <comClass clsid="{08FED191-BE19-11D3-A28B-00104BD35090}" tlbid="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}" description="WSHExec object" />
+  </file>
+  <file name="MSCOMCT2.OCX">
+    <typelib tlbid="{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}" version="2.0" flags="control" helpdir="" />
+    <comClass clsid="{2334D2B2-713E-11CF-8AE5-00AA00C00905}" tlbid="{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{2334D2B4-713E-11CF-8AE5-00AA00C00905}" tlbid="{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{B09DE715-87C1-11D1-8BE3-0000F8754DA1}" tlbid="{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComCtl2.Animation.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Animation Control" />
+    <comClass clsid="{603C7E80-87C2-11D1-8BE3-0000F8754DA1}" tlbid="{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComCtl2.UpDown.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="UpDown Control" />
+    <comClass clsid="{232E456A-87C3-11D1-8BE3-0000F8754DA1}" tlbid="{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComCtl2.MonthView.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Microsoft MonthView Control" />
+    <comClass clsid="{20DD1B9E-87C4-11D1-8BE3-0000F8754DA1}" tlbid="{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComCtl2.DTPicker.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Microsoft Date and Time Picker Control" />
+    <comClass clsid="{FE38753A-44A3-11D1-B5B7-0000C09000C4}" tlbid="{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComCtl2.FlatScrollBar.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,actslikelabel,setclientsitefirst" description="Microsoft Flat Scrollbar Control" />
+  </file>
+  <file name="COMCT332.OCX">
+    <typelib tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" version="1.1" flags="control" helpdir="" />
+    <comClass clsid="{38911D92-E448-11D0-84A3-00DD01104159}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" threadingModel="Apartment" progid="ComCtl3.CoolBar" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,actslikelabel,nouiactivate,alignable,simpleframe,setclientsitefirst" description="Microsoft Coolbar Control, version 6.0" />
+    <comClass clsid="{5522DAF8-06D6-11D2-8D70-00A0C98B28E2}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" progid="ComCtl3.Band" description="Coolbar Band" />
+    <comClass clsid="{5522DAFA-06D6-11D2-8D70-00A0C98B28E2}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" progid="ComCtl3.Bands" description="Coolbar Bands" />
+    <comClass clsid="{5522DB04-06D6-11D2-8D70-00A0C98B28E2}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" progid="ComCtl3.BandProperties" description="" />
+    <comClass clsid="{38911D90-E448-11D0-84A3-00DD01104159}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" threadingModel="Apartment" description="" />
+    <comClass clsid="{38911D8E-E448-11D0-84A3-00DD01104159}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" threadingModel="Apartment" description="" />
+  </file>
+  <file name="tabctl32.ocx">
+    <typelib tlbid="{BDC217C8-ED16-11CD-956C-0000C04E4C0A}" version="1.1" flags="control" helpdir="" />
+    <comClass clsid="{2334D2B2-713E-11CF-8AE5-00AA00C00905}" tlbid="{BDC217C8-ED16-11CD-956C-0000C04E4C0A}" description="" />
+    <comClass clsid="{2334D2B4-713E-11CF-8AE5-00AA00C00905}" tlbid="{BDC217C8-ED16-11CD-956C-0000C04E4C0A}" description="" />
+    <comClass clsid="{BDC217C5-ED16-11CD-956C-0000C04E4C0A}" tlbid="{BDC217C8-ED16-11CD-956C-0000C04E4C0A}" threadingModel="Apartment" progid="TabDlg.SSTab.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,simpleframe,setclientsitefirst" description="A Tabbed Dialog control that can be used to group controls on separate tabs." />
+  </file>
+  <file name="COMDLG32.OCX">
+    <typelib tlbid="{F9043C88-F6F2-101A-A3C9-08002B2F49FB}" version="1.2" flags="control" helpdir="" />
+    <comClass clsid="{F9043C85-F6F2-101A-A3C9-08002B2F49FB}" tlbid="{F9043C88-F6F2-101A-A3C9-08002B2F49FB}" threadingModel="Apartment" progid="MSComDlg.CommonDialog.1" miscStatusIcon="recomposeonresize,onlyiconic,cantlinkinside,insideout,activatewhenvisible,invisibleatruntime,setclientsitefirst" description="Microsoft Common Dialog Control 6.0 (SP6)" />
+  </file>
+  <file name="TODG6.OCX">
+    <typelib tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" version="6.0" flags="control" helpdir="" />
+    <comClass clsid="{0D6234E9-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" progid="TrueOleDBGrid60.TDBDropDown" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,alignable,setclientsitefirst" description="The main dropdown object" />
+    <comClass clsid="{0D6234D0-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" progid="TrueOleDBGrid60.TDBGrid" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,alignable,setclientsitefirst" description="The main grid object" />
+    <comClass clsid="{0D6234DE-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" description="(null)" />
+    <comClass clsid="{0D6234E5-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" description="(null)" />
+  </file>
+  <file name="msadodc.ocx">
+    <typelib tlbid="{67397AA1-7FB1-11D0-B148-00A0C922E820}" version="6.0" flags="control" helpdir="" />
+    <comClass clsid="{67397AA3-7FB1-11D0-B148-00A0C922E820}" tlbid="{67397AA1-7FB1-11D0-B148-00A0C922E820}" threadingModel="Apartment" progid="MSAdodcLib.Adodc.6" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,nouiactivate,alignable,setclientsitefirst" description="Microsoft ADO Data Control 6.0 (SP6) (OLEDB)" />
+  </file>
+  <file name="SYSINFO.OCX">
+    <typelib tlbid="{6FBA474E-43AC-11CE-9A0E-00AA0062BB4C}" version="1.0" flags="control" helpdir="" />
+    <comClass clsid="{6FBA474B-43AC-11CE-9A0E-00AA0062BB4C}" tlbid="{6FBA474E-43AC-11CE-9A0E-00AA0062BB4C}" threadingModel="Apartment" progid="SYSINFO.SysInfo.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,invisibleatruntime,nouiactivate,setclientsitefirst" description="Microsoft SysInfo Control 6.0" />
+  </file>
+  <file name="CCubeX.ocx">
+    <typelib tlbid="{CCA2C66D-33FD-11D5-8D72-005004532BDF}" version="1.3" flags="control" helpdir="" />
+    <comClass clsid="{CCA2C672-33FD-11D5-8D72-005004532BDF}" tlbid="{CCA2C66D-33FD-11D5-8D72-005004532BDF}" threadingModel="Single" progid="CCubeX.ContourCubeX" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="ContourCubeX Control" />
+  </file>
+  <file name="CCubeX20o.ocx">
+    <typelib tlbid="{801C12A5-BE41-41CD-AE48-C666E77F2F02}" version="2.0" flags="control" helpdir="" />
+    <comClass clsid="{07EE1598-351E-49A8-8B75-84BECBB9F4D0}" tlbid="{801C12A5-BE41-41CD-AE48-C666E77F2F02}" threadingModel="Single" progid="CCubeX2.ContourGridX" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="ContourCubeX Control 2.0" />
+    <comClass clsid="{B6C9E94F-D2E2-4876-AE51-3BDBFEC44172}" tlbid="{801C12A5-BE41-41CD-AE48-C666E77F2F02}" threadingModel="Single" description="ContourRect coclass" />
+  </file>
+  <file name="CoolButton.ocx">
+    <typelib tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" version="9.0" flags="control" helpdir="" />
+    <comClass clsid="{73C96E32-B857-416F-B15A-BFCED9D4F5B3}" tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" threadingModel="Apartment" description="" />
+    <comClass clsid="{0EB1737A-8BB9-4538-B9EA-A69032665724}" tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" threadingModel="Apartment" progid="CoolButtonControl.CoolButton" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,actslikebutton,setclientsitefirst" description="" />
+    <comClass clsid="{DD790845-B7C4-436C-9461-0C9DFFBA75BC}" tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" threadingModel="Apartment" description="" />
+    <comClass clsid="{9C38E86E-2644-4ABF-BD8E-652D84728D1F}" tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" threadingModel="Apartment" description="" />
+  </file>
+  <file name="mschrt20.ocx">
+    <typelib tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" version="2.0" flags="control" helpdir="" />
+    <comClass clsid="{2334D2B2-713E-11CF-8AE5-00AA00C00905}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{2334D2B4-713E-11CF-8AE5-00AA00C00905}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074CA-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074CC-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074CE-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074D0-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074D2-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074D4-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07529-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074D7-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074D9-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074DB-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074DD-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074DF-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074E1-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074E3-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074E5-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074E7-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074E9-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074EB-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074ED-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074EF-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074F1-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074F3-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074F5-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074FB-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E074FD-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07503-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07505-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07507-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07509-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E0750B-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E0750D-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E0750F-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07510-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07512-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07514-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07516-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07518-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E0751C-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E0751E-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07520-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07522-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07524-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07526-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{E9E07528-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" description="Plot Object" />
+    <comClass clsid="{3A2B370C-BA0A-11D1-B137-0000F8753F5D}" tlbid="{65E121D4-0C60-11D2-A9FC-0000F8754DA1}" progid="MSChart20Lib.MSChart.2" description="Microsoft Chart Control 6.0 (SP4) (OLEDB)" />
+  </file>
+  <file name="gtTree32.ocx">
+    <typelib tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" version="1.0" flags="control" helpdir="" />
+    <comClass clsid="{3294EE25-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" progid="DataTree.Tree" description="GTTree Control" />
+    <comClass clsid="{3294EE28-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" progid="DataTree.TreeCombo" description="GTComboTree Control" />
+    <comClass clsid="{3294EE30-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+    <comClass clsid="{3294EE44-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+    <comClass clsid="{3294EE33-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+    <comClass clsid="{3294EE35-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+    <comClass clsid="{3294EE41-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+    <comClass clsid="{3294EE43-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+    <comClass clsid="{3294EE46-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+    <comClass clsid="{3294EE48-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+    <comClass clsid="{3294EE50-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+    <comClass clsid="{3294EE52-3C6C-11D0-BADF-00201802BB87}" tlbid="{3294EE21-3C6C-11D0-BADF-00201802BB87}" description="" />
+  </file>
+  <file name="BarCod32.OCX">
+    <typelib tlbid="{2200CD23-1176-101D-85F5-0020AF1EF604}" version="1.7" flags="control" helpdir="" />
+    <comClass clsid="{2200CD20-1176-101D-85F5-0020AF1EF604}" tlbid="{2200CD23-1176-101D-85F5-0020AF1EF604}" progid="Mabry.BarCod" description="Mabry BarCod Control" />
+  </file>
+  <file name="MSCOMCTL.OCX">
+    <typelib tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" version="2.1" flags="control" helpdir="" />
+    <comClass clsid="{2334D2B2-713E-11CF-8AE5-00AA00C00905}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{2334D2B4-713E-11CF-8AE5-00AA00C00905}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="" />
+    <comClass clsid="{1EFB6596-857C-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComctlLib.TabStrip.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Microsoft TabStrip Control" />
+    <comClass clsid="{1EFB6598-857C-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="Returns a reference to a collection of Tab objects in the TabStrip control." />
+    <comClass clsid="{1EFB659A-857C-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="Returns a reference to a collection of Tab objects in the TabStrip control." />
+    <comClass clsid="{66833FE6-8583-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComctlLib.Toolbar.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,actslikelabel,alignable,simpleframe,setclientsitefirst" description="Microsoft Toolbar Control" />
+    <comClass clsid="{66833FE8-8583-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="ToolBar Buttons" />
+    <comClass clsid="{66833FEA-8583-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="ToolBar Button" />
+    <comClass clsid="{66833FEC-8583-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="ToolBar ButtonMenus" />
+    <comClass clsid="{66833FEE-8583-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="ToolBar ButtonMenu" />
+    <comClass clsid="{8E3867A3-8586-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComctlLib.SBarCtrl.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,actslikelabel,alignable,setclientsitefirst" description="Microsoft StatusBar Control" />
+    <comClass clsid="{8E3867A5-8586-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="StatusBar Panels collection" />
+    <comClass clsid="{8E3867AB-8586-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="StatusBar Panel" />
+    <comClass clsid="{35053A22-8589-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComctlLib.ProgCtrl.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,actslikelabel,alignable,setclientsitefirst" description="Microsoft ProgressBar Control" />
+    <comClass clsid="{C74190B6-8589-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComctlLib.TreeCtrl.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Displays a hierarchical list of Node objects, each of which consists of a label and an optional bitmap." />
+    <comClass clsid="{0713E8C0-850A-101B-AFC0-4210102A8DA7}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="Treeview Nodes collection" />
+    <comClass clsid="{C74190B9-8589-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="An object in a TreeView control that can contain images and text." />
+    <comClass clsid="{BDD1F04B-858B-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComctlLib.ListViewCtrl.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Displays a collection of ListItems such as files or folders." />
+    <comClass clsid="{BDD1F04D-858B-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="ListView Item collection" />
+    <comClass clsid="{BDD1F04F-858B-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="An item in a ListView control that contains the index of icons associated with it, text, and an array of strings representing subitems that are displayed in Report view." />
+    <comClass clsid="{0713E8C6-850A-101B-AFC0-4210102A8DA7}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="ListView Column Header collection" />
+    <comClass clsid="{BDD1F052-858B-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="ListView Column Header" />
+    <comClass clsid="{BDD1F054-858B-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="ListView SubItem collection" />
+    <comClass clsid="{BDD1F056-858B-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="ListView SubItem object" />
+    <comClass clsid="{2C247F23-8591-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComctlLib.ImageListCtrl.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,invisibleatruntime,alignable,setclientsitefirst" description="Contains a collection of ListImage objects, each of which can be referred to by its index or key" />
+    <comClass clsid="{2C247F25-8591-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="A bitmap or icon of any size that can be used in other controls." />
+    <comClass clsid="{2C247F27-8591-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="A bitmap or icon of any size that can be used in other controls." />
+    <comClass clsid="{F08DF954-8592-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComctlLib.Slider.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="A calibrated control with a slider for setting or selecting values." />
+    <comClass clsid="{C8A3DC01-8593-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="Controls collection" />
+    <comClass clsid="{DD9DA661-8594-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="An object that represents an entry in the listbox portion of the combobox control." />
+    <comClass clsid="{DD9DA663-8594-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" description="The ComboItems Collection." />
+    <comClass clsid="{DD9DA666-8594-11D1-B16A-00C0F0283628}" tlbid="{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}" threadingModel="Apartment" progid="MSComctlLib.ImageComboCtl.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Microsoft ImageComboBox Control" />
+  </file>
+  <file name="VB Control Manager.ocx">
+    <typelib tlbid="{78228CC4-5F8A-4F70-A0FF-09FA0CD19485}" version="1.0" flags="control" helpdir="" />
+    <comClass clsid="{0233522C-F43B-4EB1-BC34-31F938847349}" tlbid="{78228CC4-5F8A-4F70-A0FF-09FA0CD19485}" progid="VBControlManager.clsControl" description="A class module to represent a &quot;virtual&quot; control" />
+    <comClass clsid="{943BBD86-3C56-459D-8E7D-C441DF922E7E}" tlbid="{78228CC4-5F8A-4F70-A0FF-09FA0CD19485}" progid="VBControlManager.clsControls" description="A class module to implement custom collection of class clsControl" />
+    <comClass clsid="{A8666469-CDEA-4A32-8209-AD9404585076}" tlbid="{78228CC4-5F8A-4F70-A0FF-09FA0CD19485}" progid="VBControlManager.clsSplitters" description="A class module to implement custom collection of class clsSplitter" />
+    <comClass clsid="{1B7202BC-201E-445C-AE83-5F677CF0A31F}" tlbid="{78228CC4-5F8A-4F70-A0FF-09FA0CD19485}" progid="VBControlManager.clsSplitter" description="A class module to represent a &quot;virtual&quot; splitter" />
+    <comClass clsid="{28D7C3CE-D85A-4893-A255-532E05D41662}" tlbid="{78228CC4-5F8A-4F70-A0FF-09FA0CD19485}" progid="VBControlManager.clsIds" description="A class module to implement collection of class clsId" />
+    <comClass clsid="{E5389CB0-BEDE-4B1D-B413-20D50C6989EF}" tlbid="{78228CC4-5F8A-4F70-A0FF-09FA0CD19485}" progid="VBControlManager.clsId" description="A class module to represent an Id" />
+    <comClass clsid="{5186005A-3D19-42EE-A370-83008CE4D82E}" tlbid="{78228CC4-5F8A-4F70-A0FF-09FA0CD19485}" progid="VBControlManager.ControlManager" description="An ActiveX control to allow the user to resize docked controls at run time" />
+    <comClass clsid="{F87802CB-15B0-4C52-BF92-24CCC1653312}" tlbid="{78228CC4-5F8A-4F70-A0FF-09FA0CD19485}" progid="VBControlManager.TitleBar" description="" />
+  </file>
+  <file name="msinet.ocx">
+    <typelib tlbid="{48E59290-9880-11CF-9754-00AA00C00908}" version="1.0" flags="control" helpdir="" />
+    <comClass clsid="{48E59293-9880-11CF-9754-00AA00C00908}" tlbid="{48E59290-9880-11CF-9754-00AA00C00908}" threadingModel="Apartment" progid="InetCtls.Inet.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,invisibleatruntime,setclientsitefirst" description="Microsoft Internet Transfer Control" />
+  </file>
+</assembly>  

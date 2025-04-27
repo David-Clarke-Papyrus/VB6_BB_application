@@ -1,0 +1,538 @@
+VERSION 5.00
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "todg6.ocx"
+Begin VB.Form frmQuickProductFind 
+   BackColor       =   &H00D3D3CB&
+   ClientHeight    =   4725
+   ClientLeft      =   60
+   ClientTop       =   60
+   ClientWidth     =   10530
+   ControlBox      =   0   'False
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   4725
+   ScaleWidth      =   10530
+   StartUpPosition =   1  'CenterOwner
+   Begin VB.CommandButton cmdFind 
+      BackColor       =   &H00DACDCD&
+      Caption         =   "Find"
+      Default         =   -1  'True
+      Height          =   360
+      Left            =   2865
+      Style           =   1  'Graphical
+      TabIndex        =   5
+      Top             =   180
+      Width           =   840
+   End
+   Begin VB.TextBox txtSearch 
+      Height          =   345
+      Left            =   150
+      TabIndex        =   0
+      Text            =   "txtSearch"
+      Top             =   180
+      Width           =   2490
+   End
+   Begin VB.CommandButton cmdCancel 
+      BackColor       =   &H00D3D3CB&
+      Cancel          =   -1  'True
+      Caption         =   "S&kip"
+      Height          =   555
+      Left            =   5565
+      Picture         =   "frmQuickProduct.frx":0000
+      Style           =   1  'Graphical
+      TabIndex        =   4
+      Top             =   3840
+      Width           =   855
+   End
+   Begin VB.CommandButton cmdClose 
+      BackColor       =   &H00D3D3CB&
+      Caption         =   "&Select"
+      Height          =   555
+      Left            =   6570
+      Picture         =   "frmQuickProduct.frx":038A
+      Style           =   1  'Graphical
+      TabIndex        =   2
+      Top             =   3840
+      Width           =   855
+   End
+   Begin TrueOleDBGrid60.TDBGrid GN 
+      Height          =   3165
+      Left            =   0
+      OleObjectBlob   =   "frmQuickProduct.frx":0714
+      TabIndex        =   1
+      Top             =   630
+      Width           =   10305
+   End
+   Begin VB.Label lblMsg1 
+      BackStyle       =   0  'Transparent
+      Caption         =   "This list shows a maximum of 500 matching items"
+      ForeColor       =   &H8000000D&
+      Height          =   300
+      Left            =   135
+      TabIndex        =   3
+      Top             =   3840
+      Width           =   4275
+   End
+End
+Attribute VB_Name = "frmQuickProductFind"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim rs As ADODB.Recordset
+Dim strArg As String
+Dim cmd As ADODB.Command
+Dim par As ADODB.Parameter
+Dim strSelectedEAN As String
+Dim strSelectedTitle As String
+Dim strSelectedPrice As String
+Dim XA As New XArrayDB
+Dim bCancel As Boolean
+
+Public Property Get Cancelled() As Boolean
+    Cancelled = bCancel
+End Property
+
+Public Function component(str As String) As Long
+    On Error GoTo errHandler
+    If IsISBN13(str) Or IsISBN10(str) Then
+        txtSearch = str
+        component = search
+    Else
+        If Left(str, 1) <> "/" Then str = "/" & str
+        txtSearch = str
+        component = search
+    End If
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmQuickProductFind.component(str)", str
+    Exit Function
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.component(str)", str
+End Function
+Private Function search() As Long
+10        On Error GoTo errHandler
+      Dim par As ADODB.Parameter
+      Dim OpenResult As Integer
+      Dim lngRecsFound As Long
+      '-------------------------------
+      '-------------------------------
+20        oPC.OpenLocalDatabase
+      '-------------------------------
+      '-------------------------------
+
+30        strArg = AdvancedSearch(txtSearch)
+40        Set cmd = New ADODB.Command
+50        cmd.CommandText = strArg
+60        cmd.CommandType = adCmdText
+
+70        cmd.ActiveConnection = oPC.DBLocalConn
+80        Set rs = New ADODB.Recordset
+90        rs.CursorLocation = adUseClient
+100       rs.Open cmd, , adOpenStatic
+110       If rs.RecordCount = 0 Then
+120           Set rs = rs.NextRecordset
+130       End If
+140       If rs Is Nothing Then
+150           search = 0
+160           Exit Function
+170       End If
+180       If rs.RecordCount = 0 Then
+190           Set rs = rs.NextRecordset
+200       End If
+210       lngRecsFound = rs.RecordCount
+220       search = lngRecsFound
+      '    If lngRecsFound = 1 Then
+      '        str = rs.Fields(0)
+      '    Else
+230           LoadGrid
+      '    End If
+
+      'errHandler:
+      '    If ErrMustStop Then Debug.Assert False: Resume
+      '    ErrorIn "frmQuickProductFind.search"
+240       Exit Function
+errHandler:
+        ErrPreserve
+        LogSaveToFile strArg
+250       If ErrMustStop Then Debug.Assert False: Resume
+260       ErrorIn "frmQuickProductFind.search", , , , , Array(Erl(), strArg)
+End Function
+
+Public Function componentold(str As String) As Integer
+    On Error GoTo errHandler
+Dim par As ADODB.Parameter
+Dim OpenResult As Integer
+Dim lngQtyFound As Long
+
+'-------------------------------
+'-------------------------------
+    oPC.OpenLocalDatabase
+'-------------------------------
+'-------------------------------
+    strArg = str
+    Set cmd = New ADODB.Command
+    cmd.CommandText = "sp_GetProductQuick"
+    cmd.CommandType = adCmdStoredProc
+    
+    Set par = cmd.CreateParameter("@Arg", adVarChar, adParamInput, 100)
+    cmd.Parameters.Append par
+    par.Value = strArg
+    Set par = cmd.CreateParameter("@QtyFound", adInteger, adParamOutput)
+    cmd.Parameters.Append par
+    par.Value = lngQtyFound
+    cmd.ActiveConnection = oPC.DBLocalConn
+    Set rs = New ADODB.Recordset
+    rs.CursorLocation = adUseClient
+    rs.Open cmd, , adOpenStatic
+    If rs.RecordCount = 0 Then
+        Set rs = rs.NextRecordset
+    End If
+    If rs.RecordCount = 0 Then
+        Set rs = rs.NextRecordset
+    End If
+    lngQtyFound = rs.RecordCount
+    componentold = lngQtyFound
+    If lngQtyFound = 1 Then
+        str = rs.Fields(0)
+    Else
+        LoadGrid
+    End If
+    
+    Exit Function
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.componentold(str)", str
+End Function
+
+Private Sub LoadGrid()
+10        On Error GoTo errHandler
+      Dim lngIndex As Long
+
+
+20        Set XA = New XArrayDB
+30        XA.Clear
+40        XA.ReDim 1, rs.RecordCount, 1, 9
+50        lngIndex = 1
+60        Do While Not rs.EOF
+70                XA.Value(lngIndex, 1) = FNS(rs.Fields(1))
+80                XA.Value(lngIndex, 2) = FNS(rs.Fields(5))
+90                XA.Value(lngIndex, 3) = FNS(rs.Fields(2))
+100               XA.Value(lngIndex, 4) = FNS(rs.Fields(3))
+110               XA.Value(lngIndex, 5) = FNS(rs.Fields(4))
+120               XA.Value(lngIndex, 8) = FNS(rs.Fields(0))
+130               lngIndex = lngIndex + 1
+140               rs.MoveNext
+150       Loop
+160       XA.QuickSort 1, lngIndex - 1, 1, XORDER_ASCEND, XTYPE_STRING, 4, XORDER_ASCEND, XTYPE_DATE, 3, XORDER_ASCEND, XTYPE_STRING
+170       GN.Array = XA
+180       GN.ReBind
+
+190       Exit Sub
+errHandler:
+200       If ErrMustStop Then Debug.Assert False: Resume
+210       ErrorIn "frmQuickProductFind.LoadGrid", , , , "Error line", Array(Erl())
+End Sub
+
+Private Sub cmdCancel_Click()
+    On Error GoTo errHandler
+    bCancel = True
+    Me.Hide
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.cmdCancel_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdClose_Click()
+    On Error GoTo errHandler
+    If Not XA Is Nothing Then
+        If XA.Count(1) > 0 Then
+            If XA.UpperBound(1) > 0 Then
+                strSelectedEAN = XA(GN.Bookmark, 8)
+                strSelectedTitle = XA(GN.Bookmark, 3)
+                strSelectedPrice = XA(GN.Bookmark, 2)
+            Else
+                strSelectedEAN = ""
+                strSelectedTitle = ""
+                strSelectedPrice = ""
+            End If
+        End If
+    End If
+    bCancel = False
+    
+    Me.Hide
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.cmdClose_Click", , EA_NORERAISE
+    HandleError
+End Sub
+Property Get EAN() As String
+    EAN = strSelectedEAN
+End Property
+Property Get Description() As String
+    Description = strSelectedTitle
+End Property
+Property Get Price() As String
+    Price = strSelectedPrice
+End Property
+Property Get PriceF() As String
+    PriceF = FormatCurrency(val(strSelectedPrice))
+End Property
+
+Public Function AdvancedSearch(pArg As String) As String
+    On Error GoTo errHandler
+Dim strTmp As String
+Dim strDS As String
+Dim EOCriteria As Boolean
+Dim i As Integer
+Dim strArg As String
+Dim arg1 As String
+Dim arg2 As String
+Dim arg3 As String
+Dim arg4 As String
+
+Dim ar() As String
+Dim iWordCount As Integer
+Dim EOFCriteria As Boolean
+Dim strTitleCrit As String
+Dim strPubCrit As String
+Dim strDISTCrit As String
+Dim strAuthorCrit As String
+Dim iStartTitle As Long
+Dim iStartAuthor As Long
+Dim iStartPub As Long
+Dim iStartDist As Long
+Dim lngRecsReturned As Long
+Dim strcriteria As String
+
+    If IsISBN13(pArg) Then
+        strcriteria = "P_EAN = '" & pArg & "'"
+    Else
+    If IsISBN10(pArg) Then
+            strcriteria = "P_Code = '" & pArg & "'"
+    Else
+        pArg = Replace(pArg, "////", "^")
+        pArg = Replace(pArg, "///", "#")
+        pArg = Replace(pArg, "//", "~")
+        pArg = Replace(pArg, "*", "%")
+        
+        pArg = Replace(pArg, "'''", "'")
+        pArg = Replace(pArg, "''", "'")
+        pArg = Replace(pArg, "'", "''")
+        
+        iStartTitle = InStr(1, pArg, "/")
+        iStartAuthor = InStr(1, pArg, "~")
+        iStartPub = InStr(1, pArg, "#")
+        iStartDist = InStr(1, pArg, "^")
+        
+        'Check for Title search
+        If iStartTitle > 0 Then
+            strTitleCrit = MID(pArg, iStartTitle + 1, IIf(NextPart(iStartTitle, iStartAuthor, iStartPub, iStartDist) > iStartTitle + 1, NextPart(iStartTitle, iStartAuthor, iStartPub, iStartDist) - iStartTitle - 1, 999))
+        End If
+        If iStartAuthor > 0 Then
+            strAuthorCrit = MID(pArg, iStartAuthor + 1, IIf(NextPart(iStartAuthor, iStartTitle, iStartPub, iStartDist) > iStartAuthor + 1, NextPart(iStartAuthor, iStartTitle, iStartPub, iStartDist) - iStartAuthor - 1, 999))
+        End If
+        If iStartPub > 0 Then
+            strPubCrit = MID(pArg, iStartPub + 1, IIf(NextPart(iStartPub, iStartAuthor, iStartTitle, iStartDist) > iStartPub + 1, NextPart(iStartPub, iStartAuthor, iStartTitle, iStartDist) - iStartPub - 1, 999))
+        End If
+    
+        strDS = ""
+        If strTitleCrit > "" Then strDS = "T"
+        If strAuthorCrit > "" Then strDS = strDS & "A"
+        If strPubCrit > "" Then strDS = strDS & "P"
+        If strDISTCrit > "" Then strDS = strDS & "D"
+            EOCriteria = False
+            i = 1
+            strcriteria = ""
+            Do While Not EOFCriteria
+                Select Case UCase(MID(strDS, i, 1))
+                    Case "T"
+                        ar = Split(FNS(strTitleCrit), "+")
+                        iWordCount = UBound(ar) + 1
+                        Select Case iWordCount
+                        Case 1
+                        '    strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_TITLE) > 0"
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_TITLE) > 0"
+                        Case 2
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_TITLE) > 0 AND Patindex('%" & ar(1) & "%',P_TITLE) > 0"
+                        Case 3
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_TITLE) > 0 AND Patindex('%" & ar(1) & "%',P_TITLE ) > 0 AND Patindex('%" & ar(2) & "%',P_TITLE) > 0"
+                        Case 4
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_TITLE ) > 0 AND Patindex('%" & ar(1) & "%',P_TITLE ) > 0 AND Patindex('%" & ar(2) & "%',P_TITLE)) > 0 AND Patindex('%" & ar(3) & "%',P_TITLE + ISNULL(P_Subtitle,'')) > 0"
+                        End Select
+                    Case "A"
+                        ar = Split(FNS(strAuthorCrit), "+")
+                        iWordCount = UBound(ar) + 1
+                        Select Case iWordCount
+                        Case 1
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_MAINAUTHOR) > 0"
+                        Case 2
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_MAINAUTHOR) > 0 AND Patindex('" & ar(1) & "%',P_MAINAUTHOR) > 0"
+                        Case 3
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_MAINAUTHOR) > 0 AND Patindex('" & ar(1) & "%',P_MAINAUTHOR) > 0 AND Patindex('" & ar(2) & "%',P_MAINAUTHOR) > 0"
+                        Case 4
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_MAINAUTHOR) > 0 AND Patindex('" & ar(1) & "%',P_MAINAUTHOR) > 0 AND Patindex('" & ar(2) & "%',P_MAINAUTHOR) > 0 AND Patindex('" & ar(3) & "%',P_MAINAUTHOR) > 0"
+                        End Select
+                    Case "P"
+                        ar = Split(FNS(strPubCrit), "+")
+                        iWordCount = UBound(ar) + 1
+                        Select Case iWordCount
+                        Case 1
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_PUBLISHER) > 0"
+                        Case 2
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_PUBLISHER) > 0 AND Patindex(' " & ar(1) & "%',P_PUBLISHER) > 0"
+                        Case 3
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_PUBLISHER) > 0 AND Patindex('" & ar(1) & "%',P_PUBLISHER) > 0 AND Patindex('" & ar(2) & "%',P_PUBLISHER) > 0"
+                        Case 4
+                            strcriteria = strcriteria & " AND  Patindex('" & ar(0) & "%',P_PUBLISHER) > 0 AND Patindex('" & ar(1) & "%',P_PUBLISHER) > 0 AND Patindex('" & ar(2) & "%',P_PUBLISHER) > 0 AND Patindex('" & ar(3) & "%',P_PUBLISHER) > 0"
+                        End Select
+                End Select
+                i = i + 1
+                If i > Len(strDS) Then EOFCriteria = True
+            Loop
+        End If
+    End If
+    If UCase(Left(strcriteria, 4)) = " AND" Then
+        strcriteria = Right(strcriteria, Len(strcriteria) - 4)
+    End If
+    If strcriteria > "" Then strcriteria = " WHERE " & strcriteria
+    AdvancedSearch = "SELECT top 500 P_EAN,dbo.CODEF(P_CODE,P_EAN,0) as CODEF,Left(P_TITLE,60) as TITLE,Left(P_MAINAUTHOR,40) as Author,P_Publisher as Publisher,Cast(dbo.CurrFormat(P_SAPrice) as VARCHAR(15)) FROM tPRODUCT " & strcriteria
+    Exit Function
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.AdvancedSearch(pArg)", pArg
+End Function
+Private Function NextPart(istart As Long, arg1 As Long, arg2 As Long, arg3 As Long) As Integer
+    On Error GoTo errHandler
+Dim a() As Long
+Dim i As Integer
+Dim m As Long
+    ReDim a(3)
+    
+    a(0) = arg1
+    a(1) = arg2
+    a(2) = arg3
+    
+    m = 9999
+    For i = 0 To 2
+        If a(i) > istart Then
+            If a(i) <> 0 Then
+                If m > a(i) Then
+                    m = a(i)
+                End If
+            End If
+        End If
+    Next
+    NextPart = m
+
+    Exit Function
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.NextPart(istart,arg1,arg2,arg3)", Array(istart, arg1, arg2, arg3)
+End Function
+
+'Private Function GetRS(strSQL As String) As ADODB.Recordset
+'Dim cmd As ADODB.Command
+'Dim par As ADODB.Parameter
+'Dim OpenResult As Integer
+''-------------------------------
+'    OpenResult = oPC.OpenDBSHort
+''-------------------------------
+'    Set cmd = New ADODB.Command
+'    cmd.CommandText = "strSQL"
+'    cmd.CommandType = adCmdText
+'
+'
+'    cmd.ActiveConnection = oPC.DBLocalConn
+'    Set rs = cmd.execute
+'
+'    Set cmd = Nothing
+'
+'    cmd.ActiveConnection = oPC.DBLocalConn
+'    Set rs = New ADODB.Recordset
+'    rs.CursorLocation = adUseClient
+'
+''---------------------------------------------------
+'    If OpenResult = 0 Then oPC.DisconnectDBShort
+''---------------------------------------------------
+'    Exit Function
+'
+'End Function
+
+Private Sub cmdFind_Click()
+    On Error GoTo errHandler
+    component txtSearch
+    search
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.cmdFind_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Form_Load()
+    On Error GoTo errHandler
+    SetGridLayout Me.GN, Me.Name
+    SetFormSize Me
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.Form_Load", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Form_Resize()
+    On Error GoTo errHandler
+Dim lngDiff As Long
+    GN.Width = NonNegative_Lng(Me.Width - 700)
+    If Me.Width > 5000 Then
+        cmdCancel.Left = NonNegative_Lng(Me.Width - 2500)
+        cmdClose.Left = NonNegative_Lng(Me.Width - 1500)
+    End If
+    lngDiff = GN.Height
+    GN.Height = NonNegative_Lng(Me.Height - 1400)
+    cmdCancel.TOP = Me.Height - 700
+    cmdClose.TOP = Me.Height - 700
+    
+    lblMsg1.TOP = Me.Height - 700
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.Form_Resize", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    On Error GoTo errHandler
+    SaveLayout Me.GN, Me.Name, Me.Height, Me.Width
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.Form_Unload(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub GN_DblClick()
+    On Error GoTo errHandler
+cmdClose_Click
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.GN_DblClick", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub txtSearch_GotFocus()
+    On Error GoTo errHandler
+    txtSearch.SelStart = Len(txtSearch)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmQuickProductFind.txtSearch_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub

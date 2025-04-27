@@ -1,0 +1,127 @@
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[TRANS_TEMPLATE_2005]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure [dbo].[TRANS_TEMPLATE_2005];
+GO
+
+CREATE procedure dbo.TRANS_TEMPLATE_2005	
+as
+
+begin
+
+ SET NOCOUNT ON
+
+
+  declare 	@$prog varchar(50),
+          	@$errno int,
+          	@$errmsg varchar(4000),
+          	@$proc_section_nm varchar(50),
+	@$row_cnt INT,
+	@$error_db_name varchar(50),
+	@$CreateUserName varchar(128) 	,	-- last user changed the data 
+          	@$CreateMachineName varchar(128) 	,	-- last machine changes-procedure were run from
+          	@$CreateSource varchar(128),			-- last process that made a changes
+	@$tran_flag int,				-- holds the level of nested transaction
+	@$tran_started_flag char(1)			-- flag allows to move start tarnsaction position
+     
+
+  select @$errno = NULL,
+         @$errmsg = NULL,
+         @$proc_section_nm = NULL,
+         @$prog = LEFT(object_name(@@procid),50),
+	 @$row_cnt = NULL,
+	 @$error_db_name = db_name(),
+	 @$tran_started_flag = 'N'
+
+-- Check to see if you're in parent procedure
+  set @$tran_flag = @@trancount;
+
+-- this statement can be moved and change the place of transaction started
+  if (@$tran_flag = 0 )
+	begin
+    		begin transaction procmain_tran; 
+		set @$tran_started_flag = 'Y';	
+	end
+
+-- User Declaration and initialization section
+--=========
+BEGIN TRY
+--=========
+
+-- User Source code
+
+
+
+-- commit if there is an open transaction and no errors
+IF (@$tran_started_flag = 'Y')
+	begin	
+      		   COMMIT TRANSACTION ;
+	end
+
+--========
+END TRY
+--========
+BEGIN CATCH
+--===========
+ set @$errmsg = Left('Error ' + 
+				CASE 
+					WHEN @$errno > 0 THEN CAST(@$errno as varchar)
+					ELSE Cast(ERROR_NUMBER() as varchar) 
+				END + ' in proc ' 
+				+ isnull(@$prog,' ') + ' ' + 
+				CASE 
+					WHEN @$errno > 0 THEN isnull(@$errmsg,' ') 
+					ELSE isnull(@$errmsg,' ') + ISNULL(ERROR_MESSAGE(),'')
+				END ,4000);
+
+  -- set the logical error if not set
+	IF (ISNULL(@$Errno,0) = 0 )
+  		set @$Errno =  ERROR_NUMBER();
+
+
+  raiserror (@$errmsg, 16, 1); 
+
+--======================================================
+-- rollback if there is an open transaction and error
+-- insert an error only if transaction has been rollback
+--======================================================
+  IF (@$tran_started_flag = 'Y')
+	begin
+		   ROLLBACK TRANSACTION;
+	end
+
+ IF (@$tran_flag = 0)
+	begin
+
+      EXEC dbo.ERROR_LOG_2005
+          	@ERROR_LOG_PROGRAM_NM  = @$prog,
+          	@ERROR_LOG_PROGRAM_SECTION_NM  = @$proc_section_nm,
+          	@ERROR_LOG_ERROR_NO  = @$errno,
+          	@ERROR_LOG_ERROR_DSC  = @$errmsg,
+	  	@ERROR_DB_NAME  = @$error_db_name
+
+	end
+
+--===========
+END CATCH
+--===========
+
+--*****************************************************************
+
+SET NOCOUNT OFF;  
+
+return @$errno;
+
+  
+
+end
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+

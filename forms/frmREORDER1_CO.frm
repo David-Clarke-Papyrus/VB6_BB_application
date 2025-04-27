@@ -1,0 +1,1579 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "TODG6.OCX"
+Begin VB.Form frmREORDER_CO 
+   BackColor       =   &H00D3D3CB&
+   Caption         =   "Reorder products for customer's orders"
+   ClientHeight    =   6255
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   11490
+   FillColor       =   &H00FFC0FF&
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   ScaleHeight     =   6255
+   ScaleWidth      =   11490
+   Begin TrueOleDBGrid60.TDBGrid TDBGrid1 
+      Height          =   45
+      Left            =   2460
+      OleObjectBlob   =   "frmREORDER1_CO.frx":0000
+      TabIndex        =   12
+      Top             =   3615
+      Width           =   30
+   End
+   Begin VB.CommandButton cmdExp 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Exp"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   4350
+      Picture         =   "frmREORDER1_CO.frx":281D
+      Style           =   1  'Graphical
+      TabIndex        =   11
+      Top             =   5235
+      Width           =   1000
+   End
+   Begin VB.CommandButton cmdReset 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Reset"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   6780
+      Style           =   1  'Graphical
+      TabIndex        =   10
+      Top             =   5235
+      Visible         =   0   'False
+      Width           =   1000
+   End
+   Begin VB.CommandButton cmdRecalc 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Prepare new reorder slate"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   105
+      Style           =   1  'Graphical
+      TabIndex        =   9
+      Top             =   5235
+      Width           =   1590
+   End
+   Begin VB.CommandButton cmdLoad 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Use existing reorder slate"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   1725
+      Style           =   1  'Graphical
+      TabIndex        =   8
+      Top             =   5235
+      Width           =   1590
+   End
+   Begin VB.CommandButton cmdCancel 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Close"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   5385
+      Picture         =   "frmREORDER1_CO.frx":2BA7
+      Style           =   1  'Graphical
+      TabIndex        =   7
+      TabStop         =   0   'False
+      Top             =   5235
+      Width           =   1000
+   End
+   Begin VB.CommandButton cmdPrint 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Print"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   3330
+      Picture         =   "frmREORDER1_CO.frx":2F31
+      Style           =   1  'Graphical
+      TabIndex        =   6
+      Top             =   5235
+      Width           =   1000
+   End
+   Begin VB.CommandButton cmdGenerate 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Generate orders"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   945
+      Left            =   9840
+      Picture         =   "frmREORDER1_CO.frx":32BB
+      Style           =   1  'Graphical
+      TabIndex        =   5
+      Top             =   5190
+      Width           =   1395
+   End
+   Begin VB.CheckBox chkSaveList 
+      Alignment       =   1  'Right Justify
+      BackColor       =   &H00D3D3CB&
+      Caption         =   "Save copy of list"
+      ForeColor       =   &H8000000D&
+      Height          =   285
+      Left            =   8250
+      TabIndex        =   4
+      Top             =   5925
+      Width           =   1500
+   End
+   Begin VB.ComboBox cboStaffMember 
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   345
+      Left            =   1530
+      TabIndex        =   2
+      Top             =   0
+      Width           =   2835
+   End
+   Begin MSComctlLib.ProgressBar PB1 
+      Height          =   285
+      Left            =   4260
+      TabIndex        =   1
+      Top             =   5910
+      Visible         =   0   'False
+      Width           =   3315
+      _ExtentX        =   5847
+      _ExtentY        =   503
+      _Version        =   393216
+      Appearance      =   1
+   End
+   Begin TrueOleDBGrid60.TDBGrid Grid1 
+      Height          =   2730
+      Left            =   75
+      OleObjectBlob   =   "frmREORDER1_CO.frx":3645
+      TabIndex        =   0
+      Top             =   420
+      Width           =   11205
+   End
+   Begin TrueOleDBGrid60.TDBGrid GS 
+      Height          =   1215
+      Left            =   75
+      OleObjectBlob   =   "frmREORDER1_CO.frx":D62F
+      TabIndex        =   13
+      Top             =   3225
+      Width           =   12840
+   End
+   Begin VB.Label lblStaffMember 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Staff member"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   270
+      Left            =   360
+      TabIndex        =   3
+      Top             =   45
+      Width           =   1200
+   End
+End
+Attribute VB_Name = "frmREORDER_CO"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim oRS As ADODB.Recordset
+'Dim cODPO As c_POLsOS
+Dim XA As XArrayDB
+Dim XB As XArrayDB
+Dim iRecs As Integer
+Dim lngArrayRows As Long
+Dim rs As ADODB.Recordset
+Dim lngBadRows As Long
+Dim strType As String
+Dim dteSince As Date
+Dim WithEvents oPOG As z_GenerateTRs
+Attribute oPOG.VB_VarHelpID = -1
+Dim bFilterPrint As Boolean
+Dim lngStaffID As Long
+Dim tlOperators As z_TextList
+Dim flgLoading As Boolean
+Dim OpenResult As Integer
+Dim bOH As Boolean
+Dim bOO As Boolean
+Dim bExclPartial As Boolean
+Dim bExclActioned As Boolean
+Dim mSupplierID As Long
+Dim strWSName As String
+Dim strSlateName As String
+Dim bShiftDown As Boolean
+Dim PrivateCnn As ADODB.Connection
+'for sales grid
+Dim XSALES_CY As New XArrayDB
+Dim XSALES_LY As New XArrayDB
+Dim XOOS_CY As New XArrayDB
+Dim XOOS_LY As New XArrayDB
+Dim xHeadings As New XArrayDB
+Dim i, j, k As Integer
+Dim oProd As a_Product
+Dim iCurrentWEEK As Integer
+Dim XP As New XArrayDB
+Dim X2 As New XArrayDB
+Private Sub LoadSales()
+    On Error GoTo errHandler
+Dim i As Integer
+    iCurrentWEEK = (Int(DateDiff("d", CDate("1/1/" & CStr(Year(Date))), Date) / 7)) + 1
+    WeeklySalesPerPID oProd.PID, XSALES_CY, XSALES_LY, XOOS_CY, XOOS_LY, oProd.QtyOnHand, xHeadings
+    Set XP = Nothing
+    Set XP = New XArrayDB
+    XP.ReDim 1, 2, 1, 54
+    XP(1, 1) = "Current year"
+    XP(2, 1) = "Last year"
+    For j = 2 To 54
+        XP(1, j) = XSALES_CY(1, j - 1)
+        XP(2, j) = XSALES_LY(1, j - 1)
+        If j > iCurrentWEEK + 2 Then XP(1, j) = "F"
+    Next
+    i = 1
+    For i = 1 To 53
+        GS.Columns(i).Caption = xHeadings(1, i)
+    Next
+    
+    Set GS.Array = XP
+    GS.ReBind
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmSalesCH.LoadSales"
+End Sub
+Private Sub Form_Activate()
+    On Error GoTo errHandler
+SetMenu
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Form_Activate"
+    HandleError
+End Sub
+
+Private Sub Grid1_KeyDown(KeyCode As Integer, Shift As Integer)
+    On Error GoTo errHandler
+    If Shift = 1 Then
+    '    bShiftDown = True
+        
+    End If
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_KeyDown(KeyCode,Shift)", Array(KeyCode, Shift), EA_NORERAISE
+    HandleError
+End Sub
+Private Sub Grid1_RowColChange(LastRow As Variant, ByVal LastCol As Integer)
+Dim str As String
+    If IsNull(Grid1.Bookmark) Then Exit Sub
+
+          Set oProd = New a_Product
+          str = XA.Value(Grid1.Bookmark, 21)
+          oProd.Load str, 0
+          LoadSales
+          
+End Sub
+Public Sub component(pType As String, Optional pSupplierID As Long)
+    On Error GoTo errHandler
+Dim lngLastStaffID As Long
+Dim cmd As ADODB.Command
+Dim prm As ADODB.Parameter
+Dim OpenResult As Integer
+
+    mSupplierID = pSupplierID
+    
+    flgLoading = True
+    strType = pType
+    If strType = "CUST" Then
+        Me.Caption = "Place purchase orders from customer requests"
+        lblStaffMember.Visible = False
+        cboStaffMember.Visible = False
+        If oPC.Configuration.ReorderPerCOL = True Then
+            lblStaffMember.Visible = True
+            cboStaffMember.Visible = True
+        End If
+    Else
+        If strType = "SALES" Then
+            lblStaffMember.Visible = False
+            cboStaffMember.Visible = False
+            Me.Caption = "Place purchase orders from sales and transfers-out"
+        Else
+            Me.cmdRecalc.Enabled = False
+            Me.cmdLoad.Enabled = False
+            Me.cmdReset.Enabled = False
+            lblStaffMember.Visible = False
+            cboStaffMember.Visible = False
+            Me.Caption = "Place purchase orders from Browsed products"
+            cmdRecalc_Click
+        End If
+    End If
+    If Not oPC.Configuration.ReorderPerCOL Then
+        Grid1.Splits(0).Columns(17).Visible = False
+        Grid1.Splits(0).Columns(18).Visible = False
+    End If
+            '--------------
+            If OpenResult = 0 Then oPC.DisconnectDBShort  'if the recent open command actually opened a connection then close it
+            '--------------
+    
+    flgLoading = False
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.Component(pType)", pType
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.component(pType,pSupplierID)", Array(pType, pSupplierID)
+End Sub
+Public Sub Component2(pDate As Date, pbOH As Boolean, pbOO As Boolean, Optional pSupplierID As Long)
+    On Error GoTo errHandler
+    dteSince = pDate
+    lblStaffMember.Visible = False
+    cboStaffMember.Visible = False
+    bOH = pbOH
+    bOO = pbOO
+    mSupplierID = pSupplierID
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.Component2(pDate)", pDate
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Component2(pDate,pbOH,pbOO,pSupplierID)", Array(pDate, pbOH, pbOO, _
+         pSupplierID)
+End Sub
+
+Private Sub LoadGrid(Optional rs As ADODB.Recordset)
+    On Error GoTo errHandler
+Dim objItm As ListItem
+Dim lngIndex As Long
+Dim tmp As String
+Dim lngAwaiting As Long
+Dim lngAllocation As Long
+Dim lngAvailableToAllocate As Long
+Dim dODPO As d_POLine
+Dim dteTMP As Date
+
+
+    If rs Is Nothing Then Exit Sub
+    If Not rs.eof Then
+        Do While Not rs.eof
+            lngArrayRows = lngArrayRows + 1
+            rs.MoveNext
+        Loop
+        rs.MoveFirst
+    End If
+
+    lngBadRows = 0
+    Set XA = New XArrayDB
+    XA.Clear
+    XA.ReDim 1, lngArrayRows, 1, 30
+    lngIndex = 1
+    Do While Not rs.eof
+           ' rs.Fields("PRCODE") = "978 test 33 test tes" ' "A" & FNS(rs.Fields("PRCODE")) & "Z"
+            XA.Value(lngIndex, 1) = FNS(rs.Fields("PRCODE"))
+            XA.Value(lngIndex, 2) = FNS(rs.Fields("DESCRIP"))
+         '   If XA.Value(lngIndex, 2) Like "Applied*" Then MsgBox "here"
+            XA.Value(lngIndex, 3) = Format(FNN(rs.Fields("PRICE")) / oPC.Configuration.DefaultCurrency.Divisor, oPC.Configuration.DefaultCurrency.FormatString)
+            XA.Value(lngIndex, 4) = FNN(rs.Fields("ONHAND"))
+            XA.Value(lngIndex, 5) = FNS(rs.Fields("QTYCO"))
+            XA.Value(lngIndex, 6) = FNN(rs.Fields("QTYPO")) & IIf(FNN(rs.Fields("QTYPOUnissued")) > 0, "(" & FNN(rs.Fields("QTYPOUnissued")) & ")", "")
+            XA.Value(lngIndex, 7) = FNN(rs.Fields("QTYAPP"))
+            
+            
+            XA.Value(lngIndex, 8) = FNS(rs.Fields("LASTSIXWEEKS"))
+            XA.Value(lngIndex, 9) = FNS(rs.Fields("LASTSIXMONTHS"))
+            XA.Value(lngIndex, 10) = FNN(rs.Fields("TOTALSOLD"))
+            XA.Value(lngIndex, 11) = FNN(rs.Fields("QtyFirm"))
+            XA.Value(lngIndex, 12) = FNN(rs.Fields("QtySS"))
+            dteTMP = FND(rs.Fields("LASTORDEREDDATE"))
+            XA.Value(lngIndex, 13) = IIf(dteTMP > CDate(0), Format(dteTMP, "dd/mm/yyyy"), "")
+            dteTMP = FND(rs.Fields("LASTRECEIVEDDATE"))
+            XA.Value(lngIndex, 14) = IIf(dteTMP > CDate(0), Format(dteTMP, "dd/mm/yyyy"), "")
+            
+            If oPC.GetProperty("ShowCategoryOrPTInReorderSlate") = "CAT" Then
+                XA.Value(lngIndex, 15) = FNS(rs.Fields("Category"))
+            Else
+                XA.Value(lngIndex, 15) = FNS(rs.Fields("PT"))
+            End If
+            
+            XA.Value(lngIndex, 16) = FNS(rs.Fields("PUBLISHER"))
+            XA.Value(lngIndex, 17) = FNS(rs.Fields("LASTSUPPLIERNAME"))
+            XA.Value(lngIndex, 18) = FNS(rs.Fields("LASTDEALNAME"))
+            XA.Value(lngIndex, 29) = FNS(rs.Fields("ForeignPrice"))
+          '  XA.Value(lngIndex, 18) = FNS(rs.Fields("LASTDEALNAME"))
+            If strType = "CUST" Then
+                If oPC.Configuration.ReorderPerCOL Then
+                    XA.Value(lngIndex, 19) = FNS(rs.Fields("CODate"))
+                End If
+                XA.Value(lngIndex, 20) = FNS(rs.Fields("Ref"))
+            Else
+            End If
+            XA.Value(lngIndex, 21) = FNS(rs.Fields("PID"))
+            XA.Value(lngIndex, 22) = FNN(rs.Fields("LASTSUPPLIERID"))
+            XA.Value(lngIndex, 23) = FNN(rs.Fields("LASTDEALID"))
+            XA.Value(lngIndex, 26) = FNS(rs.Fields("COLID"))
+            XA.Value(lngIndex, 27) = FNS(rs.Fields("PRICE"))
+            XA.Value(lngIndex, 24) = rs.Bookmark
+            If oPC.AllowsZeroDiscountPOs = False Then
+                If (((XA.Value(lngIndex, 11) > 0) Or (XA.Value(lngIndex, 12) > 0)) And ((XA.Value(lngIndex, 23) = 0) Or (XA.Value(lngIndex, 22) = 0))) Then
+                    XA.Value(lngIndex, 25) = "X"
+                    lngBadRows = lngBadRows + 1
+                End If
+            Else  ' only check the distributor
+                If (((XA.Value(lngIndex, 11) > 0) Or (XA.Value(lngIndex, 12) > 0)) And ((XA.Value(lngIndex, 22) = 0))) Then
+                    XA.Value(lngIndex, 25) = "X"
+                    lngBadRows = lngBadRows + 1
+                End If
+            End If
+            XA.Value(lngIndex, 28) = FNS(rs.Fields("TITLEFORSORT"))
+            lngIndex = lngIndex + 1
+            rs.MoveNext
+    Loop
+    XA.QuickSort 1, lngArrayRows, 28, XORDER_ASCEND, XTYPE_STRING  ', 4, XORDER_ASCEND, XTYPE_DATE
+    Grid1.Array = XA
+    Grid1.ReBind
+    cmdGenerate.Enabled = (lngBadRows = 0)
+    If Not rs.eof Then rs.MoveFirst
+    mSetfocus Grid1
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.LoadGrid(rs)", rs
+End Sub
+
+
+
+Private Sub cboStaffMember_Change()
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    If Left(Me.cboStaffMember, 1) <> "<" Then
+        lngStaffID = oPC.Configuration.Staff.FindStaffByName(cboStaffMember).ID
+    Else
+        lngStaffID = 0
+    End If
+    LoadGrid
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cboStaffMember_Change", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cboStaffMember_Click()
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    If Left(Me.cboStaffMember, 1) <> "<" Then
+        lngStaffID = oPC.Configuration.Staff.FindStaffByName(cboStaffMember).ID
+    Else
+        lngStaffID = 0
+    End If
+    LoadGrid
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cboStaffMember_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cboStaffMember_LostFocus()
+    On Error GoTo errHandler
+    If Left(Me.cboStaffMember, 1) <> "<" Then
+        lngStaffID = oPC.Configuration.Staff.FindStaffByName(cboStaffMember).ID
+    Else
+        lngStaffID = 0
+    End If
+    SaveSetting "PBKS", "USERS", "REORDER", CStr(lngStaffID)
+    LoadGrid
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cboStaffMember_LostFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cboStaffMember_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If Left(Me.cboStaffMember, 1) <> "<" Then
+        lngStaffID = oPC.Configuration.Staff.FindStaffByName(cboStaffMember).ID
+    Else
+        lngStaffID = 0
+    End If
+    SaveSetting "PBKS", "USERS", "REORDER", CStr(lngStaffID)
+    LoadGrid
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cboStaffMember_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdCancel_Click()
+    On Error GoTo errHandler
+    If MsgBox("You want to close this form. Your changes are saved and will be available when next you open it and choose 'Use existing order slate'", vbYesNo + vbQuestion, "Confirm") = vbNo Then
+        Exit Sub
+    End If
+    Unload Me
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.cmdCancel_Click", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cmdCancel_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdExp_Click()
+    On Error GoTo errHandler
+Dim fs As New Scripting.FileSystemObject
+Dim sFile As String
+Dim strExecutable As String
+    
+    Screen.MousePointer = vbHourglass
+    
+    If Not fs.FolderExists(oPC.SharedFolderRoot & "\TEMP") Then
+        fs.CreateFolder oPC.SharedFolderRoot & "\TEMP"
+    End If
+    sFile = oPC.SharedFolderRoot & "\TEMP\Reorderslate" & Format(Now(), "DDMMYYHHNN") & ".HTML"
+    If fs.FileExists(sFile) Then
+        fs.DeleteFile sFile, True
+    End If
+    Me.Grid1.ExportToFile sFile, False
+    
+    Screen.MousePointer = vbDefault
+    If MsgBox("Spreadsheet file saved in: " & sFile & vbCrLf & "Do you want to open it?", vbQuestion + vbYesNo, "Export complete") = vbYes Then
+        strExecutable = GetPDFExecutable(oPC.SharedFolderRoot & "\TEMPLATES\DUMMY.XLS")
+    If strExecutable = "" Then
+        MsgBox "There is no application set on this computer to open the file: " & sFile & ". The document cannot be displayed", vbOKOnly, "Can't do this"
+    Else
+        Shell strExecutable & " " & sFile, vbNormalFocus
+    End If
+    End If
+    
+    
+'Dim xls As New ActiveReportsExcelExport.ARExportExcel
+'Dim sb As New ActiveReportsExcelExport.SpreadBuilder
+'
+'Dim ar As arReorderSlate_ForExcel
+'Dim arS As arReorderSlateSummary_ForExcel
+'Dim frm As frmPrintReordersheet
+'Dim sFile As String
+'Dim fs As New FileSystemObject
+'
+'    Grid1.Update
+'    Set frm = New frmPrintReordersheet
+'    frm.component "Export to spreadsheet", "Export"
+'    frm.Show vbModal
+'    If rs.eof And rs.BOF Then
+'        Unload frm
+'        Exit Sub
+'    End If
+'    Screen.MousePointer = vbHourglass
+'    rs.Sort = frm.Sequence
+'    rs.MoveFirst
+'    sFile = oPC.LocalFolder & "\TEMP\ReorderfromSales.XLS"
+'    If fs.FileExists(sFile) Then
+'        On Error Resume Next
+'        fs.DeleteFile sFile, True
+'        If Err Then
+'            MsgBox "Cannot delete file before recreating it. Close it and retry.", vbInformation + vbOKOnly, "Can't do this"
+'            Screen.MousePointer = vbDefault
+'            Exit Sub
+'        End If
+'
+'    End If
+'    xls.FileName = sFile
+'    xls.MinColumnWidth = 1000
+'
+'    If frm.chkSummary = 0 Then
+'        Set ar = New arReorderSlate_ForExcel
+'        ar.component rs, frm.OrderedOnly
+'        ar.Printer.Orientation = ddOLandscape
+'        ar.Run False
+'      '  sb.Sheets(0).Cell(1, 1).Value
+'
+'        If ar.Pages.Count > 0 Then
+'            xls.Export ar.Pages
+'        End If
+'    Else
+'        Set arS = New arReorderSlateSummary_ForExcel
+'        arS.component rs, frm.OrderedOnly
+'        arS.Printer.Orientation = ddOLandscape
+'        arS.Run False
+'        If arS.Pages.Count > 0 Then
+'            xls.Export arS.Pages
+'        End If
+'    End If
+'    Screen.MousePointer = vbDefault
+'    MsgBox "Spreadsheet file saved in: " & sFile, vbInformation, "Export complete"
+'    Unload frm
+'
+    
+    
+    
+    
+    
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cmdExp_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Function getRecordset() As ADODB.Recordset
+    On Error GoTo errHandler
+    Screen.MousePointer = vbHourglass
+    Set rs = New ADODB.Recordset
+    rs.LockType = adLockOptimistic
+    lngArrayRows = 0
+    rs.CursorLocation = adUseClient
+
+    If strType = "CUST" Then
+        If oPC.Configuration.ReorderPerCOL Then
+            rs.Open "SELECT * FROM dbo.tREORDERCUSTByCOL WHERE ISNULL(STATUS,'') <> 'X' AND CASE WHEN " & lngStaffID & " = 0 THEN " & lngStaffID & " ELSE STAFFID END = " & lngStaffID & " AND WSNAME = '" & strWSName & "'", PrivateCnn, adOpenKeyset, adLockOptimistic
+        Else
+            rs.Open "SELECT * FROM dbo.tREORDERGENERAL WHERE ISNULL(STATUS,'') <> 'X'" & " AND WSNAME = '" & strWSName & "' AND SLATENAME = '" & strSlateName & "' AND STATUS = 'C'", PrivateCnn, adOpenKeyset, adLockOptimistic
+        End If
+    Else
+        rs.Open "SELECT * FROM dbo.tREORDERGENERAL WHERE ISNULL(STATUS,'') <> 'X'" & " AND WSNAME = '" & strWSName & "' AND SLATENAME = '" & strSlateName & "'", PrivateCnn, adOpenKeyset, adLockOptimistic
+    End If
+    Set getRecordset = rs
+    
+    Screen.MousePointer = vbDefault
+
+    Exit Function
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.getRecordset"
+End Function
+Private Sub cmdLoad_Click()
+    On Error GoTo errHandler
+Dim frm As New frmSlateManagement
+
+    frm.component strType
+    frm.Show vbModal
+    strWSName = frm.WSName
+    strSlateName = frm.Slatename
+    If frm.Deleted Then
+        If Not XA Is Nothing Then
+            XA.Clear
+            XA.ReDim 0, 0, 1, 28
+        End If
+        Grid1.Refresh
+    Else
+        If frm.Reload = True Then
+            LoadGrid getRecordset
+        End If
+    End If
+  
+    Unload frm
+   
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cmdLoad_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdGenerate_Click()
+    On Error GoTo errHandler
+Dim i As Long
+
+   ' Err.Raise 132323, "TEST"
+    Grid1.Update
+    gSTAFFID = 0
+'    If oPC.Configuration.Signtransactions = True Then
+'        If SecurityControl(enSECURITY_PO_SIGN, , "Close this form and generate purchase orders?", DOCAPPROVAL) = False Then
+'               Exit Sub
+'        End If
+'    Else
+        If MsgBox("You want to close this form and generate the purchase orders.", vbYesNo + vbQuestion, "Confirm") = vbNo Then
+            Exit Sub
+        End If
+
+    Screen.MousePointer = vbHourglass
+    If Me.chkSaveList = 1 Then
+        Grid1.ExportToFile oPC.SharedFolderRoot & "\BU\ReorderSlate" & Format(Now(), "yyyymmddHHNN") & ".HTML", False
+    End If
+    PrivateCnn.execute "EXEC DropTableIfExists tCREATEPOS_TEMP,''"
+    PrivateCnn.execute "CREATE TABLE tCREATEPOs_TEMP (PID CHAR(40),CODE CHAR(20),COLID INTEGER,REF CHAR(25),TPID INTEGER,DLID INTEGER,QTYFIRM INTEGER,QTYSS INTEGER,PRICE INTEGER,FOREIGNPRICE INTEGER)"
+    For i = 1 To lngArrayRows
+        If i > XA.UpperBound(1) Then Exit For
+        If XA.Value(i, 11) > 0 Or XA.Value(i, 12) > 0 Then
+            PrivateCnn.execute "INSERT INTO tCREATEPOS_TEMP (PID,CODE,COLID,REF,TPID,DLID,QTYFIRM,QTYSS,PRICE,ForeignPrice) VALUES ('" & XA.Value(i, 21) & "','" & XA.Value(i, 1) & "'," & XA.Value(i, 26) & ",'" & Replace(Left(FNS(XA.Value(i, 20)), 25), "'", "''") & "'," & XA.Value(i, 22) & "," & XA.Value(i, 23) & "," & XA.Value(i, 11) & "," & XA.Value(i, 12) & "," & XA.Value(i, 27) & "," & IIf(XA.Value(i, 29) = "", 0, XA.Value(i, 29)) & ")"
+        End If
+    Next i
+    PB1.Visible = True
+    Set oPOG = New z_GenerateTRs
+    oPOG.GeneratePOs gSTAFFID, strType
+    PB1.Visible = False
+    Set oPOG = Nothing
+   ' Set rs = Nothing
+    If strType = "CUST" Then
+        If oPC.Configuration.ReorderPerCOL Then
+            PrivateCnn.execute "DELETE FROM tREORDERCUSTByCOL WHERE STAFFID = " & lngStaffID & " AND WSNAME = '" & strWSName & "'"
+        Else
+            PrivateCnn.execute "DELETE FROM tREORDERGENERAL WHERE WSNAME = '" & strWSName & "' and SLATENAME = '" & strSlateName & "'"
+        End If
+    Else
+        PrivateCnn.execute "DELETE FROM tREORDERGENERAL WHERE WSNAME = '" & strWSName & "' and SLATENAME = '" & strSlateName & "'"
+    End If
+    PB1.Visible = False
+    Screen.MousePointer = vbDefault
+    MsgBox "Generation of orders complete.", , "Status"
+    Unload Me
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cmdGenerate_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+
+Private Sub Form_Resize()
+    On Error GoTo errHandler
+Dim lngDiff As Long
+    Grid1.Width = NonNegative_Lng(Me.Width - (Grid1.Left + 400))
+    lngDiff = Grid1.Height
+    Grid1.Height = NonNegative_Lng(Me.Height - (Grid1.TOP + 2660))
+  '  lngDiff = (Grid1.Height - lngDiff)
+    GS.TOP = Grid1.TOP + Grid1.Height + 40
+    GS.Width = Grid1.Width
+    cmdRecalc.TOP = GS.TOP + GS.Height + 40
+    cmdLoad.TOP = GS.TOP + GS.Height + 40
+    cmdPrint.TOP = GS.TOP + GS.Height + 40
+    cmdExp.TOP = GS.TOP + GS.Height + 40
+    cmdCancel.TOP = GS.TOP + GS.Height + 40
+    cmdReset.TOP = GS.TOP + GS.Height + 40
+    chkSaveList.TOP = GS.TOP + GS.Height + 40
+    cmdGenerate.TOP = GS.TOP + GS.Height + 40
+    PB1.TOP = GS.TOP + GS.Height + 40
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Form_Resize", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Grid1_HeadClick(ByVal ColIndex As Integer)
+    On Error GoTo errHandler
+Static Direction As Variant
+If XA Is Nothing Then Exit Sub
+  '  If ColIndex > 1 Then Exit Sub
+    If Direction = 0 Then
+        Direction = 1
+    Else
+        Direction = 0
+    End If
+        XA.QuickSort XA.LowerBound(1), XA.UpperBound(1), ColIndex + 1, Direction, XTYPE_STRING ', 5, XORDER_DESCEND, XTYPE_STRING 'XTYPE_INTEGER
+    
+    Grid1.Refresh
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_HeadClick(ColIndex)", ColIndex, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub oPOG_Progress(pCount As Long)
+    On Error GoTo errHandler
+    PB1.Value = pCount
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.oPOG_Progress(pCount)", pCount, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.oPOG_Progress(pCount)", pCount, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub oPOG_PBMax(pMax As Long)
+    On Error GoTo errHandler
+    PB1.Min = 0
+    PB1.Max = pMax
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.oPOG_PBMax(pMax)", pMax, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.oPOG_PBMax(pMax)", pMax, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub cmdPrint_Click()
+    On Error GoTo errHandler
+Dim ar As arReorderSlate
+Dim arS As arReorderSlateSummary
+Dim frm As frmPrintReordersheet
+
+    Grid1.Update
+    Set frm = New frmPrintReordersheet
+    frm.Show vbModal
+    If rs.eof And rs.BOF Then
+        Unload frm
+        Exit Sub
+    End If
+    rs.Sort = frm.Sequence
+    rs.MoveFirst
+    If frm.chkSummary = 0 Then
+        Set ar = New arReorderSlate
+        ar.component rs, frm.OrderedOnly
+        ar.Printer.Orientation = ddOLandscape
+        ar.Show vbModal
+    Else
+        Set arS = New arReorderSlateSummary
+        arS.component rs, frm.OrderedOnly
+        arS.Printer.Orientation = ddOPortrait
+        arS.Show vbModal
+    End If
+    Unload frm
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.cmdPrint_Click", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cmdPrint_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub Grid1_Click()
+    On Error GoTo errHandler
+    If IsNull(Grid1.Bookmark) Then Exit Sub
+    On Error Resume Next
+    Clipboard.Clear
+    Clipboard.SetText Left(FNS(XA(Grid1.Bookmark, 1)), ISBNLENGTH)
+'errHandler:
+'    ErrPreserve
+'    If err = 521 Then
+'        err.Clear
+'        Exit Sub
+'    End If
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.Grid1_Click", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Grid1_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
+    On Error GoTo errHandler
+   If Button = 2 Then   ' Check if right mouse button
+                        ' was clicked.
+      
+      PopupMenu Forms(0).mnuReorder   ' Display the File menu as a
+                        ' pop-up menu.
+   End If
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.Grid1_MouseDown(Button,Shift,X,Y)", Array(Button, Shift, x, Y), _
+'         EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_MouseDown(Button,Shift,x,Y)", Array(Button, Shift, x, Y), _
+         EA_NORERAISE
+    HandleError
+End Sub
+Public Sub RemoveFromList()
+    On Error GoTo errHandler
+Dim lngCOLID As Long
+Dim oSM As New z_StockManager
+Dim strPID As String
+    If MsgBox("Remove this title from the reorder list?", vbQuestion + vbOKCancel, "Confirm") = vbCancel Then
+        Exit Sub
+    End If
+    Screen.MousePointer = vbHourglass
+    lngCOLID = XA.Value(Grid1.Bookmark, 26)
+    strPID = XA.Value(Grid1.Bookmark, 21)
+    If strType = "CUST" Then
+        If oPC.Configuration.ReorderPerCOL Then
+            PrivateCnn.execute "UPDATE tREORDERCustByCOL SET Status = 'X' WHERE PID = '" & strPID & "'"
+        Else
+            PrivateCnn.execute "UPDATE tREORDERGeneral SET Status = 'X' WHERE PID = '" & strPID & "'"
+        End If
+        oSM.MarkCOLsActionedForProduct strPID
+    Else
+        PrivateCnn.execute "UPDATE tREORDERGeneral SET Status = 'X' WHERE PID = '" & strPID & "'"
+      '  oSM.MarkProductObsolete strPID
+    End If
+    
+    LoadGrid getRecordset
+    Screen.MousePointer = vbDefault
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.RemoveFromList"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.RemoveFromList"
+End Sub
+Private Sub cmdRecalc_Click()
+    On Error GoTo errHandler
+Dim errLoop As ADODB.Error
+Dim cmd As ADODB.Command
+Dim prm As ADODB.Parameter
+Dim frm As frmSalesSince
+Dim frm2 As frmCustomerReorderConfig
+Dim OpenResult As Integer
+    If strType = "SALES" Or strType = "CUST" Then
+        If MsgBox("Prepare a new reorder slate, continue?", vbQuestion + vbOKCancel, "Confirm") = vbCancel Then
+            Exit Sub
+        End If
+    End If
+    If strType = "SALES" Then
+        Set frm = New frmSalesSince
+        frm.component Me, strType
+        frm.Show vbModal
+        If frm.Cancelled Then
+            Unload frm
+            Exit Sub
+        End If
+        mSupplierID = frm.SupplierID
+        bOO = frm.OOFilter
+        bOH = frm.OHFilter
+        strSlateName = frm.Slatename
+        strWSName = oPC.NameOfPC
+        Unload frm
+    Else
+        If strType = "CUST" Then
+            Set frm2 = New frmCustomerReorderConfig
+            frm2.component Me, strType
+            frm2.Show vbModal
+            If frm2.Cancelled Then
+                Unload frm2
+                Exit Sub
+            End If
+            mSupplierID = frm2.SupplierID
+            bOO = frm2.OOFilter
+            bOH = frm2.OHFilter
+            bExclActioned = frm2.ExclActioned
+            strSlateName = frm2.Slatename
+            strWSName = oPC.NameOfPC
+            Unload frm2
+        Else
+            bExclActioned = False
+            strSlateName = "Browsed"
+            strWSName = oPC.NameOfPC
+        End If
+    End If
+    Screen.MousePointer = vbHourglass
+    DeleteSlate strSlateName
+    
+    '--------------
+    OpenResult = oPC.OpenDBSHort
+    '--------------
+    Set cmd = New ADODB.Command
+    cmd.commandType = adCmdStoredProc
+    cmd.ActiveConnection = PrivateCnn
+    cmd.CommandTimeout = 0
+    Set prm = cmd.CreateParameter("@SlateName", adVarChar, adParamInput, 50, strSlateName)
+    cmd.Parameters.Append prm
+    Set prm = cmd.CreateParameter("@WSNAME", adVarChar, adParamInput, 50, strWSName)
+    cmd.Parameters.Append prm
+    
+    If strType = "CUST" Then
+        If oPC.Configuration.ReorderPerCOL Then
+            If oPC.GetProperty("ExcludeActionedFromReorder") = "TRUE" Then bExclActioned = True
+            cmd.CommandText = "[ReorderCust_ByCOL]"
+            Set prm = cmd.CreateParameter("@StaffID", adInteger, adParamInput, , lngStaffID)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@SUPPLIERID", adInteger, adParamInput, , mSupplierID)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@ExclActioned", adBoolean, adParamInput, , bExclActioned)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@FILTER_OO", adBoolean, adParamInput, , bOO)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@FILTER_OH", adBoolean, adParamInput, , bOH)
+            cmd.Parameters.Append prm
+        Else
+            If oPC.GetProperty("ExcludeActionedFromReorder") = "TRUE" Then bExclActioned = True
+            cmd.CommandText = "REORDERCUST"
+            Set prm = cmd.CreateParameter("@pDate", adDate, adParamInput, , dteSince)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@SUPPLIERID", adInteger, adParamInput, , mSupplierID)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@ExclActioned", adBoolean, adParamInput, , bExclActioned)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@FILTER_OO", adBoolean, adParamInput, , bOO)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@FILTER_OH", adBoolean, adParamInput, , bOH)
+            cmd.Parameters.Append prm
+        End If
+    Else
+        If strType = "SALES" Then
+            cmd.CommandText = "REORDERSALES"
+            Set prm = cmd.CreateParameter("@pDate", adDate, adParamInput, , dteSince)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@FILTER_OO", adBoolean, adParamInput, , bOO)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@FILTER_OH", adBoolean, adParamInput, , bOH)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@SUPPLIERID", adInteger, adParamInput, , mSupplierID)
+            cmd.Parameters.Append prm
+        Else
+            Set cmd = New ADODB.Command
+            cmd.commandType = adCmdStoredProc
+            cmd.ActiveConnection = PrivateCnn
+            cmd.CommandTimeout = 0
+            Set prm = cmd.CreateParameter("@SlateName", adVarChar, adParamInput, 50, strSlateName)
+            cmd.Parameters.Append prm
+            Set prm = cmd.CreateParameter("@WSNAME", adVarChar, adParamInput, 50, strWSName)
+            cmd.Parameters.Append prm
+            cmd.CommandText = "REORDERBROWSED"
+            cmd.execute
+        End If
+    End If
+    
+    
+    cmd.execute
+    '--------------
+    If OpenResult = 0 Then oPC.DisconnectDBShort  'if the recent open command actually opened a connection then close it
+    '--------------
+    
+    LoadGrid getRecordset
+    Screen.MousePointer = vbDefault
+    
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cmdRecalc_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdReset_Click()
+    On Error GoTo errHandler
+Dim i As Long
+    If MsgBox("You want to reset all the firm and seesafe quantities to zero?", vbYesNo + vbQuestion, "Confirm") = vbNo Then
+        Exit Sub
+    End If
+    For i = 1 To XA.UpperBound(1)
+        XA.Value(i, 11) = 0
+        XA.Value(i, 12) = 0
+    Next
+    Grid1.Refresh
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.cmdReset_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Public Sub SetDeal()
+    On Error GoTo errHandler
+Dim lngTPID As Long
+Dim frm As frmBrowseSUppliers2
+Dim frm2 As frmSUPPDEAL
+Dim oSupp As a_Supplier
+Dim oDeal As a_Deal
+Dim i As Integer
+
+    If IsNull(Grid1.Bookmark) Then Exit Sub
+    If (FNN(XA.Value(Grid1.Bookmark, 22) <> 0) And FNN(XA.Value(Grid1.Bookmark, 23) <> 0)) Then
+        If MsgBox("You are wanting to change the supplier or deal where they are already noted?", vbQuestion + vbYesNo, "Confirm") = vbNo Then
+            Exit Sub
+        End If
+    End If
+
+    Set frm = New frmBrowseSUppliers2
+    frm.Show vbModal
+    lngTPID = frm.SupplierID
+    If lngTPID = 0 Then
+        Exit Sub
+    Else
+        Set frm2 = New frmSUPPDEAL
+        Set oSupp = New a_Supplier
+        oSupp.Load frm.SupplierID
+        frm2.component oSupp
+        frm2.Show vbModal
+    End If
+    Set oDeal = frm2.SelectedDeal
+    Unload frm
+    Unload frm2
+    If oDeal Is Nothing And oPC.AllowsZeroDiscountPOs = False Then
+        MsgBox "There is no deal selected for this supplier. You must select a deal before an order can be generated for this product", vbOKOnly + vbInformation, "Warning"
+        Exit Sub
+    End If
+    For i = 1 To Grid1.SelBookmarks.Count
+        XA.Value(Grid1.SelBookmarks(i - 1), 22) = oSupp.ID
+        XA.Value(Grid1.SelBookmarks(i - 1), 17) = oSupp.NameAndCode(25)
+        
+        If Not oDeal Is Nothing Then
+            XA.Value(Grid1.SelBookmarks(i - 1), 23) = oDeal.ID
+            XA.Value(Grid1.SelBookmarks(i - 1), 18) = oDeal.Description & " (" & oDeal.DiscountF & ")"
+        End If
+        rs.Bookmark = XA.Value(Grid1.SelBookmarks(i - 1), 24)
+        rs.Fields("LASTSUPPLIERID") = oSupp.ID
+        rs.Fields("LASTSUPPLIERNAME") = oSupp.NameAndCode(35)
+        If Not oDeal Is Nothing Then
+            rs.Fields("LASTDEALID") = oDeal.ID
+            rs.Fields("LASTDEALNAME") = Left(oDeal.Description, 26) & " (" & oDeal.DiscountF & ")"
+        End If
+        rs.Update
+        Grid1.Refresh
+        ValidateRow (XA.Value(Grid1.SelBookmarks(i - 1), 25) <> "X")
+    Next i
+        Set oSupp = Nothing
+        Set oDeal = Nothing
+    
+    cmdGenerate.Enabled = (lngBadRows = 0)
+    mSetfocus Grid1
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.SetDeal"
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    On Error GoTo errHandler
+    Set rs = Nothing
+'---------------------------------------------------
+    If PrivateCnn Is Nothing Then Exit Sub
+    oPC.CloseSUppliedConnection PrivateCnn
+    Set PrivateCnn = Nothing
+'---------------------------------------------------
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.Form_Unload(Cancel)", Cancel, EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Form_Unload(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Grid1_DblClick()
+    On Error GoTo errHandler
+Dim strPID As String
+Dim frm As frmProductPrev
+Dim oProd As a_Product
+Dim f As frmSalesWS
+Dim errRepeat As Integer
+
+
+On Error Resume Next
+  If XA.Count(1) = 0 Then Exit Sub
+  If IsNull(Grid1.Bookmark) Then Exit Sub
+  If Err Then Exit Sub
+
+    errRepeat = 0
+On Error GoTo errHandler
+        Screen.MousePointer = vbHourglass
+        strPID = XA.Value(Grid1.Bookmark, 21)
+        If strPID > "" Then
+            Set oProd = New a_Product
+            oProd.Load strPID, 0
+            Set frm = New frmProductPrev
+            frm.component oProd
+            Screen.MousePointer = vbDefault
+            frm.Show
+        End If
+        Screen.MousePointer = vbDefault
+    Exit Sub
+errHandler:
+    ErrPreserve
+    If Err.Number = -2147217407 Then   'Access violation
+        errRepeat = errRepeat + 1
+        LogSaveToFile "Access violation in frmReorderCo: Grid1_DblClick"  'unknown source
+        If errRepeat < 5 Then
+            Resume Next
+        Else
+            MsgBox "Memory error trying to load form. Please close any other unnecessary applications before trying again.", vbCritical + vbOKOnly, "Can't load Reorder form."
+            Err.Clear
+            Exit Sub
+        End If
+    End If
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_DblClick", , EA_NORERAISE, , "Line number", Array(Erl())
+    HandleError
+End Sub
+Private Sub Grid1_SelChange(Cancel As Integer)
+    On Error GoTo errHandler
+Dim str As String
+    If IsNull(Grid1.Bookmark) Then Exit Sub
+    str = FNS(XA.Value(Grid1.Bookmark, 1))
+    If str = "" Then Exit Sub
+    On Error Resume Next
+    Clipboard.Clear
+    Clipboard.SetText Left(str, ISBNLENGTH)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_SelChange(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Grid1_FetchRowStyle(ByVal Split As Integer, Bookmark As Variant, ByVal RowStyle As TrueOleDBGrid60.StyleDisp)
+    On Error GoTo errHandler
+Dim lngSupplierID As Long
+Dim lngDEALID As Long
+
+    lngSupplierID = FNN(XA(Bookmark, 22))
+    lngDEALID = FNN(XA(Bookmark, 23))
+    RowStyle.BackColor = Grid1.EvenRowStyle.BackColor
+    
+    If Left(XA(Bookmark, 2), 3) = "***" Then
+        RowStyle.BackColor = COLOR_CANCELLED
+    End If
+
+    If lngSupplierID = 0 Or (lngDEALID = 0 And oPC.AllowsZeroDiscountPOs = False) Then
+        RowStyle.BackColor = RGB(232, 174, 180)
+    End If
+    If (lngSupplierID = 0 Or (lngDEALID = 0 And oPC.AllowsZeroDiscountPOs = False)) And (FNN(XA.Value(Bookmark, 11)) > 0 Or FNN(XA.Value(Bookmark, 12)) > 0) Then
+        RowStyle.BackColor = RGB(232, 174, 220)
+    End If
+   ' DoEvents
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_FetchRowStyle(Split,Bookmark,RowStyle)", Array(Split, Bookmark, _
+         RowStyle), EA_NORERAISE
+    HandleError
+End Sub
+Private Sub Grid1_BeforeColUpdate(ByVal ColIndex As Integer, OldValue As Variant, Cancel As Integer)
+    On Error GoTo errHandler
+Dim strTmp As String
+Dim bTmp As Boolean
+Dim f1 As String
+Dim f2 As String
+Dim f3 As String
+Dim lngTmp As Long
+
+    If rs.eof And rs.BOF Then Exit Sub
+    If Not ConvertToLng(Grid1.text, lngTmp) Then
+        Cancel = True
+        Exit Sub
+    End If
+    f1 = "Position 1"   'Alteration to version 2.0.125
+    XA.Value(Grid1.Bookmark, ColIndex + 1) = FNN(Grid1.text)
+    f1 = "Position 2"
+    rs.Bookmark = XA.Value(Grid1.Bookmark, 24)
+    f1 = "Position 3"
+    Select Case ColIndex
+    Case 10
+    f1 = "Position 4"
+            rs.Fields("QTYFIRM") = FNN(Grid1.text)
+    f1 = "Position 5"
+            ValidateRow (XA.Value(Grid1.Bookmark, 25) <> "X")
+    Case 11
+            rs.Fields("QTYSS") = FNN(Grid1.text)
+            ValidateRow (XA.Value(Grid1.Bookmark, 25) <> "X")
+    End Select
+    f1 = "Position 6"
+    rs.Update
+    f1 = "Position 7"
+    cmdGenerate.Enabled = (lngBadRows = 0)
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.Grid1_BeforeColUpdate(ColIndex,OldValue,Cancel)", Array(ColIndex, OldValue, _
+'         Cancel), EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_BeforeColUpdate(ColIndex,OldValue,Cancel)", Array(ColIndex, OldValue, _
+         Cancel, f1, IIf(Grid1 Is Null, "Grid1 is null", IIf(Grid1.text = vbNullString, "Grid1.Text is null", "ok"))), EA_NORERAISE
+    HandleError
+End Sub
+Private Sub Grid1_AfterColUpdate(ByVal ColIndex As Integer)
+    On Error GoTo errHandler
+    
+    If rs.eof And rs.BOF Then Exit Sub
+    If IsNull(Grid1.Bookmark) Then Exit Sub
+    rs.Bookmark = XA.Value(Grid1.Bookmark, 24)
+    If ColIndex = 10 Then
+        rs.Fields("QTYFIRM") = FNN(XA.Value(Grid1.Bookmark, 11))
+        rs.Update
+    ElseIf ColIndex = 11 Then
+        rs.Fields("QTYSS") = FNN(XA.Value(Grid1.Bookmark, 12))
+        rs.Update
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_AfterColUpdate(ColIndex)", ColIndex, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Form_Load()
+    On Error GoTo errHandler
+Dim lngLastStaffID As Long
+    
+    Set PrivateCnn = New ADODB.Connection
+    oPC.OpenSuppliedConnection PrivateCnn
+    
+    SetGridLayout Me.Grid1, Me.Name
+    SetFormSize Me
+    flgLoading = True
+    Set tlOperators = New z_TextList
+    tlOperators.Load ltStaff, , "<ALL>"
+    If oPC.Configuration.ReorderPerCOL Then
+        LoadCombo cboStaffMember, tlOperators
+        lngLastStaffID = CLng(GetSetting("PBKS", "USERS", "REORDER", "0"))
+        If lngLastStaffID > 0 Then
+            If Not oPC.Configuration.Staff.FindStaffByID(lngLastStaffID) Is Nothing Then
+                cboStaffMember = oPC.Configuration.Staff.FindStaffByID(lngLastStaffID).StaffName
+                lngStaffID = lngLastStaffID
+            Else
+                lngStaffID = tlOperators.Key(cboStaffMember)
+            End If
+        Else
+            lngStaffID = tlOperators.Key(cboStaffMember)
+        End If
+    Else
+        cboStaffMember.Visible = False
+        lblStaffMember.Visible = False
+    End If
+    If Me.WindowState <> 2 Then
+'        Me.Width = 11500
+'        Me.Height = 6700
+        Me.Left = 100
+        Me.TOP = 100
+    End If
+    bFilterPrint = False
+    flgLoading = False
+    '--------------
+    If OpenResult = 0 Then oPC.DisconnectDBShort  'if the recent open command actually opened a connection then close it
+    '--------------
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.Form_Load", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Form_Load", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Grid1_LostFocus()
+    On Error GoTo errHandler
+    If Grid1.SelBookmarks.Count = 0 Then
+        Grid1.ReBind
+    End If
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.Grid1_LostFocus", , EA_NORERAISE
+'    HandleError
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.Grid1_LostFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub ValidateRow(pOKAtPresent As Boolean)
+    On Error GoTo errHandler
+Dim bNotOK As Boolean
+
+    If IsNull(Grid1.Bookmark) Then Exit Sub
+    If oPC.AllowsZeroDiscountPOs Then
+        bNotOK = ((XA.Value(Grid1.Bookmark, 11) > 0) Or (XA.Value(Grid1.Bookmark, 12) > 0)) And (XA.Value(Grid1.Bookmark, 22) = 0)
+    Else
+        bNotOK = ((XA.Value(Grid1.Bookmark, 11) > 0) Or (XA.Value(Grid1.Bookmark, 12) > 0)) And ((XA.Value(Grid1.Bookmark, 22) = 0) Or (XA.Value(Grid1.Bookmark, 23) = 0))
+    End If
+    If bNotOK Then
+        lngBadRows = lngBadRows + 1
+        XA.Value(Grid1.Bookmark, 25) = "X"
+    Else
+        If Not pOKAtPresent Then
+            lngBadRows = lngBadRows - 1
+        End If
+        XA.Value(Grid1.Bookmark, 25) = ""
+    End If
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmREORDER_CO.ValidateRow(pOKAtPresent)", pOKAtPresent
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.ValidateRow(pOKAtPresent)", pOKAtPresent
+End Sub
+Public Sub ShowSalesPatterns()
+    On Error GoTo errHandler
+Dim frmSales As frmSalesCH
+Dim oProduct As a_Product
+Dim strPID As String
+    Screen.MousePointer = vbHourglass
+    Set oProduct = New a_Product
+    strPID = XA.Value(Grid1.Bookmark, 21)
+    If strPID = "" Then Exit Sub
+
+    oProduct.Load strPID, 0
+    If oProduct.PID = "" Then Exit Sub
+    Set frmSales = New frmSalesCH
+    frmSales.component oProduct
+    frmSales.Show
+    Screen.MousePointer = vbDefault
+    Set frmSales = Nothing
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.ShowSalesPatterns"
+End Sub
+
+Private Sub DeleteSlate(pName)
+    On Error GoTo errHandler
+Dim bMatch As Boolean
+Dim i As Integer
+
+'-------------------------------
+    OpenResult = oPC.OpenDBSHort
+'-------------------------------
+
+   PrivateCnn.execute "DELETE FROM tREORDERGENERAL WHERE ISNULL(SlateName,'') = '" & pName & "'"
+ '---------------------------------------------------
+    If OpenResult = 0 Then oPC.DisconnectDBShort
+'---------------------------------------------------
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.DeleteSlate(pName)", pName
+End Sub
+Public Sub mnuSaveLayout()
+    On Error Resume Next
+    SaveLayout Me.Grid1, Me.Name, Me.Height, Me.Width
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.mnuSaveLayout"
+End Sub
+
+Private Sub SetMenu()
+    On Error GoTo errHandler
+    Forms(0).mnuVoid.Enabled = False
+    Forms(0).mnuCancel.Enabled = False
+    Forms(0).mnuCancelLine.Enabled = False
+    Forms(0).mnuCancelINactive.Enabled = False
+    Forms(0).mnuFulfil.Enabled = False
+    Forms(0).mnuDelLine.Enabled = False
+    Forms(0).mnuMemo.Enabled = False
+    Forms(0).mnuSalesComm.Enabled = False
+    'Forms(0).mnuInvAdd.Enabled = False
+    Forms(0).mnuCopyDoc.Enabled = False
+    Forms(0).mnuSaveColumnWidths.Enabled = True
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmREORDER_CO.SetMenu"
+End Sub
+
+Private Sub GS_FetchCellStyle(ByVal Condition As Integer, ByVal Split As Integer, Bookmark As Variant, ByVal col As Integer, ByVal CellStyle As TrueOleDBGrid60.StyleDisp)
+    On Error GoTo errHandler
+    If col = 0 Then Exit Sub
+    Select Case GS.Columns(col).CellText(Bookmark)
+    Case "0"
+        CellStyle.BackColor = COLOR_SALES_0
+        CellStyle.ForeColor = vbWhite
+    Case "F"
+        CellStyle.BackColor = COLOR_SALES_Future
+        CellStyle.ForeColor = COLOR_SALES_Future
+    Case "*"
+        CellStyle.BackColor = vbWhite
+    Case "1"
+        CellStyle.BackColor = COLOR_SALES_1
+    Case "2"
+        CellStyle.BackColor = COLOR_SALES_2
+    Case "3"
+        CellStyle.BackColor = COLOR_SALES_3
+    Case "4"
+        CellStyle.BackColor = COLOR_SALES_4
+    Case "5"
+        CellStyle.BackColor = COLOR_SALES_5
+    Case "6"
+        CellStyle.BackColor = COLOR_SALES_6
+    Case "7" To "999"
+        CellStyle.BackColor = COLOR_SALES_7
+    Case "-1" To "-999"
+        CellStyle.BackColor = vbYellow
+    Case Else
+        CellStyle.BackColor = COLOR_SALES_8
+    End Select
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmSalesCH.GS_FetchCellStyle(Condition,Split,Bookmark,Col,CellStyle)", Array(Condition, _
+         Split, Bookmark, col, CellStyle), EA_NORERAISE
+    HandleError
+End Sub
+
+

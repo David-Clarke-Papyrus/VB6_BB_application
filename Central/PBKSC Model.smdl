@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SemanticModel ID="G47c6b1a2-b63f-4587-8136-088208a2ef6b" xmlns="http://schemas.microsoft.com/sqlserver/2004/10/semanticmodeling" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Culture>en-US</Culture>
+<DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+<ID>master</ID>
+<Name>master</Name>
+<DataSourceID>master</DataSourceID>
+<Schema>
+<xs:schema id="master" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+<xs:element name="master" msdata:IsDataSet="true" msdata:Locale="en-US" msprop:CompareInfo="&lt;CompareInfo&gt;&lt;Culture&gt;en-US&lt;/Culture&gt;&lt;IgnoreCase&gt;true&lt;/IgnoreCase&gt;&lt;IgnoreKanaType&gt;true&lt;/IgnoreKanaType&gt;&lt;IgnoreWidth&gt;true&lt;/IgnoreWidth&gt;&lt;/CompareInfo&gt;">
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded" />
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</Schema>
+</DataSourceView>
+</SemanticModel>

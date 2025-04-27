@@ -1,0 +1,53 @@
+VERSION 5.00
+Begin {9EB8768B-CDFA-44DF-8F3E-857A8405E1DB} arEditedCustomers 
+   Caption         =   "ActiveReport1"
+   ClientHeight    =   8610
+   ClientLeft      =   165
+   ClientTop       =   450
+   ClientWidth     =   18780
+   StartUpPosition =   3  'Windows Default
+   _ExtentX        =   33126
+   _ExtentY        =   15187
+   SectionData     =   "arEditedCustomers.dsx":0000
+End
+Attribute VB_Name = "arEditedCustomers"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim rs As ADODB.Recordset
+Dim i As Long
+Dim lngRC As Long
+
+Sub Component(pRs As ADODB.Recordset)
+    Set rs = pRs
+    lngRC = rs.RecordCount
+    DC1.Recordset = rs
+    tDatePrinted = Format(Now(), "dd-mm-yyyy hh:nn")
+    Me.Width = 11000
+    Me.Height = 4000
+    i = 1
+    lblHeading1 = "Edited Loyalty Customer records : "
+    Me.Printer.Orientation = ddOLandscape
+End Sub
+
+
+Private Sub ActiveReport_Initialize()
+    fACNO.DataField = "E_ACNO"
+    fLastname.DataField = "E_LastName"
+    fFirstname.DataField = "E_FirstName"
+    fTitle.DataField = "E_Title"
+    fPhone.DataField = "E_Phone"
+    fPhone2.DataField = "E_Phone2"
+    fCell.DataField = "E_Cell"
+    fAddress.DataField = "E_Address"
+    fPostcode.DataField = "E_PostCode"
+    fCountry.DataField = "E_Country"
+    fEmail.DataField = "E_Email"
+    fLaunch.DataField = "E_Launch"
+    fPromo.DataField = "E_PromotionYN"
+    fSale.DataField = "E_SaleYN"
+End Sub
+
+

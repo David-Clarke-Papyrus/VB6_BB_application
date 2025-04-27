@@ -1,0 +1,7 @@
+XLODBC
+1
+DRIVER=SQL Server;SERVER=5.239.164.203\PBKSINSTANCE2;UID=sa;APP=Microsoft Office XP;WSID=PBKS-SVR;DATABASE=PBKSC
+SELECT vBranchSales_2.RANK_RANK as [Rank], vBranchSales_2.RANK_ByBranch_SalesValue, vBranchSales_2.STORE_Code, vBranchSales_2.CustName  FROM PBKSC.dbo.vBranchSales_2 vBranchSales_2  WHERE (vBranchSales_2.STORE_Code='GD')
+
+
+Rank	RANK_ByBranch_SalesValue	STORE_Code	CustName

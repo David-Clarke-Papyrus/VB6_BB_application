@@ -1,0 +1,28 @@
+[Version]
+Version=1.0.0.0
+
+[PapExport.dll <0009>]
+Dest=$(AppPath)
+Date=02/08/2001
+Time=17:07
+Version=1.0.0.0
+CABFilename=PapExport.CAB
+CABINFFile=PapExport.INF
+Uses1=msvbvm60.dll
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=Endev32.dll
+Uses8=scrrun.dll
+Uses9=ARRegistry.dll
+Uses10=dao360.dll
+Uses11=msado15.dll
+Uses12=MSWORD8.OLB
+
+[MSWORD8.OLB <0009>]
+Dest=$(WinSysPath)
+Date=21/11/1996
+Time=00:00
+Version=8.0.0.3514

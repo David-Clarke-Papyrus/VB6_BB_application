@@ -1,0 +1,14 @@
+VBGROUP 5.0
+Project=ujXMLSource\ujXMLLib.vbp
+Project=Demos\01_GenDemo\D01_GenDemo.vbp
+Project=Demos\02_SortDemo\D02_DemoSort.vbp
+Project=Demos\03_TranDemo\D03_DemoTran.vbp
+Project=Demos\04_GenSQLDemo\D04_GenSQL.vbp
+Project=Demos\05_RsDemo\D05_RsDemo.vbp
+Project=Demos\06_JoinDemo\D06_DemoJoin.vbp
+Project=Demos\07_WinFormDemo\D07_DemoWinForms.vbp
+Project=Demos\08_HTMLDemo\D08_HTMLDemo.vbp
+Project=Demos\09_TablesDemo\D09_CacheTables.vbp
+Project=Demos\10_IterDemo\D10_DemoIter.vbp
+Project=Demos\11_ViewerDemo\D11_DemoVwrs.vbp
+StartupProject=Demos\12_LkpDemo\D12_DemoLkp.vbp

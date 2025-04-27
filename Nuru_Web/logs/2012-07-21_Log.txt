@@ -1,0 +1,30 @@
+2012-07-21 11:30:54.6844 There has been an error trying to delete this manufacturer. System.Exception: Error executing query ---> System.Data.SqlClient.SqlException: DELETE ??? REFERENCE ??"FK_tManufacturer_StockItemType_tManufacturer"????????????"hds0360405_db",?"dbo.tMAN", column 'MAN_Parent_ID'?
+??????
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 224
+   --- End of inner exception stack trace ---
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 228
+   at Nuru.BAL.Services.ManufacturerService.Delete(Manufacturer dto) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\ManufacturerService.cs:line 98
+2012-07-21 11:31:05.8770 There has been an error trying to delete this manufacturer. System.Exception: Error executing query ---> System.Data.SqlClient.SqlException: DELETE ??? REFERENCE ??"FK_tManufacturer_StockItemType_tManufacturer"????????????"hds0360405_db",?"dbo.tMAN", column 'MAN_Parent_ID'?
+??????
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 224
+   --- End of inner exception stack trace ---
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 228
+   at Nuru.BAL.Services.ManufacturerService.Delete(Manufacturer dto) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\ManufacturerService.cs:line 98

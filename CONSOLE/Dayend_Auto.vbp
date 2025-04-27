@@ -1,0 +1,45 @@
+Type=Exe
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
+Reference=*\G{4B2C5313-5FED-41EF-8AAE-BD3EC47220A2}#2.0#0#..\..\..\Papyrus_Current_Executables\CurrentRelease\V1.3\ConsoleDLL.dll#ConsoleDLL
+Form=..\FORMS\frmDayend_Auto.frm
+Form=..\GATEWAY\Forms\frmShowError.frm
+Module=HuntERR31; ..\GATEWAY\BAS\HuntERR31.bas
+Module=GuiUtility; ..\BAS\GuiUtility2.bas
+Form=..\GATEWAY\Forms\frmWaitStatus.frm
+Form=..\forms\frmDayendLogin.frm
+Module=mMain_DayendAuto; ..\bas\mMain_DayendAuto.bas
+IconForm="frmMain"
+Startup="Sub Main"
+HelpFile=""
+Title="Dayend_Auto"
+ExeName32="Dayend_Auto.exe"
+Path32="..\..\..\Papyrus_Current_Executables\CurrentRelease\V1.3"
+Command32=""
+Name="Dayend_Auto"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=2
+RevisionVer=23
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionCompanyName="Papyrus Services"
+CondComp="H_NOCOMPLUS = 1"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

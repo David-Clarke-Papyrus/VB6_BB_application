@@ -1,0 +1,75 @@
+
+	Posiflex Cash Drawer OPOS Control Module for Windows Release Note
+
+						Posiflex Inc. Taiwan, R.O.C.
+
+						http://www.posiflex.com.tw
+						posiflex@mail.posiflex.com.tw
+						Tel: +886-2-22991599 ext. 810
+						Fax: +886-2-22991819
+
+						Oct 10, 1998
+
+
+0.  Before installation
+	Do not install this release over any previous release that may be on 
+	the machine being used. If another version of the software is already 
+	installed on the computer, please uninstall it using
+	the 'Add/Remove Programs' function from the Control Panel.
+
+1.  Overview
+	We are glad to announce the release of the Posiflex Cash Drawer
+	OPOS Control Module for Windows.
+	By using this kit, you can easily build applications
+	based on the OPOS Application Programmer's Guide Release 1.8.
+	This kit is designed to be used with Microsoft Visual Basic v6.0
+	or other 32-bit development environment.
+
+2.  Files
+	After installation, you have following files:
+
+	POSI.OCX - Posiflex Cash Drawer OPOS Control Object
+	FLEX.DLL - Posiflex Cash Drawer OPOS Service Object
+	POSI.LIB - Posiflex Cash Drawer OPOS Control Object Import Library
+	FLEX.LIB - Posiflex Cash Drawer OPOS Service Object Import Library
+	POSI.TLB - Posiflex Cash Drawer OPOS Control Object Type Library
+	FLEX.TLB - Posiflex Cash Drawer OPOS Service Object Type Library
+	usbcr.dll - Posiflex USB HID Cash Drawer DLL
+
+	TUNE.EXE - Posiflex OPOS Control Registry Manager
+			( This program must be executed after installation )
+
+	Demo.VBP - a Visual Basic 6.0 Demo Project
+	FORM1.FRM - a Visual Basic 6.0 Form for the above project
+	OPOSALL.BAS - OPOS 1.8 constants
+
+3.  Installation
+	To install Posiflex Cash Drawer OPOS Control Module,
+	uncompress opos_cr.lzh to a subdirectory,
+	run setup.exe and follow the instructions.
+
+4.  Testing
+	run Posiflex OPOS Manager and make appropriate choices
+	turn on the Posiflex Cash Drawer which should be connected to the system
+	start Visual Basic 6.0 and load demo.vbp
+	make any changes needed on the project and run to test the cash drawer
+
+	Note:
+		In Posiflex OPOS Manager, you can double click an item,
+		make changes, and hit "Replace" button to modify the setting.
+		Press "Finish" button to leave the program and to active
+		your modifications.
+
+5.  Conflicts and limitations
+
+	Does not support DirectIO, DirectIOEvent, and StatusUpdateEvent.
+
+6.  Other Considerations
+
+	If your application program is statically bound to the OPOS control,
+	recompilation is needed.
+
+	Supported COM port baudrates are 9600, 19200, and 38400,
+		the default setting is 9600.
+	CapStatus is true
+

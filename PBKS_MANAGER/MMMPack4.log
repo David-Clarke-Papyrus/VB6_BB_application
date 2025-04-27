@@ -1,0 +1,2818 @@
+Make My Manifest 0.12.309
+17 April 2013 @ 14:55:49
+
+Host OS = Windows 6.10  (Build 7600)
+Host = DAVID-PC
+User = David
+
+Project folder = C:\WWBB\PBKS_MANAGER\
+VB project file = PBKSBW.vbp
+
+Project:
+  Name = BWPBKS
+  Company = Papyrus Services
+  File description = Papyrus manager application
+  EXE name = PBKS.exe
+  EXE path = 
+  Version = 2.0.0.3
+
+Libraries: 48
+
+  stdole2
+    Description = <type library>
+    File location = 
+    Typlib ID = {00020430-0000-0000-C000-000000000046}
+    Version = 0.0
+    Flags = *none*
+    *Excluded*
+
+  Scripting
+    Description = Microsoft Scripting Runtime
+    File location = C:\Windows\SysWOW64\scrrun.dll
+    Typlib ID = {420B2830-E718-11CF-893D-00A0C9054228}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 10
+
+      Dictionary
+        Description = Scripting.Dictionary
+        ProgID = Scripting.Dictionary
+        Threading model = Apartment
+        CLSID = {EE09B103-97E0-11CF-978F-00A02463E06F}
+
+      FileSystemObject
+        Description = FileSystem Object
+        ProgID = Scripting.FileSystemObject
+        Threading model = Both
+        CLSID = {0D43FE01-F093-11CF-8940-00A0C9054228}
+
+      Drive
+        Description = Drive Object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B1-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      Drives
+        Description = Collection of drives associated with drive letters
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B2-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      Folder
+        Description = Folder object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B3-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      Folders
+        Description = Collection of subfolders in a folder
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B4-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      File
+        Description = File object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B5-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      Files
+        Description = Collection of files in a folder
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B6-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      TextStream
+        Description = TextStream object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {0BB02EC0-EF49-11CF-8940-00A0C9054228}
+
+      Encoder
+        Description = Script Encoder Object
+        ProgID = Scripting.Encoder
+        Threading model = Apartment
+        CLSID = {32DA2B15-CFED-11D1-B747-00C04FC2B085}
+
+  MSVCRT
+    Description = <Standard or unregistered DLL/OCX>
+    File location = C:\Windows\SysWOW64\MSVCRT.dll
+    Typlib ID = n/a
+    Version = 0.0
+    Flags = *none*
+    *Excluded*
+
+  EXCOMBOBOXLib
+    Description = ExComboBox 1.0 Control Library
+    File location = C:\PBKS\Executables\Registered_Components\ExComboBox.dll
+    Typlib ID = {E6CC263E-5760-49D9-B793-4245D54496CF}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 5
+
+      ComboBox
+        Description = ComboBox Class
+        ProgID = Exontrol.ComboBox.1
+        Threading model = Apartment
+        CLSID = {CF170E7A-4391-44BD-8D93-29F8D2801EF7}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      Column
+        Description = Column Class
+        ProgID = ExComboBox.Column.1
+        Threading model = Apartment
+        CLSID = {8739709B-9538-4237-A3B4-7A1C213F4B7D}
+
+      Columns
+        Description = Columns Class
+        ProgID = ExComboBox.Columns.1
+        Threading model = Apartment
+        CLSID = {C270941E-90FF-491A-998B-8378C6B08925}
+
+      Items
+        Description = Items Class
+        ProgID = ExComboBox.Items.1
+        Threading model = Apartment
+        CLSID = {28CB5CD2-889A-40F3-8769-60904F7A6611}
+
+      TemplatePage
+        Description = TemplatePage Class
+        Threading model = Apartment
+        CLSID = {F8EAE3B2-E898-4BBC-811F-3E29D203391C}
+
+  MSBind
+    Description = Microsoft Data Binding Collection VB 6.0 (SP4)
+    File location = C:\Windows\SysWow64\msbind.dll
+    Typlib ID = {56BF9020-7A2F-11D0-9482-00A0C91110ED}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 2
+
+      Binding
+        Description = Binding Object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3E60C551-7BD6-11D0-9482-00A0C91110ED}
+
+      BindingCollection
+        Description = Binding Collection Object
+        ProgID = MSBind.BindingCollection.1
+        Threading model = Apartment
+        CLSID = {59245250-7A2F-11D0-9482-00A0C91110ED}
+
+  ComCat
+    Description = <Standard or unregistered DLL/OCX>
+    File location = C:\Windows\SysWow64\ComCat.dll
+    Typlib ID = n/a
+    Version = 0.0
+    Flags = *none*
+    *Excluded*
+
+  StdFormat
+    Description = Microsoft Data Formatting Object Library 6.0 (SP6)
+    File location = C:\Windows\SysWow64\MSStdFmt.Dll
+    Typlib ID = {6B263850-900B-11D0-9484-00A0C91110ED}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 3
+
+      StdDataValue
+        Description = StdDataValue Object
+        ProgID = MSSTDFMT.StdDataValue.1
+        Threading model = Apartment
+        CLSID = {2B11E9B0-9F09-11D0-9484-00A0C91110ED}
+
+      StdDataFormat
+        Description = StdDataFormat Object
+        ProgID = MSSTDFMT.StdDataFormat.1
+        Threading model = Apartment
+        CLSID = {6D835690-900B-11D0-9484-00A0C91110ED}
+
+      StdDataFormats
+        Description = StdDataFormats Object
+        ProgID = MSSTDFMT.StdDataFormats.1
+        Threading model = Apartment
+        CLSID = {99FF4677-FFC3-11D0-BD02-00C04FC2FB86}
+
+  MSXML2
+    Description = Microsoft XML, v6.0
+    File location = C:\Windows\System32\msxml6.dll
+    Typlib ID = {F5078F18-C551-11D3-89B9-0000F81FE221}
+    Version = 6.0
+    Flags = *none*
+    *Excluded*
+
+  DAO
+    Description = Microsoft DAO 3.6 Object Library
+    File location = C:\Program Files (x86)\Common Files\Microsoft Shared\DAO\dao360.dll
+    Typlib ID = {00025E01-0000-0000-C000-000000000046}
+    Version = 5.0
+    Flags = *none*
+    *Excluded*
+
+  msado28
+    Description = <type library>
+    File location = 
+    Typlib ID = {2A75196C-D9EB-4129-B803-931327F72D5C}
+    Version = 0.0
+    Flags = *none*
+    *Excluded*
+
+  ActiveReportsExcelExport
+    Description = ActiveReports Excel Export Filter
+    File location = C:\Program Files (x86)\Common Files\Data Dynamics\ActiveReports Pro\exclexpt.dll
+    Typlib ID = {A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 7
+
+      DDSheets
+        Description = Sheet Collection
+        ProgID = ActiveReportsExcelExport.DDSheets.1
+        Threading model = Apartment
+        CLSID = {A31CC8F8-A0BE-11D2-ACA7-00C04FA372BC}
+
+      DDSheet
+        Description = Sheet object for SpreadBuilder
+        Threading model = Apartment
+        CLSID = {A31CC8F4-A0BE-11D2-ACA7-00C04FA372BC}
+
+      DDCell
+        Description = Spreadsheet Cell used by SpreadBuilder
+        Threading model = Apartment
+        CLSID = {A31CC8F5-A0BE-11D2-ACA7-00C04FA372BC}
+
+      DDRow
+        Description = Row Class
+        ProgID = ActiveReportsExcelExport.DDRow.1
+        Threading model = Apartment
+        CLSID = {1A422D40-A2C4-11D2-ACAA-00C04FA372BC}
+
+      DDColumn
+        Description = 
+        ProgID = ActiveReportsExcelExport.DDColumn.1
+        Threading model = Apartment
+        CLSID = {E031E36A-A34B-11D2-ACAA-00C04FA372BC}
+
+      ARExportExcel
+        Description = ActiveReports Excel Export
+        ProgID = ActiveReportsExcelExport.ARExportExcel.1
+        Threading model = Apartment
+        CLSID = {A31CC8EE-A0BE-11D2-ACA7-00C04FA372BC}
+
+      SpreadBuilder
+        Description = Generic component to build BIFF files
+        ProgID = ActiveReportsExcelExport.SpreadBuilder.1
+        Threading model = Apartment
+        CLSID = {A31CC8F2-A0BE-11D2-ACA7-00C04FA372BC}
+
+  XpdfPrint
+    Description = XpdfPrint Type Library
+    File location = C:\PBKS\Executables\Registered_Components\XpdfPrint.dll
+    Typlib ID = {868DC9E0-7705-11D7-BD2E-08004608C318}
+    Version = 3.1
+    Flags = *none*
+
+    CoClasses: 1
+
+      XpdfPrint
+        Description = XpdfPrint Class
+        ProgID = Xpdf.XpdfPrint.3
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {8BFD63E0-7705-11D7-BD2E-08004608C318}
+
+  RegionalSet
+    Description = Check and change regional serttings
+    File location = C:\PBKS\Executables\Registered_Components\RegionalSet.dll
+    Typlib ID = {13852F1A-9758-48EC-B05E-63CBCFF972D9}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 1
+
+      z_RegionalSettings
+        Description = 
+        ProgID = RegionalSet.z_RegionalSettings
+        Threading model = Apartment
+        CLSID = {569C00A0-4ACA-4FE3-8FF2-A27DA4DBA4CF}
+
+  COMSVCSLib
+    Description = COM+ Services Type Library
+    File location = C:\Windows\system32\comsvcs.dll
+    Typlib ID = {2A005C00-A5DE-11CF-9E66-00AA00A3F464}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 23
+
+      SecurityCertificate
+        Description = COM+ Services Security - certificate collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {ECABB0A4-7F19-11D2-978E-0000F8757E2A}
+
+      SecurityIdentity
+        Description = COM+ Services Security - identity collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {ECABB0A5-7F19-11D2-978E-0000F8757E2A}
+
+      SecurityCallers
+        Description = COM+ Services Security - callers collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {ECABB0A6-7F19-11D2-978E-0000F8757E2A}
+
+      SecurityCallContext
+        Description = COM+ Services Security - call context collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {ECABB0A7-7F19-11D2-978E-0000F8757E2A}
+
+      TransactionContext
+        Description = Transaction Context Class
+        ProgID = TxCTx.TransactionContext
+        Threading model = Both
+        CLSID = {7999FC25-D3C6-11CF-ACAB-00A024A55AEF}
+
+      TransactionContextEx
+        Description = Transaction Context Extended Class
+        ProgID = TxCTx.TransactionContextEx
+        Threading model = Both
+        CLSID = {5CB66670-D3D4-11CF-ACAB-00A024A55AEF}
+
+      CServiceConfig
+        Description = CServiceConfig Class
+        ProgID = COMSVCS.CServiceConfig.1
+        Threading model = Free
+        CLSID = {ECABB0C8-7F19-11D2-978E-0000F8757E2A}
+
+      ServicePool
+        Description = ServicePool Class
+        Threading model = both
+        CLSID = {ECABB0C9-7F19-11D2-978E-0000F8757E2A}
+
+      ServicePoolConfig
+        Description = ServicePoolConfig Class
+        Threading model = both
+        CLSID = {ECABB0CA-7F19-11D2-978E-0000F8757E2A}
+
+      SharedProperty
+        Description = Shared Property Class
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2A005C05-A5DE-11CF-9E66-00AA00A3F464}
+
+      SharedPropertyGroup
+        Description = SharedPropertyGroup Class
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2A005C0B-A5DE-11CF-9E66-00AA00A3F464}
+
+      SharedPropertyGroupManager
+        Description = SharedPropertyGroupManager Class
+        ProgID = MTxSpm.SharedPropertyGroupManager.1
+        Threading model = Both
+        CLSID = {2A005C11-A5DE-11CF-9E66-00AA00A3F464}
+
+      COMEvents
+        Description = MTSEvents Class
+        Threading model = Free
+        CLSID = {ECABB0AB-7F19-11D2-978E-0000F8757E2A}
+
+      CoMTSLocator
+        Description = MTSLocator Class
+        Threading model = Both
+        CLSID = {ECABB0AC-7F19-11D2-978E-0000F8757E2A}
+
+      MtsGrp
+        Description = MtxGrp Class
+        ProgID = Mts.MtsGrp
+        Threading model = Free
+        CLSID = {4B2E958D-0393-11D1-B1AB-00AA00BA3258}
+
+      CRMClerk
+        Description = CRMClerk Class
+        ProgID = CrmClerk.CrmClerk.1
+        Threading model = Free
+        CLSID = {ECABB0BD-7F19-11D2-978E-0000F8757E2A}
+
+      CRMRecoveryClerk
+        Description = CRMRecoveryClerk Class
+        ProgID = CrmRecoveryClerk.CrmRecoveryClerk.1
+        Threading model = Free
+        CLSID = {ECABB0BE-7F19-11D2-978E-0000F8757E2A}
+
+      MessageMover
+        Description = QC MessageMover Class
+        ProgID = QC.MessageMover.1
+        Threading model = Both
+        CLSID = {ECABB0BF-7F19-11D2-978E-0000F8757E2A}
+
+      PoolMgr
+        Description = 
+        Threading model = Free
+        CLSID = {ECABAFB5-7F19-11D2-978E-0000F8757E2A}
+
+      PartitionMoniker
+        Description = 
+        ProgID = partition
+        Threading model = Both
+        CLSID = {ECABB0C5-7F19-11D2-978E-0000F8757E2A}
+
+      SoapMoniker
+        Description = 
+        ProgID = soap
+        Threading model = Both
+        CLSID = {ECABB0C7-7F19-11D2-978E-0000F8757E2A}
+
+      AppDomainHelper
+        Description = 
+        ProgID = System.EnterpriseServices.Internal.AppDomainHelper
+        Threading model = Both
+        CLSID = {EF24F689-14F8-4D92-B4AF-D7B1F0E70FD4}
+
+      ClrAssemblyLocator
+        Description = 
+        ProgID = System.EnterpriseServices.Internal.AssemblyLocator
+        Threading model = Both
+        CLSID = {458AA3B5-265A-4B75-BC05-9BEA4630CF18}
+
+  DSOFile
+    Description = DSO OLE Document Properties Reader 2.1
+    File location = C:\PBKS\Executables\Support\dsofile.dll
+    Typlib ID = {58968145-CF00-4341-995F-2EE093F6ABA3}
+    Version = 2.1
+    Flags = *none*
+
+    CoClasses: 1
+
+      OleDocumentProperties
+        Description = DSOFile OleDocumentProperties
+        ProgID = DSOFile.OleDocumentProperties
+        Threading model = Apartment
+        CLSID = {58968145-CF05-4341-995F-2EE093F6ABA3}
+
+  ActiveReportsPDFExport
+    Description = ActiveReports PDF Export Filter
+    File location = C:\Program Files (x86)\Common Files\Data Dynamics\ActiveReports Pro\pdfexpt.dll
+    Typlib ID = {013A8BB0-A25B-11D1-8BB6-00A0C98CD92B}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 1
+
+      ARExportPDF
+        Description = ActiveReports PDF Export
+        ProgID = ActiveReportsPDFExport.ARExportPDF.1
+        Threading model = Apartment
+        CLSID = {013A8BB1-A25B-11D1-8BB6-00A0C98CD92B}
+
+  DDActiveReports2
+    Description = Data Dynamics ActiveReports 2.0
+    File location = C:\Program Files (x86)\Common Files\Data Dynamics\ActiveReports Pro\arpro2.dll
+    Typlib ID = {A7973091-BC64-4F16-84D4-A4BE059B4927}
+    Version = 2.0
+    Flags = *none*
+
+    CoClasses: 44
+
+      Border
+        Description = Border Style Object
+        Threading model = Apartment
+        CLSID = {21CE2C92-48AF-11D1-AA0B-0060081C43D9}
+
+      History
+        Description = ActiveReports Navigation History
+        Threading model = Apartment
+        CLSID = {C1D9E21A-EA25-40C7-BD9D-1D7425220B27}
+
+      TocEntry
+        Description = 
+        Threading model = Apartment
+        CLSID = {CCC6DCD3-8A14-4ABA-A615-3BC4A69E4E84}
+
+      TOC
+        Description = ActiveReports Table Of Contents
+        Threading model = Apartment
+        CLSID = {DFEB15D8-6753-4E54-BA71-40C83C2F3A32}
+
+      PaperSizes
+        Description = 
+        Threading model = Apartment
+        CLSID = {B31B60C2-64FC-11D1-AA58-0060081C43D9}
+
+      Canvas
+        Description = Canvas Object
+        ProgID = DDActiveReports2.Canvas.1
+        Threading model = Apartment
+        CLSID = {0014F800-74B1-46A7-9060-DDD9653306F9}
+
+      Printer
+        Description = 
+        ProgID = DDActiveReports2.Printer.1
+        Threading model = Apartment
+        CLSID = {5C210E01-F309-11D0-A8E9-00A0C90F29FC}
+
+      Pages
+        Description = 
+        Threading model = Apartment
+        CLSID = {4AB670E2-96C7-11D1-8B77-3C346B000000}
+
+      DDToolBar
+        Description = ActiveReports Toolbar Object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3CB5B0C2-8CF9-11D1-8B5E-9AD7CD000000}
+
+      DDTools
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3CB5B0C4-8CF9-11D1-8B5E-9AD7CD000000}
+
+      DDTool
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {FA0BFF22-8D3D-11D1-8B5E-9AD7CD000000}
+
+      RptField
+        Description = Report Field Object
+        Threading model = Apartment
+        CLSID = {55CCD8A2-FD9F-11D2-A933-00C04FA372BC}
+
+      ReturnString
+        Description = 
+        Threading model = Apartment
+        CLSID = {B0678828-EEDD-4A0C-8760-0117D90D1F87}
+
+      ReturnBool
+        Description = 
+        Threading model = Apartment
+        CLSID = {C30B4E1C-E47D-4E2B-AE2B-3401CC6AB4B4}
+
+      Section
+        Description = 
+        Threading model = Apartment
+        CLSID = {565572DE-EE6D-4B3C-A3AD-04B84BBB75D8}
+
+      Label
+        Description = Data Dynamics ActiveReports Label Control
+        Threading model = Apartment
+        CLSID = {CFDA4F68-E23A-4704-BE78-108ECED908DD}
+
+      Controls
+        Description = 
+        Threading model = Apartment
+        CLSID = {5A941F30-775E-11D1-8B19-56CB34000000}
+
+      Field
+        Description = Data Dynamics ActiveReports Field Object
+        Threading model = Apartment
+        CLSID = {8B635B5C-0C12-4E1A-904B-E94FFB443E81}
+
+      Image
+        Description = Data Dynamics ActiveReports Image Control
+        Threading model = Apartment
+        CLSID = {9B69B132-2F2C-4D19-8776-61D81C36F4DD}
+
+      Line
+        Description = 
+        Threading model = Apartment
+        CLSID = {00D27F3B-261B-4556-94C4-8DAC4C674BED}
+
+      DataControl
+        Description = ActiveReports OLEDB Data Control
+        Threading model = Apartment
+        CLSID = {C567D337-ABB7-44A8-90F6-7729442476D9}
+
+      Sections
+        Description = 
+        Threading model = Apartment
+        CLSID = {47B7C2A1-168C-11D1-A956-0060081C43D9}
+
+      DAODataControl
+        Description = 
+        Threading model = Apartment
+        CLSID = {4A47A995-000C-48A9-BFED-12DE0DA9123B}
+
+      DAOFileBrowser
+        Description = ActiveReports DAO FileBrowser
+        Threading model = Apartment
+        CLSID = {0F0BBB91-18EF-11D1-A95E-0060081C43D9}
+
+      SubReport
+        Description = 
+        Threading model = Apartment
+        CLSID = {1C2C8EC2-EFE0-4400-9AA1-1E5D86689759}
+
+      OLE
+        Description = Data Dynamics ActiveReport OLE Object
+        Threading model = Apartment
+        CLSID = {F95EFF3C-11D7-41F6-BCC7-19736C333AC8}
+
+      CheckBox
+        Description = Data Dynamics ActiveReports CheckBox Control
+        Threading model = Apartment
+        CLSID = {1B7607B5-A47D-41C8-981C-9DC5A46BF684}
+
+      Shape
+        Description = Data Dynamics ActiveReports Shape Control
+        Threading model = Apartment
+        CLSID = {365E5E1D-9596-44F0-B292-AC77E740F31F}
+
+      PageBreak
+        Description = ActiveReports PageBreak Object
+        Threading model = Apartment
+        CLSID = {9A474B20-0E43-4776-8B80-D78D1378569A}
+
+      RDODataControl
+        Description = 
+        Threading model = Apartment
+        CLSID = {A5A3F5A3-1AD4-48B4-B904-D5319C1D7BFE}
+
+      ActiveReport
+        Description = ActiveReport Object
+        ProgID = DDActiveReports2.ActiveReport.2
+        Threading model = Apartment
+        CLSID = {9EB8768B-CDFA-44DF-8F3E-857A8405E1DB}
+
+      RichEdit
+        Description = ActiveReports RichEdit Control
+        Threading model = Apartment
+        CLSID = {FB759E03-99D3-4A0A-9285-8D0AC65C2A5A}
+
+      arErrors
+        Description = 
+        Threading model = Apartment
+        CLSID = {1102A4ED-0604-11D2-AB23-00C04FA372BC}
+
+      arError
+        Description = ActiveReport Error Object
+        Threading model = Apartment
+        CLSID = {1102A4EF-0604-11D2-AB23-00C04FA372BC}
+
+      RptFields
+        Description = Report Fields Collection
+        Threading model = Apartment
+        CLSID = {BC252217-EEAD-11D2-AD21-00C04FA372BC}
+
+      PageSettings
+        Description = Page settings for Report
+        Threading model = Apartment
+        CLSID = {2FAC5CD7-8133-4D38-8854-139CB0582CA0}
+
+      XMLDataControl
+        Description = 
+        Threading model = Apartment
+        CLSID = {2070E619-B3E4-4010-852D-374DC2B3E09A}
+
+      Frame
+        Description = 
+        Threading model = Apartment
+        CLSID = {5139C978-F1E5-4195-AD53-80F94ADDE3C5}
+
+      Panes
+        Description = 
+        Threading model = Apartment
+        CLSID = {390A8480-5DB2-4206-8840-2218CEF8BF12}
+
+      Pane
+        Description = 
+        Threading model = Apartment
+        CLSID = {B806D35C-2CA3-4809-99C0-E5E1BD88BBBF}
+
+      PaneControls
+        Description = 
+        Threading model = Apartment
+        CLSID = {8C0E9534-9699-4FFE-9EBB-AB4EFF7C8D72}
+
+      Barcode
+        Description = ActiveReports Barcode Control
+        Threading model = Apartment
+        CLSID = {D6B8644A-6F1E-44F3-B1EF-153DAA316911}
+
+      ARParameters
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {899D15B1-73EA-47B5-BFCF-6AD6A43F03A3}
+
+      ARParameter
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {9F340342-B4E7-44D5-BE9C-D44AAC9B854E}
+
+  DDActiveReportsViewer2
+    Description = Data Dynamics ActiveReports Viewer 2.0
+    File location = C:\PBKS\Executables\Registered_Components\ARVIEW2.OCX
+    Typlib ID = {A45D986F-3AAF-4A3B-A003-A6C53E8715A2}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 14
+
+      Border
+        Description = Border Style Object
+        Threading model = Apartment
+        CLSID = {21CE2C92-48AF-11D1-AA0B-0060081C43D9}
+
+      History
+        Description = ActiveReports Navigation History
+        Threading model = Apartment
+        CLSID = {C1D9E21A-EA25-40C7-BD9D-1D7425220B27}
+
+      TocEntry
+        Description = 
+        Threading model = Apartment
+        CLSID = {CCC6DCD3-8A14-4ABA-A615-3BC4A69E4E84}
+
+      TOC
+        Description = ActiveReports Table Of Contents
+        Threading model = Apartment
+        CLSID = {DFEB15D8-6753-4E54-BA71-40C83C2F3A32}
+
+      PaperSizes
+        Description = 
+        Threading model = Apartment
+        CLSID = {B31B60C2-64FC-11D1-AA58-0060081C43D9}
+
+      Canvas
+        Description = Canvas Object
+        ProgID = DDActiveReports2.Canvas.1
+        Threading model = Apartment
+        CLSID = {0014F800-74B1-46A7-9060-DDD9653306F9}
+
+      Printer
+        Description = 
+        ProgID = DDActiveReports2.Printer.1
+        Threading model = Apartment
+        CLSID = {5C210E01-F309-11D0-A8E9-00A0C90F29FC}
+
+      Pages
+        Description = 
+        Threading model = Apartment
+        CLSID = {4AB670E2-96C7-11D1-8B77-3C346B000000}
+
+      DDToolBar
+        Description = ActiveReports Toolbar Object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3CB5B0C2-8CF9-11D1-8B5E-9AD7CD000000}
+
+      DDTools
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3CB5B0C4-8CF9-11D1-8B5E-9AD7CD000000}
+
+      DDTool
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {FA0BFF22-8D3D-11D1-8B5E-9AD7CD000000}
+
+      OutputFormat
+        Description = ActiveReports OutputFormat PropertyPage
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {6BFD6850-94D9-11D1-8B70-B25105000000}
+
+      ARViewer2
+        Description = Data Dynamics ActiveReports Viewer 2.0
+        ProgID = DDActiveReportsViewer2.ARViewer2.1
+        Threading model = Apartment
+        CLSID = {8569D715-FF88-44BA-8D1D-AD3E59543DDE}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      ReturnBool
+        Description = 
+        Threading model = Apartment
+        CLSID = {F10AA491-22EA-4B11-A070-4B6A5AFF26FA}
+
+  XArrayDBObject
+    Description = APEX XArrayDB Object
+    File location = C:\PBKS\Executables\xarraydb.ocx
+    Typlib ID = {0D623539-DBA2-11D1-B5DF-0060976089D0}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 1
+
+      XArrayDB
+        Description = APEX XArrayDB Object
+        ProgID = XArrayDB.XArrayDB.1
+        Threading model = Apartment
+        CLSID = {0D62353B-DBA2-11D1-B5DF-0060976089D0}
+
+  WIA
+    Description = Microsoft Windows Image Acquisition Library v2.0
+    File location = C:\Windows\System32\wiaaut.dll
+    Typlib ID = {94A0E92D-43C0-494E-AC29-FD45948A5221}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 22
+
+      Rational
+        Description = The Rational object is a container for the rational values found in Exif tags. It is a supported element type of the Vector object and may be created using "WIA.Rational" in a call to CreateObject.
+        ProgID = WIA.Rational.1
+        Threading model = Apartment
+        CLSID = {0C5672F9-3EDC-4B24-95B5-A6C54C0B79AD}
+
+      Vector
+        Description = The Vector object is a collection of values of the same type. It is used throughout the library in many different ways. The Vector object may be created using "WIA.Vector" in a call to CreateObject.
+        ProgID = WIA.Vector.1
+        Threading model = Apartment
+        CLSID = {4DD1D1C3-B36A-4EB4-AAEF-815891A58A30}
+
+      Property
+        Description = The Property object is a container for a property associated with a Device, DeviceInfo, Filter, ImageFile or Item object. See the Properties property on any of these objects for details on accessing Property objects.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2014DE3F-3723-4178-8643-3317A32D4A2B}
+
+      Properties
+        Description = The Properties object is a collection of all the Property objects associated with a given Device, DeviceInfo, Filter, ImageFile or Item object. See the Properties property on any of these objects for detail on accessing the Properties object.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {96F887FC-08B1-4F97-A69C-75280C6A9CF8}
+
+      ImageFile
+        Description = The ImageFile object is a container for images transferred to your computer when you call Transfer or ShowTransfer. It also supports image files through LoadFile. An ImageFile object can be created using "WIA.ImageFile" in a call to CreateObject.
+        ProgID = WIA.ImageFile.1
+        Threading model = Apartment
+        CLSID = {A2E6DDA0-06EF-4DF3-B7BD-5AA224BB06E8}
+
+      FilterInfo
+        Description = The FilterInfo object is a container that describes a Filter object without requiring a Filter to be Added to the process chain. See the FilterInfos property on the ImageProcess object for details on accessing FilterInfo objects.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {318D6B52-9B1C-4E3B-8D90-1F0E857FA9B0}
+
+      FilterInfos
+        Description = The FilterInfos object is a collection of all the available FilterInfo objects. See the FilterInfos property on the ImageProcess object for detail on accessing the FilterInfos object.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {56FA88D3-F3DA-4DE3-94E8-811040C3CCD4}
+
+      Filter
+        Description = The Filter object represents a unit of modification on an ImageFile. To use a Filter, add it to the Filters collection, then set the filter's properties and finally use the Apply method of the ImageProcess object to filter an ImageFile.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {52AD8A74-F064-4F4C-8544-FF494D349F7B}
+
+      Filters
+        Description = The Filters object is a collection of the Filters that will be applied to an ImageFile when you call the Apply method on the ImageProcess object.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {31CDD60C-C04C-424D-95FC-36A52646D71C}
+
+      ImageProcess
+        Description = The ImageProcess object manages the filter chain. An ImageProcess object can be created using "WIA.ImageProcess" in a call to CreateObject.
+        ProgID = WIA.ImageProcess.1
+        Threading model = Apartment
+        CLSID = {BD0D38E4-74C8-4904-9B5A-269F8E9994E9}
+
+      Formats
+        Description = The Formats object is a collection of supported FormatIDs that you can use when calling Transfer on an Item object or ShowTransfer on a CommonDialog object for this Item.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {6F62E261-0FE6-476B-A244-50CF7440DDEB}
+
+      DeviceCommand
+        Description = The DeviceCommand object describes a CommandID that can be used when calling ExecuteCommand on a Device or Item object.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {72226184-AFBB-4059-BF55-0F6C076E669D}
+
+      DeviceCommands
+        Description = The DeviceCommands object is a collection of all the supported DeviceCommands for an imaging device. See the Commands property of a Device or Item object for more details on determining the collection of supported device commands.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {25B047DB-4AAD-4FC2-A0BE-31DDA687FF32}
+
+      Item
+        Description = The Item object is a container for an item on an imaging device object. See the Items property on the Device or Item object for details on accessing Item objects.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {36F479F3-C258-426E-B5FA-2793DCFDA881}
+
+      Items
+        Description = The Items object contains a collection of Item objects. See the Items property on the Device or Item object for details on accessing the Items object.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {B243B765-CA9C-4F30-A457-C8B2B57A585E}
+
+      DeviceEvent
+        Description = The DeviceEvent object describes an EventID that can be used when calling RegisterEvent or RegisterPersistentEvent on a DeviceManager object.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {617CF892-783C-43D3-B04B-F0F1DE3B326D}
+
+      DeviceEvents
+        Description = The DeviceEvents object is a collection of all the supported DeviceEvent for an imaging device. See the Events property of a Device object for more details on determining the collection of supported device events.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3563A59A-BBCD-4C86-94A0-92136C80A8B4}
+
+      DeviceInfo
+        Description = The DeviceInfo object is a container that describes the unchanging (static) properties of an imaging device that is currently connected to the computer.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {F09CFB7A-E561-4625-9BB5-208BCA0DE09F}
+
+      DeviceInfos
+        Description = The DeviceInfos object is a collection of all the imaging devices currently connected to the computer. See the DeviceInfos property on the DeviceManager object for detail on accessing the DeviceInfos object.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2DFEE16B-E4AC-4A19-B660-AE71A745D34F}
+
+      Device
+        Description = The Device object represents an active connection to an imaging device.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {DBAA8843-B1C4-4EDC-B7E0-D6F61162BE58}
+
+      CommonDialog
+        Description = The CommonDialog control is an invisible-at-runtime control that contains all the methods that display a User Interface. A CommonDialog control can be created using "WIA.CommonDialog" in a call to CreateObject or by dropping a CommonDialog on a form.
+        ProgID = WIA.CommonDialog.1
+        Threading model = Apartment
+        CLSID = {850D1D11-70F3-4BE5-9A11-77AA6B2BB201}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  invisibleatruntime,
+                  setclientsitefirst"
+
+      DeviceManager
+        Description = The DeviceManager control is an invisible-at-runtime control that manages the imaging devices connected to the computer. A DeviceManager control can be created using "WIA.DeviceManager" in a call to CreateObject or by dropping a DeviceManager on a form.
+        ProgID = WIA.DeviceManager.1
+        Threading model = Apartment
+        CLSID = {E1C5D730-7E97-4D8A-9E42-BBAE87C2059F}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  invisibleatruntime,
+                  setclientsitefirst"
+
+  OLXLib
+    Description = Microsoft Outlook View Control
+    File location = C:\Program Files\Microsoft Office\Office14\OUTLCTL.DLL
+    Typlib ID = {0006F062-0000-0000-C000-000000000046}
+    Version = 1.1
+    Flags = *none*
+
+    CoClasses: 3
+
+      ObjectModelCtl
+        Description = ObjectModelCtl Class
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {0006F069-0000-0000-C000-000000000046}
+
+      ViewCtl
+        Description = ViewCtl Class
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {261B8CA9-3BAF-4BD0-B0C2-BF04286785C6}
+
+      DataCtl
+        Description = DataCtl Class
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {0468C085-CA5B-11D0-AF08-00609797F0E0}
+
+  Outlook
+    Description = Microsoft Outlook 14.0 Object Library
+    File location = C:\Program Files\Microsoft Office\Office14\MSOUTL.OLB
+    Typlib ID = {00062FFF-0000-0000-C000-000000000046}
+    Version = 9.4
+    Flags = *none*
+    *Excluded*
+
+  SQLDMO
+    Description = Microsoft SQLDMO Object Library
+    File location = c:\Program Files (x86)\Microsoft SQL Server\80\Tools\binn\SQLDMO.DLL
+    Typlib ID = {10010001-E260-11CF-AE68-00AA004A34D5}
+    Version = 8.5
+    Flags = *none*
+
+    CoClasses: 98
+
+      Application
+        Description = SQLDMO Application
+        ProgID = SQLDMO.Application.8.0
+        Threading model = Both
+        CLSID = {10020100-E260-11CF-AE68-00AA004A34D5}
+
+      SQLServer
+        Description = SQLDMO Server
+        ProgID = SQLDMO.SQLServer.8.0
+        Threading model = Both
+        CLSID = {10020200-E260-11CF-AE68-00AA004A34D5}
+
+      Database
+        Description = SQLDMO Database
+        ProgID = SQLDMO.Database.8.0
+        Threading model = Both
+        CLSID = {10020300-E260-11CF-AE68-00AA004A34D5}
+
+      Table
+        Description = SQLDMO Table
+        ProgID = SQLDMO.Table.8.0
+        Threading model = Both
+        CLSID = {10020400-E260-11CF-AE68-00AA004A34D5}
+
+      Column
+        Description = SQLDMO Column
+        ProgID = SQLDMO.Column.8.0
+        Threading model = Both
+        CLSID = {10020500-E260-11CF-AE68-00AA004A34D5}
+
+      Key
+        Description = SQLDMO DRI Key
+        ProgID = SQLDMO.Key.8.0
+        Threading model = Both
+        CLSID = {10020F00-E260-11CF-AE68-00AA004A34D5}
+
+      Index
+        Description = SQLDMO Index
+        ProgID = SQLDMO.Index.8.0
+        Threading model = Both
+        CLSID = {10020E00-E260-11CF-AE68-00AA004A34D5}
+
+      View
+        Description = SQLDMO View
+        ProgID = SQLDMO.View.8.0
+        Threading model = Both
+        CLSID = {10020700-E260-11CF-AE68-00AA004A34D5}
+
+      BulkCopy
+        Description = SQLDMO BulkCopy
+        ProgID = SQLDMO.BulkCopy.8.0
+        Threading model = Both
+        CLSID = {10021C00-E260-11CF-AE68-00AA004A34D5}
+
+      Trigger
+        Description = SQLDMO Trigger
+        ProgID = SQLDMO.Trigger.8.0
+        Threading model = Both
+        CLSID = {10021000-E260-11CF-AE68-00AA004A34D5}
+
+      Check
+        Description = SQLDMO DRI Check
+        ProgID = SQLDMO.Check.8.0
+        Threading model = Both
+        CLSID = {10021700-E260-11CF-AE68-00AA004A34D5}
+
+      StoredProcedure
+        Description = SQLDMO StoredProcedure
+        ProgID = SQLDMO.StoredProcedure.8.0
+        Threading model = Both
+        CLSID = {10020D00-E260-11CF-AE68-00AA004A34D5}
+
+      Default
+        Description = SQLDMO Default
+        ProgID = SQLDMO.Default.8.0
+        Threading model = Both
+        CLSID = {10020900-E260-11CF-AE68-00AA004A34D5}
+
+      Rule
+        Description = SQLDMO Rule
+        ProgID = SQLDMO.Rule.8.0
+        Threading model = Both
+        CLSID = {10020A00-E260-11CF-AE68-00AA004A34D5}
+
+      UserDefinedDatatype
+        Description = SQLDMO UserDefinedDatatype
+        ProgID = SQLDMO.UserDefinedDatatype.8.0
+        Threading model = Both
+        CLSID = {10020800-E260-11CF-AE68-00AA004A34D5}
+
+      User
+        Description = SQLDMO User
+        ProgID = SQLDMO.User.8.0
+        Threading model = Both
+        CLSID = {10020B00-E260-11CF-AE68-00AA004A34D5}
+
+      LogFile
+        Description = SQLDMO Log File
+        ProgID = SQLDMO.LogFile.8.0
+        Threading model = Both
+        CLSID = {10022E00-E260-11CF-AE68-00AA004A34D5}
+
+      Transfer
+        Description = SQLDMO DB Transfer
+        ProgID = SQLDMO.Transfer.8.0
+        Threading model = Both
+        CLSID = {10021E00-E260-11CF-AE68-00AA004A34D5}
+
+      FileGroup
+        Description = SQLDMO File Group
+        ProgID = SQLDMO.FileGroup.8.0
+        Threading model = Both
+        CLSID = {10022C00-E260-11CF-AE68-00AA004A34D5}
+
+      DBFile
+        Description = SQLDMO DB File
+        ProgID = SQLDMO.DBFile.8.0
+        Threading model = Both
+        CLSID = {10022D00-E260-11CF-AE68-00AA004A34D5}
+
+      DatabaseRole
+        Description = SQLDMO Database Role
+        ProgID = SQLDMO.DatabaseRole.8.0
+        Threading model = Both
+        CLSID = {10023100-E260-11CF-AE68-00AA004A34D5}
+
+      FullTextCatalog
+        Description = SQLDMO FullText Catalog
+        ProgID = SQLDMO.FullTextCatalog.8.0
+        Threading model = Both
+        CLSID = {10023500-E260-11CF-AE68-00AA004A34D5}
+
+      UserDefinedFunction
+        Description = SQLDMO UserDefinedFunction
+        ProgID = SQLDMO.UserDefinedFunction.8.0
+        Threading model = Both
+        CLSID = {10023700-E260-11CF-AE68-00AA004A34D5}
+
+      BackupDevice
+        Description = SQLDMO BackupDevice
+        ProgID = SQLDMO.BackupDevice.8.0
+        Threading model = Both
+        CLSID = {10021100-E260-11CF-AE68-00AA004A34D5}
+
+      Language
+        Description = SQLDMO Language
+        ProgID = SQLDMO.Language.8.0
+        Threading model = Both
+        CLSID = {10021400-E260-11CF-AE68-00AA004A34D5}
+
+      RemoteServer
+        Description = SQLDMO RemoteServer
+        ProgID = SQLDMO.RemoteServer.8.0
+        Threading model = Both
+        CLSID = {10021500-E260-11CF-AE68-00AA004A34D5}
+
+      RemoteLogin
+        Description = SQLDMO RemoteLogin
+        ProgID = SQLDMO.RemoteLogin.8.0
+        Threading model = Both
+        CLSID = {10021600-E260-11CF-AE68-00AA004A34D5}
+
+      Login
+        Description = SQLDMO Login
+        ProgID = SQLDMO.Login.8.0
+        Threading model = Both
+        CLSID = {10021300-E260-11CF-AE68-00AA004A34D5}
+
+      Operator
+        Description = SQLDMO Operator
+        ProgID = SQLDMO.Operator.8.0
+        Threading model = Both
+        CLSID = {10040200-E260-11CF-AE68-00AA004A34D5}
+
+      Alert
+        Description = SQLDMO Alert
+        ProgID = SQLDMO.Alert.8.0
+        Threading model = Both
+        CLSID = {10040600-E260-11CF-AE68-00AA004A34D5}
+
+      Job
+        Description = SQLDMO Job
+        ProgID = SQLDMO.Job.8.0
+        Threading model = Both
+        CLSID = {10040800-E260-11CF-AE68-00AA004A34D5}
+
+      JobStep
+        Description = SQLDMO JobStep
+        ProgID = SQLDMO.JobStep.8.0
+        Threading model = Both
+        CLSID = {10040900-E260-11CF-AE68-00AA004A34D5}
+
+      JobSchedule
+        Description = SQLDMO JobSchedule
+        ProgID = SQLDMO.JobSchedule.8.0
+        Threading model = Both
+        CLSID = {10041600-E260-11CF-AE68-00AA004A34D5}
+
+      TargetServer
+        Description = SQLDMO TargetServer
+        ProgID = SQLDMO.TargetServer.8.0
+        Threading model = Both
+        CLSID = {10041000-E260-11CF-AE68-00AA004A34D5}
+
+      TargetServerGroup
+        Description = SQLDMO TargetServerGroup
+        ProgID = SQLDMO.TargetServerGroup.8.0
+        Threading model = Both
+        CLSID = {10041100-E260-11CF-AE68-00AA004A34D5}
+
+      Category
+        Description = SQLDMO Category
+        ProgID = SQLDMO.Category.8.0
+        Threading model = Both
+        CLSID = {10041500-E260-11CF-AE68-00AA004A34D5}
+
+      Restore
+        Description = SQLDMO DB Restore
+        ProgID = SQLDMO.Restore.8.0
+        Threading model = Both
+        CLSID = {10023200-E260-11CF-AE68-00AA004A34D5}
+
+      Replication
+        Description = SQLDMO Replication
+        ProgID = SQLDMO.Replication.8.0
+        Threading model = Both
+        CLSID = {10031000-E260-11CF-AE68-00AA004A34D5}
+
+      RegisteredSubscriber
+        Description = SQLDMO RegisteredSubscriber
+        ProgID = SQLDMO.RegisteredSubscriber.8.0
+        Threading model = Both
+        CLSID = {10030900-E260-11CF-AE68-00AA004A34D5}
+
+      ReplicationSecurity
+        Description = SQLDMO ReplicationSecurity
+        ProgID = SQLDMO.ReplicationSecurity.8.0
+        Threading model = Both
+        CLSID = {10031200-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionPublisher
+        Description = SQLDMO DistributionPublisher
+        ProgID = SQLDMO.DistributionPublisher.8.0
+        Threading model = Both
+        CLSID = {10030700-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionPublication
+        Description = SQLDMO DistributionPublication
+        ProgID = SQLDMO.DistributionPublication.8.0
+        Threading model = Both
+        CLSID = {10032100-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionArticle
+        Description = SQLDMO DistributionArticle
+        ProgID = SQLDMO.DistributionArticle.8.0
+        Threading model = Both
+        CLSID = {10033100-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionSubscription
+        Description = SQLDMO DistributionSubscription
+        ProgID = SQLDMO.DistributionSubscription.8.0
+        Threading model = Both
+        CLSID = {10034100-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionDatabase
+        Description = SQLDMO DistributionDatabase
+        ProgID = SQLDMO.DistributionDatabase.8.0
+        Threading model = Both
+        CLSID = {10031300-E260-11CF-AE68-00AA004A34D5}
+
+      TransPublication
+        Description = SQLDMO TransPublication
+        ProgID = SQLDMO.TransPublication.8.0
+        Threading model = Both
+        CLSID = {10030100-E260-11CF-AE68-00AA004A34D5}
+
+      TransArticle
+        Description = SQLDMO TransArticle
+        ProgID = SQLDMO.TransArticle.8.0
+        Threading model = Both
+        CLSID = {10030200-E260-11CF-AE68-00AA004A34D5}
+
+      TransSubscription
+        Description = SQLDMO TransSubscription
+        ProgID = SQLDMO.TransSubscription.8.0
+        Threading model = Both
+        CLSID = {10030300-E260-11CF-AE68-00AA004A34D5}
+
+      MergePublication
+        Description = SQLDMO MergePublication
+        ProgID = SQLDMO.MergePublication.8.0
+        Threading model = Both
+        CLSID = {10030400-E260-11CF-AE68-00AA004A34D5}
+
+      MergeArticle
+        Description = SQLDMO MergeArticle
+        ProgID = SQLDMO.MergeArticle.8.0
+        Threading model = Both
+        CLSID = {10030500-E260-11CF-AE68-00AA004A34D5}
+
+      MergeSubsetFilter
+        Description = SQLDMO MergeSubsetFilter
+        ProgID = SQLDMO.MergeSubsetFilter.8.0
+        Threading model = Both
+        CLSID = {10035100-E260-11CF-AE68-00AA004A34D5}
+
+      MergeSubscription
+        Description = SQLDMO MergeSubscription
+        ProgID = SQLDMO.MergeSubscription.8.0
+        Threading model = Both
+        CLSID = {10030600-E260-11CF-AE68-00AA004A34D5}
+
+      MergeDynamicSnapshotJob
+        Description = SQLDMO MergeDynamicSnapshotJob
+        ProgID = SQLDMO.MergeDynamicSnapshotJob.8.0
+        Threading model = Both
+        CLSID = {10036100-E260-11CF-AE68-00AA004A34D5}
+
+      TransPullSubscription
+        Description = SQLDMO TransPullSubscription
+        ProgID = SQLDMO.TransPullSubscription.8.0
+        Threading model = Both
+        CLSID = {10030B00-E260-11CF-AE68-00AA004A34D5}
+
+      MergePullSubscription
+        Description = SQLDMO MergePullSubscription
+        ProgID = SQLDMO.MergePullSubscription.8.0
+        Threading model = Both
+        CLSID = {10031100-E260-11CF-AE68-00AA004A34D5}
+
+      ServerRole
+        Description = SQLDMO Server Role
+        ProgID = SQLDMO.ServerRole.8.0
+        Threading model = Both
+        CLSID = {10022F00-E260-11CF-AE68-00AA004A34D5}
+
+      LinkedServer
+        Description = SQLDMO LinkedServer
+        ProgID = SQLDMO.LinkedServer.8.0
+        Threading model = Both
+        CLSID = {10023300-E260-11CF-AE68-00AA004A34D5}
+
+      LinkedServerLogin
+        Description = SQLDMO LinkedServerLogin
+        ProgID = SQLDMO.LinkedServerLogin.8.0
+        Threading model = Both
+        CLSID = {10023400-E260-11CF-AE68-00AA004A34D5}
+
+      ServerGroup
+        Description = SQLDMO Server Group
+        ProgID = SQLDMO.ServerGroup.8.0
+        Threading model = Both
+        CLSID = {10021800-E260-11CF-AE68-00AA004A34D5}
+
+      RegisteredServer
+        Description = SQLDMO Registered Server
+        ProgID = SQLDMO.RegisteredServer.8.0
+        Threading model = Both
+        CLSID = {10021900-E260-11CF-AE68-00AA004A34D5}
+
+      SQLServer2
+        Description = SQLDMO Server
+        ProgID = SQLDMO.SQLServer2.8.0
+        Threading model = Both
+        CLSID = {100202C1-E260-11CF-AE68-00AA004A34D5}
+
+      Database2
+        Description = SQLDMO Database
+        ProgID = SQLDMO.Database2.8.0
+        Threading model = Both
+        CLSID = {100203C1-E260-11CF-AE68-00AA004A34D5}
+
+      Table2
+        Description = SQLDMO Table
+        ProgID = SQLDMO.Table2.8.0
+        Threading model = Both
+        CLSID = {100204C1-E260-11CF-AE68-00AA004A34D5}
+
+      Column2
+        Description = SQLDMO Column
+        ProgID = SQLDMO.Column2.8.0
+        Threading model = Both
+        CLSID = {100205C1-E260-11CF-AE68-00AA004A34D5}
+
+      View2
+        Description = SQLDMO View
+        ProgID = SQLDMO.View2.8.0
+        Threading model = Both
+        CLSID = {100207C1-E260-11CF-AE68-00AA004A34D5}
+
+      UserDefinedDatatype2
+        Description = SQLDMO UserDefinedDatatype
+        ProgID = SQLDMO.UserDefinedDatatype2.8.0
+        Threading model = Both
+        CLSID = {100208C1-E260-11CF-AE68-00AA004A34D5}
+
+      Default2
+        Description = SQLDMO Default
+        ProgID = SQLDMO.Default2.8.0
+        Threading model = Both
+        CLSID = {100209C1-E260-11CF-AE68-00AA004A34D5}
+
+      Rule2
+        Description = SQLDMO Rule
+        ProgID = SQLDMO.Rule2.8.0
+        Threading model = Both
+        CLSID = {10020AC1-E260-11CF-AE68-00AA004A34D5}
+
+      User2
+        Description = SQLDMO User
+        ProgID = SQLDMO.User2.8.0
+        Threading model = Both
+        CLSID = {10020BC1-E260-11CF-AE68-00AA004A34D5}
+
+      StoredProcedure2
+        Description = SQLDMO StoredProcedure
+        ProgID = SQLDMO.StoredProcedure2.8.0
+        Threading model = Both
+        CLSID = {10020DC1-E260-11CF-AE68-00AA004A34D5}
+
+      Index2
+        Description = SQLDMO Index
+        ProgID = SQLDMO.Index2.8.0
+        Threading model = Both
+        CLSID = {10020EC1-E260-11CF-AE68-00AA004A34D5}
+
+      Trigger2
+        Description = SQLDMO Trigger
+        ProgID = SQLDMO.Trigger2.8.0
+        Threading model = Both
+        CLSID = {100210C1-E260-11CF-AE68-00AA004A34D5}
+
+      Login2
+        Description = SQLDMO Login
+        ProgID = SQLDMO.Login2.8.0
+        Threading model = Both
+        CLSID = {100213C1-E260-11CF-AE68-00AA004A34D5}
+
+      RemoteServer2
+        Description = SQLDMO RemoteServer
+        ProgID = SQLDMO.RemoteServer2.8.0
+        Threading model = Both
+        CLSID = {100215C1-E260-11CF-AE68-00AA004A34D5}
+
+      Transfer2
+        Description = SQLDMO DB Transfer
+        ProgID = SQLDMO.Transfer2.8.0
+        Threading model = Both
+        CLSID = {10021EC1-E260-11CF-AE68-00AA004A34D5}
+
+      Backup
+        Description = SQLDMO DB Backup
+        ProgID = SQLDMO.Backup.8.0
+        Threading model = Both
+        CLSID = {10021F00-E260-11CF-AE68-00AA004A34D5}
+
+      Backup2
+        Description = SQLDMO DB Backup
+        ProgID = SQLDMO.Backup2.8.0
+        Threading model = Both
+        CLSID = {10021FC1-E260-11CF-AE68-00AA004A34D5}
+
+      BulkCopy2
+        Description = SQLDMO BulkCopy
+        ProgID = SQLDMO.BulkCopy2.8.0
+        Threading model = Both
+        CLSID = {10021CC1-E260-11CF-AE68-00AA004A34D5}
+
+      FileGroup2
+        Description = SQLDMO File Group
+        ProgID = SQLDMO.FileGroup2.8.0
+        Threading model = Both
+        CLSID = {10022CC1-E260-11CF-AE68-00AA004A34D5}
+
+      LogFile2
+        Description = SQLDMO Log File
+        ProgID = SQLDMO.LogFile2.8.0
+        Threading model = Both
+        CLSID = {10022EC1-E260-11CF-AE68-00AA004A34D5}
+
+      DatabaseRole2
+        Description = SQLDMO Database Role
+        ProgID = SQLDMO.DatabaseRole2.8.0
+        Threading model = Both
+        CLSID = {100231C1-E260-11CF-AE68-00AA004A34D5}
+
+      Restore2
+        Description = SQLDMO DB Restore
+        ProgID = SQLDMO.Restore2.8.0
+        Threading model = Both
+        CLSID = {100232C1-E260-11CF-AE68-00AA004A34D5}
+
+      LinkedServer2
+        Description = SQLDMO LinkedServer
+        ProgID = SQLDMO.LinkedServer2.8.0
+        Threading model = Both
+        CLSID = {100233C1-E260-11CF-AE68-00AA004A34D5}
+
+      FullTextCatalog2
+        Description = SQLDMO FullText Catalog
+        ProgID = SQLDMO.FullTextCatalog2.8.0
+        Threading model = Both
+        CLSID = {100235C1-E260-11CF-AE68-00AA004A34D5}
+
+      Replication2
+        Description = SQLDMO Replication
+        ProgID = SQLDMO.Replication2.8.0
+        Threading model = Both
+        CLSID = {100310C1-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionPublisher2
+        Description = SQLDMO DistributionPublisher
+        ProgID = SQLDMO.DistributionPublisher2.8.0
+        Threading model = Both
+        CLSID = {100307C1-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionDatabase2
+        Description = SQLDMO DistributionDatabase
+        ProgID = SQLDMO.DistributionDatabase2.8.0
+        Threading model = Both
+        CLSID = {100313C1-E260-11CF-AE68-00AA004A34D5}
+
+      TransPublication2
+        Description = SQLDMO TransPublication
+        ProgID = SQLDMO.TransPublication2.8.0
+        Threading model = Both
+        CLSID = {100301C1-E260-11CF-AE68-00AA004A34D5}
+
+      TransArticle2
+        Description = SQLDMO TransArticle
+        ProgID = SQLDMO.TransArticle2.8.0
+        Threading model = Both
+        CLSID = {100302C1-E260-11CF-AE68-00AA004A34D5}
+
+      TransSubscription2
+        Description = SQLDMO TransSubscription
+        ProgID = SQLDMO.TransSubscription2.8.0
+        Threading model = Both
+        CLSID = {100303C1-E260-11CF-AE68-00AA004A34D5}
+
+      TransPullSubscription2
+        Description = SQLDMO TransPullSubscription
+        ProgID = SQLDMO.TransPullSubscription2.8.0
+        Threading model = Both
+        CLSID = {10030BC1-E260-11CF-AE68-00AA004A34D5}
+
+      MergePublication2
+        Description = SQLDMO MergePublication
+        ProgID = SQLDMO.MergePublication2.8.0
+        Threading model = Both
+        CLSID = {100304C1-E260-11CF-AE68-00AA004A34D5}
+
+      MergeArticle2
+        Description = SQLDMO MergeArticle
+        ProgID = SQLDMO.MergeArticle2.8.0
+        Threading model = Both
+        CLSID = {100305C1-E260-11CF-AE68-00AA004A34D5}
+
+      MergeSubscription2
+        Description = SQLDMO MergeSubscription
+        ProgID = SQLDMO.MergeSubscription2.8.0
+        Threading model = Both
+        CLSID = {100306C1-E260-11CF-AE68-00AA004A34D5}
+
+      MergePullSubscription2
+        Description = SQLDMO MergePullSubscription
+        ProgID = SQLDMO.MergePullSubscription2.8.0
+        Threading model = Both
+        CLSID = {100311C1-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionPublication2
+        Description = SQLDMO DistributionPublication
+        ProgID = SQLDMO.DistributionPublication2.8.0
+        Threading model = Both
+        CLSID = {100321C1-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionArticle2
+        Description = SQLDMO DistributionArticle
+        ProgID = SQLDMO.DistributionArticle2.8.0
+        Threading model = Both
+        CLSID = {100331C1-E260-11CF-AE68-00AA004A34D5}
+
+      DistributionSubscription2
+        Description = SQLDMO DistributionSubscription
+        ProgID = SQLDMO.DistributionSubscription2.8.0
+        Threading model = Both
+        CLSID = {100341C1-E260-11CF-AE68-00AA004A34D5}
+
+  IWshRuntimeLibrary
+    Description = Windows Script Host Object Model
+    File location = C:\Windows\SysWOW64\wshom.ocx
+    Typlib ID = {F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}
+    Version = 1.0
+    Flags = *none*
+
+    CoClasses: 15
+
+      FileSystemObject
+        Description = 
+        ProgID = Scripting.FileSystemObject
+        Threading model = Both
+        CLSID = {0D43FE01-F093-11CF-8940-00A0C9054228}
+
+      Drive
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B1-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      Drives
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B2-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      Folder
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B3-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      Folders
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B4-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      File
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B5-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      Files
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C7C3F5B6-88A3-11D0-ABCB-00A0C90FFFC0}
+
+      TextStream
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {0BB02EC0-EF49-11CF-8940-00A0C9054228}
+
+      WshShell
+        Description = Shell Object
+        ProgID = WScript.Shell.1
+        Threading model = Apartment
+        CLSID = {72C24DD5-D70A-438B-8A42-98424B88AFB8}
+
+      WshShortcut
+        Description = Shortcut Object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {A548B8E4-51D5-4661-8824-DAA1D893DFB2}
+
+      WshNetwork
+        Description = Network Object
+        ProgID = WScript.Network.1
+        Threading model = Apartment
+        CLSID = {093FF999-1EA0-4079-9525-9614C3504B74}
+
+      WshCollection
+        Description = Generic Collection Object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {387DAFF4-DA03-44D2-B0D1-80C927C905AC}
+
+      WshEnvironment
+        Description = Environment Variables Collection Object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {F48229AF-E28C-42B5-BB92-E114E62BDD54}
+
+      WshURLShortcut
+        Description = URLShortcut Object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {50E13488-6F1E-4450-96B0-873755403955}
+
+      WshExec
+        Description = WSHExec object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {08FED191-BE19-11D3-A28B-00104BD35090}
+
+  SHDocVw
+    Description = Microsoft Internet Controls
+    File location = C:\Windows\SysWOW64\ieframe.dll
+    Typlib ID = {EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}
+    Version = 1.1
+    Flags = *none*
+    *Excluded*
+
+  msdatsrc
+    Description = <type library>
+    File location = 
+    Typlib ID = {7C0FFAB0-CD84-11D0-949A-00A0C91110ED}
+    Version = 0.0
+    Flags = *none*
+    *Excluded*
+
+  PBKS_Net_Controls
+    Description = <type library>
+    File location = 
+    Typlib ID = {8B07DDC0-1FC2-4D71-B114-D4F3E02F1F1A}
+    Version = 0.0
+    Flags = *none*
+    *Excluded*
+
+  MSComCtl2
+    Description = Microsoft Windows Common Controls-2 6.0 (SP6)
+    File location = C:\Windows\SysWow64\MSCOMCT2.OCX
+    Typlib ID = {86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}
+    Version = 2.0
+    Flags = control
+
+    CoClasses: 7
+
+      DataObject
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2334D2B2-713E-11CF-8AE5-00AA00C00905}
+
+      DataObjectFiles
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2334D2B4-713E-11CF-8AE5-00AA00C00905}
+
+      Animation
+        Description = Animation Control
+        ProgID = MSComCtl2.Animation.2
+        Threading model = Apartment
+        CLSID = {B09DE715-87C1-11D1-8BE3-0000F8754DA1}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      UpDown
+        Description = UpDown Control
+        ProgID = MSComCtl2.UpDown.2
+        Threading model = Apartment
+        CLSID = {603C7E80-87C2-11D1-8BE3-0000F8754DA1}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      MonthView
+        Description = Microsoft MonthView Control
+        ProgID = MSComCtl2.MonthView.2
+        Threading model = Apartment
+        CLSID = {232E456A-87C3-11D1-8BE3-0000F8754DA1}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      DTPicker
+        Description = Microsoft Date and Time Picker Control
+        ProgID = MSComCtl2.DTPicker.2
+        Threading model = Apartment
+        CLSID = {20DD1B9E-87C4-11D1-8BE3-0000F8754DA1}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      FlatScrollBar
+        Description = Microsoft Flat Scrollbar Control
+        ProgID = MSComCtl2.FlatScrollBar.2
+        Threading model = Apartment
+        CLSID = {FE38753A-44A3-11D1-B5B7-0000C09000C4}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  actslikelabel,
+                  setclientsitefirst"
+
+  ComCtl3
+    Description = Microsoft Windows Common Controls-3 6.0 (SP5)
+    File location = C:\Windows\SysWow64\COMCT332.OCX
+    Typlib ID = {38911DA0-E448-11D0-84A3-00DD01104159}
+    Version = 1.1
+    Flags = control
+
+    CoClasses: 6
+
+      CoolBar
+        Description = Microsoft Coolbar Control, version 6.0
+        ProgID = ComCtl3.CoolBar
+        Threading model = Apartment
+        CLSID = {38911D92-E448-11D0-84A3-00DD01104159}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  actslikelabel,
+                  nouiactivate,
+                  alignable,
+                  simpleframe,
+                  setclientsitefirst"
+
+      Band
+        Description = Coolbar Band
+        ProgID = ComCtl3.Band
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {5522DAF8-06D6-11D2-8D70-00A0C98B28E2}
+
+      Bands
+        Description = Coolbar Bands
+        ProgID = ComCtl3.Bands
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {5522DAFA-06D6-11D2-8D70-00A0C98B28E2}
+
+      BandProperties
+        Description = 
+        ProgID = ComCtl3.BandProperties
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {5522DB04-06D6-11D2-8D70-00A0C98B28E2}
+
+      BandsPage
+        Description = 
+        Threading model = Apartment
+        CLSID = {38911D90-E448-11D0-84A3-00DD01104159}
+
+      CoolBarPage
+        Description = 
+        Threading model = Apartment
+        CLSID = {38911D8E-E448-11D0-84A3-00DD01104159}
+
+  VBA
+    Description = Visual Basic For Applications
+    File location = C:\Windows\SysWow64\MSVBVM60.dll
+    Typlib ID = {000204EF-0000-0000-C000-000000000046}
+    Version = 6.0
+    Flags = *none*
+    *Excluded*
+
+  stdole
+    Description = OLE Automation
+    File location = C:\Windows\SysWow64\StdOle2.tlb
+    Typlib ID = {00020430-0000-0000-C000-000000000046}
+    Version = 2.0
+    Flags = *none*
+    *Excluded*
+
+  OleAut32
+    Description = <Standard or unregistered DLL/OCX>
+    File location = C:\Windows\SysWow64\OleAut32.dll
+    Typlib ID = n/a
+    Version = 0.0
+    Flags = *none*
+    *Excluded*
+
+  StdType
+    Description = Standard OLE Types
+    File location = C:\Windows\SysWow64\OlePro32.dll
+    Typlib ID = {BEF6E001-A874-101A-8BBA-00AA00300CAB}
+    Version = 2.0
+    Flags = *none*
+    *Excluded*
+
+  AsycFilt
+    Description = <Standard or unregistered DLL/OCX>
+    File location = C:\Windows\SysWow64\AsycFilt.dll
+    Typlib ID = n/a
+    Version = 0.0
+    Flags = *none*
+    *Excluded*
+
+  TabDlg
+    Description = Microsoft Tabbed Dialog Control 6.0 (SP6)
+    File location = C:\Windows\SysWow64\tabctl32.ocx
+    Typlib ID = {BDC217C8-ED16-11CD-956C-0000C04E4C0A}
+    Version = 1.1
+    Flags = control
+
+    CoClasses: 3
+
+      DataObject
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2334D2B2-713E-11CF-8AE5-00AA00C00905}
+
+      DataObjectFiles
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2334D2B4-713E-11CF-8AE5-00AA00C00905}
+
+      SSTab
+        Description = A Tabbed Dialog control that can be used to group controls on separate tabs.
+        ProgID = TabDlg.SSTab.1
+        Threading model = Apartment
+        CLSID = {BDC217C5-ED16-11CD-956C-0000C04E4C0A}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  simpleframe,
+                  setclientsitefirst"
+
+  MSComDlg
+    Description = Microsoft Common Dialog Control 6.0 (SP6)
+    File location = C:\PBKS\Executables\Registered_Components\COMDLG32.OCX
+    Typlib ID = {F9043C88-F6F2-101A-A3C9-08002B2F49FB}
+    Version = 1.2
+    Flags = control
+
+    CoClasses: 1
+
+      CommonDialog
+        Description = Microsoft Common Dialog Control 6.0 (SP6)
+        ProgID = MSComDlg.CommonDialog.1
+        Threading model = Apartment
+        CLSID = {F9043C85-F6F2-101A-A3C9-08002B2F49FB}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  onlyiconic,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  invisibleatruntime,
+                  setclientsitefirst"
+
+  TrueOleDBGrid60
+    Description = Apex True DBGrid Data Bound Grid Library
+    File location = C:\PBKS\EXECUTABLES\TODG6.OCX
+    Typlib ID = {0D6234D1-DBA2-11D1-B5DF-0060976089D0}
+    Version = 6.0
+    Flags = control
+
+    CoClasses: 4
+
+      TDBDropDown
+        Description = The main dropdown object
+        ProgID = TrueOleDBGrid60.TDBDropDown
+        Threading model = Apartment
+        CLSID = {0D6234E9-DBA2-11D1-B5DF-0060976089D0}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  alignable,
+                  setclientsitefirst"
+
+      TDBGrid
+        Description = The main grid object
+        ProgID = TrueOleDBGrid60.TDBGrid
+        Threading model = Apartment
+        CLSID = {0D6234D0-DBA2-11D1-B5DF-0060976089D0}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  alignable,
+                  setclientsitefirst"
+
+      ValueItem
+        Description = (null)
+        Threading model = Apartment
+        CLSID = {0D6234DE-DBA2-11D1-B5DF-0060976089D0}
+
+      Style
+        Description = (null)
+        Threading model = Apartment
+        CLSID = {0D6234E5-DBA2-11D1-B5DF-0060976089D0}
+
+  MSAdodcLib
+    Description = Microsoft ADO Data Control 6.0 (SP6) (OLEDB)
+    File location = C:\Windows\SysWow64\msadodc.ocx
+    Typlib ID = {67397AA1-7FB1-11D0-B148-00A0C922E820}
+    Version = 6.0
+    Flags = control
+
+    CoClasses: 1
+
+      Adodc
+        Description = Microsoft ADO Data Control 6.0 (SP6) (OLEDB)
+        ProgID = MSAdodcLib.Adodc.6
+        Threading model = Apartment
+        CLSID = {67397AA3-7FB1-11D0-B148-00A0C922E820}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  nouiactivate,
+                  alignable,
+                  setclientsitefirst"
+
+  SysInfoLib
+    Description = Microsoft SysInfo Control 6.0
+    File location = C:\Windows\SysWow64\SYSINFO.OCX
+    Typlib ID = {6FBA474E-43AC-11CE-9A0E-00AA0062BB4C}
+    Version = 1.0
+    Flags = control
+
+    CoClasses: 1
+
+      SysInfo
+        Description = Microsoft SysInfo Control 6.0
+        ProgID = SYSINFO.SysInfo.1
+        Threading model = Apartment
+        CLSID = {6FBA474B-43AC-11CE-9A0E-00AA0062BB4C}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  invisibleatruntime,
+                  nouiactivate,
+                  setclientsitefirst"
+
+  CCubeX
+    Description = CCubeX Library
+    File location = C:\Windows\SysWow64\CCubeX.ocx
+    Typlib ID = {CCA2C66D-33FD-11D5-8D72-005004532BDF}
+    Version = 1.3
+    Flags = control
+
+    CoClasses: 1
+
+      ContourCubeX
+        Description = ContourCubeX Control
+        ProgID = CCubeX.ContourCubeX
+        Threading model = Single
+        CLSID = {CCA2C672-33FD-11D5-8D72-005004532BDF}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+  CCubeX2
+    Description = CCubeX2 Library
+    File location = C:\PBKS\Executables\DLLs\CCubeX20o.ocx
+    Typlib ID = {801C12A5-BE41-41CD-AE48-C666E77F2F02}
+    Version = 2.0
+    Flags = control
+
+    CoClasses: 2
+
+      ContourCubeX
+        Description = ContourCubeX Control 2.0
+        ProgID = CCubeX2.ContourGridX
+        Threading model = Single
+        CLSID = {07EE1598-351E-49A8-8B75-84BECBB9F4D0}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      ContourRect
+        Description = ContourRect coclass
+        Threading model = Single
+        CLSID = {B6C9E94F-D2E2-4876-AE51-3BDBFEC44172}
+
+  CoolButtonControl
+    Description = Dev4Dev - CoolButton
+    File location = C:\PBKS\Executables\Registered_Components\CoolButton.ocx
+    Typlib ID = {BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}
+    Version = 9.0
+    Flags = control
+
+    CoClasses: 4
+
+      General
+        Description = 
+        Threading model = Apartment
+        CLSID = {73C96E32-B857-416F-B15A-BFCED9D4F5B3}
+
+      CoolButton
+        Description = 
+        ProgID = CoolButtonControl.CoolButton
+        Threading model = Apartment
+        CLSID = {0EB1737A-8BB9-4538-B9EA-A69032665724}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  actslikebutton,
+                  setclientsitefirst"
+
+      Pictures
+        Description = 
+        Threading model = Apartment
+        CLSID = {DD790845-B7C4-436C-9461-0C9DFFBA75BC}
+
+      Extender
+        Description = 
+        Threading model = Apartment
+        CLSID = {9C38E86E-2644-4ABF-BD8E-652D84728D1F}
+
+  MSChart20Lib
+    Description = Microsoft Chart Control 6.0 (SP4) (OLEDB)
+    File location = C:\Windows\SysWow64\mschrt20.ocx
+    Typlib ID = {65E121D4-0C60-11D2-A9FC-0000F8754DA1}
+    Version = 2.0
+    Flags = control
+
+    CoClasses: 47
+
+      DataObject
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2334D2B2-713E-11CF-8AE5-00AA00C00905}
+
+      DataObjectFiles
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2334D2B4-713E-11CF-8AE5-00AA00C00905}
+
+      Coor
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074CA-BA0A-11D1-B137-0000F8753F5D}
+
+      LCoor
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074CC-BA0A-11D1-B137-0000F8753F5D}
+
+      Rect
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074CE-BA0A-11D1-B137-0000F8753F5D}
+
+      VtColor
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074D0-BA0A-11D1-B137-0000F8753F5D}
+
+      Pen
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074D2-BA0A-11D1-B137-0000F8753F5D}
+
+      Marker
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074D4-BA0A-11D1-B137-0000F8753F5D}
+
+      TextLayout
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07529-BA0A-11D1-B137-0000F8753F5D}
+
+      Location
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074D7-BA0A-11D1-B137-0000F8753F5D}
+
+      VtFont
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074D9-BA0A-11D1-B137-0000F8753F5D}
+
+      Brush
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074DB-BA0A-11D1-B137-0000F8753F5D}
+
+      Shadow
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074DD-BA0A-11D1-B137-0000F8753F5D}
+
+      Fill
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074DF-BA0A-11D1-B137-0000F8753F5D}
+
+      Frame
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074E1-BA0A-11D1-B137-0000F8753F5D}
+
+      Backdrop
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074E3-BA0A-11D1-B137-0000F8753F5D}
+
+      Title
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074E5-BA0A-11D1-B137-0000F8753F5D}
+
+      Footnote
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074E7-BA0A-11D1-B137-0000F8753F5D}
+
+      Legend
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074E9-BA0A-11D1-B137-0000F8753F5D}
+
+      DataGrid
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074EB-BA0A-11D1-B137-0000F8753F5D}
+
+      LightSource
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074ED-BA0A-11D1-B137-0000F8753F5D}
+
+      LightSources
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074EF-BA0A-11D1-B137-0000F8753F5D}
+
+      Light
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074F1-BA0A-11D1-B137-0000F8753F5D}
+
+      View3d
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074F3-BA0A-11D1-B137-0000F8753F5D}
+
+      PlotBase
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074F5-BA0A-11D1-B137-0000F8753F5D}
+
+      Weighting
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074FB-BA0A-11D1-B137-0000F8753F5D}
+
+      Wall
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E074FD-BA0A-11D1-B137-0000F8753F5D}
+
+      SeriesPosition
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07503-BA0A-11D1-B137-0000F8753F5D}
+
+      SeriesMarker
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07505-BA0A-11D1-B137-0000F8753F5D}
+
+      StatLine
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07507-BA0A-11D1-B137-0000F8753F5D}
+
+      Label
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07509-BA0A-11D1-B137-0000F8753F5D}
+
+      Labels
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E0750B-BA0A-11D1-B137-0000F8753F5D}
+
+      DataPointLabel
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E0750D-BA0A-11D1-B137-0000F8753F5D}
+
+      DataPoint
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E0750F-BA0A-11D1-B137-0000F8753F5D}
+
+      DataPoints
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07510-BA0A-11D1-B137-0000F8753F5D}
+
+      Series
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07512-BA0A-11D1-B137-0000F8753F5D}
+
+      SeriesCollection
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07514-BA0A-11D1-B137-0000F8753F5D}
+
+      AxisTitle
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07516-BA0A-11D1-B137-0000F8753F5D}
+
+      CategoryScale
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07518-BA0A-11D1-B137-0000F8753F5D}
+
+      AxisGrid
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E0751C-BA0A-11D1-B137-0000F8753F5D}
+
+      Intersection
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E0751E-BA0A-11D1-B137-0000F8753F5D}
+
+      Tick
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07520-BA0A-11D1-B137-0000F8753F5D}
+
+      AxisScale
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07522-BA0A-11D1-B137-0000F8753F5D}
+
+      ValueScale
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07524-BA0A-11D1-B137-0000F8753F5D}
+
+      Axis
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07526-BA0A-11D1-B137-0000F8753F5D}
+
+      Plot
+        Description = Plot Object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E9E07528-BA0A-11D1-B137-0000F8753F5D}
+
+      MSChart
+        Description = Microsoft Chart Control 6.0 (SP4) (OLEDB)
+        ProgID = MSChart20Lib.MSChart.2
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3A2B370C-BA0A-11D1-B137-0000F8753F5D}
+
+  DataTree
+    Description = GreenTree DataTree Controls
+    File location = C:\PBKS\EXECUT~1\REGIST~1\DataTree\bin\gtTree32.ocx
+    Typlib ID = {3294EE21-3C6C-11D0-BADF-00201802BB87}
+    Version = 1.0
+    Flags = control
+
+    CoClasses: 12
+
+      GTTree
+        Description = GTTree Control        ProgID = DataTree.Tree
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE25-3C6C-11D0-BADF-00201802BB87}
+
+      GTComboTree
+        Description = GTComboTree Control        ProgID = DataTree.TreeCombo
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE28-3C6C-11D0-BADF-00201802BB87}
+
+      GTSubItem
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE30-3C6C-11D0-BADF-00201802BB87}
+
+      GTColumnDef
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE44-3C6C-11D0-BADF-00201802BB87}
+
+      GTColumnDefs
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE33-3C6C-11D0-BADF-00201802BB87}
+
+      GTSubItems
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE35-3C6C-11D0-BADF-00201802BB87}
+
+      GTTreeImages
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE41-3C6C-11D0-BADF-00201802BB87}
+
+      GTTreeImage
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE43-3C6C-11D0-BADF-00201802BB87}
+
+      GTLevelDef
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE46-3C6C-11D0-BADF-00201802BB87}
+
+      GTLevelDefs
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE48-3C6C-11D0-BADF-00201802BB87}
+
+      GTNode
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE50-3C6C-11D0-BADF-00201802BB87}
+
+      GTNodes
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {3294EE52-3C6C-11D0-BADF-00201802BB87}
+
+  BarcodLib
+    Description = Mabry BarCod Control
+    File location = C:\PBKS\Executables\Registered_Components\BarCod32.OCX
+    Typlib ID = {2200CD23-1176-101D-85F5-0020AF1EF604}
+    Version = 1.7
+    Flags = control
+
+    CoClasses: 1
+
+      Barcod
+        Description = Mabry BarCod Control        ProgID = Mabry.BarCod
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2200CD20-1176-101D-85F5-0020AF1EF604}
+
+  MSComctlLib
+    Description = Microsoft Windows Common Controls 6.0 (SP6)
+    File location = C:\WINDOWS\SysWOW64\MSCOMCTL.OCX
+    Typlib ID = {831FDD16-0C5C-11D2-A9FC-0000F8754DA1}
+    Version = 2.1
+    Flags = control
+
+    CoClasses: 32
+
+      DataObject
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2334D2B2-713E-11CF-8AE5-00AA00C00905}
+
+      DataObjectFiles
+        Description = 
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2334D2B4-713E-11CF-8AE5-00AA00C00905}
+
+      TabStrip
+        Description = Microsoft TabStrip Control
+        ProgID = MSComctlLib.TabStrip.2
+        Threading model = Apartment
+        CLSID = {1EFB6596-857C-11D1-B16A-00C0F0283628}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      Tabs
+        Description = Returns a reference to a collection of Tab objects in the TabStrip control.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {1EFB6598-857C-11D1-B16A-00C0F0283628}
+
+      Tab
+        Description = Returns a reference to a collection of Tab objects in the TabStrip control.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {1EFB659A-857C-11D1-B16A-00C0F0283628}
+
+      Toolbar
+        Description = Microsoft Toolbar Control
+        ProgID = MSComctlLib.Toolbar.2
+        Threading model = Apartment
+        CLSID = {66833FE6-8583-11D1-B16A-00C0F0283628}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  actslikelabel,
+                  alignable,
+                  simpleframe,
+                  setclientsitefirst"
+
+      Buttons
+        Description = ToolBar Buttons
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {66833FE8-8583-11D1-B16A-00C0F0283628}
+
+      Button
+        Description = ToolBar Button
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {66833FEA-8583-11D1-B16A-00C0F0283628}
+
+      ButtonMenus
+        Description = ToolBar ButtonMenus
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {66833FEC-8583-11D1-B16A-00C0F0283628}
+
+      ButtonMenu
+        Description = ToolBar ButtonMenu
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {66833FEE-8583-11D1-B16A-00C0F0283628}
+
+      StatusBar
+        Description = Microsoft StatusBar Control
+        ProgID = MSComctlLib.SBarCtrl.2
+        Threading model = Apartment
+        CLSID = {8E3867A3-8586-11D1-B16A-00C0F0283628}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  actslikelabel,
+                  alignable,
+                  setclientsitefirst"
+
+      Panels
+        Description = StatusBar Panels collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {8E3867A5-8586-11D1-B16A-00C0F0283628}
+
+      Panel
+        Description = StatusBar Panel
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {8E3867AB-8586-11D1-B16A-00C0F0283628}
+
+      ProgressBar
+        Description = Microsoft ProgressBar Control
+        ProgID = MSComctlLib.ProgCtrl.2
+        Threading model = Apartment
+        CLSID = {35053A22-8589-11D1-B16A-00C0F0283628}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  actslikelabel,
+                  alignable,
+                  setclientsitefirst"
+
+      TreeView
+        Description = Displays a hierarchical list of Node objects, each of which consists of a label and an optional bitmap.
+        ProgID = MSComctlLib.TreeCtrl.2
+        Threading model = Apartment
+        CLSID = {C74190B6-8589-11D1-B16A-00C0F0283628}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      Nodes
+        Description = Treeview Nodes collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {0713E8C0-850A-101B-AFC0-4210102A8DA7}
+
+      Node
+        Description = An object in a TreeView control that can contain images and text.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C74190B9-8589-11D1-B16A-00C0F0283628}
+
+      ListView
+        Description = Displays a collection of ListItems such as files or folders.
+        ProgID = MSComctlLib.ListViewCtrl.2
+        Threading model = Apartment
+        CLSID = {BDD1F04B-858B-11D1-B16A-00C0F0283628}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      ListItems
+        Description = ListView Item collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {BDD1F04D-858B-11D1-B16A-00C0F0283628}
+
+      ListItem
+        Description = An item in a ListView control that contains the index of icons associated with it, text, and an array of strings representing subitems that are displayed in Report view.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {BDD1F04F-858B-11D1-B16A-00C0F0283628}
+
+      ColumnHeaders
+        Description = ListView Column Header collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {0713E8C6-850A-101B-AFC0-4210102A8DA7}
+
+      ColumnHeader
+        Description = ListView Column Header
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {BDD1F052-858B-11D1-B16A-00C0F0283628}
+
+      ListSubItems
+        Description = ListView SubItem collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {BDD1F054-858B-11D1-B16A-00C0F0283628}
+
+      ListSubItem
+        Description = ListView SubItem object
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {BDD1F056-858B-11D1-B16A-00C0F0283628}
+
+      ImageList
+        Description = Contains a collection of ListImage objects, each of which can be referred to by its index or key
+        ProgID = MSComctlLib.ImageListCtrl.2
+        Threading model = Apartment
+        CLSID = {2C247F23-8591-11D1-B16A-00C0F0283628}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  invisibleatruntime,
+                  alignable,
+                  setclientsitefirst"
+
+      ListImages
+        Description = A bitmap or icon of any size that can be used in other controls.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2C247F25-8591-11D1-B16A-00C0F0283628}
+
+      ListImage
+        Description = A bitmap or icon of any size that can be used in other controls.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {2C247F27-8591-11D1-B16A-00C0F0283628}
+
+      Slider
+        Description = A calibrated control with a slider for setting or selecting values.
+        ProgID = MSComctlLib.Slider.2
+        Threading model = Apartment
+        CLSID = {F08DF954-8592-11D1-B16A-00C0F0283628}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+      Controls
+        Description = Controls collection
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {C8A3DC01-8593-11D1-B16A-00C0F0283628}
+
+      ComboItem
+        Description = An object that represents an entry in the listbox portion of the combobox control.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {DD9DA661-8594-11D1-B16A-00C0F0283628}
+
+      ComboItems
+        Description = The ComboItems Collection.
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {DD9DA663-8594-11D1-B16A-00C0F0283628}
+
+      ImageCombo
+        Description = Microsoft ImageComboBox Control
+        ProgID = MSComctlLib.ImageComboCtl.2
+        Threading model = Apartment
+        CLSID = {DD9DA666-8594-11D1-B16A-00C0F0283628}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  setclientsitefirst"
+
+  VBControlManager
+    Description = VBControlManager
+    File location = C:\PBKS\Executables\Registered_Components\VB Control Manager.ocx
+    Typlib ID = {78228CC4-5F8A-4F70-A0FF-09FA0CD19485}
+    Version = 1.0
+    Flags = control
+
+    CoClasses: 8
+
+      clsControl
+        Description = A class module to represent a "virtual" control
+        ProgID = VBControlManager.clsControl
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {0233522C-F43B-4EB1-BC34-31F938847349}
+
+      clsControls
+        Description = A class module to implement custom collection of class clsControl
+        ProgID = VBControlManager.clsControls
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {943BBD86-3C56-459D-8E7D-C441DF922E7E}
+
+      clsSplitters
+        Description = A class module to implement custom collection of class clsSplitter
+        ProgID = VBControlManager.clsSplitters
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {A8666469-CDEA-4A32-8209-AD9404585076}
+
+      clsSplitter
+        Description = A class module to represent a "virtual" splitter
+        ProgID = VBControlManager.clsSplitter
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {1B7202BC-201E-445C-AE83-5F677CF0A31F}
+
+      clsIds
+        Description = A class module to implement collection of class clsId
+        ProgID = VBControlManager.clsIds
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {28D7C3CE-D85A-4893-A255-532E05D41662}
+
+      clsId
+        Description = A class module to represent an Id
+        ProgID = VBControlManager.clsId
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {E5389CB0-BEDE-4B1D-B413-20D50C6989EF}
+
+      ControlManager
+        Description = An ActiveX control to allow the user to resize docked controls at run time
+        ProgID = VBControlManager.ControlManager
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {5186005A-3D19-42EE-A370-83008CE4D82E}
+
+      TitleBar
+        Description = 
+        ProgID = VBControlManager.TitleBar
+        Threading model = *null*, no ThreadingModel entry will be made in manifest.
+        CLSID = {F87802CB-15B0-4C52-BF92-24CCC1653312}
+
+  InetCtlsObjects
+    Description = Microsoft Internet Transfer Control 6.0 (SP6)
+    File location = C:\Windows\SysWow64\msinet.ocx
+    Typlib ID = {48E59290-9880-11CF-9754-00AA00C00908}
+    Version = 1.0
+    Flags = control
+
+    CoClasses: 1
+
+      Inet
+        Description = Microsoft Internet Transfer Control
+        ProgID = InetCtls.Inet.1
+        Threading model = Apartment
+        CLSID = {48E59293-9880-11CF-9754-00AA00C00908}
+        VB6 KB 828629 remediation:
+          miscStatusIcon = 
+                  "recomposeonresize,
+                  cantlinkinside,
+                  insideout,
+                  activatewhenvisible,
+                  invisibleatruntime,
+                  setclientsitefirst"
+
+MMM project settings:
+  Embed manifest in EXE = False
+  Save MMM log to disk = True
+  Common Controls 6.0 manifest node = False
+  VB 6.0 ActiveX control KB 828629 remediation = False
+  DPI Aware manifest node = False
+  Compatibility manifest node = False
+  TrustInfo manifest node = False
+
+Creating MMMPack4 package folder:
+    C:\WWBB\PBKS_MANAGER\MMMPack4
+
+Copying dependencies:
+  C:\Windows\SysWOW64\scrrun.dll to MMMPack4
+  C:\PBKS\Executables\Registered_Components\ExComboBox.dll to MMMPack4
+  C:\Windows\SysWow64\msbind.dll to MMMPack4
+  C:\Windows\SysWow64\MSStdFmt.Dll to MMMPack4
+  C:\Program Files (x86)\Common Files\Data Dynamics\ActiveReports Pro\exclexpt.dll to MMMPack4
+  C:\PBKS\Executables\Registered_Components\XpdfPrint.dll to MMMPack4
+  C:\PBKS\Executables\Registered_Components\RegionalSet.dll to MMMPack4
+  C:\Windows\system32\comsvcs.dll to MMMPack4
+  C:\PBKS\Executables\Support\dsofile.dll to MMMPack4
+  C:\Program Files (x86)\Common Files\Data Dynamics\ActiveReports Pro\pdfexpt.dll to MMMPack4
+  C:\Program Files (x86)\Common Files\Data Dynamics\ActiveReports Pro\arpro2.dll to MMMPack4
+  C:\PBKS\Executables\Registered_Components\ARVIEW2.OCX to MMMPack4
+  C:\PBKS\Executables\xarraydb.ocx to MMMPack4
+  C:\Windows\System32\wiaaut.dll to MMMPack4
+  C:\Program Files\Microsoft Office\Office14\OUTLCTL.DLL to MMMPack4
+  c:\Program Files (x86)\Microsoft SQL Server\80\Tools\binn\SQLDMO.DLL to MMMPack4
+  C:\Windows\SysWOW64\wshom.ocx to MMMPack4
+  C:\Windows\SysWow64\MSCOMCT2.OCX to MMMPack4
+  C:\Windows\SysWow64\COMCT332.OCX to MMMPack4
+  C:\Windows\SysWow64\tabctl32.ocx to MMMPack4
+  C:\PBKS\Executables\Registered_Components\COMDLG32.OCX to MMMPack4
+  C:\PBKS\EXECUTABLES\TODG6.OCX to MMMPack4
+  C:\Windows\SysWow64\msadodc.ocx to MMMPack4
+  C:\Windows\SysWow64\SYSINFO.OCX to MMMPack4
+  C:\Windows\SysWow64\CCubeX.ocx to MMMPack4
+  C:\PBKS\Executables\DLLs\CCubeX20o.ocx to MMMPack4
+  C:\PBKS\Executables\Registered_Components\CoolButton.ocx to MMMPack4
+  C:\Windows\SysWow64\mschrt20.ocx to MMMPack4
+  C:\PBKS\EXECUT~1\REGIST~1\DataTree\bin\gtTree32.ocx to MMMPack4
+  C:\PBKS\Executables\Registered_Components\BarCod32.OCX to MMMPack4
+  C:\WINDOWS\SysWOW64\MSCOMCTL.OCX to MMMPack4
+  C:\PBKS\Executables\Registered_Components\VB Control Manager.ocx to MMMPack4
+  C:\Windows\SysWow64\msinet.ocx to MMMPack4
+
+Copying EXE:
+  C:\WWBB\PBKS_MANAGER\PBKS.exe to MMMPack4
+
+Writing application manifest:
+  PBKS.exe.manifest to MMMPack4
+
+Writing MMM package project file:
+  C:\WWBB\PBKS_MANAGER\MMMPack4.mmmp
+
+Complete!
+

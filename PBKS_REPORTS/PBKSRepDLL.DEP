@@ -1,0 +1,27 @@
+[Version]
+Version=1.0.0.0
+
+[PBKSRepDLL.dll <0009>]
+Dest=$(AppPath)
+Date=17/09/2004
+Time=23:21
+Version=1.0.0.0
+CABFilename=PBKSRepDLL.CAB
+CABINFFile=PBKSRepDLL.INF
+Uses1=MSVBVM60.DLL
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=actrpt.dll
+Uses8=msado15.dll
+Uses9=RegionalSet.dll
+Uses10=scrrun.dll
+Uses11=MSCOMCT2.OCX
+
+[actrpt.dll <0009>]
+Dest=$(WinSysPath)
+Date=21/11/2000
+Time=10:32
+Version=1.2.0.1057

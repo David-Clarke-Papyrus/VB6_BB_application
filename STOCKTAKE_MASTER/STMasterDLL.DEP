@@ -1,0 +1,40 @@
+[Version]
+Version=1.0.0.0
+
+[STMasterDLL.dll <0009>]
+Dest=$(AppPath)
+Date=20/09/2004
+Time=14:08
+Version=1.0.0.0
+CABFilename=STMasterDLL.CAB
+CABINFFile=STMasterDLL.INF
+Uses1=MSVBVM60.DLL
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=MSACC8.OLB
+Uses8=scrrun.dll
+Uses9=sqldmo.dll
+Uses10=xarraydb.ocx
+Uses11=msado15.dll
+Uses12=actrpt.dll
+
+[MSACC8.OLB <0009>]
+Dest=$(WinSysPath)
+Date=21/11/1996
+Time=00:00
+Version=8.0.0.3512
+
+[sqldmo.dll <0009>]
+Dest=$(AppPath)
+Date=17/12/2002
+Time=16:25
+Version=2000.80.760.0
+
+[actrpt.dll <0009>]
+Dest=$(WinSysPath)
+Date=21/11/2000
+Time=10:32
+Version=1.2.0.1057

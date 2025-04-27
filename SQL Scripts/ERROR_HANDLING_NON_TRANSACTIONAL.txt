@@ -1,0 +1,165 @@
+----------NON TRANSSACTION TEMPLATE
+
+create procedure ERROR_LOG_2005
+    @ERROR_LOG_PROGRAM_NM varchar(128) = NULL,
+	 @ERROR_LOG_PROGRAM_SECTION_NM varchar(255) = NULL,
+    @ERROR_LOG_ERROR_NO int=null,
+	 @ERROR_LOG_ERROR_DSC varchar(4000) = NULL,
+    @ERROR_DB_NAME varchar(50)=NULL
+as
+BEGIN
+
+declare	@prog varchar(128),
+			@errno int, 
+			@errmsg varchar(4000),
+			@proc_section_nm varchar(255),
+			@cmd varchar(50),
+			  @errline int,
+			@errstate int, 
+			@errseverity int,
+			@INSERTED_IDENTITY_ID int   -- Contains the ErrorLogID of the row inserted in the ERROR_LOG table.
+
+declare	@CreateUserName varchar(128),     -- last user changed the data 
+			@CreateMachineName varchar(128) , -- last machine changes-procedure were run from
+			@CreateSource varchar(128)			 -- last process that made a changes
+
+SET NOCOUNT ON
+
+-- Output parameter value of 0 indicates that error information was not logged
+SET @INSERTED_IDENTITY_ID = 0;
+
+-- for the logical/business error there is no system error
+-- business error will be passed as parameter from stored procedure
+IF (ISNULL(@ERROR_LOG_ERROR_NO,0) = 0)
+ begin
+	set @ERROR_LOG_ERROR_NO = ERROR_NUMBER();
+	set @errseverity = ERROR_SEVERITY();
+	set @errstate = ERROR_STATE();
+	set @prog = ERROR_PROCEDURE();
+	set @errline = ERROR_LINE();
+	set @ERROR_LOG_ERROR_DSC = left(ltrim( IsNull(@ERROR_LOG_ERROR_DSC,'')) + ';' + ERROR_MESSAGE(), 4000);
+ end
+
+set @CreateUserName = CONVERT(sysname, CURRENT_USER);
+set @CreateMachineName = host_name();
+set @CreateSource = isnull(object_name(@@procid), '');
+
+BEGIN TRY
+	-- Return if there is no error information to log
+	IF ( ISNULL(@ERROR_LOG_ERROR_NO,0) = 0 )
+		RETURN;
+	-- Return if inside an uncommittable transaction. 
+
+	-- Data insertion/modification is not allowed when a transaction is in an uncommittable state.
+	IF XACT_STATE() = -1
+	 BEGIN
+		set @errmsg = 'Cannot log error since the current transaction is in an uncommittable state. ' 
+			+ 'Rollback the transaction in order to successfully log error information.';
+		set @errmsg = 'Error in proc ' + isnull(@prog,' ') + ' ' + isnull(@errmsg,' ');
+		raiserror (@errmsg, 16, 1);
+		RETURN -1;
+	 END;
+	SET @cmd = "DBCC INPUTBUFFER( " + CAST(@@spid as varchar) + ")";
+	insert into ERROR_LOG  
+	(	ERROR_LOG_EVENT, 
+		ERROR_LOG_PARAMETER,
+		ERROR_LOG_EVENT_INFO 
+	)
+	exec (@cmd);
+	set @INSERTED_IDENTITY_ID = IDENT_CURRENT('HIST_ERROR_LOG');
+
+	update dbo.ERROR_LOG
+	  SET		CreateUserName = @CreateUserName,
+				CreateMachineName = @CreateMachineName,
+				CreateSource = @CreateSource,
+				ERROR_LOG_PROGRAM_NM = @ERROR_LOG_PROGRAM_NM,
+				ERROR_LOG_PROGRAM_SECTION_NM = @ERROR_LOG_PROGRAM_SECTION_NM,
+				ERROR_LOG_ERROR_NO = @ERROR_LOG_ERROR_NO,
+				ERROR_LOG_ERROR_DSC = @ERROR_LOG_ERROR_DSC,
+				ERROR_LOG_SPID_NO = @@SPID,
+				ERROR_DB_NAME = @ERROR_DB_NAME,
+				ERROR_LINE_NO = @errline,
+				ERROR_SEVERITY_NO = @errseverity,
+				ERROR_STATE_NO = @errstate
+	 WHERE ERROR_LOG_ID = @INSERTED_IDENTITY_ID
+ END TRY
+ BEGIN CATCH
+	set @errmsg = 'Error in proc ' + isnull(@prog,' ') + ' ' + isnull(@errmsg,' ');
+	raiserror(@errmsg, 16,1);
+	RETURN -1;
+ END CATCH;
+
+RETURN @ERROR_LOG_ERROR_NO;
+
+End  -- End of stored procedure
+
+
+
+
+
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON 
+GO
+CREATE procedure dbo.TEMPLATE_2005
+
+as
+begin
+
+SET NOCOUNT ON
+
+
+declare @$prog varchar(50), 
+	@$errno int, 
+	@$errmsg varchar(4000), 
+	@$proc_section_nm varchar(50),
+	@$row_cnt INT,
+	@$error_db_name varchar(50), 
+	@$CreateUserName varchar(128),   -- last user changed the data 
+	@$CreateMachineName varchar(128) -- last machine changes-procedure were run from
+	@$CreateSource varchar(128)		-- last process that made a changes
+
+select @$errno = NULL,  @$errmsg = NULL,  @$proc_section_nm = NULL
+	,  @$prog = LEFT(object_name(@@procid),50), @$row_cnt = NULL
+	, @$error_db_name = db_name();
+--=========
+BEGIN TRY
+--=========
+
+-- User Source code
+
+--========
+END TRY
+
+--========
+BEGIN CATCH
+--===========
+set @$errmsg = Left('Error ' +
+		CASE
+			WHEN @$errno > 0 THEN CAST(@$errno as varchar)
+			ELSE Cast(ERROR_NUMBER() as varchar)
+		END + 'in proc ' + isnull(@$prog,' ') + ' ' + 
+		CASE 
+			WHEN @$errno > 0 THEN isnull(@$errmsg,' ') 
+			ELSE isnull(@$errmsg,' ') + ISNULL(ERROR_MESSAGE(),'')
+		END ,4000);
+
+raiserror (@$errmsg, 16, 1); 
+
+EXEC dbo.ERROR_LOG_2005 @ERROR_LOG_PROGRAM_NM  = @$prog,  
+		@ERROR_LOG_PROGRAM_SECTION_NM  = @$proc_section_nm,
+		@ERROR_LOG_ERROR_NO  = @$errno,  
+		@ERROR_LOG_ERROR_DSC  = @$errmsg,
+		@ERROR_DB_NAME  = @$error_db_name
+		-- set the error if not set
+
+IF (ISNULL(@$errno,0) = 0 )
+	set @$errno = ERROR_NUMBER();
+
+END CATCH
+
+SET NOCOUNT OFF; 
+
+return @$errno;  
+
+end

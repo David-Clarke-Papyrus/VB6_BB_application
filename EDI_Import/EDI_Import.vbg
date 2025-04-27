@@ -1,0 +1,3 @@
+VBGROUP 5.0
+StartupProject=EDI_Import.vbp
+Project=EDI_IMPORT_DLL.vbp

@@ -1,0 +1,8 @@
+_____________
+FROM frontdeskDLL at 11/01/2006 10:16 AM
+Loading printer: device name HP LaserJet 4LPort = LPT1:
+=============
+_____________
+FROM frontdeskDLL at 11/01/2006 10:16 AM
+Loading printer: device name CanonS520Port = Ne00:
+=============

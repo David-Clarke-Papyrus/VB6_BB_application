@@ -1,0 +1,17 @@
+UPDATE tDEL SET DEL_CurrConversionRate = x.USD 
+FROM tDEL JOIN tTR ON DEL_ID = TR_ID 
+JOIN _ConvRatess x ON TR_DATE = x.Dte 
+JOIN tCurrency ON DEL_CURR_ID = CURR_ID 
+WHERE CURR_SYSTEM = 'USD'
+
+UPDATE tDEL SET DEL_CurrConversionRate = x.EUR 
+FROM tDEL JOIN tTR ON DEL_ID = TR_ID 
+JOIN _ConvRatess x ON TR_DATE = x.Dte 
+JOIN tCurrency ON DEL_CURR_ID = CURR_ID 
+WHERE CURR_SYSTEM = 'EUR'
+
+UPDATE tDEL SET DEL_CurrConversionRate = x.GBP 
+FROM tDEL JOIN tTR ON DEL_ID = TR_ID 
+JOIN _ConvRatess x ON TR_DATE = x.Dte 
+JOIN tCurrency ON DEL_CURR_ID = CURR_ID 
+WHERE CURR_SYSTEM = 'GBP'

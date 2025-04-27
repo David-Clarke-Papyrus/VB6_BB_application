@@ -1,0 +1,2704 @@
+VERSION 5.00
+Object = "{E6CC263E-5760-49D9-B793-4245D54496CF}#1.0#0"; "ExComboBox.dll"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomctl.ocx"
+Object = "{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}#9.0#0"; "CoolButton.ocx"
+Begin VB.Form frmdel 
+   BackColor       =   &H00D3D3CB&
+   Caption         =   "Goods received note"
+   ClientHeight    =   6285
+   ClientLeft      =   165
+   ClientTop       =   165
+   ClientWidth     =   11595
+   ControlBox      =   0   'False
+   Icon            =   "frmDEL2.frx":0000
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   ScaleHeight     =   6285
+   ScaleWidth      =   11595
+   Begin VB.TextBox txtRunningqty 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H00DBFAFB&
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   360
+      Left            =   3750
+      TabIndex        =   39
+      TabStop         =   0   'False
+      Top             =   5685
+      Width           =   750
+   End
+   Begin VB.TextBox txtCurrencyRates 
+      BackColor       =   &H00D3D3CB&
+      BorderStyle     =   0  'None
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00008000&
+      Height          =   250
+      Left            =   75
+      TabIndex        =   37
+      TabStop         =   0   'False
+      Top             =   2835
+      Width           =   7230
+   End
+   Begin VB.CommandButton cmdBatch 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Batch"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   360
+      Left            =   6060
+      Style           =   1  'Graphical
+      TabIndex        =   36
+      TabStop         =   0   'False
+      Top             =   5685
+      Width           =   690
+   End
+   Begin MSComctlLib.ListView lvw 
+      Height          =   2340
+      Left            =   90
+      TabIndex        =   21
+      TabStop         =   0   'False
+      Top             =   450
+      Width           =   10695
+      _ExtentX        =   18865
+      _ExtentY        =   4128
+      SortKey         =   8
+      View            =   3
+      SortOrder       =   -1  'True
+      Sorted          =   -1  'True
+      LabelWrap       =   -1  'True
+      HideSelection   =   0   'False
+      AllowReorder    =   -1  'True
+      TextBackground  =   -1  'True
+      _Version        =   393217
+      ForeColor       =   -2147483635
+      BackColor       =   14416635
+      BorderStyle     =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      NumItems        =   11
+      BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Text            =   "Code"
+         Object.Width           =   2646
+      EndProperty
+      BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   1
+         Text            =   "Title / Author / Publisher"
+         Object.Width           =   4410
+      EndProperty
+      BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   2
+         SubItemIndex    =   2
+         Text            =   "Firm"
+         Object.Width           =   883
+      EndProperty
+      BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   1
+         SubItemIndex    =   3
+         Text            =   "SS"
+         Object.Width           =   882
+      EndProperty
+      BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   1
+         SubItemIndex    =   4
+         Text            =   "Short"
+         Object.Width           =   1005
+      EndProperty
+      BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   1
+         SubItemIndex    =   5
+         Text            =   "Price"
+         Object.Width           =   1852
+      EndProperty
+      BeginProperty ColumnHeader(7) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   2
+         SubItemIndex    =   6
+         Text            =   "Disc."
+         Object.Width           =   1587
+      EndProperty
+      BeginProperty ColumnHeader(8) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   7
+         Text            =   "Ref"
+         Object.Width           =   2540
+      EndProperty
+      BeginProperty ColumnHeader(9) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Alignment       =   1
+         SubItemIndex    =   8
+         Text            =   "Total"
+         Object.Width           =   1940
+      EndProperty
+      BeginProperty ColumnHeader(10) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   9
+         Text            =   "Key"
+         Object.Width           =   0
+      EndProperty
+      BeginProperty ColumnHeader(11) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   10
+         Object.Width           =   0
+      EndProperty
+   End
+   Begin VB.CommandButton cmdSave 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "Sa&ve"
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   8760
+      MaskColor       =   &H00C4BCA4&
+      Picture         =   "frmDEL2.frx":27A2
+      Style           =   1  'Graphical
+      TabIndex        =   25
+      TabStop         =   0   'False
+      Top             =   5280
+      UseMaskColor    =   -1  'True
+      Width           =   1000
+   End
+   Begin VB.TextBox txtError 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00D3D3CB&
+      BorderStyle     =   0  'None
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000C0&
+      Height          =   975
+      Left            =   1050
+      MultiLine       =   -1  'True
+      TabIndex        =   24
+      TabStop         =   0   'False
+      Top             =   5235
+      Width           =   2565
+   End
+   Begin VB.CommandButton cmdNewRows 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&Add"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   690
+      Left            =   45
+      Style           =   1  'Graphical
+      TabIndex        =   0
+      TabStop         =   0   'False
+      Top             =   5310
+      Width           =   795
+   End
+   Begin VB.CommandButton cmdCancel 
+      BackColor       =   &H00C4BCA4&
+      Cancel          =   -1  'True
+      Caption         =   "&Cancel"
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   7740
+      MaskColor       =   &H00C4BCA4&
+      Picture         =   "frmDEL2.frx":2B2C
+      Style           =   1  'Graphical
+      TabIndex        =   13
+      TabStop         =   0   'False
+      Top             =   5280
+      Width           =   1000
+   End
+   Begin VB.TextBox txtRunningTotal 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H00DBFAFB&
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   360
+      Left            =   4515
+      TabIndex        =   22
+      TabStop         =   0   'False
+      Top             =   5685
+      Width           =   1530
+   End
+   Begin VB.Frame fr1 
+      BackColor       =   &H00D3D3CB&
+      Height          =   2085
+      Left            =   75
+      TabIndex        =   14
+      Top             =   3045
+      Width           =   10710
+      Begin VB.TextBox txtMargin 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   4395
+         TabIndex        =   10
+         Top             =   1515
+         Width           =   1260
+      End
+      Begin VB.TextBox txtQtyShort 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00D3D3CB&
+         BorderStyle     =   0  'None
+         Enabled         =   0   'False
+         ForeColor       =   &H8000000D&
+         Height          =   360
+         Left            =   1515
+         TabIndex        =   44
+         Top             =   1170
+         Width           =   255
+      End
+      Begin VB.CommandButton cmdShort 
+         BackColor       =   &H00C4BCA4&
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   345
+         Left            =   1785
+         Picture         =   "frmDEL2.frx":2EB6
+         Style           =   1  'Graphical
+         TabIndex        =   43
+         TabStop         =   0   'False
+         ToolTipText     =   "Click to mark quantity of damaged stock being returned"
+         Top             =   1170
+         Width           =   390
+      End
+      Begin VB.CommandButton cmdListSubstitutions 
+         BackColor       =   &H00C4BCA4&
+         Caption         =   "&List subst. matches"
+         Height          =   285
+         Left            =   4800
+         MaskColor       =   &H00C4BCA4&
+         Style           =   1  'Graphical
+         TabIndex        =   41
+         TabStop         =   0   'False
+         Top             =   150
+         Width           =   2085
+      End
+      Begin VB.CommandButton cmdSub 
+         BackColor       =   &H00C4BCA4&
+         Caption         =   "Create subst."
+         Height          =   525
+         Left            =   9810
+         MaskColor       =   &H00C4BCA4&
+         Style           =   1  'Graphical
+         TabIndex        =   40
+         TabStop         =   0   'False
+         Top             =   300
+         Width           =   765
+      End
+      Begin VB.TextBox txtSP 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   4395
+         TabIndex        =   8
+         Top             =   1185
+         Width           =   1260
+      End
+      Begin VB.CommandButton cmdCancelMatch 
+         BackColor       =   &H00C4BCA4&
+         Caption         =   "X"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   9420
+         Style           =   1  'Graphical
+         TabIndex        =   34
+         TabStop         =   0   'False
+         Top             =   600
+         Width           =   255
+      End
+      Begin VB.TextBox txtNote 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   750
+         Left            =   6960
+         MultiLine       =   -1  'True
+         TabIndex        =   9
+         Top             =   1185
+         Width           =   2610
+      End
+      Begin VB.TextBox txtQtyFirm 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   90
+         TabIndex        =   3
+         Top             =   1185
+         Width           =   660
+      End
+      Begin VB.TextBox txtQtySS 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   795
+         TabIndex        =   4
+         Top             =   1185
+         Width           =   660
+      End
+      Begin VB.TextBox txtDiscount 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   3495
+         TabIndex        =   6
+         Top             =   1185
+         Width           =   870
+      End
+      Begin VB.CommandButton cmdEnter 
+         BackColor       =   &H00C4BCA4&
+         Caption         =   "&Post"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   9630
+         MaskColor       =   &H00C4BCA4&
+         Picture         =   "frmDEL2.frx":3240
+         Style           =   1  'Graphical
+         TabIndex        =   7
+         Top             =   1320
+         Width           =   1000
+      End
+      Begin VB.TextBox txtTotal 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00D3D3CB&
+         BorderStyle     =   0  'None
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   5745
+         Locked          =   -1  'True
+         TabIndex        =   11
+         TabStop         =   0   'False
+         Top             =   1200
+         Width           =   1110
+      End
+      Begin VB.TextBox txtTitle 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00D3D3CB&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H8000000D&
+         Height          =   270
+         Left            =   60
+         Locked          =   -1  'True
+         TabIndex        =   15
+         TabStop         =   0   'False
+         Top             =   1785
+         Width           =   6495
+      End
+      Begin VB.TextBox txtPrice 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   2205
+         TabIndex        =   5
+         Top             =   1185
+         Width           =   1260
+      End
+      Begin VB.TextBox txtCode 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   90
+         TabIndex        =   1
+         Top             =   435
+         Width           =   1725
+      End
+      Begin EXCOMBOBOXLibCtl.ComboBox cboMatch 
+         Height          =   375
+         Left            =   2130
+         OleObjectBlob   =   "frmDEL2.frx":35CA
+         TabIndex        =   2
+         Top             =   435
+         Width           =   7260
+      End
+      Begin VB.Label Label13 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Margin:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   3690
+         TabIndex        =   45
+         Top             =   1530
+         Width           =   705
+      End
+      Begin VB.Label Label12 
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Short"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   1545
+         TabIndex        =   42
+         Top             =   945
+         Width           =   540
+      End
+      Begin VB.Label Label10 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Sell.Pr."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   4815
+         TabIndex        =   38
+         Top             =   945
+         Width           =   705
+      End
+      Begin VB.Label Label3 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Note"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   210
+         Left            =   6975
+         TabIndex        =   33
+         Top             =   975
+         Width           =   510
+      End
+      Begin VB.Label Label1 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Firm"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   210
+         TabIndex        =   31
+         Top             =   945
+         Width           =   720
+      End
+      Begin VB.Label lblWants 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "fulfilment of . . ."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   2160
+         TabIndex        =   26
+         Top             =   210
+         Width           =   1845
+      End
+      Begin VB.Label Label7 
+         Alignment       =   2  'Center
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Suppl.disc."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   3495
+         TabIndex        =   20
+         Top             =   945
+         Width           =   930
+      End
+      Begin VB.Label Label11 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Total"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   6045
+         TabIndex        =   19
+         Top             =   945
+         Width           =   660
+      End
+      Begin VB.Label Label9 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Code"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   225
+         Left            =   105
+         TabIndex        =   18
+         Top             =   195
+         Width           =   1410
+      End
+      Begin VB.Label Label8 
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "SS"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   930
+         TabIndex        =   17
+         Top             =   945
+         Width           =   360
+      End
+      Begin VB.Label Label6 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Price"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   240
+         Left            =   2520
+         TabIndex        =   16
+         Top             =   945
+         Width           =   900
+      End
+   End
+   Begin VB.CommandButton cmdIssue 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "Issu&e"
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   9780
+      Picture         =   "frmDEL2.frx":4974
+      Style           =   1  'Graphical
+      TabIndex        =   12
+      TabStop         =   0   'False
+      Top             =   5280
+      UseMaskColor    =   -1  'True
+      Width           =   1000
+   End
+   Begin CoolButtonControl.CoolButton cbTP 
+      Height          =   345
+      Left            =   90
+      TabIndex        =   27
+      TabStop         =   0   'False
+      Top             =   30
+      Width           =   10710
+      _ExtentX        =   18891
+      _ExtentY        =   609
+      BackColor       =   14737632
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1
+      BackStyle       =   0
+   End
+   Begin VB.Label Label4 
+      BackColor       =   &H00E0E0E0&
+      BackStyle       =   0  'Transparent
+      Caption         =   "Calculated totals"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   240
+      Left            =   3810
+      TabIndex        =   35
+      Top             =   5445
+      Width           =   2205
+   End
+   Begin VB.Label Label2 
+      Alignment       =   1  'Right Justify
+      BackColor       =   &H00E0E0E0&
+      BackStyle       =   0  'Transparent
+      Caption         =   "Fax"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   240
+      Left            =   7230
+      TabIndex        =   32
+      Top             =   30
+      Width           =   525
+   End
+   Begin VB.Label txtFax 
+      BackColor       =   &H00E0E0E0&
+      BackStyle       =   0  'Transparent
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   285
+      Left            =   7950
+      TabIndex        =   30
+      Top             =   45
+      Width           =   2250
+   End
+   Begin VB.Label txtPhone 
+      BackColor       =   &H00E0E0E0&
+      BackStyle       =   0  'Transparent
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   210
+      Left            =   4995
+      TabIndex        =   29
+      Top             =   45
+      Width           =   2250
+   End
+   Begin VB.Label txtSuppname 
+      BackColor       =   &H00E0E0E0&
+      BackStyle       =   0  'Transparent
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   285
+      Left            =   1065
+      TabIndex        =   28
+      Top             =   45
+      Width           =   3135
+   End
+   Begin VB.Label Label5 
+      Alignment       =   1  'Right Justify
+      BackColor       =   &H00E0E0E0&
+      BackStyle       =   0  'Transparent
+      Caption         =   "From"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
+      Height          =   240
+      Left            =   210
+      TabIndex        =   23
+      Top             =   60
+      Width           =   525
+   End
+   Begin VB.Image Image1 
+      Height          =   255
+      Left            =   4380
+      Picture         =   "frmDEL2.frx":4CFE
+      Stretch         =   -1  'True
+      Top             =   60
+      Width           =   360
+   End
+End
+Attribute VB_Name = "frmdel"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim WithEvents oDel As a_Delivery
+Attribute oDel.VB_VarHelpID = -1
+Dim WithEvents oDELL As a_DeliveryLine
+Attribute oDELL.VB_VarHelpID = -1
+Dim oSupplier As a_Supplier
+Private tlSections As z_TextList
+
+Dim bValidDEL As Boolean
+Dim bValidDELLine As Boolean
+Dim oCurrentForeignCurrency As a_Currency
+Dim lngCurrentExtension As Long
+Dim lngCurrentTotal As Long
+Dim lngCurrentDepositTotal As Long
+Dim lngCurrentVATTotal As Long
+Dim bDroppingDown As Boolean
+Dim lngSelectedRowIndex As String
+Dim lngILEditingIdx As String
+Dim vMode As EnumMode  ' 1:TPExists,Adding row;  2:TPExists, not adding row;  3 TPAbsent,not adding row
+Dim bFrameEnabled As Boolean
+Dim lngStockBal As Long
+Dim curDeposit As Currency
+Dim curTotal As Double
+Dim curPrice As Currency
+Dim dblQty As Double
+Dim lngCompanyID As Long
+Dim currPrice As Currency
+
+Dim blnReadOnly As Boolean
+Dim flgLoading As Boolean
+Dim WithEvents vCanAdd As z_BrokenRules
+Attribute vCanAdd.VB_VarHelpID = -1
+Dim WithEvents vCanIssue As z_BrokenRules
+Attribute vCanIssue.VB_VarHelpID = -1
+Dim strDELErrMsg As String
+Dim strDELLErrMsg As String
+Dim bSubstitute As Boolean
+Dim dblCurrentMargin As Double
+Dim dblCurrentPrice As Double
+Dim flgLoadingPrice As Boolean
+Dim flgLoadingMargin As Boolean
+
+Public Sub component(pCancel As Boolean, Optional pTPID As Long, Optional pDel As a_Delivery)
+    On Error GoTo errHandler
+Dim frm As frmHeader_GRN
+
+    pCancel = False
+    flgLoading = True
+
+    If pDel Is Nothing Then
+        Set oDel = New a_Delivery
+        oDel.BeginEdit
+        oDel.SetStatus stInProcess
+        oDel.SetSupplier pTPID
+        LoadSupplier
+        If oDel.supplier.Deals.Count < 1 Then
+            MsgBox "There are no deals for this supplier. You cannot continue"
+            pCancel = True
+            Exit Sub
+        End If
+        Set frm = New frmHeader_GRN
+        frm.component oDel
+        frm.Show vbModal
+        If frm.Cancelled Then
+            Unload frm
+            Unload Me
+            pCancel = True
+            Exit Sub
+        End If
+        Unload frm
+        Me.lvw.Enabled = False
+        If oDel.supplier.Deals.Count < 1 Then
+            MsgBox "There are no deals for this supplier. You cannot continue"
+            pCancel = True
+        End If
+        ChangeState enAddingRow
+        Set oDELL = oDel.DeliveryLines.Add
+        oDELL.SetQtyFirm 1
+        ClearLineControls
+        oDel.GetStatus
+        mSetfocus txtCode
+    Else
+        Set oDel = pDel
+        oDel.BeginEdit
+        LoadSupplier
+        LoadListView
+        oDel.GetStatus
+        ChangeState enNotEditing
+    End If
+    oDel.GetStatus
+    If oDel.isFOreignCurrency Then
+        Me.txtRunningTotal = oDel.TotalLessDiscExtF(True)
+        txtCurrencyRates = oDel.CurrencyConversionAsText & "     Value is : " & oDel.TotalLessDiscExtF(True)
+        txtCurrencyRates.Visible = True
+    Else
+        Me.txtRunningTotal = oDel.TotalLessDiscExtF(False)
+        txtCurrencyRates.Visible = False
+    End If
+    Me.txtRunningqty = oDel.TotalQuantityNetF
+    SetMenu
+    txtSP.Visible = oPC.SetPricesInGRN
+    flgLoading = False
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Component(pCancel,pTPID,pDel)", Array(pCancel, pTPID, pDel)
+End Sub
+
+
+'Private Sub cboProductType_SelectionChanged()
+'    On Error GoTo errHandler
+'If flgLoading Then Exit Sub
+'    oDELL.ProductTypeID = oPC.Configuration.ProductTypes.key(cboProductType.Items.CellCaption(cboProductType.Items.SelectedItem, 0))
+'    If oPC.Configuration.ProductTypes.f3(oDELL.ProductTypeID) = "" Or oPC.Configuration.ProductTypes.f3(oDELL.ProductTypeID) = "False" Then
+'        oDELL.product.Seesafe = 0
+'    Else
+'        oDELL.product.Seesafe = 1
+'    End If
+'    lngProductTypeID = oDELL.ProductTypeID
+'    Exit Sub
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmDEL.cboProductType_SelectionChanged", , EA_NORERAISE
+'    HandleError
+'End Sub
+
+
+'Private Sub cmdSection_Click()
+'On Error GoTo errHandler
+'Dim frm As frmSection2
+'    If Not oDELL.product.pID > "" Then Exit Sub
+'    Set frm = New frmSection2
+'    frm.Component oDELL.product
+'    frm.Show vbModal
+'    txtSections = oDELL.product.ProductSections.SectionsAsList
+'    On Error Resume Next
+'    mSetfocus txtQtyFirm
+'    Exit Sub
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmDEL.cmdSection_Click", , EA_NORERAISE
+'    HandleError
+'
+'End Sub
+'
+
+Private Sub cmdShort_Click()
+    txtQtyShort.Enabled = True
+Dim frm As New frmSupplierRetFromDelivery
+    frm.SetParentCoords Me.top, Me.Left
+    frm.Show vbModal
+    If frm.QtyClaim > 0 Then
+        oDELL.ReasonID = frm.ReasonID
+        oDELL.SetQtyShort frm.QtyClaim
+        txtQtyShort = frm.QtyClaim
+    End If
+    Unload frm
+    txtPrice.SetFocus
+End Sub
+
+Private Sub cmdSub_Click()
+Dim frm As New frmSubstitute
+    frm.component Trim(txtCode)
+    frm.Show
+    
+End Sub
+Private Sub Form_Activate()
+    On Error GoTo errHandler
+    SetMenu
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Form_Activate", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Form_Deactivate()
+    On Error GoTo errHandler
+    UnsetMenu
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Form_Deactivate", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub SetMenu()
+    On Error GoTo errHandler
+    Forms(0).mnuVoid.Enabled = (oDel.statusF = "IN PROCESS" And oDel.IsNew = False)
+    Forms(0).mnuDelLine.Enabled = True
+    Forms(0).mnuMemo.Enabled = True
+   ' Forms(0).mnuDelact.Enabled = True
+    Forms(0).mnuSaveColumnWidths.Enabled = True
+    
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.SetMenu"
+End Sub
+
+
+
+Private Sub cboMatch_SelectionChanged()
+    On Error GoTo errHandler
+Dim H As HITEM
+Dim tmp As String
+
+    If cboMatch.Items.SelectCount > 0 Then
+        If (cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 13) <> oDel.supplier.ID) And bDroppingDown = False Then
+            MsgBox "This order line is on a supplier other than the supplier of the present goods. ", vbOKOnly, "Warning"
+        End If
+        tmp = cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 3)
+        If vMode <> eneditingrow Then
+            oDELL.SetQtySS Mid(tmp, InStr(1, tmp, "(") + 1, InStr(1, tmp, "(") - 1)
+        End If
+        tmp = cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 2)
+        If vMode <> eneditingrow Then
+            oDELL.SetQtyFirm Mid(tmp, InStr(1, tmp, "(") + 1, InStr(1, tmp, "(") - 1)
+            'New 20/3/2009 ---
+            oDELL.SetDiscount cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 10)
+            oDELL.SetPrice cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 9)
+            '---
+        End If
+        
+'        oDELL.SetDiscount cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 10)
+'        oDELL.SetPrice cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 9)
+        
+        oDELL.POLID = cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 8)
+        oDELL.COLID = cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 11)
+        oDELL.Ref = cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 6)
+    Else
+        oDELL.SetQtySS 0
+        oDELL.SetQtyFirm 0
+        oDELL.SetDiscount 0
+        oDELL.SetPrice 0
+        oDELL.POLID = 0
+        oDELL.COLID = 0
+        oDELL.Ref = ""
+    End If
+    If oPC.Configuration.CaptureDecimal Then
+        txtPrice = oDELL.PriceF(oDel.isFOreignCurrency)
+        txtSP = oDELL.PriceSell
+    Else
+        txtPrice = oDELL.Price(oDel.isFOreignCurrency)
+        txtSP = oDELL.PriceSell
+    End If
+    txtQtyFirm = oDELL.QtyFirmF
+    txtQtySS = oDELL.QtySSF
+    txtDiscount = oDELL.DiscountF
+    oDel.CalculateTotals
+    txtTotal = oDELL.PLessDiscExtF(oDel.isFOreignCurrency)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cboMatch_SelectionChanged", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdBatch_Click()
+    On Error GoTo errHandler
+Dim frm As New frmHeader_GRN
+    frm.component oDel
+    frm.Show vbModal
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdBatch_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdCancelMatch_Click()
+Dim i As Integer
+
+    On Error GoTo errHandler
+    If cboMatch.Items.ItemCount = 0 Then Exit Sub
+    oDELL.POLID = 0
+    For i = 0 To cboMatch.Items.ItemCount - 1
+        cboMatch.Items.SelectItem(cboMatch.Items(i)) = False
+    Next
+    mSetfocus txtQtyFirm
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdCancelMatch_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cbTP_Click()
+    On Error GoTo errHandler
+Dim frm As New frmSupplierPreview
+    
+    If oDel.supplier.ID > 0 Then
+        frm.component oDel.supplier
+        frm.Show
+    End If
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cbTP_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cbSupp_Click()
+    On Error GoTo errHandler
+Dim frm As frmSupplierPreview
+    If oDel.supplier.Name = "" Then Exit Sub
+    Set frm = New frmSupplierPreview
+    frm.component oDel.supplier
+    frm.Show
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cbSupp_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub cmdFulfilments_Click()
+    On Error GoTo errHandler
+   ' ReconcileWithCOs
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdFulfilments_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub LoadNewSupplier(plngTPID As Long)
+    On Error GoTo errHandler
+    If oDel.SetSupplier(plngTPID) Then
+        With oDel.supplier
+            txtPhone = .OrderToAddress.Phone
+            txtSuppname = .NameAndCode(18)
+            txtFax = .OrderToAddress.Fax
+        End With
+        vCanAdd.RuleBroken "TP", False
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.LoadNewSupplier(plngTPID)", plngTPID
+End Sub
+
+Private Sub cmdNote_Click()
+    On Error GoTo errHandler
+Dim frm As New frmILNote
+    frm.component oDELL
+    frm.Show vbModal
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdNote_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub Form_Terminate()
+    On Error GoTo errHandler
+    Set vCanAdd = Nothing
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Form_Terminate", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Public Sub mnuDelLine()
+    On Error GoTo errHandler
+    RemoveLine
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.mnuDelLine"
+End Sub
+
+Private Sub lvw_Click()
+    On Error Resume Next
+    If Me.lvw.SelectedItem.Index > 0 Then
+    On Error Resume Next
+    
+        Clipboard.Clear
+        Clipboard.SetText Left(lvw.SelectedItem.SubItems(10), ISBNLENGTH)
+    End If
+
+End Sub
+
+Private Sub oDEL_ValidToSave(pOK As Boolean)
+    On Error GoTo errHandler
+    cmdSave.Enabled = (pOK And oDel.DeliveryLines.Count > 0 And vMode = enNotEditing And oDel.IsDirty)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.oDEL_ValidToSave(pOK)", pOK, EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub oDEL_Valid(pMsg As String)
+    On Error GoTo errHandler
+    bValidDEL = (pMsg = "")
+    cmdIssue.Enabled = (bValidDEL And oDel.DeliveryLines.Count > 0 And vMode = enNotEditing)
+ '   cmdSave.Enabled = (bValidDEL And oDel.DeliveryLines.Count > 0 And vMode = enNotEditing)
+    strDELErrMsg = pMsg
+    If vMode = enNotEditing Then
+        txtError = strDELErrMsg
+    Else
+        txtError = strDELLErrMsg
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.oDEL_Valid(pMsg)", pMsg, EA_NORERAISE
+    HandleError
+End Sub
+
+Sub oDELL_ExtensionChange(lngExtension As Long, strExtension As String)
+    On Error GoTo errHandler
+MsgBox "Is this being used?"
+    flgLoading = True
+    Me.txtTotal = strExtension
+    flgLoading = False
+    lngCurrentExtension = lngExtension
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.oDELL_ExtensionChange(lngExtension,strExtension)", Array(lngExtension, _
+         strExtension), EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub oDELL_Valid(MSG As String)
+    On Error GoTo errHandler
+    Me.cmdEnter.Enabled = (MSG = "")
+    strDELLErrMsg = MSG
+    If vMode = enNotEditing Then
+        txtError = strDELErrMsg
+    Else
+        txtError = strDELLErrMsg
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.oDELL_Valid(Msg)", MSG, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub oDEL_TotalChange(strtotal As String, strTotalForeign As String, strQtyTotal As String)
+    On Error GoTo errHandler
+    flgLoading = True
+    If oDel.CaptureCurrency Is oPC.Configuration.DefaultCurrency Then
+        Me.txtRunningTotal = strtotal
+    Else
+        Me.txtRunningTotal = strTotalForeign
+        txtCurrencyRates = oDel.CurrencyConversionAsText & "     Value is : " & strtotal
+    End If
+    Me.txtRunningqty = strQtyTotal
+    
+    flgLoading = False
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.oDEL_TotalChange(strtotal,strTotalForeign)", Array(strtotal, strTotalForeign), _
+         EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub oDEL_Reloadlist()
+    On Error GoTo errHandler
+    LoadListView
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.oDEL_Reloadlist", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub oDEL_Dirty(pVal As Boolean)
+    On Error GoTo errHandler
+If pVal = True Then
+        Me.cmdSave.Enabled = (True And Not bFrameEnabled)
+        Me.cmdCancel.Caption = "&Cancel"
+    Else
+        Me.cmdSave.Enabled = False
+        Me.cmdCancel.Caption = "&Close"
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.oDEL_Dirty(pVal)", pVal, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub oDEL_CurrRowStatus(pMsg As String)
+    On Error GoTo errHandler
+    MsgBox "CurrentRow Status = " & pMsg
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.oDEL_CurrRowStatus(pMsg)", pMsg, EA_NORERAISE
+    HandleError
+End Sub
+
+
+
+Private Sub txtCode_LostFocus()
+    On Error GoTo errHandler
+    If txtCode > "" Then
+        bDroppingDown = True
+        SendKeys "+({F4})", True
+        bDroppingDown = False
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtCode_LostFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+
+
+
+
+Private Sub txtNote_Change()
+    txtNote = HandleTextWithBites(txtNote)
+
+End Sub
+
+Private Sub txtQtyShort_GotFocus()
+    On Error GoTo errHandler
+    AutoSelect txtQtyShort
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtQtyShort_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub txtQtyShort_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    If Not oDELL.SetQtyShort(txtQtyShort) Then
+        Cancel = True
+    End If
+   ' oDel.CalculateTotals
+   ' txtTotal = oDELL.PLessDiscExtF(oDel.isFOreignCurrency)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtQtyShort_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+'Private Sub txtQtyShort_Validate(Cancel As Boolean)
+'    On Error GoTo errHandler
+'    If flgLoading Then Exit Sub
+'    If Not oDELL.SetQtyShort(txtQtyShort) Then
+'        Cancel = True
+'    End If
+'    oDel.CalculateTotals
+'    txtTotal = oDELL.PLessDiscExtF(oDel.isFOreignCurrency)
+'    Exit Sub
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmdel.txtQtyShort_Validate(Cancel)", Cancel, EA_NORERAISE, , "Rowcount,ODELL=NOTHING,oDEL=Nothing", Array(oDel.DeliveryLines.Count, oDel Is Nothing, oDELL Is Nothing)
+'    HandleError
+'End Sub
+
+
+
+Private Sub txtQtyFirm_GotFocus()
+    On Error GoTo errHandler
+    AutoSelect txtQtyFirm
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtQtyFirm_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub txtQtySS_GotFocus()
+    On Error GoTo errHandler
+    AutoSelect txtQtySS
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtQtySS_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub txtQtyFirm_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    If Not oDELL.SetQtyFirm(txtQtyFirm) Then
+        Cancel = True
+    End If
+    oDel.CalculateTotals
+    txtTotal = oDELL.PLessDiscExtF(oDel.isFOreignCurrency)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtQtyFirm_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub txtQtySs_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    If Not oDELL.SetQtySS(txtQtySS) Then
+        Cancel = True
+    End If
+    oDel.CalculateTotals
+    txtTotal = oDELL.PLessDiscExtF(oDel.isFOreignCurrency)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtQtySs_Validate(Cancel)", Cancel, EA_NORERAISE, , "Rowcount,ODELL=NOTHING,oDEL=Nothing", Array(oDel.DeliveryLines.Count, oDel Is Nothing, oDELL Is Nothing)
+    HandleError
+End Sub
+
+Private Sub txtSP_Change()
+    If flgLoadingPrice Then Exit Sub
+    If IsNumeric(txtSP) Then
+        dblCurrentPrice = CDbl(txtSP)
+        dblCurrentMargin = CalculateMargin()
+        flgLoadingMargin = True
+        txtMargin = PBKSPercentF(dblCurrentMargin * 100)
+        flgLoadingMargin = False
+    End If
+End Sub
+Private Sub txtMargin_Change()
+Dim lngTmp As Long
+
+    If flgLoadingMargin Then Exit Sub
+    If IsNumeric(txtMargin) Then
+        If CDbl(txtMargin) > 99 Then Exit Sub
+        dblCurrentMargin = CDbl(txtMargin)
+        dblCurrentPrice = CalculatePrice()
+        flgLoadingPrice = True
+        txtSP = CStr(CLng(dblCurrentPrice))
+        If ConvertToLng(Trim(txtSP), lngTmp) Then
+            oDELL.SetPriceSell Trim(txtSP)
+        End If
+        
+        flgLoadingPrice = False
+    End If
+End Sub
+Private Sub txtMargin_GotFocus()
+    dblCurrentMargin = CalculateMargin()
+    txtMargin = Format(dblCurrentMargin * 100, "###,##0.00")
+End Sub
+
+Private Function CalculatePrice() As Long
+   CalculatePrice = (oDELL.PLessDisc(oDel.isFOreignCurrency)) / ((100 - dblCurrentMargin) / 100)
+End Function
+Private Function CalculateMargin() As Double
+    If dblCurrentPrice > 0 Then
+        CalculateMargin = (dblCurrentPrice - oDELL.PLessDisc(oDel.isFOreignCurrency)) / dblCurrentPrice
+    Else
+        CalculateMargin = 0
+    End If
+End Function
+
+Private Sub txtSP_GotFocus()
+    If IsNumeric(txtSP) Then
+        dblCurrentPrice = CDbl(txtSP)
+        dblCurrentMargin = CalculateMargin()
+        txtMargin = PBKSPercentF(dblCurrentMargin * 100)
+    End If
+End Sub
+
+Private Sub txtSP_Validate(Cancel As Boolean)
+Dim lngTmp As Long
+
+    If ConvertToLng(Trim(txtSP), lngTmp) Then
+        oDELL.SetPriceSell Trim(txtSP)
+    End If
+End Sub
+
+Sub vCanAdd_NobrokenRules()
+    On Error GoTo errHandler
+    Me.cmdNewRows.Enabled = True
+    Me.cmdCancel.Enabled = True
+    Me.cmdSave.Enabled = True
+    Me.cmdIssue.Enabled = True
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.vCanAdd_NobrokenRules", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub Form_Load()
+    On Error GoTo errHandler
+Dim curTotalDeposit As Currency
+Dim strAddress As String
+    SetupcboMatch
+    If Me.WindowState <> 2 Then
+        Left = 10
+        top = 10
+        Width = 11100
+        Height = 6700
+    End If
+    flgLoading = True
+    flgLoading = False
+    oDel.GetStatus
+    SetLvw
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Form_Load", , EA_NORERAISE
+    HandleError
+End Sub
+Public Sub mnuMemo()
+    On Error GoTo errHandler
+Dim ofrm As New frmNote
+    ofrm.component oDel.Memo
+    ofrm.Show vbModal
+    oDel.setMemo ofrm.Memo
+    Unload ofrm
+    Set ofrm = Nothing
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.mnuMemo"
+End Sub
+
+Private Sub Form_Initialize()
+    On Error GoTo errHandler
+    
+    Set vCanAdd = New z_BrokenRules
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Form_Initialize", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub Form_Unload(Cancel As Integer)
+    On Error GoTo errHandler
+    If oDel.IsEditing Then oDel.CancelEdit
+    UnsetMenu
+    
+    Set oSupplier = Nothing
+    Set oDel = Nothing
+    Set oDELL = Nothing
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Form_Unload(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdEnter_Click()
+    On Error GoTo errHandler
+Dim currDeposit As Currency
+Dim blnResult As Boolean
+Dim strCurrFormat As String
+Dim curTotalDeposit As Currency
+Dim i As Integer
+Dim iDiff As Integer
+Dim dblMU As Double
+
+
+    If oDELL Is Nothing Then Exit Sub
+    If oDel Is Nothing Then Exit Sub
+    If Not oDel.isFOreignCurrency Then
+    dblMU = Markup(oDELL.PriceSell, (oDELL.Price(False) * (100 - oDELL.DISCOUNT)) / 100)
+       If dblMU < oPC.Configuration.MinMU Then
+           MsgBox "The markup indicated is only " & PBKSPercentF(dblMU) & " percent and less than the minimum markup allowed. (" & oPC.Configuration.MinMU & "%)" & vbCrLf & "Please change the selling price to at least " & Format(MinimumSP((oDELL.Price(False) * (100 - oDELL.DISCOUNT)) / 100) / oPC.Configuration.DefaultCurrency.Divisor, "R#,##0.00"), vbInformation, "Warning"
+       End If
+    End If
+    If cboMatch.Items.SelectCount > 0 Then
+        i = cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 12)
+        If (oDELL.QtyFirm + oDELL.QtySS + oDELL.QtyShort) > i Then
+            If i > 1 Then
+                MsgBox "There are only " & i & " items outstanding on this purchase order line.", vbInformation, "Warning"
+            Else
+                MsgBox "There is only one item outstanding on this purchase order line.", vbInformation, "Warning"
+            End If
+            Exit Sub
+        End If
+    End If
+    txtQtyShort.Enabled = False
+    If txtCode = "" Then
+        MsgBox "Enter a code", vbOKOnly + vbInformation, "Papyrus Invoicing Information"
+        If txtCode.Enabled Then mSetfocus txtCode
+        Exit Sub
+    End If
+    oDELL.ApplyEdit
+    oDELL.BeginEdit
+
+    If vMode = enAddingRow Then
+        
+        If lvw.ListItems.Count < val(oDELL.key) Then
+            lvw.ListItems.Add key:=oDELL.key
+            LoadListViewLine lvw.ListItems(lvw.ListItems.Count), oDELL
+        End If
+        
+        
+'        lvw.ListItems.Add key:=oDELL.key
+'        LoadListViewLine lvw.ListItems(lvw.ListItems.Count), oDELL
+        lvw.Refresh
+        ChangeState enAddingRow
+        mSetfocus txtCode
+    ElseIf vMode = eneditingrow Then
+        LoadListViewLine lvw.ListItems(lngSelectedRowIndex), oDELL
+        ChangeState enNotEditing
+        txtCurrencyRates.ZOrder 1
+    End If
+    oDel.CalculateTotals
+    oDel.GetStatus
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdEnter_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub cmdNewRows_Click()
+    On Error GoTo errHandler
+    'Editing: A line has been seleted from the listview for editing
+    'Adding: a new line is being prepared
+    'notediting: in editing mode but no row selected
+    
+    If vMode = eneditingrow Then
+       ' LogSaveToFile "GRN New row button:enEditingRow"
+        If oDELL.IsEditing Then
+            oDELL.CancelEdit
+            oDELL.BeginEdit
+        End If
+        ChangeState enNotEditing
+    ElseIf vMode = enAddingRow Then
+      '  LogSaveToFile "GRN New row button:enAddingRow"
+        If txtCode > "" Then  'THis is not after a post but is an aborted  add row action
+            oDel.DeliveryLines.DecrementMaxKeyUsed
+        End If
+        ChangeState enNotEditing
+    ElseIf vMode = enNotEditing Then
+       ' LogSaveToFile "GRN New row button:enNotEditing"
+        ChangeState enAddingRow
+    End If
+
+
+    ClearLineControls
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdNewRows_Click", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub LoadListView()
+    On Error GoTo errHandler
+Dim lstItem As ListItem
+Dim i As Long
+    For i = 1 To lvw.ColumnHeaders.Count
+        lvw.ColumnHeaders(i).Width = GetSetting("PBKS", Me.Name, CStr(i), lvw.ColumnHeaders(i).Width)
+    Next
+    lvw.ListItems.Clear
+    For i = 1 To oDel.DeliveryLines.Count
+        Set lstItem = lvw.ListItems.Add
+        LoadListViewLine lstItem, oDel.DeliveryLines(i)
+    Next i
+EXIT_Handler:
+    Set lstItem = Nothing
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.LoadListView"
+End Sub
+Public Sub mnuSaveLayout()
+    On Error GoTo errHandler
+    SaveLayoutLvw Me.lvw, Me.Name
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn Me.Name & ":mnuSaveLayout", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub LoadListViewLine(lstItem As ListItem, oDELL As a_DeliveryLine)
+    On Error GoTo errHandler
+Dim currPrice As Currency
+    With oDELL
+        lstItem.Text = .CodeF
+        lstItem.key = .key
+        lstItem.SubItems(1) = .Title
+        lstItem.SubItems(2) = .QtyFirmF
+        lstItem.SubItems(3) = .QtySSF
+        lstItem.SubItems(4) = .QtyShortF
+        lstItem.SubItems(5) = .PriceF(oDel.isFOreignCurrency)
+        lstItem.SubItems(6) = .DiscountF
+        lstItem.SubItems(7) = .Ref
+        lstItem.SubItems(8) = .PLessDiscExtF(oDel.isFOreignCurrency)
+        lstItem.SubItems(9) = Format(.key, "@@@@@@@@@@")
+        lstItem.SubItems(10) = .EAN
+        
+    End With
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.LoadListViewLine(lstItem,oDELL)", Array(lstItem, oDELL)
+End Sub
+Private Sub Lvw_DblClick()
+    On Error GoTo errHandler
+'This must load the editing line with the current line's data
+    flgLoading = True
+    If lvw.ListItems.Count = 0 Then Exit Sub
+    If lvw.SelectedItem.Index < 1 Then Exit Sub
+    
+    lngILEditingIdx = lvw.SelectedItem.key
+    Set oDELL = oDel.DeliveryLines(lvw.SelectedItem.key)    'oDEL.DeliveryLines(lngILEditingIdx)
+    lngSelectedRowIndex = lvw.SelectedItem.key
+    
+    ChangeState eneditingrow
+    
+    oDELL.SetLineProduct oDELL.PID, , True
+    
+    oDel.ReloadMatches oDELL.PID  'loads only POLSOS for this product into oDEL.POLsOSPersSUPP
+    CheckForPreviousMatchesInInvoice oDELL.key  'marks up the qty outstanding to inclide any qtys already captured against that POL
+    LoadMatches
+    If cboMatch.Items.ItemCount > 0 Then
+        If oDELL.POLID > 0 Then
+            On Error Resume Next
+            cboMatch.Items.SelectItem(cboMatch.Items.FindItem(oDELL.POLID, 8)) = True
+            On Error GoTo errHandler
+        End If
+    End If
+    
+    Me.txtCode = IIf(Len(CStr(oDELL.EAN)) > 0, CStr(oDELL.EAN), CStr(oDELL.code))
+    Me.txtTitle = oDELL.Title
+    Me.txtQtySS = oDELL.QtySS
+    Me.txtQtyFirm = oDELL.QtyFirm
+    Me.txtQtyShort = oDELL.QtyShortF
+    Me.txtNote = oDELL.Note
+    If oPC.Configuration.CaptureDecimal Then
+        txtPrice = oDELL.PriceF(oDel.isFOreignCurrency)
+    Else
+        txtPrice = oDELL.Price(oDel.isFOreignCurrency)
+    End If
+    txtSP = oDELL.PriceSell
+    oDELL.GetStatus
+ '   Me.txtSP = oDELL.PriceSell
+
+    Me.txtDiscount = CStr(oDELL.DiscountF)
+ '   SetEditFrameEnabled True, enEditingRow
+ '   vMode = enEditingRow
+    If oDELL.QtyFirm > 1 Then
+        mSetfocus Me.txtQtyFirm
+    Else
+        mSetfocus txtPrice
+    End If
+    flgLoading = False
+    
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Lvw_DblClick", , EA_NORERAISE
+    HandleError
+End Sub
+Private Sub ChangeState(pToMode As EnumMode)
+    On Error GoTo errHandler
+Dim lngColour As Long
+    vMode = pToMode
+
+    Select Case pToMode
+    Case eneditingrow
+        fr1.Visible = True
+        Me.txtCode.Enabled = True
+        txtNote.Enabled = True
+        txtDiscount.Enabled = True
+        txtPrice.Enabled = True
+        txtCurrencyRates.Visible = False
+        txtTitle.Enabled = True
+        txtTotal.Enabled = True
+        txtQtyFirm.Enabled = True
+        Me.txtCurrencyRates.Visible = True
+        
+        txtQtySS = True
+        UnsetMenu
+        cmdEnter.Enabled = False
+        cmdCancel.Enabled = False
+        cmdIssue.Enabled = False
+        cmdSave.Enabled = False
+        cmdNewRows.Caption = "&Stop"
+        cmdNewRows.Enabled = (oDel.DeliveryLines.Count > 0)
+        cmdCancel.Caption = "&Close"
+        Me.lvw.Enabled = False
+        lvw.Height = 2200
+        fr1.ZOrder 1
+    Case enAddingRow
+        fr1.Visible = True
+        txtCode.Enabled = True
+        txtNote.Enabled = True
+        txtDiscount.Enabled = True
+        txtPrice.Enabled = True
+        'txtRef.Enabled = True
+        txtTitle.Enabled = True
+        txtTotal.Enabled = True
+        txtQtyFirm.Enabled = True
+        txtQtySS = True
+        Me.txtCurrencyRates.Visible = True
+        txtError = ""
+        flgLoading = True
+        UnsetMenu
+        flgLoading = False
+        cmdEnter.Enabled = False
+        cmdCancel.Enabled = True
+        cmdIssue.Enabled = False
+        cmdSave.Enabled = False
+        cmdNewRows.Enabled = (oDel.DeliveryLines.Count > 0)
+        cmdNewRows.Caption = "&Stop"
+      '  lblTPPhone.Caption = ""
+        lvw.Enabled = False
+        lvw.Height = 2200
+        ClearLineControls
+        fr1.ZOrder 1
+        mSetfocus txtCode
+'        If Not oDELL Is Nothing Then
+'            If oDELL.IsEditing Then oDELL.CancelEdit
+'            Set oDELL = Nothing
+'        End If
+        Set oDELL = oDel.DeliveryLines.Add
+      '  oDELL.setparentDEL oDel
+        oDELL.SetQtyFirm 1
+        
+    Case enNotEditing
+        flgLoading = True
+        fr1.Visible = False
+        txtError = ""
+        SetMenu
+        flgLoading = False
+        cmdEnter.Enabled = False
+        cmdCancel.Enabled = True
+        cmdIssue.Enabled = True
+        cmdSave.Enabled = True
+        cmdNewRows.Enabled = True ' (oDel.DeliveryLines.Count > 0)
+        cmdNewRows.Caption = "&Add"
+        Me.txtCurrencyRates.Visible = False
+        lvw.Enabled = True
+        lvw.Height = 4600
+'        If oDel.DeliveryLines.IsEditing Then
+'            oDel.DeliveryLines.CancelEdit
+'            oDel.DeliveryLines.BeginEdit
+'        End If
+'        If Not oDELL Is Nothing Then
+'            If oDELL.IsEditing Then   '
+'                oDELL.CancelEdit
+'                Set oDELL = Nothing
+'            End If
+'        End If
+        fr1.ZOrder 1
+    End Select
+    oDel.GetStatus
+        If Not oDel.IsDirty Then
+            cmdCancel.Caption = "&Close"
+        Else
+            cmdCancel.Caption = "&Cancel"
+        End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmInvoice.ChangeState(pToMode)", pToMode
+End Sub
+
+''---------Companies code
+'Private Sub LoadComps()
+'Dim oComp As a_Company
+'Dim oItem As ListItem
+'Dim i As Integer
+'    If oDEL.COMPID > 0 Then
+'        cbComp.Caption = oPC.Configuration.Companies(CStr(oDEL.COMPID)).CompanyName
+'    Else
+'        cbComp.Caption = oPC.Configuration.DefaultCompany.CompanyName
+'        oDEL.COMPID = oPC.Configuration.DefaultCOMPID
+'    End If
+'End Sub
+
+Private Sub cboTP_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    If oDel.supplier Is Nothing Then
+        MsgBox "Please enter a Supplier before continuing", vbOKOnly + vbInformation, "Papyrus Invoicing Information"
+        Cancel = True
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cboTP_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+'-------End Compsny code
+'Private Sub txtNote_Change()
+'Dim intPos As Integer
+'    If flgLoading Then Exit Sub
+'    On Error Resume Next
+'    oDELL.setnote (txtNote)
+'    If Err Then
+'      Beep
+'      intPos = txtNote.SelStart
+'      txtNote = oDELL.Note
+'      txtNote.SelStart = intPos - 1
+'    End If
+'End Sub
+Private Sub txtNote_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    Cancel = Not oDELL.setnote(txtNote)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtNote_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub txtNote_LostFocus()
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    txtNote = oDELL.Note
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtNote_LostFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+'Private Sub mnuEditNote_Click()
+'Dim ofrm As New frmNote
+'    ofrm.Component oDel
+'    ofrm.Show vbModal
+'    Unload ofrm
+'    Set ofrm = Nothing
+'End Sub
+
+'Private Sub mnuFileCancel_Click()
+'    If oDel.IsDirty Then
+'        oDel.CancelEdit
+'    End If
+'    Unload Me
+'End Sub
+
+'Private Sub mnuFileExit_Click()
+'    oDel.CancelEdit
+'    Unload Me
+'End Sub
+
+'Private Sub mnuFileOK_Click()
+''    cmdOK_Click
+'End Sub
+'
+'Private Sub mnuFilePrint_Click()
+'    cmdIssue_Click
+'End Sub
+Private Sub mnuFile()
+    On Error GoTo errHandler
+    oDel.SetStatus stVOID
+    oDel.ApplyEdit
+    Unload Me
+'    txtStatus = "Void"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.mnuFile"
+End Sub
+'Private Sub txtAccNum_Validate(Cancel As Boolean)
+'Dim lngCustID As Long
+'Dim bResult As Boolean
+'    If Len(txtAccnum) > 0 Then
+'        bResult = oDEL.SetSupplierFromAccNum(txtAccnum)
+'        If bResult Then
+'            With oDEL.Supplier
+'                txtCustName = .Title & IIf(Len(.Title) > 0, " ", "") & .Initials & IIf(Len(.Initials) > 0, " ", "") & .Name
+'                txtPhone = .Phone
+'                lblAddBill.Caption = .BillToADdress.AddressShort
+'                lblAddDel.Caption = .BillToADdress.AddressShort
+'            End With
+'            vCanAdd.RuleBroken "TP", False
+'            Me.cmdNewRows.Enabled = True
+'        Else
+'            MsgBox "No such account number", , "Can't fetch Supplier"
+'            txtAccnum = ""
+'            Set oSupplier = Nothing
+'            Cancel = True
+'        End If
+'    End If
+'End Sub
+'Private Sub txtAccNum_LostFocus()
+'    txtAccnum = UCase(txtAccnum)
+'End Sub
+Private Sub cmdListSubstitutions_Click()
+    On Error GoTo errHandler
+    bSubstitute = True
+    AcceptCode
+    bSubstitute = False
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdListSubstitutions_Click"
+End Sub
+Private Function AcceptCode() As Boolean
+    On Error GoTo errHandler
+Dim pQty As Integer
+Dim pApproID As Long
+Dim pNumOfApproLines As Long
+'Dim frmSection As frmSection
+Dim bOK As Boolean
+Dim frmPubRep As frmPublishersReport
+Dim oPCode As New z_ProdCode
+Dim tmp As String
+Dim j As Integer
+
+    If flgLoading Then Exit Function
+START:
+    AcceptCode = True
+    If txtCode = "" Or vMode = eneditingrow Then Exit Function
+    If Not (IsISBN13(txtCode) Or IsISBN10(txtCode) Or IsHashCode(txtCode) Or IsPrivateCode(txtCode)) Then
+        MsgBox "This is an invalid code, retry.", vbInformation, "Warning"
+        AcceptCode = False
+        GoTo EXIT_Handler
+    End If
+
+    bOK = oDELL.SetLineProduct("", txtCode, True)
+        If bOK Then
+'            txtSections = oDELL.product.ProductSections.SectionsAsList
+'            If Me.cboProductType.Items.ItemCount > 0 Then
+'                If lngProductTypeID > 0 Then
+'                    cboProductType.Items.SelectItem(cboProductType.Items.FindItem(oPC.Configuration.ProductTypes.Item(lngProductTypeID), 0)) = True
+'                ElseIf oDELL.ProductTypeID > 0 Then
+'                    cboProductType.Items.SelectItem(cboProductType.Items.FindItem(oPC.Configuration.ProductTypes.Item(oDELL.ProductTypeID), 0)) = True
+'                ElseIf oDELL.product.ProductTypeID > 0 Then
+'                    cboProductType.Items.SelectItem(cboProductType.Items.FindItem(oPC.Configuration.ProductTypes.Item(oDELL.product.ProductTypeID), 0)) = True
+'                Else
+'                    cboProductType.Items.SelectItem(cboProductType.Items(0)) = True
+'                    lngProductTypeID = oPC.Configuration.ProductTypes.key(cboProductType.Items.CellCaption(cboProductType.Items.SelectedItem, 0))
+'                End If
+'            End If
+            oDELL.Title = oDELL.product.TitleAuthorPublisherL(35)
+            If bSubstitute = False Then
+                oDel.ReloadMatches oDELL.PID
+            Else
+                oDel.ReloadMatches_forSubstitutions oDELL.PID
+            End If
+            CheckForPreviousMatchesInInvoice oDELL.DELLID
+            LoadMatches
+   '         SetMultibuyCode oDELL.product.MultibuyCode
+            If cboMatch.Items.ItemCount > 0 Then
+                For j = 0 To cboMatch.Items.ItemCount - 1
+                    If cboMatch.Items.CellCaption(cboMatch.Items(j), 13) = oDel.supplier.ID Then
+                        cboMatch.Items.SelectItem(cboMatch.Items(j)) = True
+                    End If
+                Next j
+                If cboMatch.Items.SelectCount = 0 Then cboMatch.Items.SelectItem(cboMatch.Items(0)) = True
+                tmp = cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 3)
+                oDELL.SetQtySS Mid(tmp, InStr(1, tmp, "(") + 1, InStr(1, tmp, "(") - 1)
+                tmp = cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 2)
+                oDELL.SetQtyFirm Mid(tmp, InStr(1, tmp, "(") + 1, InStr(1, tmp, "(") - 1)
+                oDELL.SetDiscount cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 10)
+                oDELL.SetPrice cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 9)
+                oDELL.SetRef cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 6)
+                oDELL.COLID = cboMatch.Items.CellCaption(cboMatch.Items.SelectedItem(0), 11)
+             '   cboMatch.s
+            Else
+                If oDELL.QtyFirm = 0 And oDELL.QtySS = 0 Then
+                    oDELL.SetQtyFirm 1
+                    oDELL.SetQtySS 0
+                End If
+                   ' oDELL.SetDiscount 0
+                
+              '  oDELL.setPrice 0
+            End If
+    Else   'Book nof found on database
+        Dim frmAdHoc As frmAdHocProduct
+        Set frmAdHoc = New frmAdHocProduct
+        frmAdHoc.component txtCode
+        frmAdHoc.Show vbModal
+        txtCode = frmAdHoc.code
+        Unload frmAdHoc
+        Set frmAdHoc = Nothing
+        AcceptCode = False
+        GoTo START
+    End If
+
+    txtTitle = oDELL.Title
+    If oPC.Configuration.CaptureDecimal Then
+        txtPrice = oDELL.PriceF(oDel.isFOreignCurrency)
+    Else
+        txtPrice = oDELL.Price(oDel.isFOreignCurrency)
+    End If
+    txtQtyFirm = oDELL.QtyFirmF
+    txtQtySS = oDELL.QtySSF
+    txtDiscount = oDELL.DiscountF
+    mSetfocus txtPrice
+    oDELL.GetStatus
+    
+EXIT_Handler:
+    Exit Function
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.AcceptCode"
+End Function
+Private Sub txtCode_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    Cancel = Not AcceptCode
+EXIT_Handler:
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtCode_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub CheckForPreviousMatchesInInvoice(pKey As String)
+    On Error GoTo errHandler
+Dim dPOLOS As d_POLine
+Dim oDELL As a_DeliveryLine
+Dim iQtyUnMatched As Integer
+Dim iQtyUnMatchedSS As Integer
+Dim iQtyUnMatchedFIRM As Integer
+
+    For Each dPOLOS In oDel.POLsOSPersSUPP
+        iQtyUnMatched = dPOLOS.qtyTotal - dPOLOS.ReceivedSoFar
+        iQtyUnMatchedSS = dPOLOS.QtySSOS
+        iQtyUnMatchedFIRM = dPOLOS.QtyFIRMOS
+        For Each oDELL In oDel.DeliveryLines
+            If pKey <> oDELL.key Then
+                If oDELL.IsDeleted = False And oDELL.POLID = dPOLOS.POLID Then
+                    iQtyUnMatched = iQtyUnMatched - (oDELL.QtyFirm + oDELL.QtySS)
+                    iQtyUnMatchedSS = iQtyUnMatchedSS - oDELL.QtySS
+                    iQtyUnMatchedFIRM = iQtyUnMatchedFIRM - oDELL.QtyFirm
+                End If
+            End If
+        Next
+        dPOLOS.QtyUnMatchedTmp = iQtyUnMatched
+        dPOLOS.QtySSUnMatchedTmp = iQtyUnMatchedSS
+        dPOLOS.QtyFIRMUnMatchedTmp = iQtyUnMatchedFIRM
+    Next
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.CheckForPreviousMatchesInInvoice(pKey)", pKey
+End Sub
+Private Sub LoadMatches()
+    On Error GoTo errHandler
+Dim oPOL As d_POLine
+Dim i As Long
+    If oDel.POLsOSPersSUPP.Count < 1 Then
+        cboMatch.Items.RemoveAllItems
+        Exit Sub
+    End If
+    cboMatch.BeginUpdate
+    i = 0
+    For Each oPOL In oDel.POLsOSPersSUPP 'count the unfulfilled ones
+        If oPOL.QtyUnMatchedTmp > 0 Then
+            i = i + 1
+        End If
+    Next
+    If i = 0 Then
+        cboMatch.EndUpdate
+        cboMatch.Items.RemoveAllItems
+        Exit Sub
+    End If
+    ReDim ar(13, 0)
+    cboMatch.Items.RemoveAllItems
+    i = 0
+    For Each oPOL In oDel.POLsOSPersSUPP
+        If oPOL.QtyUnMatchedTmp > 0 Then
+        
+            ReDim Preserve ar(13, i)
+            ar(0, i) = oPOL.DocDateF
+            ar(1, i) = oPOL.DocCode
+            ar(2, i) = oPOL.QtyFirm & "(" & oPOL.QtyFIRMUnMatchedTmp & ")"
+            ar(3, i) = oPOL.QtySS & "(" & oPOL.QtySSUnMatchedTmp & ")"
+            ar(5, i) = oPOL.ReceivedSoFar & "(" & oPOL.QtyUnMatchedTmp & ")"
+            ar(6, i) = oPOL.Ref
+            ar(7, i) = oPOL.DiscountF
+            ar(8, i) = oPOL.POLID
+            If Not oDel.isFOreignCurrency Then
+                ar(4, i) = oPOL.POLPriceF
+                ar(9, i) = oPOL.POLPrice
+            Else
+                ar(4, i) = oPOL.POLForeignPriceF
+                ar(9, i) = oPOL.POLForeignPrice
+            End If
+            ar(10, i) = oPOL.DISCOUNT
+            ar(11, i) = oPOL.COLID
+            ar(12, i) = oPOL.QtyUnMatchedTmp
+            ar(13, i) = oPOL.SupplierID
+            i = i + 1
+        End If
+    Next
+    cboMatch.PutItems ar
+    cboMatch.EndUpdate
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.LoadMatches"
+End Sub
+Private Sub txtDiscount_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Then Exit Sub
+    If Not oDELL.SetDiscount(txtDiscount) Then
+        Cancel = True
+    End If
+    oDel.CalculateTotals
+    txtTotal = oDELL.PLessDiscExtF(oDel.isFOreignCurrency)
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtDiscount_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub txtDiscount_GotFocus()
+    On Error GoTo errHandler
+    AutoSelect txtDiscount
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtDiscount_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub txtPrice_Validate(Cancel As Boolean)
+    On Error GoTo errHandler
+    If flgLoading Or oDELL.product Is Nothing Then Exit Sub
+    If Not oDELL.SetPrice(txtPrice) Then
+        Cancel = True
+    End If
+    oDel.CalculateTotals
+    txtTotal = oDELL.PLessDiscExtF(oDel.isFOreignCurrency)
+    txtSP = oDELL.PriceSell
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtPrice_Validate(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub txtPrice_GotFocus()
+    On Error GoTo errHandler
+    AutoSelect txtPrice
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.txtPrice_GotFocus", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub RemoveLine()
+    On Error GoTo errHandler
+Dim i As Integer
+Dim iMax As Integer
+    iMax = lvw.ListItems.Count
+    For i = iMax To 1 Step -1
+        If lvw.ListItems(i).Selected Then
+            If oDel.DeliveryLines.Item(lvw.ListItems(i).key).POLID > 0 Then
+                oDel.DeliveryLines.Item(lvw.ListItems(i).key).POLID = 0  'In order to recycle the POLID for later selection in cbomatch ( i.e. it is no longer claimed)
+            End If
+            oDel.DeliveryLines.Remove lvw.ListItems(i).key
+            Exit For
+        End If
+    Next i
+    If i = 0 Then
+        MsgBox "Select an item prior to deleting.", vbOKOnly + vbInformation, "Papyrus Invoicing Information"
+        Exit Sub
+    End If
+    lvw.ListItems.Remove i
+    lvw.Refresh
+    oDel.CalculateTotals
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.RemoveLine"
+End Sub
+
+Private Sub LoadSupplier()
+    On Error GoTo errHandler
+    With oDel
+        SetIssueButtonCaption
+        Me.txtSuppname = .supplier.NameAndCode(20)
+        If Not .supplier.billtoaddress Is Nothing Then
+            txtPhone = .supplier.billtoaddress.Phone
+            txtFax = .supplier.billtoaddress.Fax
+        End If
+    End With
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.LoadSupplier"
+End Sub
+
+
+Private Sub SaveInvoice()
+    On Error GoTo errHandler
+    
+    oDel.Post
+    
+EXIT_Handler:
+'ERR_Handler:
+'    MsgBox Error
+'    GoTo EXIT_Handler
+'    Resume
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.SaveInvoice"
+End Sub
+
+Public Sub PrintDelivery()
+    On Error GoTo errHandler
+Dim blnDeposit As Boolean
+Dim blnDiscount As Boolean
+Dim blnRoundedUp As Boolean
+Dim blnNoDELLs As Boolean
+Dim blnHideVAT As Boolean
+Dim iCurrency As Integer
+
+    
+    Me.MousePointer = vbHourglass
+    oDel.Load oDel.TRID
+    blnDiscount = False ' TO BE REMOVED ON COMPLETION????
+    
+    If blnNoDELLs Then
+        MsgBox "There are no records to print on this invoice.", vbOKOnly + vbInformation, "Papyrus Invoicing Status"
+        GoTo EXIT_Handler
+    End If
+    
+EXIT_Handler:
+    Me.MousePointer = vbDefault
+'ERR_Handler:
+'    Select Case Err
+'    Case 5941
+'        MsgBox "Book Mark on word document is missing", vbOKOnly + vbInformation, "Papyrus Information"
+'        Resume Next
+'    Case Else
+'        MsgBox Error
+'        GoTo EXIT_Handler
+'    End Select
+'    Resume
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.PrintDelivery"
+End Sub
+Private Sub cmdIssue_Click()
+    On Error GoTo errHandler
+Dim blnDeposit As Boolean
+Dim blnDiscount As Boolean
+Dim blnRoundedUp As Boolean
+Dim blnNoDELLs As Boolean
+Dim iCurrency As Integer
+Dim strResult As String
+Dim frm As frmDELPreview
+Dim cCOLALLOC As chex_COLAllocation
+Dim frmAlloc As frmCOLAllocation_FromDel
+
+    If oPC.Configuration.Signtransactions = True Then
+        If SecurityControl(enSECURITY_GRN_SIGN, , "Sign this G.R.N.", DOCAPPROVAL) = False Then
+               Exit Sub
+        End If
+    Else
+        If oDel.Status = stInProcess Then
+            If MsgBox("Issue this G.R.N.? ", vbYesNo + vbQuestion, "Confirm") = vbNo Then
+                Exit Sub
+            End If
+        End If
+    End If
+    
+    WaitMsg "Issuing delivery. . .", True, Me
+    
+    oDel.SetStatus stISSUED
+    oDel.StaffID = gSTAFFID
+    strResult = oDel.Post
+    If strResult = "" Then
+        Set frm = New frmDELPreview
+        frm.component oDel.TRID
+        frm.Show
+    End If
+    If oPC.Configuration.COLAllocationStyle <> "S" Then  ' this is a retail environment and customer orders are held back at counter, not invoiced immediately
+        Set cCOLALLOC = Nothing
+        Set cCOLALLOC = New chex_COLAllocation
+        cCOLALLOC.GenerateCOLALLOCationset oDel.TRID
+        cCOLALLOC.Load oDel.TRID
+        If cCOLALLOC.Count > 0 Then
+            Set frmAlloc = New frmCOLAllocation_FromDel
+            frmAlloc.component cCOLALLOC, "DELIVERY", False
+            frmAlloc.Show
+        End If
+        Set cCOLALLOC = Nothing
+    End If
+    WaitMsg "", False, Me
+    If oDel.HasSupplierClaim Then
+        oDel.PrintSupplierClaim
+    End If
+    Unload Me
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdIssue_Click", , EA_NORERAISE
+    HandleError
+End Sub
+'Private Sub PrintProductsAwaitedBYCOs()
+'Dim oC As c_COLSPERDEL
+'Dim ar As New arCOLSFulfilled
+'    Set oC = oDel.CustomerOrdersFulfilled
+'    ar.Component oC
+'    ar.Show
+'End Sub
+Private Sub cmdSave_Click()
+    On Error GoTo errHandler
+    oDel.SetStatus stInProcess
+    SaveDEL
+    LoadListView
+    oDel.BeginEdit
+    Set oDELL = oDel.DeliveryLines.Add
+    cmdCancel.Caption = "&Close"
+    cmdSave.Enabled = False
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdSave_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdCancel_Click()
+    On Error GoTo errHandler
+Dim frm As frmDELPreview
+    If cmdCancel.Caption <> "&Close" Then
+        If MsgBox("You wish to cancel your changes?", vbQuestion + vbYesNo, "Confirm") = vbNo Then
+            Exit Sub
+        End If
+    End If
+    oDel.CancelEdit
+    If cmdCancel.Caption = "&Close" Then
+        Set frm = New frmDELPreview
+        frm.ComponentObject oDel
+        frm.Show
+    End If
+    Unload Me
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.cmdCancel_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub ClearLineControls()
+    On Error GoTo errHandler
+    flgLoading = True
+    Me.txtCode = ""
+    Me.txtDiscount = ""
+    Me.txtQtyFirm = ""
+    Me.txtQtySS = ""
+    Me.txtPrice = ""
+    txtSP = ""
+    Me.txtTitle = ""
+    Me.txtTotal = ""
+    Me.txtNote = ""
+    Me.cboMatch.Items.RemoveAllItems
+    flgLoading = False
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.ClearLineControls"
+End Sub
+
+Private Sub lvw_BeforeLabelEdit(Cancel As Integer)
+    On Error GoTo errHandler
+    Cancel = True
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Lvw_BeforeLabelEdit(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub SetIssueButtonCaption()
+    On Error GoTo errHandler
+        If oDel.statusF = "IN PROCESS" Then
+            cmdIssue.Caption = "Issue"
+        ElseIf oDel.IsDirty Then
+            cmdIssue.Caption = "Save"
+        Else
+            cmdIssue.Caption = "Print"
+        End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.SetIssueButtonCaption"
+End Sub
+
+
+Private Sub Lvw_ColumnClick(ByVal ColumnHeader As ColumnHeader)
+    On Error GoTo errHandler
+   ' When a ColumnHeader object is clicked, the ListView control is
+   ' sorted by the subitems of that column.
+   ' Set the SortKey to the Index of the ColumnHeader - 1
+   lvw.SortKey = ColumnHeader.Index - 1
+   ' Set Sorted to True to sort the list.
+    If lvw.SortOrder = lvwAscending Then
+        lvw.SortOrder = lvwDescending
+    Else
+        lvw.SortOrder = lvwAscending
+    End If
+   lvw.Sorted = True
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.Lvw_ColumnClick(ColumnHeader)", ColumnHeader, EA_NORERAISE
+    HandleError
+End Sub
+Private Sub SetLvw()
+    On Error GoTo errHandler
+Dim style As Long
+Dim hHeader As Long
+   
+  'get the handle to the listview header
+   hHeader = SendMessage(lvw.hwnd, LVM_GETHEADER, 0, ByVal 0&)
+   
+  'get the current style attributes for the header
+   style = GetWindowLong(hHeader, GWL_STYLE)
+   
+  'modify the style by toggling the HDS_BUTTONS style
+   style = style Xor HDS_BUTTONS
+   
+  'set the new style and redraw the listview
+   If style Then
+      Call SetWindowLong(hHeader, GWL_STYLE, style)
+      Call SetWindowPos(lvw.hwnd, Me.hwnd, 0, 0, 0, 0, SWP_FLAGS)
+   End If
+
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.SetLvw"
+End Sub
+
+Private Sub vCanAdd_Status(errors As String)
+    On Error GoTo errHandler
+MsgBox errors & "CANAADD"
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.vCanAdd_Status(errors)", errors, EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub SaveDEL()
+    On Error GoTo errHandler
+    
+    oDel.Post
+    
+EXIT_Handler:
+'ERR_Handler:
+'    MsgBox Error
+'    GoTo EXIT_Handler
+  '  Resume
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.SaveDEL"
+End Sub
+Sub SetupcboMatch()
+    On Error GoTo errHandler
+    cboMatch.BeginUpdate
+    cboMatch.WidthList = 540
+    cboMatch.HeightList = 162
+    cboMatch.AllowSizeGrip = True
+    cboMatch.AutoDropDown = True
+    
+    cboMatch.Columns.Add "Date"
+    cboMatch.Columns.Add "Code"
+    cboMatch.Columns.Add "Firm"
+    cboMatch.Columns.Add "SS"
+    cboMatch.Columns.Add "Price"
+    cboMatch.Columns.Add "RecSoFar"
+    cboMatch.Columns.Add "Ref"
+    cboMatch.Columns.Add "Discount"
+    cboMatch.Columns.Add "lngPOLID"
+    cboMatch.Columns.Add "lngPrice"
+    cboMatch.Columns.Add "dblDiscount"
+    cboMatch.Columns.Add "lngCOLID"
+    cboMatch.Columns.Add "lngQTYnNAllocated"
+    cboMatch.Columns.Add "Supplier"
+    
+    cboMatch.Columns(0).Width = 90
+    cboMatch.Columns(1).Width = 90
+    cboMatch.Columns(2).Width = 50
+    cboMatch.Columns(3).Width = 50
+    cboMatch.Columns(4).Width = 70
+    cboMatch.Columns(5).Width = 50
+    cboMatch.Columns(6).Width = 70
+    cboMatch.Columns(7).Width = 70
+    cboMatch.Columns(8).Width = 0
+    cboMatch.Columns(9).Width = 0
+    cboMatch.Columns(10).Width = 0
+    cboMatch.Columns(11).Width = 0
+    cboMatch.Columns(12).Width = 0
+    cboMatch.Columns(13).Width = 0
+    cboMatch.BackColorLock = Me.BackColor
+    cboMatch.EndUpdate
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmdel.SetupcboMatch"
+End Sub
+

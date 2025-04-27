@@ -1,0 +1,94 @@
+2012-07-18 15:30:31.8713 Error:  System.Exception: Error executing query ---> System.Data.SqlClient.SqlException: Error Message: Cannot insert duplicate key row in object 'dbo.tStockItem' with unique index 'IX_tStockItem'., Error Procedure: InsertContainerandContents, Error Line: 13
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 224
+   --- End of inner exception stack trace ---
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 228
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.InsertContainerandContents(ContainerItemInstance c) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 43
+2012-07-18 16:01:47.7726 Error:  System.Exception: Error executing query ---> System.Data.SqlClient.SqlException: Error Message: Cannot insert duplicate key row in object 'dbo.tStockItem' with unique index 'IX_tStockItem'., Error Procedure: InsertContainerandContents, Error Line: 13
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 224
+   --- End of inner exception stack trace ---
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 228
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.InsertContainerandContents(ContainerItemInstance c) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 43
+2012-07-18 16:01:54.5120 Error:  System.Exception: Error in InsertContainerandContents
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.InsertContainerandContents(ContainerItemInstance c) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 48
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.Action_evaluateConfirmationScan() in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 247
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.ChooseActionForValidatedScan() in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 192
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.HandleRawScan(String s) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 173
+   at Nuru_Web.Pages_Factory.Packing.enterkey(Object sender, EventArgs e) in C:\Users\David\Documents\Visual Studio 2008\Nuru\Nuru_Web\Pages_Factory\Packing.aspx.cs:line 43
+2012-07-18 17:38:48.1665 Error:  System.Exception: Error executing query ---> System.Data.SqlClient.SqlException: Error Message: Cannot insert duplicate key row in object 'dbo.tStockItem' with unique index 'IX_tStockItem'., Error Procedure: InsertContainerandContents, Error Line: 13
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 224
+   --- End of inner exception stack trace ---
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 228
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.InsertContainerandContents(ContainerItemInstance c) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 43
+2012-07-18 17:38:48.1905 Error:  System.Exception: Error in InsertContainerandContents
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.InsertContainerandContents(ContainerItemInstance c) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 48
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.Action_evaluateConfirmationScan() in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 247
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.ChooseActionForValidatedScan() in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 192
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.HandleRawScan(String s) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 173
+   at Nuru_Web.Pages_Factory.Packing.enterkey(Object sender, EventArgs e) in C:\Users\David\Documents\Visual Studio 2008\Nuru\Nuru_Web\Pages_Factory\Packing.aspx.cs:line 43
+2012-07-18 17:46:15.7341 Error:  System.Exception: Error executing query ---> System.Data.SqlClient.SqlException: Error Message: Cannot insert duplicate key row in object 'dbo.tStockItem' with unique index 'IX_tStockItem'., Error Procedure: InsertContainerandContents, Error Line: 13
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 224
+   --- End of inner exception stack trace ---
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 228
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.InsertContainerandContents(ContainerItemInstance c) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 43
+2012-07-18 17:46:15.7561 Error:  System.Exception: Error while inserting container and contents: This data is not saved.
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.InsertContainerandContents(ContainerItemInstance c) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 48
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.Action_evaluateConfirmationScan() in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 247
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.ChooseActionForValidatedScan() in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 192
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.HandleRawScan(String s) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 173
+   at Nuru_Web.Pages_Factory.Packing.enterkey(Object sender, EventArgs e) in C:\Users\David\Documents\Visual Studio 2008\Nuru\Nuru_Web\Pages_Factory\Packing.aspx.cs:line 43
+2012-07-18 18:13:51.0548 Error:  System.Exception: Error executing query ---> System.Data.SqlClient.SqlException: Error Message: Cannot insert duplicate key row in object 'dbo.tStockItem' with unique index 'IX_tStockItem'., Error Procedure: InsertContainerandContents, Error Line: 13
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 224
+   --- End of inner exception stack trace ---
+   at Nuru.BAL.Persistence.SqlDao.ExecuteNonQuery(SqlCommand command) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\SqlDao.cs:line 228
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.InsertContainerandContents(ContainerItemInstance c) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 43
+2012-07-18 18:13:51.0668 Error:  System.Exception: Error while inserting container and contents: This data is not saved. Click OK then press F5 to refresh screen.
+   at Nuru.BAL.Persistence.Persisters.StockItemInstancePersister.InsertContainerandContents(ContainerItemInstance c) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Persistence\Persisters\StockItemInstancePersister.cs:line 48
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.Action_evaluateConfirmationScan() in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 247
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.ChooseActionForValidatedScan() in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 192
+   at Nuru.BAL.Services.CaptureStateEngine_Packing.HandleRawScan(String s) in C:\Users\David\Documents\Visual Studio 2008\Nuru\BAL\Services\CaptureStateEngine.cs:line 173
+   at Nuru_Web.Pages_Factory.Packing.enterkey(Object sender, EventArgs e) in C:\Users\David\Documents\Visual Studio 2008\Nuru\Nuru_Web\Pages_Factory\Packing.aspx.cs:line 43

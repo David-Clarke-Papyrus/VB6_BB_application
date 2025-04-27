@@ -1,0 +1,1 @@
+﻿    <add name="PBKS" connectionString="data Source=David-PC\PBKS;Initial Catalog=PBKSV;User Id=sa;Password=car;" providerName="System.Data.EntityClient" />

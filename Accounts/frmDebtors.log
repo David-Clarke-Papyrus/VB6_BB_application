@@ -1,0 +1,6 @@
+Line 21: Class VBControlManager.ControlManager of control CM was not a loaded control class.
+Line 28: The property name _ExtentX in CM is invalid.
+Line 29: The property name _ExtentY in CM is invalid.
+Line 30: The property name ActiveColor in CM is invalid.
+Line 32: The property name Size in CM is invalid.
+Line 33: The property name TitleBar_CloseVisible in CM is invalid.

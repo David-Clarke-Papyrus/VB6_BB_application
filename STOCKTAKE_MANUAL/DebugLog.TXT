@@ -1,0 +1,328 @@
+_____________
+FROM STManualDLL at 04/09/2005 11:12 PM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 04/09/2005 11:12 PM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 04/09/2005 11:12 PM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 04/09/2005 11:12 PM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 04/09/2005 11:20 PM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 04/09/2005 11:20 PM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 04/09/2005 11:20 PM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 04/09/2005 11:20 PM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:16 AM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:16 AM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:16 AM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:16 AM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:31 AM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:31 AM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:31 AM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:31 AM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:33 AM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:33 AM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:33 AM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:33 AM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:41 AM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:41 AM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:41 AM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:41 AM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:43 AM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:43 AM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:43 AM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:43 AM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:47 AM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:47 AM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:47 AM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:47 AM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:53 AM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:53 AM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:53 AM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 05/09/2005 07:53 AM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 04:11 PM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 04:11 PM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 04:11 PM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 04:11 PM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:09 PM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:09 PM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:09 PM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:09 PM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:15 PM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:15 PM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:15 PM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:15 PM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:21 PM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:21 PM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:21 PM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:21 PM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:23 PM
+Loading printer: device name Generic PostScript PrinterPort = COM4:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:23 PM
+Loading printer: device name EPSON TM-U220D ReceiptPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:23 PM
+Loading printer: device name Canon S520Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 06/09/2005 06:23 PM
+Loading printer: device name SERV-01Port = Ne02:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 08:18 AM
+Loading printer: device name Canon S520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 08:18 AM
+Loading printer: device name SERV-01Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 08:20 AM
+Loading printer: device name Canon S520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 08:20 AM
+Loading printer: device name SERV-01Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 08:22 AM
+Loading printer: device name Canon S520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 08:22 AM
+Loading printer: device name SERV-01Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 08:22 AM
+Loading printer: device name Canon S520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 08:22 AM
+Loading printer: device name SERV-01Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 06:03 PM
+Loading printer: device name Canon S520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 21/09/2005 06:03 PM
+Loading printer: device name SERV-01Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 22/09/2005 08:25 PM
+Loading printer: device name Canon S520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 22/09/2005 08:25 PM
+Loading printer: device name SERV-01Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 22/09/2005 08:28 PM
+Loading printer: device name Canon S520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 22/09/2005 08:28 PM
+Loading printer: device name SERV-01Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 23/09/2005 01:07 PM
+Loading printer: device name Canon S520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 23/09/2005 01:07 PM
+Loading printer: device name SERV-01Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 23/09/2005 01:08 PM
+Loading printer: device name Canon S520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 23/09/2005 01:08 PM
+Loading printer: device name SERV-01Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 20/02/2006 05:43 PM
+Loading printer: device name HP LaserJet 4LPort = LPT1:
+=============
+_____________
+FROM STManualDLL at 20/02/2006 05:43 PM
+Loading printer: device name CanonS520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 20/02/2006 05:45 PM
+Loading printer: device name HP LaserJet 4LPort = LPT1:
+=============
+_____________
+FROM STManualDLL at 20/02/2006 05:45 PM
+Loading printer: device name CanonS520Port = Ne00:
+=============
+_____________
+FROM STManualDLL at 21/05/2006 08:19 PM
+Loading printer: device name HPLPort = LPT1:
+=============
+_____________
+FROM STManualDLL at 21/05/2006 08:19 PM
+Loading printer: device name Auto SERV-01 on SERVERPort = Ne00:
+=============
+_____________
+FROM STManualDLL at 21/05/2006 08:19 PM
+Loading printer: device name Auto HP-FRONT on FRONT1Port = Ne01:
+=============
+_____________
+FROM STManualDLL at 21/05/2006 08:19 PM
+Loading printer: device name Auto HP LaserJet 2100 PCL6 on BOURNE001Port = Ne02:
+=============

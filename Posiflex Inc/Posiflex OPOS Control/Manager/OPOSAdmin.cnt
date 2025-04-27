@@ -1,0 +1,16 @@
+:Base OPOSAdmin.hlp
+1 Using OPOS Administrator
+2 Main dialog=HIDD_OPOSADMIN_DIALOG
+2 Add device=HIDD_ADDDEVICENAME
+2 Configure logical name=HIDD_CFGLN
+2 Clone device=HIDD_CLONE
+2 Configure device=HIDD_CONFIGURE
+2 Modify device setting=HIDD_MODIFYSETTING
+2 Test device=HIDD_TESTDEVICE
+2 Availability and Support=HID_SUPPORT
+1 Configuration Objects
+2 Overview=HID_SCSO
+2 Registry settings=HID_SCSOREGISTRY
+2 ConfigSO method=HID_CONFIGSO
+2 Service Object installation=HID_SOINSTALL
+2 Comparison with ODBC Administrator=HID_COMPODBC

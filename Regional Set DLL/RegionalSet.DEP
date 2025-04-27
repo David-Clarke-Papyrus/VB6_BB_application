@@ -1,0 +1,16 @@
+[Version]
+Version=1.0.0.0
+
+[RegionalSet.dll <0009>]
+Dest=$(AppPath)
+Date=23/08/2002
+Time=09:43
+Version=1.0.0.0
+CABFilename=RegionalSet.CAB
+CABINFFile=RegionalSet.INF
+Uses1=msvbvm60.dll
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL

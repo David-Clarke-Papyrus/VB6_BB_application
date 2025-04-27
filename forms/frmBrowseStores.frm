@@ -1,0 +1,301 @@
+VERSION 5.00
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "todg6.ocx"
+Begin VB.Form frmBrowseStores 
+   BackColor       =   &H00D3D3CB&
+   Caption         =   "Choose store"
+   ClientHeight    =   5370
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   5955
+   Icon            =   "frmBrowseStores.frx":0000
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   5370
+   ScaleWidth      =   5955
+   ShowInTaskbar   =   0   'False
+   StartUpPosition =   1  'CenterOwner
+   Begin VB.Frame Frame1 
+      BackColor       =   &H00D3D3CB&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   1170
+      Left            =   420
+      TabIndex        =   2
+      ToolTipText     =   "Select any one criteria.  If using dates, a selection between dates is catered for"
+      Top             =   60
+      Width           =   4500
+      Begin VB.TextBox txtArg 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   450
+         Left            =   1245
+         TabIndex        =   0
+         ToolTipText     =   "Enter A/C number, name, start of name, telephone number or end of telephone number and click FIND."
+         Top             =   315
+         Width           =   2880
+      End
+      Begin VB.Label Label3 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Look for"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   270
+         Left            =   180
+         TabIndex        =   3
+         Top             =   420
+         Width           =   780
+      End
+   End
+   Begin TrueOleDBGrid60.TDBGrid G1 
+      Height          =   3165
+      Left            =   90
+      OleObjectBlob   =   "frmBrowseStores.frx":038A
+      TabIndex        =   1
+      Top             =   1440
+      Width           =   5370
+   End
+End
+Attribute VB_Name = "frmBrowseStores"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Dim lngTPID As Long
+Dim strName As String
+Dim oStore As a_Store
+Dim blnNoRecordsReturned As Boolean
+Dim XA As New XArrayDB
+Dim flgLoading As Boolean
+
+Public Sub mnuSaveLayout()
+    On Error GoTo errHandler
+    SaveLayout Me.G1, Me.Name
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn Me.Name & ":mnuSaveLayout", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub SetMenu()
+    On Error GoTo errHandler
+    Forms(0).mnuVoid.Enabled = False
+    Forms(0).mnuCancel.Enabled = False
+    Forms(0).mnuCancelLine.Enabled = False
+    Forms(0).mnuCancelINactive.Enabled = False
+    Forms(0).mnuFulfil.Enabled = False
+    Forms(0).mnuDelLine.Enabled = False
+    Forms(0).mnuMemo.Enabled = False
+    Forms(0).mnuSalesComm.Enabled = False
+    Forms(0).mnuCopyDoc.Enabled = False
+    Forms(0).mnuSaveColumnWidths.Enabled = True
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmPOPreview.SetMenu"
+End Sub
+'Public Sub UnsetMenu()
+'    Forms(0).mnuVoid.Enabled = False
+'    Forms(0).mnuCancel.Enabled = False
+'    Forms(0).mnuCancelLine.Enabled = False
+'    Forms(0).mnuCancelINactive.Enabled = False
+'    Forms(0).mnuDelLine.Enabled = False
+'    Forms(0).mnuFulfil.Enabled = False
+'    Forms(0).mnuMemo.Enabled = False
+'    Forms(0).mnuSalesComm.Enabled = False
+'    'Forms(0).mnuInvAdd.Enabled = False
+'    Forms(0).mnuAdjust.Enabled = False
+'    Forms(0).mnuMemo.Enabled = False
+'    Forms(0).mnuCopyDoc.Enabled = False
+'    Forms(0).mnuCreateCreditNote.Enabled = False
+'    Forms(0).mnuProductPreview.Visible = False
+'    Forms(0).mnuSaveColumnWidths.Enabled = False
+'End Sub
+
+
+
+Private Sub HandleResults(Optional plngCount As Long)
+    If txtArg = "" Then Exit Sub
+    Screen.MousePointer = vbHourglass
+    With oPC.Configuration.Stores
+        plngCount = .Count
+        If .Count > 1 Then 'Display grid
+            LoadArray
+            G1.ReBind
+            G1.top = 1260
+            G1.Left = 105
+            G1.Enabled = True
+            Me.Height = 5700
+        ElseIf .Count = 1 Then 'Pass ID back to calling form
+            lngTPID = .Item(1).ID
+            strName = .Item(1).Description
+            Me.Hide
+        Else
+            Me.Hide
+        End If
+    End With
+    Screen.MousePointer = vbDefault
+    Exit Sub
+End Sub
+
+
+Private Sub cmdSelect_Click()
+    If flgLoading Then Exit Sub
+    lngTPID = val(XA(G1.Bookmark, 4))
+    strName = XA(G1.Bookmark, 1)
+    Me.Hide
+End Sub
+
+
+Private Sub Form_Activate()
+    SetMenu
+    If G1.Enabled Then
+        If XA.Count(1) > 0 Then
+            mSetfocus G1
+        End If
+    End If
+SetMenu
+End Sub
+
+
+Private Sub Form_Deactivate()
+    UnsetMenu
+End Sub
+
+Private Sub Form_Terminate()
+    Set oStore = Nothing
+End Sub
+
+Public Property Get StoreName() As String
+    StoreName = strName
+End Property
+
+Public Property Get StoreID() As Long
+    StoreID = lngTPID
+End Property
+Private Sub Form_Load()
+    flgLoading = True
+    SetMenu
+    Me.Width = 5800
+   ' Me.Height = 1850
+    'Me.G1.Enabled = False
+    SetGridLayout Me.G1, Me.Name
+    LoadControls
+    flgLoading = False
+End Sub
+Public Sub Component(ptxt As String, Optional plngCount As Long)
+Dim lngCount As Long
+    
+    txtArg = ptxt & IIf(Right(ptxt, 1) = "*", "", "*")
+    txtArg.SelStart = Len(txtArg)
+    HandleResults lngCount
+    If lngCount = 0 Then
+        Me.Hide
+    End If
+    plngCount = lngCount
+End Sub
+
+Private Sub LoadControls()
+    txtArg = ""
+    lngTPID = 0
+    
+End Sub
+
+
+Private Sub Form_Unload(Cancel As Integer)
+    UnsetMenu
+End Sub
+
+Private Sub G1_DblClick()
+    If flgLoading Then Exit Sub
+    If IsNull(G1.Bookmark) Then Exit Sub
+    lngTPID = val(XA(G1.Bookmark, 3))
+    strName = XA(G1.Bookmark, 1)
+    Me.Hide
+End Sub
+Private Sub LoadArray()
+Dim objItem As a_Store
+Dim itmList As ListItem
+Dim lngIndex As Long
+Dim i As Integer
+    XA.Clear
+    XA.ReDim 1, 0, 1, 6
+    i = 1
+    For lngIndex = 1 To oPC.Configuration.Stores.Count
+        If txtArg > "" Then
+            Set objItem = oPC.Configuration.Stores.Item(lngIndex)
+            If UCase(Left(objItem.Description, Len(txtArg))) = UCase(txtArg) Then
+                XA.ReDim 1, i, 1, 6
+                XA.Value(i, 1) = objItem.Description
+                XA.Value(i, 2) = objItem.DelAddress
+                XA.Value(i, 3) = objItem.ID
+                i = i + 1
+            End If
+        Else
+            Set objItem = oPC.Configuration.Stores.Item(lngIndex)
+            XA.ReDim 1, lngIndex, 1, 6
+            XA.Value(i, 1) = objItem.Description
+            XA.Value(i, 2) = objItem.DelAddress
+            XA.Value(i, 3) = objItem.ID
+            i = i + 1
+        End If
+    Next
+    XA.QuickSort 1, XA.UpperBound(1), 1, XORDER_ASCEND, XTYPE_STRING
+    G1.Array = XA
+End Sub
+
+Private Sub txtArg_KeyPress(KeyAscii As Integer)
+    If flgLoading Then Exit Sub
+    If Trim(txtArg) = "" Or Trim(txtArg) = "*" Then Exit Sub
+    
+    If KeyAscii = 13 Then  ' The ENTER key.
+       HandleResults
+        If oPC.Configuration.Stores.Count > 1 Then
+            On Error Resume Next
+            G1.SetFocus
+        End If
+    End If
+End Sub
+Private Sub G1_KeyPress(KeyAscii As Integer)
+    If flgLoading Then Exit Sub
+         If KeyAscii = 13 Then  ' The ENTER key.
+            If G1.Bookmark > 0 Then
+                lngTPID = val(XA(G1.Bookmark, 3))
+                strName = XA(G1.Bookmark, 1)
+            End If
+         End If
+         Me.Hide
+End Sub
+
+Public Property Get SelectedStore() As a_Store
+    SelectedStore = oPC.Configuration.Stores.FindStoreByID(lngTPID)
+End Property
+

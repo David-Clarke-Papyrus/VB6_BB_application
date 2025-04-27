@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" 
+  manifestVersion="1.0">
+<assemblyIdentity
+            type="win32"
+            name="InteropUserControlLibrary1"processorArchitecture="msil"
+            version="1.0.0.0" />
+<clrClass
+            clsid="{c1d536dc-fee1-4f39-a3aa-82d29ad17df6}"
+            progid="InteropUserControlLibrary1.InteropUserControl"
+            threadingModel="Both"
+            name="InteropUserControlLibrary1.InteropUserControl" >
+</clrClass>
+<clrClass
+            clsid="{C9E138C4-B18F-416A-86F7-156E111D2677}"
+            progid="InteropUserControlLibrary1.BookFindGrid"
+            threadingModel="Both"
+            name="InteropUserControlLibrary1.BookFindGrid" >
+</clrClass>
+</assembly>

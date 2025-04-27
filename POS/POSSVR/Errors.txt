@@ -1,0 +1,12 @@
+Automation error
+Unspecified error  
+  Time='11/01/07 21:05:32' App='PBKS_POSSvr:1.0.0' ADO-version='2.8' Computer='PBKS-SVR' 
+  Method: MainMod.Main 
+  Number: -2147467259 = &H80004005 = vbObjectError - 245755 = ERRMAP_APP_FIRST - 250953 
+  Source: PBKS_POSSvr 
+  Description: Automation error
+Unspecified error 
+  Call Stack: MainMod.Main() -----------------------------------------------------------------------
+
+
+

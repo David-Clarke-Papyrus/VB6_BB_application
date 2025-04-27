@@ -1,0 +1,518 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+  Persistable = 0  'NotPersistable
+  DataBindingBehavior = 0  'vbNone
+  DataSourceBehavior  = 0  'vbNone
+  MTSTransactionMode  = 0  'NotAnMTSObject
+END
+Attribute VB_Name = "z_MusicMix"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+Option Explicit
+
+Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (pDst As Any, pSrc As Any, ByVal ByteLen As Long)
+Private Declare Function compress Lib "zlib.dll" (dest As Any, destLen As Any, Src As Any, ByVal srcLen As Long) As Long
+Private Declare Function uncompress Lib "zlib.dll" (dest As Any, destLen As Any, Src As Any, ByVal srcLen As Long) As Long
+
+Private Const Z_OK              As Long = 0
+Private Const Z_STREAM_END      As Long = 1
+Private Const Z_NEED_DICT       As Long = 2
+Private Const Z_ERRNO           As Long = -1
+Private Const Z_STREAM_ERROR    As Long = -2
+Private Const Z_DATA_ERROR      As Long = -3
+Private Const Z_MEM_ERROR       As Long = -4
+Private Const Z_BUF_ERROR       As Long = -5
+Private Const Z_VERSION_ERROR   As Long = -6
+Dim xMM As XArrayDB
+Dim bIncludeBooks As Boolean
+Dim mWithCovers As Boolean
+Public Property Get GetXArray() As XArrayDB
+    Set GetXArray = xMM
+End Property
+Public Sub LoadLocalData()
+Dim rs As ADODB.Recordset
+Dim i As Integer
+Dim oSQL As New z_SQL
+
+    For i = 1 To xMM.UpperBound(1)
+        Set rs = New ADODB.Recordset
+        oSQL.GetDynamicRecordset_Improved "SELECT P_QtyOnHand,P_QtyOnOrder,P_SP,P_LastDateDelivered,P_LastDateSold FROM tPRODUCT WHERE P_EAN = '" & xMM(i, 1) & "'", enText, Array(), "", rs
+        If Not rs.EOF Then
+            xMM(i, 11) = FNS(rs.Fields(2))
+            If IsNumeric(rs.Fields(0)) Then
+                xMM(i, 12) = IIf(CDbl(rs.Fields(0)) > 0, FNS(rs.Fields(0)), "")
+            Else
+                xMM(i, 12) = ""
+            End If
+            xMM(i, 13) = FNS(rs.Fields(1))
+            If IsNumeric(xMM(i, 11)) Then
+                 xMM(i, 11) = IIf(CDbl(xMM(i, 11)) > 0, Format(CDbl(xMM(i, 11)) / 100, "###,###.00"), "")
+            End If
+
+            xMM(i, 14) = FNS(rs.Fields(3))
+            rs.Close
+            Set rs = Nothing
+        End If
+    Next
+
+End Sub
+Public Function SearchFromMusicmix(iNet As Object, strArg As String, pLimit As Integer, pTimeout As Long, IncludeBooks As Boolean, bWithCovers As Boolean, pSince As Date) As Boolean
+    On Error GoTo errHandler
+Dim mXML As ujXML
+Dim s As String
+Dim SS As String
+Dim sOut As String
+Dim zSearchEnginB As New z_SearchEngineB
+Dim rowsreturned As Long
+Const BADURL = 35761      ' Error value constant
+
+    mWithCovers = bWithCovers
+    SearchFromMusicmix = True
+    bIncludeBooks = IncludeBooks
+    Set mXML = Nothing
+    If pSince >= DateAdd("m", -1, Date) Then
+        s = "http://www.musicxpress.co.za/download.py?client=VUE&key=1234&act=actnew" & "&begin=1&end=" & CStr(pLimit)
+    Else
+        SS = zSearchEnginB.MMSearchString(strArg)
+        s = "http://www.musicxpress.co.za/download.py?client=VUE&key=1234&act=" & SS & "&begin=1&end=" & CStr(pLimit)
+    End If
+    iNet.RequestTimeout = pTimeout
+    sOut = iNet.OpenURL(s, 0)
+    rowsreturned = unpackXML(iNet, sOut)
+    SearchFromMusicmix = (rowsreturned > 0)
+    
+    Exit Function
+errHandler:
+    ErrPreserve
+    Select Case Err.Number
+        Case BADURL
+            MsgBox "The URL '" & s & "' could not be found."
+            SearchFromMusicmix = False
+            Err.Clear
+            Exit Function
+        Case Else
+            SearchFromMusicmix = False
+            MsgBox "Error accessing " & s
+             Err.Clear
+           Exit Function
+    End Select
+
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "z_MusicMix.SearchFromMusicmix(iNet,strArg)", Array(iNet, strArg), EA_NORERAISE
+End Function
+Public Function LoadAlbumandTracks(pProduct As a_Product, piNet As iNet, pEAN As String, pTimeout As Long, bWithCovers As Boolean)
+    On Error GoTo errHandler
+Dim mXML As ujXML
+Dim s As String
+Dim ret As Boolean
+Dim sOut As String
+Dim zSearchEnginB As New z_SearchEngineB
+Dim rowsreturned As Long
+Const BADURL = 35761      ' Error value constant
+Const STILLEXECUTING = 35764
+Dim Album As mAlbumProps
+Dim i As Integer
+Dim EOTracks As Boolean
+Dim sDetails As String
+
+    LoadAlbumandTracks = True
+    mWithCovers = bWithCovers
+
+    s = "http://www.musicxpress.co.za/download.py?client=VUE&key=1234&act=getdetail&barcode=" & pEAN
+    piNet.RequestTimeout = pTimeout
+    sOut = piNet.OpenURL(s, 0)
+    Do While piNet.STILLEXECUTING
+       MsgWaitObj 400
+    Loop
+    ret = unpackXMLDetail(sOut, Album)
+    If ret Then
+        pProduct.BeginEdit
+        pProduct.SetEAN FBAR(Album.barcode)
+        pProduct.SetSeriesTitle FNS(Album.Stock)
+        pProduct.SetTitle FNS(Album.Title)
+        pProduct.SetAuthor FNS(Album.artist)
+        pProduct.SetPublicationPlace FNS(Album.supergenre)
+        pProduct.SetPublicationDate FNS(Album.genre)
+        pProduct.SetBindingCode FNS(Album.Media)
+        pProduct.SetPublisher FNS(Album.Source)
+        
+        s = ""
+        i = 1
+        If UBound(Album.tracks) > 0 Then
+            EOTracks = Not Album.tracks(i).trackname > ""
+            sDetails = ""
+            Do While Not EOTracks
+                sDetails = IIf(IsNumeric(Album.tracks(i).cdNumber), " (" & Album.tracks(i).cdNumber & IIf(IsNumeric(Album.tracks(i).tracknumber), "," & Album.tracks(i).tracknumber, ",0") & ")", "")
+                sDetails = sDetails & " " & IIf(IsNumeric(Album.tracks(i).minutes), " (" & Album.tracks(i).minutes & IIf(IsNumeric(Album.tracks(i).seconds), ":" & Album.tracks(i).seconds, ":0") & ")", "")
+                
+                s = s & IIf(Len(s) > 0, vbCrLf, "") & Album.tracks(i).trackname & sDetails
+                i = i + 1
+                EOTracks = Not Album.tracks(i).trackname > ""
+            Loop
+        End If
+        
+        pProduct.SetDescription Left(s, 1500)
+     '   pProduct.ApplyEdit
+     '   pProduct.SetNote = LoadNote(FNS(Album.tracks))
+    End If
+    LoadAlbumandTracks = ret
+    
+    Exit Function
+errHandler:
+    ErrPreserve
+    Select Case Err.Number
+        Case BADURL
+            MsgBox "The URL '" & s & "' could not be found."
+            LoadAlbumandTracks = False
+            Err.Clear
+            Exit Function
+        Case STILLEXECUTING
+            MsgBox "The last request is still busy."
+            LoadAlbumandTracks = False
+            Err.Clear
+            Exit Function
+        Case Else
+            LoadAlbumandTracks = False
+            MsgBox "Error accessing " & s
+            Err.Clear
+            Exit Function
+    End Select
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "z_MusicMix.LoadAlbumandTracks(pProduct,piNet,pEAN,pTimeout)", Array(pEAN), EA_NORERAISE
+
+    Exit Function
+    Resume Next
+End Function
+Function CompressByteArray(ByRef RawBytes() As Byte) As Boolean
+Dim uncompressed_size As Long
+Dim uncompressed_bytes() As Byte
+Dim compressed_size As Long
+Dim compressed_bytes() As Byte
+
+    uncompressed_size = UBound(RawBytes)
+    uncompressed_bytes() = RawBytes()
+    ' **************************************
+    ' Compress.
+    ' Allocate the smallest allowed compression
+    ' buffer (1% larger than the uncompressed data
+    ' plus 12 bytes).
+    compressed_size = 1.01 * uncompressed_size + 12
+    ReDim compressed_bytes(compressed_size)
+    
+    ' Compress the bytes.
+    Select Case compress(compressed_bytes(0), compressed_size, uncompressed_bytes(0), uncompressed_size)
+        Case Z_MEM_ERROR
+            '"Insufficient memory"
+            CompressByteArray = False
+            Exit Function
+        Case Z_BUF_ERROR
+            '"Buffer too small"
+            CompressByteArray = False
+            Exit Function
+        Case Else 'Z_OK
+        CompressByteArray = True
+    End Select
+    
+   'here we redim the array with a 4byte extra to store the uncompresed size
+    ReDim Preserve compressed_bytes(compressed_size + 4)
+   'We write 4bytes on the end containing the lenght of the uncompresed size
+   CopyMemory compressed_bytes(compressed_size), uncompressed_size, 4
+    
+    'we return the value
+    RawBytes() = compressed_bytes()
+End Function
+
+Function UnCompressByteArray(ByRef RawBytes() As Byte) As Boolean
+Dim compressed_size As Long
+Dim compressed_bytes() As Byte
+Dim uncompressed_size As Long
+Dim uncompressed_bytes() As Byte
+    ' **************************************
+    ' Load the file into a byte array.
+    compressed_size = UBound(RawBytes)
+    'we retrieve the uncompresed size from the last 4 bytes
+    CopyMemory uncompressed_size, RawBytes(compressed_size - 4), 4
+    'then we copy the content from the input array to another cuting the last 4 bytes
+    ReDim compressed_bytes(compressed_size - 4)
+    CopyMemory compressed_bytes(0), RawBytes(0), compressed_size - 4
+    ' **************************************
+    ' Uncompress.
+    ' Allocate room for the uncompressed file.
+    ' Note that this routine needs to know
+    ' the original file's uncompressed size.
+    ReDim uncompressed_bytes(uncompressed_size)
+
+    ' Decompress the bytes.
+    Select Case uncompress(uncompressed_bytes(0), uncompressed_size, compressed_bytes(0), compressed_size)
+        Case Z_MEM_ERROR
+            '"Insufficient memory"
+            UnCompressByteArray = False
+            Exit Function
+        Case Z_BUF_ERROR
+            '"Buffer too small"
+            UnCompressByteArray = False
+            Exit Function
+        Case Z_DATA_ERROR
+            '"Input file corrupted"
+            UnCompressByteArray = False
+            Exit Function
+        Case Else 'Z_OK
+        UnCompressByteArray = True
+    End Select
+    'we return the value
+RawBytes() = uncompressed_bytes()
+End Function
+
+Private Function unpackXML(iNet As Object, strXML As String) As Long
+Dim resnext
+Dim rowsreturned As Long
+
+Dim imgLocXML As ujXML
+Dim f As ujXML
+Dim bElementEnd As Boolean
+Dim sElementName As String
+Dim MoreEntries As Boolean
+Dim MoreAttibutes As Boolean
+Dim mXML As ujXML
+Dim MMindex As Integer
+Dim sDetails As String
+Dim sMin As String
+Dim sSec As String
+Dim sCD As String
+Dim sTrack As String
+Dim s1 As String
+Dim res1Next As Boolean
+Dim s1out As String
+Dim sImageURL As String
+Dim bytTemp() As Byte
+    unpackXML = 0
+    Set mXML = New ujXML
+    mXML.docLoadXML strXML
+    
+    resnext = mXML.navLocate("size")
+    If resnext Then
+        rowsreturned = CLng(mXML.Element.Text)
+    End If
+    If rowsreturned = 0 Then
+        unpackXML = 0
+        Exit Function
+    Else
+         unpackXML = rowsreturned
+    End If
+    
+    resnext = mXML.navLocate("product")
+    If Not resnext Then
+        Set mXML = Nothing
+        unpackXML = False
+        Exit Function
+    End If
+    sElementName = ""
+    MMindex = 0
+    MoreEntries = True
+    MoreAttibutes = True
+    Set xMM = New XArrayDB
+    xMM.ReDim 1, MMindex, 1, 15
+    Do
+        MMindex = MMindex + 1
+        xMM.ReDim 1, MMindex, 1, 15
+        resnext = mXML.navFirstChild
+        sDetails = ""
+        sMin = ""
+        sSec = ""
+        sCD = ""
+        sTrack = ""
+       Do
+                Select Case mXML.Element.nodeName
+                Case "no"
+                '    xMM(MMindex, 1) = mXML.Element.Text
+                Case "barcode"
+                    xMM(MMindex, 1) = mXML.Element.Text
+                Case "title"
+                    xMM(MMindex, 2) = mXML.Element.Text
+                Case "artist"
+                    xMM(MMindex, 3) = mXML.Element.Text
+                Case "media"
+                    xMM(MMindex, 4) = mXML.Element.Text
+                Case "source"
+                    xMM(MMindex, 5) = IIf(mXML.Element.Text = "RIMCO" Or UCase(mXML.Element.Text) = "UNKNOWN", "", mXML.Element.Text)
+                Case "genre"
+                    xMM(MMindex, 6) = mXML.Element.Text
+                Case "price"
+                    xMM(MMindex, 7) = mXML.Element.Text
+                    If IsNumeric(xMM(MMindex, 7)) Then
+                        xMM(MMindex, 7) = IIf(CDbl(xMM(MMindex, 7)) > 0, Format(CDbl(xMM(MMindex, 7)) / 100, "###,###.00"), "")
+                    End If
+                Case "stock"
+                    xMM(MMindex, 8) = mXML.Element.Text
+                Case "cdno"
+                    sCD = FNS(mXML.Element.Text)
+                Case "trackno"
+                    sTrack = FNS(mXML.Element.Text)
+                Case "min"
+                    sMin = FNS(mXML.Element.Text)
+                Case "sec"
+                    sSec = FNS(mXML.Element.Text)
+                Case "pricedate"
+                    xMM(MMindex, 10) = IIf(IsDate(mXML.Element.Text), mXML.Element.Text, "")
+                End Select
+                MoreAttibutes = mXML.navNext
+                If MoreAttibutes = False Then
+                    mXML.navUP
+                    MoreEntries = mXML.navNext
+                End If
+        Loop While MoreAttibutes = True
+        sDetails = IIf(IsNumeric(sCD), " (" & sCD & IIf(IsNumeric(sTrack), "," & sTrack, ",0") & ")", "")
+        sDetails = sDetails & " " & IIf(IsNumeric(sMin), " (" & sMin & IIf(IsNumeric(sSec), ":" & sSec, ":0") & ")", "")
+        
+        xMM(MMindex, 9) = sDetails
+        If mWithCovers Then
+            s1 = "http://www.musicxpress.co.za/download.py?client=VUE&key=1234&act=getimageurl&barcode=" & xMM(MMindex, 1)
+            s1out = iNet.OpenURL(s1, 0)
+            Do While iNet.STILLEXECUTING
+               MsgWaitObj 400
+            Loop
+            Set imgLocXML = New ujXML
+            imgLocXML.docLoadXML s1out
+            res1Next = imgLocXML.navLocate("imageurl")
+            If Not res1Next Then
+                Set imgLocXML = Nothing
+                Exit Function
+            End If
+             sImageURL = imgLocXML.Element.Text
+
+            xMM(MMindex, 10) = sImageURL
+            If sImageURL > "" Then
+               '     MsgBox "Here"
+                iNet.RequestTimeout = 10
+                bytTemp = iNet.OpenURL(sImageURL, 1)
+                xMM(MMindex, 15) = bytTemp()
+                Do While iNet.STILLEXECUTING
+                   MsgWaitObj 400
+                Loop
+            End If
+        End If
+    Loop While MoreEntries = True
+    If bIncludeBooks = False Then
+        For MMindex = xMM.UpperBound(1) To 1 Step -1
+            If xMM(MMindex, 6) = "Book" Then
+                xMM.DeleteRows MMindex, 1
+            End If
+        Next
+        MoreAttibutes = mXML.navNext
+    End If
+    Set mXML = Nothing
+End Function
+Private Function unpackXMLDetail(strXML As String, Album As mAlbumProps) As Long
+Dim resnext
+Dim RecordFound As Long
+
+Dim vwr As ujXML
+Dim f As ujXML
+Dim bElementEnd As Boolean
+Dim sElementName As String
+Dim MoreEntries As Boolean
+Dim MoreAttibutes As Boolean
+Dim mXML As ujXML
+Dim MMindex As Integer
+Dim tmpXA As XArrayDB
+
+    unpackXMLDetail = 0
+    Set mXML = New ujXML
+    mXML.docLoadXML strXML
+    
+    resnext = mXML.navLocate("title")
+    If resnext Then
+        RecordFound = Len(FNS(mXML.Element.Text))
+    End If
+    If RecordFound = 0 Then
+        unpackXMLDetail = 0
+        Exit Function
+    Else
+         unpackXMLDetail = RecordFound
+    End If
+    
+    resnext = mXML.navLocate("artist")
+    
+    If Not resnext Then
+        Set mXML = Nothing
+        unpackXMLDetail = False
+        Exit Function
+    End If
+    Album.artist = FNS(mXML.Element.Text)
+    
+    resnext = mXML.navLocate("barcode")
+    If resnext Then
+        Album.barcode = FNS(mXML.Element.Text)
+    End If
+    
+    resnext = mXML.navLocate("title")
+    If resnext Then
+        Album.Title = FNS(mXML.Element.Text)
+    End If
+    
+    resnext = mXML.navLocate("supergenre")
+    If resnext Then
+        Album.supergenre = FNS(mXML.Element.Text)
+    End If
+    
+    resnext = mXML.navLocate("genre")
+    If resnext Then
+        Album.genre = FNS(mXML.Element.Text)
+    End If
+    
+    resnext = mXML.navLocate("media")
+    If resnext Then
+        Album.Media = FNS(mXML.Element.Text)
+    End If
+    
+    resnext = mXML.navLocate("source")
+    If resnext Then
+        Album.Source = FNS(mXML.Element.Text)
+    End If
+    
+    resnext = mXML.navLocate("priceband")
+    If resnext Then
+        Album.priceband = FNS(mXML.Element.Text)
+    End If
+   
+    resnext = mXML.navLocate("stock")
+    If resnext Then
+        Album.Stock = FNS(mXML.Element.Text)
+    End If
+   
+    resnext = mXML.navLocate("tracks")
+   
+    MMindex = 0
+    resnext = mXML.navFirstChild
+    If resnext Then
+       Do
+        MMindex = MMindex + 1
+        resnext = mXML.navFirstChild
+        Do
+        Select Case mXML.Element.nodeName
+         Case "name"
+             Album.tracks(MMindex).trackname = FNS(mXML.Element.Text)
+         Case "cdno"
+             Album.tracks(MMindex).cdNumber = FNN(mXML.Element.Text)
+         Case "trackno"
+             Album.tracks(MMindex).tracknumber = FNN(mXML.Element.Text)
+         Case "min"
+             Album.tracks(MMindex).minutes = FNN(mXML.Element.Text)
+         Case "sec"
+             Album.tracks(MMindex).seconds = FNN(mXML.Element.Text)
+         End Select
+         MoreAttibutes = mXML.navNext
+         If MoreAttibutes = False Or mXML.Element.nodeName = "downloads" Then
+             MoreAttibutes = False
+             mXML.navUP
+             MoreEntries = mXML.navNext
+         End If
+        Loop While MoreAttibutes = True
+        Loop While MoreEntries = True
+    End If
+    Set mXML = Nothing
+End Function
+

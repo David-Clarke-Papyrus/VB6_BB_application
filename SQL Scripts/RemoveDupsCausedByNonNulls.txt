@@ -1,0 +1,3 @@
+	--empty string values cause duplicates to appear on the book search functiuons
+USE PBKS
+	  UPDATE tDICT SET DICT_SYSTEM = NULL WHERE DICT_SYSTEM = ''

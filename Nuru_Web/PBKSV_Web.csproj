@@ -1,0 +1,330 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F98EFC3F-2F6C-428F-AF2F-254B7458EC7D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nuru_Web</RootNamespace>
+    <AssemblyName>Nuru_Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Users\David\Documents\Visual Studio 2008\Nuru\Nuru_Web\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="CSSFriendly, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Users\David\Documents\Visual Studio 2008\Nuru\Nuru_Web\bin\CSSFriendly.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="GridViewTree, Version=2.2.7.0, Culture=neutral, PublicKeyToken=0ffb1f1d4b73b7cc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DigitalTools\GridViewTree\GridViewTree.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\NLog\.NET Framework 3.5\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientHelper.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Styles\NuruWeb.Master.cs">
+      <DependentUpon>NuruWeb.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Styles\NuruWeb.Master.designer.cs">
+      <DependentUpon>NuruWeb.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Default.aspx" />
+    <Content Include="Account\Register.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Styles\Images\1x1.gif" />
+    <Content Include="Styles\Images\a1.gif" />
+    <Content Include="Styles\Images\a2.gif" />
+    <Content Include="Styles\Images\a3.gif" />
+    <Content Include="Styles\Images\a4.gif" />
+    <Content Include="Styles\Images\a6.gif" />
+    <Content Include="Styles\Images\a7.gif" />
+    <Content Include="Styles\Images\account.gif" />
+    <Content Include="Styles\Images\add_to_cart.gif" />
+    <Content Include="Styles\Images\arrowbutton.gif" />
+    <Content Include="Styles\Images\cart.gif" />
+    <Content Include="Styles\Images\EmptyStar.png" />
+    <Content Include="Styles\Images\FilledStar.png" />
+    <Content Include="Styles\Images\final_checkout.gif" />
+    <Content Include="Styles\Images\grid_background.gif" />
+    <Content Include="Styles\Images\headerbackground.gif" />
+    <Content Include="Styles\Images\help_bkgrd.gif" />
+    <Content Include="Styles\Images\logo.gif" />
+    <Content Include="Styles\Images\modernliving.gif" />
+    <Content Include="Styles\Images\modernliving_bkgrd.gif" />
+    <Content Include="Styles\Images\most_secretive_place.gif" />
+    <Content Include="Styles\Images\register.gif" />
+    <Content Include="Styles\Images\reviewrating1.gif" />
+    <Content Include="Styles\Images\reviewrating2.gif" />
+    <Content Include="Styles\Images\reviewrating3.gif" />
+    <Content Include="Styles\Images\reviewrating4.gif" />
+    <Content Include="Styles\Images\reviewrating5.gif" />
+    <Content Include="Styles\Images\reviewrating_d1.gif" />
+    <Content Include="Styles\Images\reviewrating_d2.gif" />
+    <Content Include="Styles\Images\reviewrating_d3.gif" />
+    <Content Include="Styles\Images\reviewrating_d4.gif" />
+    <Content Include="Styles\Images\reviewrating_d5.gif" />
+    <Content Include="Styles\Images\reviewrating_da1.gif" />
+    <Content Include="Styles\Images\reviewrating_da2.gif" />
+    <Content Include="Styles\Images\reviewrating_da3.gif" />
+    <Content Include="Styles\Images\reviewrating_da4.gif" />
+    <Content Include="Styles\Images\reviewrating_da5.gif" />
+    <Content Include="Styles\Images\review_this_product.gif" />
+    <Content Include="Styles\Images\SavedStar.png" />
+    <Content Include="Styles\Images\search.gif" />
+    <Content Include="Styles\Images\services.gif" />
+    <Content Include="Styles\Images\sign_in.gif" />
+    <Content Include="Styles\Images\sign_in_now.gif" />
+    <Content Include="Styles\Images\sitebkgrd.gif" />
+    <Content Include="Styles\Images\sitebkgrdnogray.GIF" />
+    <Content Include="Styles\Images\submit.gif" />
+    <Content Include="Styles\Images\tableRowH.gif" />
+    <Content Include="Styles\Images\target.gif" />
+    <Content Include="Styles\Images\update_cart.gif" />
+    <Content Include="Styles\Site.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\access\access_rules.aspx" />
+    <Content Include="admin\access\access_rule_summary.aspx" />
+    <Content Include="admin\access\active_users.aspx" />
+    <Content Include="admin\access\add_user.aspx" />
+    <Content Include="admin\access\edit_user.aspx" />
+    <Content Include="admin\access\locked_users.aspx" />
+    <Content Include="admin\access\online_users.aspx" />
+    <Content Include="admin\access\roles.aspx" />
+    <Content Include="admin\access\users.aspx" />
+    <Content Include="admin\access\users_by_role.aspx" />
+    <Content Include="admin\access\_nav.aspx" />
+    <Content Include="admin\access\_nav3.aspx" />
+    <Content Include="admin\activity\site_activity.aspx" />
+    <Content Include="admin\Default.aspx" />
+    <Content Include="admin\management.aspx" />
+    <Content Include="admin\web.config" />
+    <Content Include="Account\login.aspx" />
+    <Content Include="Account\logout.aspx" />
+    <Content Include="controls\alphalinks.ascx" />
+    <Content Include="Scripts\FixFocus.js" />
+    <Content Include="Scripts\hoverIntent.js" />
+    <Content Include="Scripts\jquery-1.7.2.js" />
+    <Content Include="Scripts\superfish.js" />
+    <Content Include="SiteSettings\connectionStrings.txt" />
+    <Content Include="Styles\cuscosky.css" />
+    <Content Include="Styles\Images\10of10.png" />
+    <Content Include="Styles\Images\1of10.png" />
+    <Content Include="Styles\Images\2of10.png" />
+    <Content Include="Styles\Images\3of10.png" />
+    <Content Include="Styles\Images\4of10.png" />
+    <Content Include="Styles\Images\5of10.png" />
+    <Content Include="Styles\Images\6of10.png" />
+    <Content Include="Styles\Images\7of10.png" />
+    <Content Include="Styles\Images\8of10.png" />
+    <Content Include="Styles\Images\9of10.png" />
+    <Content Include="Styles\Images\ajax-loader.gif" />
+    <Content Include="Styles\Images\arrows-ffffff.png" />
+    <Content Include="Styles\Images\Barcode.jpg" />
+    <Content Include="Styles\Images\Blank.png" />
+    <Content Include="Styles\Images\broken.jpg" />
+    <Content Include="Styles\Images\Button-Delete-icon.png" />
+    <Content Include="Styles\Images\CollapseArrow.png" />
+    <Content Include="Styles\Images\delete_Medium.png" />
+    <Content Include="Styles\Images\delete_small.png" />
+    <Content Include="Styles\Images\Done.png" />
+    <Content Include="Styles\Images\Duplicate.png" />
+    <Content Include="Styles\Images\Edit2.png" />
+    <Content Include="Styles\Images\error.ico" />
+    <Content Include="Styles\Images\excol.png" />
+    <Content Include="Styles\Images\ExpandArrow.png" />
+    <Content Include="Styles\Images\folder.jpg" />
+    <Content Include="Styles\Images\WSAT_Images\folder.gif" />
+    <Content Include="Styles\Images\WSAT_Images\greenlight.gif" />
+    <Content Include="Styles\Images\WSAT_Images\redlight.gif" />
+    <Content Include="Styles\Images\WSAT_Images\target.gif" />
+    <Content Include="Styles\Images\WSAT_Images\yellowlight.gif" />
+    <Content Include="Styles\Images\Minus.png" />
+    <Content Include="Styles\Images\mismatch.jpg" />
+    <Content Include="Styles\Images\none.ico" />
+    <Content Include="Styles\Images\NotABox.jpg" />
+    <Content Include="Styles\Images\Nuru_logo_small.png" />
+    <Content Include="App_Browsers\CSSFriendlyAdapters.browser" />
+    <Content Include="CSV_Files\Web.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Styles\Images\Thumbs.db" />
+    <Content Include="Styles\Images\menu1.gif" />
+    <Content Include="Styles\Images\Plus.png" />
+    <Content Include="Styles\Images\shadow.png" />
+    <Content Include="Styles\superfish-vertical.css" />
+    <Content Include="Styles\superfish.css" />
+    <Content Include="web.config" />
+    <None Include="web.config.reserve" />
+    <Content Include="Styles\Images\boo.png" />
+    <Content Include="Styles\Images\gee.png" />
+    <Content Include="Styles\Images\Knob Add.png" />
+    <Content Include="Styles\Images\Knob Remove.png" />
+    <Content Include="Styles\Images\Plus4.png" />
+    <Content Include="Styles\Images\ReadyToScan.jpg" />
+    <Content Include="Styles\Images\Refresh.bmp" />
+    <Content Include="Styles\Images\Refresh.png" />
+    <Content Include="Styles\Images\Register.png" />
+    <Content Include="Styles\Images\Save.bmp" />
+    <Content Include="Styles\Images\SignIn.jpg" />
+    <Content Include="Styles\Images\SignIn.png" />
+    <Content Include="Styles\Images\Submit.jpg" />
+    <Content Include="Styles\Images\Submit2.jpg" />
+    <Content Include="Styles\Images\Submit3.jpg" />
+    <Content Include="Styles\Images\Submit3.png" />
+    <Content Include="Styles\Images\SubmitNew.png" />
+    <Content Include="Styles\Images\TextFile1.txt" />
+    <Content Include="Styles\Images\Unknown.jpg" />
+    <Content Include="Styles\Images\Unknown.png" />
+    <Content Include="Styles\Images\Unknown2.jpg" />
+    <Content Include="Styles\Images\wow.png" />
+    <Content Include="Styles\Images\Wrong.jpg" />
+    <Content Include="Styles\Images\Wrong.png" />
+    <Content Include="Web.sitemap" />
+    <Content Include="default.aspx" />
+    <Content Include="index.aspx" />
+    <Content Include="Styles\NuruWeb.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BALV\BALV.csproj">
+      <Project>{27F19110-943B-4878-B0AD-A881325061E3}</Project>
+      <Name>BALV</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Popups\" />
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55058</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

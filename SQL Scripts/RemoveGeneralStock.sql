@@ -1,0 +1,1 @@
+UPDATE tPRODUCT SET P_PRODUCTTYPE = 'B' WHERE ISNULL(P_PRODUCTTYPE,'') IN ('G','') AND dbo.GetProperty('AllowGeneralStock') <> 'TRUE'

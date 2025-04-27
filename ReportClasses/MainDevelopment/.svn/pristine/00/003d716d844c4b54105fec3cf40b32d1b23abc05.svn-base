@@ -1,0 +1,10 @@
+Invalid property value 
+  Time='12/11/03 19:15:19' App='DBScripts:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: frmMain.Form_Load 
+  Number: 380 = &H17C = vbObjectError + 2147221884 = ERRMAP_APP_FIRST + 2147216686 
+  Source: PBKSDBScripts 
+  Description: Invalid property value
+  Call Stack: frmMain.Form_Load() ------------------------------------------------------------------
+
+
+

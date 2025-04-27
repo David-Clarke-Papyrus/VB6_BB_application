@@ -1,0 +1,464 @@
+;Create master key on Master DB
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '**(34ader#$lqQEUer13'
+
+;Create master key on Target DB
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '136tTreheErew*uuuUhhKjKj';
+;Create User
+CREATE USER TargetUser WITHOUT LOGIN
+
+
+Cheops=======================================
+Create Certificate CheopsCertificate
+WITH Subject = 'Cehops certificate',
+    START_DATE = '01/01/2006',
+    EXPIRY_DATE = '01/01/2100'
+ACTIVE FOR BEGIN_DIALOG = ON;
+GO
+CREATE ENDPOINT CheopsEndpoint
+   STATE=STARTED
+   AS TCP (LISTENER_PORT = 4022)
+   FOR SERVICE_BROKER 
+   (
+     AUTHENTICATION = CERTIFICATE CheopsCertificate,
+     ENCRYPTION = SUPPORTED
+   );
+
+
+PBKSCL=======================================
+Create Certificate PBKSCLCertificate
+WITH Subject = 'CPBKSCL certificate',
+    START_DATE = '01/01/2006',
+    EXPIRY_DATE = '01/01/2100'
+ACTIVE FOR BEGIN_DIALOG = ON;
+GO
+CREATE ENDPOINT PBKSCLEndpoint
+   STATE=STARTED
+   AS TCP (LISTENER_PORT = 4022)
+   FOR SERVICE_BROKER 
+   (
+     AUTHENTICATION = CERTIFICATE PBKSCLCertificate,
+     ENCRYPTION = SUPPORTED
+   );
+
+Backups . . .
+
+PBKSCL==============
+Create Certificate CheopsCertificate
+ From FILE = 
+ 'C:\PBKS\BU\Cheops.cer';
+
+;Cheops===============
+Create Certificate CheopsCertificate
+ From FILE = 
+ 'C:\PBKS\BU\Cheops.cer';
+
+
+;Cheops=================
+CREATE LOGIN PBKSCLLogin
+ FROM CERTIFICATE PBKSCLCertificate;
+GO
+
+;PBKSCL===============
+CREATE LOGIN CheopsLogin
+ FROM CERTIFICATE CheopsCertificate;
+GO
+
+;Cheops====================
+GRANT CONNECT ON ENDPOINT::CheopsEndpoint To PBKSCLLogin
+
+;pbkscl======================
+GRANT CONNECT ON ENDPOINT::PBKSCLEndpoint To CheopsLogin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;Creating certificate
+USE MASTER
+CREATE CERTIFICATE PBKS_SECURITY
+    AUTHORIZATION [dbo]
+    WITH SUBJECT='Instance certificate for PBKS_SECURITY',
+	START_DATE = '20070101', EXPIRY_DATE = '21000101'
+
+BACKUP CERTIFICATE PBKS_SECURITY
+  TO FILE = 
+N'C:\PBKS\BU\PBKS_SECURITY.cer';
+
+
+
+USE master;
+GO
+IF EXISTS (SELECT * FROM master.sys.endpoints
+           WHERE name = N'PBKSTargetEndpoint')
+     DROP ENDPOINT InstTargetEndpoint;
+GO
+CREATE ENDPOINT PBKSTargetEndpoint
+STATE = STARTED
+AS TCP ( LISTENER_PORT = 4022 )
+FOR SERVICE_BROKER (AUTHENTICATION = CERTIFICATE PBKS_SECURITY );
+
+
+
+;ON CHEOPS Machine but MASTER database------------------------------------------------------
+CREATE CERTIFICATE PBKS_SECURITY
+    AUTHORIZATION [dbo]
+    WITH SUBJECT='Instance certificate for PBKS_SECURITY',
+	START_DATE = '20070101', EXPIRY_DATE = '21000101'
+
+BACKUP CERTIFICATE PBKS_SECURITY
+  TO FILE = 
+N'C:\PBKS\BU\PBKS_SECURITY.cer';
+
+
+
+CREATE CONTRACT [//PBKS/PRODUCT/PRODUCT_CONTRACT]
+      ([//PBKS/PRODUCT/NEWPRODUCT]
+         SENT BY INITIATOR,
+       [//PBKS/PRODUCT/NEWPRODUCT_R_FROMCHEOPS]
+         SENT BY TARGET
+      );
+
+CREATE QUEUE PBKS_product_queue;
+
+CREATE SERVICE [//PBKS/PRODUCT/PRODUCT_SERVICE]
+       AUTHORIZATION TargetUser
+       ON QUEUE InstTargetQueue
+       ([//PBKS/PRODUCT/PRODUCT_CONTRACT);
+
+
+
+
+;On Initiator DB
+
+--Create master key on Initiator DB
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '136tTreheErew*eeeUhhKjKj';
+GO
+--Create User
+CREATE USER InitiatorUser WITHOUT LOGIN
+
+CREATE CERTIFICATE PBKS_SECURITY
+    AUTHORIZATION [dbo]
+    WITH SUBJECT='Instance certificate for PBKS_SECURITY',
+	START_DATE = '20070101', EXPIRY_DATE = '21000101'
+
+BACKUP CERTIFICATE PBKS_SECURITY
+  TO FILE = 
+N'C:\PBKS\BU\PBKS_SECURITY.cer';
+
+
+
+
+CREATE MESSAGE TYPE [//PBKS/PRODUCT/NEWPRODUCT_REQ]
+       VALIDATION = WELL_FORMED_XML;
+CREATE MESSAGE TYPE [//PBKS/PRODUCT/NEWPRODUCT_R_REQ]
+       VALIDATION = WELL_FORMED_XML;
+
+
+
+CREATE CONTRACT [//PBKS/PRODUCT/NEWPRODUCT_REQ_CONTRACT]
+      ([//PBKS/PRODUCT/NEWPRODUCT_REQ]
+         SENT BY INITIATOR,
+       [//PBKS/PRODUCT/NEWPRODUCT_R_REQ]
+         SENT BY TARGET
+      );
+
+
+
+
+CREATE QUEUE InstInitiatorQueue;
+
+CREATE SERVICE [//PBKS/PRODUCT/NEWPRODUCT_REQ_SERVICE]
+       AUTHORIZATION InitiatorUser
+       ON QUEUE InstInitiatorQueue;
+GO
+
+
+CREATE USER TargetUser WITHOUT LOGIN;
+
+CREATE CERTIFICATE InstTargetCertificate 
+   AUTHORIZATION TargetUser
+   FROM FILE = 
+N'C:\PBKS\BU\CHEOPS_Certificate.cer'
+
+
+
+
+
+;;;;ON INITIATOR
+========================
+DECLARE @Cmd NVARCHAR(4000);
+
+SET @Cmd = N'USE SBC;
+CREATE ROUTE InstTargetRoute
+WITH SERVICE_NAME =
+       N''//PBKS/PRODUCT/PRODUCT_SERVICE'',
+     ADDRESS = N''TCP://5.176.51.45:4022'';';
+
+EXEC (@Cmd);
+
+SET @Cmd = N'USE msdb
+CREATE ROUTE InstInitiatorRoute
+WITH SERVICE_NAME =
+       N''//PBKS/PRODUCT/PRODUCT_REQ_SERVICE'',
+     ADDRESS = N''LOCAL''';
+
+EXEC (@Cmd);
+GO
+CREATE REMOTE SERVICE BINDING TargetBinding
+      TO SERVICE
+         N'//PBKS/PRODUCT/PRODUCT_SERVICE'
+      WITH USER = TargetUser;
+
+GO
+
+
+
+;;;;On TARGET
+
+DECLARE @Cmd NVARCHAR(4000);
+
+SET @Cmd = N'USE Cheops;
+CREATE ROUTE InstInitiatorRoute
+WITH SERVICE_NAME =
+       N''//PBKS/PRODUCT/NEWPRODUCT_REQ_SERVICE'',
+     ADDRESS = N''TCP:// 5.170.5.220:4022'';';
+
+EXEC (@Cmd);
+
+SET @Cmd = N'USE msdb
+CREATE ROUTE InstTargetRoute
+WITH SERVICE_NAME =
+        N''//PBKS/PRODUCT/PRODUCT_SERVICE'',
+     ADDRESS = N''LOCAL''';
+
+EXEC (@Cmd);
+GO
+GRANT SEND
+      ON SERVICE::[//PBKS/PRODUCT/PRODUCT_SERVICE]
+      TO InitiatorUser;
+GO
+CREATE REMOTE SERVICE BINDING InitiatorBinding
+      TO SERVICE N'//PBKS/PRODUCT/NEWPRODUCT_REQ_SERVICE'
+      WITH USER = InitiatorUser;
+GO
+
+
+
+;;;;;ON Target DB
+==================================
+DECLARE @Cmd NVARCHAR(4000);
+
+SET @Cmd = N'USE InstTargetDB;
+CREATE ROUTE InstInitiatorRoute
+WITH SERVICE_NAME =
+       N''//InstDB/2InstSample/InitiatorService'',
+     ADDRESS = N''TCP:// MyInitiatorComputer:4022'';';
+
+EXEC (@Cmd);
+
+SET @Cmd = N'USE msdb
+CREATE ROUTE InstTargetRoute
+WITH SERVICE_NAME =
+        N''//TgtDB/2InstSample/TargetService'',
+     ADDRESS = N''LOCAL''';
+
+EXEC (@Cmd);
+GO
+GRANT SEND
+      ON SERVICE::[//TgtDB/2InstSample/TargetService]
+      TO InitiatorUser;
+GO
+CREATE REMOTE SERVICE BINDING InitiatorBinding
+      TO SERVICE N'//InstDB/2InstSample/InitiatorService'
+      WITH USER = InitiatorUser;
+GO
+
+
+;;;;;S E N D
+DECLARE @InitDlgHandle UNIQUEIDENTIFIER;
+DECLARE @RequestMsg NVARCHAR(100);
+
+BEGIN TRANSACTION;
+
+BEGIN DIALOG @InitDlgHandle
+     FROM SERVICE [//PBKS_CLIENT/PRODUCT/PRODUCT_REQ_SERVICE]
+     TO SERVICE N'//PBKS/PRODUCT/PRODUCT_SERVICE'
+     ON CONTRACT [//PBKSSHARED/PRODUCT/PRODUCT_CONTRACT]
+     WITH
+         ENCRYPTION = ON;
+
+SELECT @RequestMsg = N'<RequestMsg>Message for Target service.</RequestMsg>';
+
+SEND ON CONVERSATION @InitDlgHandle
+     MESSAGE TYPE [//PBKSSHARED/PRODUCT/PRODUCT_REQ]
+     (@RequestMsg);
+
+SELECT @RequestMsg AS SentRequestMsg;
+
+COMMIT TRANSACTION;
+GO
+
+GRANT SEND
+      ON SERVICE::[//TgtDB/2InstSample/TargetService]
+      TO InitiatorUser;
+
+
+;;;On INIT
+GRANT CONNECT ON ENDPOINT::PBKSInitEndpoint to TargetUser
+
+
+
+
+
+
+;;---------------------
+On Cheops nachine but MASTER DB
+/*
+CREATE CERTIFICATE CHEOPS_SECURITY
+    WITH SUBJECT='Instance certificate for CHEOPS_SECURITY',
+	START_DATE = '20070101', EXPIRY_DATE = '21000101'
+*/
+--BACKUP CERTIFICATE CHEOPS_SECURITY TO FILE = 'C:\PBKS\BU\CheopsCertificate.cer'
+/*
+CREATE ENDPOINT CheopsEndpoint STATE = STARTED
+AS TCP ( LISTENER_PORT = 5723 )
+FOR SERVICE_BROKER (AUTHENTICATION = CERTIFICATE CHEOPS_SECURITY)
+*/
+
+
+On PBKSCL machine but MASTER DB
+/*
+CREATE CERTIFICATE PBKSCL_SECURITY
+    WITH SUBJECT='Instance certificate for PBKSCL_SECURITY',
+	START_DATE = '20070101', EXPIRY_DATE = '21000101'
+*/
+--BACKUP CERTIFICATE PBKSCL_SECURITY TO FILE = 'C:\PBKS\BU\PBKSCLCertificate.cer'
+
+CREATE ENDPOINT PBKSCLEndpoint STATE = STARTED
+AS TCP ( LISTENER_PORT = 5723 )
+FOR SERVICE_BROKER (AUTHENTICATION = CERTIFICATE PBKSCL_SECURITY)
+
+
+
+and/*
+CREATE LOGIN CheopsServer WITH PASSWORD = 'hg887HH76dIij'
+
+CREATE USER CheopsServer
+
+
+CREATE CERTIFICATE CheopsCertificatePub AUTHORIZATION CheopsServer
+	FROM FILE ='C:\PBKS\BU\CheopsCertificate.cer'
+*/
+
+GRANT CONNECT ON ENDPOINT::PBKSCLEndpoint to CheopsServer
+
+
+;;;And Then on CVheops
+
+
+/*
+CREATE LOGIN PBKSCLServer WITH PASSWORD = 'hg887HHaddeij'
+
+CREATE USER PBKSCLServer
+
+
+CREATE CERTIFICATE PBKSCLCertificatePub AUTHORIZATION PBKSCLServer
+	FROM FILE ='C:\PBKS\BU\PBKSCLCertificate.cer'
+*/
+
+
+GRANT CONNECT ON ENDPOINT::CheopsEndpoint to PBKSCLServer
+
+
+;;;;;on  MASTER
+DECLARE @Cmd NVARCHAR(4000);
+
+SET @Cmd = N'USE SBC;
+CREATE ROUTE CheopsRoute
+WITH SERVICE_NAME =
+       N''//PBKS/PRODUCT/PRODUCT_SERVICE'',
+     ADDRESS = N''TCP://5.176.51.45:4022'';';
+
+EXEC (@Cmd);
+
+SET @Cmd = N'USE msdb
+CREATE ROUTE PBKSCLRoute
+WITH SERVICE_NAME =
+       N''//PBKS_CLIENT/PRODUCT/PRODUCT_REQ_SERVICE'',
+     ADDRESS = N''LOCAL''';
+
+EXEC (@Cmd);
+GO
+CREATE REMOTE SERVICE BINDING CheopsBinding
+      TO SERVICE
+         N'//PBKS/PRODUCT/PRODUCT_SERVICE'
+      WITH USER = CheopsUser;
+
+--CREATE USER CheopsServer WITHOUT LOGIN
+--CREATE CERTIFICATE CheopsCertificatePub AUTHORIZATION CheopsServer FROM FILE ='C:\PBKS\BU\CheopsCertificate.cer'
+--GRANT CONNECT ON ENDPOINT::PBKSCLEndpoint to CheopsServer
+--USE SBC
+CREATE REMOTE SERVICE BINDING CheopsBinding
+ TO SERVICE '\\PBKS\PRODUCT\PRODUCT_SERVICE'
+ WITH USER = CheopsServer
+
+
+
+
+;R E C E I V E
+DECLARE @RecvReqDlgHandle UNIQUEIDENTIFIER;
+DECLARE @RecvReqMsg NVARCHAR(100);
+DECLARE @RecvReqMsgName sysname;
+
+BEGIN TRANSACTION;
+
+RECEIVE TOP(1)
+    @RecvReqDlgHandle = conversation_handle,
+    @RecvReqMsg = message_body,
+    @RecvReqMsgName = message_type_name
+FROM CheopsQueue
+
+SELECT @RecvReqMsg AS ReceivedRequestMsg;
+
+IF @RecvReqMsgName = N'//BothDB/2InstSample/RequestMessage'
+BEGIN
+     DECLARE @ReplyMsg NVARCHAR(100);
+     SELECT @ReplyMsg =
+        N'<ReplyMsg>Message for Initiator service.</ReplyMsg>';
+
+     SEND ON CONVERSATION @RecvReqDlgHandle
+          MESSAGE TYPE [//BothDB/2InstSample/ReplyMessage]
+          (@ReplyMsg);
+
+     END CONVERSATION @RecvReqDlgHandle;
+END
+
+SELECT @ReplyMsg AS SentReplyMsg;
+
+COMMIT TRANSACTION;
+GO

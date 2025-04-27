@@ -1,0 +1,128 @@
+
+	Posiflex POS Printer OPOS Control Module for Windows Release Note
+
+						Posiflex Inc., Taiwan, R.O.C.
+
+						http://www.posiflex.com.tw
+						posiflex@mail.posiflex.com.tw
+						Tel: +886-2-22991599 ext. 810
+						Fax: +886-2-22991819
+
+						Nov 21, 2001
+
+
+0. Before installation
+	Do not install this release over any previous release that may be on 
+	the machine being used. If another version of the software is already 
+	installed on the computer, please uninstall it using
+	the 'Add/Remove Programs' function from the Control Panel.
+
+1. Overview
+	We are glad to announce the release of the Posiflex POS Printer
+	OPOS Control Module for Windows.
+	By using this kit, you can easily build applications
+	based on the OPOS Application Programmer's Guide Release 1.8.
+	This kit is designed to be used with Microsoft Visual Basic v6.0
+	or other 32-bit development environment.
+
+2. Files
+	After installation, you have following files:
+
+	POSI.OCX - Posiflex POS Printer OPOS Control Object
+	FLEX.DLL - Posiflex POS Printer OPOS Service Object
+	POSI.LIB - Posiflex POS Printer OPOS Control Object Import Library
+	FLEX.LIB - Posiflex POS Printer OPOS Service Object Import Library
+	POSI.TLB - Posiflex POS Printer OPOS Control Object Type Library
+	FLEX.TLB - Posiflex POS Printer OPOS Service Object Type Library
+
+	TUNE.EXE - Posiflex OPOS Control Registry Manager
+		( This program must be executed after installation )
+
+	Demo.EXE - a Visual Basic 6.0 Demo Executable
+		( for default installation path )
+	Demo.VBP - a Visual Basic 6.0 Demo Project
+	FORM1.FRM - a Visual Basic 6.0 Form for the above project
+	OPOSALL.BAS - OPOS 1.8 constants for Visual Basic
+
+	README.TXT - This file.
+
+3. Installation
+	To install Posiflex POS Printer OPOS Control Module,
+	uncompress setup zip file to a subdirectory,
+	run setup.exe in the directory and follow the instructions.
+
+4. Testing
+	a. turn on the Posiflex POS Printer which should be connected to the system
+	b. after installation, run tune.exe and make appropriate choices
+	c. start Visual Basic 6.0 and load demo.vbp, or run demo.exe instead
+	d. make any changes needed on the demo project and rerun to test the printer
+
+	Note:	In OPOS Control Manager, you can double click an item, 
+		make some changes and hit "Replace" to replace the selected original.
+		After finishing all your modifications, please press
+		"Finish" button to leave the program, otherwise
+		your modifications will not take effect.
+
+5.  Conflicts and limitations
+
+	Must turn printer DIP switch 2-1 off if used with PP-7000II firmware version 6.8.
+	To show the printer firmware version,
+	please press <Feed> button when turning on the printer.
+	
+	Might not correctly report printer errors,
+	if used with any Windows Printer Driver installed.
+	
+	This version does not support following features.
+
+		a. DirectIOEvent
+		b. ErrorEvent (but will retry printing in async. mode)
+		c. DirectIO
+		d. RotateSpecial
+		e. Width adjustment in PrintBitmap()
+		f. ChangePrintSide
+		g. ClearPrintArea
+		h. MarkFeed
+		i. PageModePrint
+		j. CompareFirmwareVersion, UpdateFirmware
+		k. ResetStatistics, UpdateStatistics
+
+6.  Other Considerations
+
+	If your application program is statically bound to the OPOS control,
+	recompilation is needed.
+
+	a. Baud Rate supported: 4800, 9600, 19200, 38400
+	b. default Baud Rate setting: 19200
+	c. PaperCut Rate: 1-100, PaperCut Type: partial only
+	d.	all Cap...Slp... properties are false
+		all Cap...Jrn... properties are false
+		CapCoverSensor is true
+		CapTransaction is true
+		CapCharacterSet is PTR_CCS_ASCII
+		CapRecBarCode is true
+		CapRecBold is true
+		CapRecDhigh is true
+		CapRecDwide is true
+		CapRecDwideDhigh is true
+		CapRecEmptySensor is true
+		CapRecLeft90 is true
+		CapRecNearEndSensor is true
+		CapRecPapercut is true
+		CapRecPresent is true
+		CapRecRight90 is true
+		CapRecRotate180 is true
+		CapRecUnderline is true
+		CapStatisticsReporting is true
+		CapRecBitmap is true
+		CapRec2Color is FALSE
+		CapRecItalic is FALSE
+		CapRecStamp is FALSE
+		CapCompareFirmwareVersion is FALSE
+		CapUpdateFirmware is FALSE
+		CapUpdateStatistics is FALSE
+		CapConcurrentPageMode is FALSE
+		CapMapCharacterSet is FALSE
+		CartridgeNotify is PTR_CN_DISABLED
+		FontTypefaceList = "ASCII,Kanji"
+
+

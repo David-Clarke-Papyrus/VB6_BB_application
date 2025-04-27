@@ -1,0 +1,52 @@
+_____________
+FROM Nielsen_D at 17/09/2004 08:37 AM
+\\PBKS-SVR\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Nielsen_D at 30/09/2004 10:25 AM
+\\PBKS-SVR\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Nielsen_D at 30/09/2004 10:34 AM
+\\PBKS-SVR\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 04/11/2004 12:36 PM
+\\PBKS-SVR\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 12/11/2004 04:49 PM
+\\PBKS-SVR\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 16/11/2004 01:03 PM
+\\PBKS-SVR\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 23/02/2005 07:49 PM
+\\SERVER\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 18/04/2005 08:54 PM
+\\PBKS-SVR\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 27/04/2005 01:18 PM
+\\PBKS-SVR\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 27/04/2005 01:23 PM
+\\PBKS-SVR\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 18/07/2006 11:20 AM
+\\DAVID-LT\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 18/07/2006 12:15 PM
+\\DAVID-LT\PBKS_S\Data\NielsenSales
+=============
+_____________
+FROM Gateway_D at 28/05/2007 10:18 AM
+\\SERVER\PBKS_S\Data\NielsenSales
+=============

@@ -1,0 +1,14 @@
+Notes for using product search facility on Cipherlab device
+============================================================
+
+1. Start the device. (Button on bottom right)
+
+2. Scan the barcode of the product sought (point and use big yellow button).
+
+3. Scan each potential product match until the device emits a long beep and lights up. This indicates a match is made.
+
+4. You can either 
+
+	a) turn off device (button on bottom right)
+	b) start new search (press "1" and 'Enter' which is the right-hand blue button)
+	c) continue the search (press "2" and 'Enter' which is the right-hand blue button)

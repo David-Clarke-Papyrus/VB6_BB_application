@@ -1,0 +1,113 @@
+Attribute VB_Name = "oMain"
+Option Explicit
+Global arCommandLine() As String
+Public bIsConnectedtoServer As Boolean
+Global mDBName As String
+Public oPC As PapyConn
+Dim strDBName As String
+
+Private Sub Main()
+    On Error GoTo errHandler
+Dim frmMain As frmMain
+Dim frmSplash As frmSplash
+
+
+    If App.PrevInstance Then
+       ActivatePrevInstance
+       Exit Sub
+    End If
+    
+    
+    arCommandLine = Split(Command(), " ")
+    If UBound(arCommandLine) >= 0 Then
+        mDBName = arCommandLine(0)
+    Else
+        If mDBName = "" Then
+            mDBName = "PBKS"
+        End If
+    End If
+    Set frmSplash = New frmSplash
+    frmSplash.Show
+    frmSplash.Refresh
+    Screen.MousePointer = vbHourglass
+    CheckRegionalSettings
+    
+    
+    If oPC Is Nothing Then
+        Set oPC = New PapyConn
+        If UBound(arCommandLine) >= 1 Then
+            oPC.DatabaseName = arCommandLine(0)
+        Else
+            strDBName = GetSetting("PBKS", "StartDatabaseName", "DBNAME", "PBKS")
+            If strDBName = "" Then
+                oPC.DatabaseName = "PBKS"
+            Else
+                oPC.DatabaseName = strDBName
+            End If
+        End If
+        oPC.InitializeSettings
+        oPC.OpenDBSHort False
+        oPC.LoadProperties
+        If Not oPC.LoadInitialData(, "TEST") Then 'No bookfind user stops program
+            Set oPC = Nothing
+            Exit Sub
+        End If
+        
+    End If
+    
+    Set frmMain = New frmMain
+    frmMain.Show
+    
+    frmMain.Start
+    
+    Unload frmSplash
+    Set frmSplash = Nothing
+    On Error Resume Next
+        
+    Screen.MousePointer = vbDefault
+    
+    frmMain.Start
+    
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "Mainc.Main"
+    HandleError
+End Sub
+
+Public Sub HandleError()
+    On Error GoTo errHandler
+Dim strMsg As String
+Dim frmErr As frmError
+Dim strPos As String
+
+    If InException Then
+        MsgBox Err.Description, vbOKOnly, "Exception"
+    Else
+        If ErrInIDE Then
+            frmShowError.ErrorReport = ErrReport
+        Else
+            Screen.MousePointer = vbDefault
+            If UCase(Left(ErrReport, 15)) = "TIMEOUT EXPIRED" Then
+                MsgBox " A timeout error has occurred. Probably a record is being used by another user." & vbCrLf & "Try Again or cancel your action.", vbInformation, "Error in application"
+            Else
+                Select Case Err.Number
+                    Case EXC_GENERAL:    strMsg = Err.Description
+                    Case EXC_CANCELLED:  'nothing to do - it is silent exception.
+                    Case EXC_MULTIPLE:   strMsg = Err.Description
+                    Case EXC_VALIDATION: strMsg = Err.Description
+                End Select
+                Set frmErr = New frmError
+                frmErr.SettxtMsg "An error has occurred. The text of the message is stored in " & oPC.SharedFolderRoot & "\errors.txt." & vbCrLf & "It is quoted below:" & vbCrLf & vbCrLf & ErrReport      ', vbInformation, "Error in application"
+                frmErr.Show vbModal
+            End If
+        End If
+        ErrSaveToFile
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "oMainc.HandleError"
+End Sub
+
+

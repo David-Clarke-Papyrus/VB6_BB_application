@@ -1,0 +1,1686 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+	<HEAD>
+		<Title>ujXML - Middle-Tier Data Engine</Title>
+<!--
+		<link rel="stylesheet" href="Qref.css">
+-->
+	</HEAD>
+<style type="text/css">
+BODY
+{
+    FONT-SIZE: 8pt;
+    BACKGROUND: #ffffff;
+    PADDING-BOTTOM: 20pt;
+    MARGIN-LEFT: 20pt;
+    COLOR: #000000;
+    MARGIN-RIGHT: 20pt;
+    PADDING-TOP: 20pt;
+    FONT-FAMILY: Verdana, Arial, sans-serif
+}
+DIV
+{
+    BORDER-RIGHT: #999999 2px;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: #999999 2px;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: none;
+    BORDER-LEFT: #999999 2px;
+    WIDTH: 90%;
+    BORDER-BOTTOM: #999999 2px;
+    BACKGROUND-REPEAT: repeat
+}
+H1
+{
+    FONT-WEIGHT: bold;
+    FONT-FAMILY: Tahoma, Arial, Verdana, Helvetica, sans-serif;
+    TEXT-ALIGN: center
+}
+H2
+{
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-ALIGN: center
+}
+H3
+{
+    MARGIN-TOP: 3px;
+    FONT-SIZE: 14pt;
+    COLOR: royalblue;
+    FONT-FAMILY: Arial, sans-serif, Verdana
+}
+H4
+{
+    MARGIN-TOP: 0px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14pt;
+    MARGIN-BOTTOM: 0px;
+    PADDING-BOTTOM: 0px;
+    COLOR: #0066ff;
+    PADDING-TOP: 4px;
+    FONT-FAMILY: Arial, Verdana, sans-serif
+}
+H5
+{
+    MARGIN-TOP: 6px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    MARGIN-BOTTOM: 2px;
+    PADDING-BOTTOM: 2px;
+    COLOR: #0066ff;
+    PADDING-TOP: 2px;
+    FONT-FAMILY: Arial, Verdana;
+    TEXT-ALIGN: left
+}
+H6
+{
+    MARGIN-TOP: 0px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    MARGIN-BOTTOM: 0px;
+    PADDING-BOTTOM: 0px;
+    COLOR: #404040;
+    PADDING-TOP: 4px;
+    FONT-FAMILY: Arial, Verdana, sans-serif
+}
+P
+{
+    MARGIN-TOP: 0px;
+    FONT-SIZE: 8pt;
+    PADDING-BOTTOM: 3pt;
+    MARGIN-LEFT: 10px;
+    LINE-HEIGHT: normal;
+    PADDING-TOP: 0px;
+    TEXT-ALIGN: justify;
+    COLOR: Black
+}
+UL
+{
+    MARGIN-TOP: 0.6em;
+    MARGIN-BOTTOM: 0em
+}
+OL
+{
+    MARGIN-TOP: 0.6em;
+    MARGIN-BOTTOM: 0em
+}
+UL
+{
+    MARGIN-LEFT: 1.9em;
+    LIST-STYLE-TYPE: disc
+    COLOR: #000000;
+}
+LI
+{
+    MARGIN-BOTTOM: 0.6em;
+    TEXT-ALIGN: justify;
+    COLOR: #000000
+}
+PRE
+{
+    MARGIN-TOP: 0px;
+    FONT-WEIGHT: normal;
+    MARGIN-BOTTOM: 0px;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Courier New, Courier, mono;
+    FONT-VARIANT: normal
+}
+CODE
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: black;
+    FONT-FAMILY: Courier New, Courier, mono
+}
+TABLE
+{
+    BORDER-RIGHT: gray thin;
+    TABLE-LAYOUT: auto;
+    BORDER-TOP: gray thin;
+    BACKGROUND-IMAGE: none;
+    MARGIN-BOTTOM: 0em;
+    BORDER-LEFT: gray thin;
+    WIDTH: 100%;
+    BORDER-BOTTOM: gray thin;
+    BACKGROUND-REPEAT: repeat;
+    BORDER-COLLAPSE: separate
+}
+TH
+{
+    PADDING-RIGHT: 8px;
+    PADDING-LEFT: 8px;
+    FONT-SIZE: 8pt;
+    BACKGROUND-IMAGE: none;
+    PADDING-BOTTOM: 4px;
+    VERTICAL-ALIGN: bottom;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: repeat;
+    BACKGROUND-COLOR: #e0e0e0;
+    TEXT-ALIGN: left
+}
+TD
+{
+    PADDING-RIGHT: 8px;
+    PADDING-LEFT: 8px;
+    FONT-SIZE: 8pt;
+    BACKGROUND-IMAGE: none;
+    PADDING-BOTTOM: 4px;
+    VERTICAL-ALIGN: top;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: repeat
+}
+SUP
+{
+    FONT-SIZE: smaller;
+    TEXT-DECORATION: none
+}
+A
+{
+    COLOR: #0066ff
+}
+A:link
+{
+    FONT-SIZE: 8pt;
+    COLOR: #0066ff;
+    TEXT-DECORATION: none
+}
+A:visited
+{
+    FONT-SIZE: 8pt;
+    COLOR: #0066ff;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    FONT-SIZE: 8pt;
+    COLOR: navy;
+    TEXT-DECORATION: none
+}
+TABLE.Method
+{
+    MARGIN-TOP: 20px;
+    PADDING-LEFT: 0px;
+    MARGIN-LEFT: 0px;
+    TEXT-ALIGN: center
+}
+TH.Method
+{
+    TABLE-LAYOUT: auto;
+    PADDING-LEFT: 0px;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    MARGIN-LEFT: 0px;
+    FONT-FAMILY: Arial, Verdana, sans-serif;
+    BORDER-COLLAPSE: separate;
+    BACKGROUND-COLOR: #f0f0f0;
+    valign: top;
+    FONT-COLOR: #404040;
+    CELL-PADDING-RIGHT: 0;
+    CELL-PADDING-LEFT: 0
+}
+TD.Method
+{
+    TABLE-LAYOUT: auto
+    COLOR: Black;
+}
+TR.Method
+{
+    TABLE-LAYOUT: auto;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Courier New, Courier, mono
+	FONT-WEIGHT: normal;
+    BORDER-COLLAPSE: separate;
+    FONT-COLOR: #404040;
+    row-valign: top
+}
+P.Method
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    MARGIN-LEFT: 10px;
+    COLOR: Black;
+    FONT-FAMILY: Courier New, Courier, mono
+	FONT-WEIGHT: normal
+}
+TABLE.EnumTable
+{
+    BORDER-RIGHT: gray thin solid;
+    TABLE-LAYOUT: auto;
+    BORDER-TOP: gray thin solid;
+    BORDER-LEFT: gray thin solid;
+    BORDER-BOTTOM: gray thin solid;
+    BORDER-COLLAPSE: separate
+}
+TD.EnumTable
+{
+    BORDER-RIGHT: gray thin solid;
+    TABLE-LAYOUT: auto;
+    BORDER-TOP: gray thin solid;
+    BORDER-LEFT: gray thin solid;
+    BORDER-BOTTOM: gray thin solid;
+    BORDER-COLLAPSE: separate
+}
+</STYLE>
+
+<BODY>
+<p>Copyright URFIN JUS (<A HREF="http://www.urfinjus.net">www.urfinjus.net</A>), 
+				2002. All Rights Reserved. 
+<hr width ="100%">
+					<h1>ujXML</h1>
+					<h2 align="center">Universal Data Container</h2>
+					<h3 align="center">Quick Guide</h3>
+					<h3 align="center">Version 1.0</h3>
+					<p>&nbsp;
+
+<table border="0" cellpadding="0" cellspacing="0" >
+<tr><td width="20"><td>
+
+<A name="Contents"><h3>Contents</h3></A>
+
+	<h6><a href="#General">1. General Information</a> </h6>
+		<p><a href="#WhatIs"     >1.1 What is ujXML?</a>
+		<p><a href="#Terms"     >1.2 Basic Terms and Definitions</a>
+		<p><a href="#Prefixes" >1.3 Functional Groups and Prefixes</a>
+
+	<h6><a href="#Enumerations">2. Public Enumerations </a> </h6>
+		<p><a href="#XENUM_ELEM_STATUS">2.1. XENUM_ELEM_STATUS</a>
+		<p><a href="#XENUM_COPY_DIR"   >2.2. XENUM_COPY_DIR</a>
+		<p><a href="#XENUM_OPER"       >2.3. XENUM_OPER</a>
+		<p><a href="#XENUM_ITER_NAV"   >2.4. XENUM_ITER_NAV</a>
+		<p><a href="#XENUM_OPTIONS"    >2.5. XENUM_OPTIONS</a>
+		<p><a href="#XENUM_SQLTYPE"    >2.6. XENUM_SQLTYPE</a>
+		<p><a href="#XENUM_ERR"        >2.7. XENUM_ERR</a>
+	<h6><a href="#FuncGroups">3. ujXML Members by Functional Group</a> </h6>
+		<p><a href="#Attribute"   >3.1. Attribute </a>
+		<p><a href="#Element"     >3.3. Element </a>
+		<p><a href="#Navigation"  >3.3. Navigation </a>
+		<p><a href="#Children"    >3.4. Children </a>
+		<p><a href="#Document"    >3.5. Document </a>
+		<p><a href="#Bookmarks"   >3.6. Bookmarks </a>
+		<p><a href="#History"     >3.7. History </a>
+		<p><a href="#Dictionary"  >3.8. Dictionary </a>
+		<p><a href="#Tables"      >3.9. Tables </a>
+		<p><a href="#Transactions">3.10. Transactions </a>
+		<p><a href="#SQL"         >3.11. SQL </a>
+		<p><a href="#Recordset"   >3.12. Recordset </a>
+		<p><a href="#WF"          >3.13. Windows Forms </a>
+		<p><a href="#HTML"        >3.14. HTML </a>
+		<p><a href="#IIS"         >3.15. IIS</a>
+		<p><a href="#Version"   >3.16. Version </a>
+		<p><a href="#Utilities"   >3.17. Utilities </a>
+	<h6><a href="#Miscellaneous">4. Miscellaneous</a> </h6>
+		<p><a href="#ProcessElement"   >4.1. Iterator: ProcessElement Method</a>
+		<p><a href="#TrackChanges"   >4.2. Tracking Changes Functionality</a>
+</table>
+
+<HR>
+<A name="General" />
+<h4>1. General Information</h4>
+<p>This chapter provides brief introduction to ujXML along with some general information. 
+<p>&nbsp; 
+
+<A name="WhatIs" />
+<h5>1.1. What Is ujXML?</h5>
+<p>ujXML is XML-based universal data container. It can be used to hold, manipulate and process
+complex data structures in business-logic tier in Client/Server and WEB applications. It is 
+XML-based, i.e. uses XML as internal data format. Internally it relies on MSXML DOMDocument 
+object model implemented by MSXML Library. ujXML COM class maintains internal instance of MSXML DOM Document object, and part of ujXML functionality is to serve as a wrapper providing easier manipulation with MSXML object(s). 
+<p>However, ujXML is much more than just a wrapper around MSXML library -  
+it provides a bulk of functionality of its own. This functionality is designed 
+to support typical operations with data that are common for middle-tier components 
+in data-processing applications. ujXML provides support for interacting with 
+various external sources of data (like ADO Recordsets) or execution environments (like Windows Forms
+and Internet Information Server). 
+<p>ujXML stores primary data values in attributes of elements of XML tree. Complex data structures are maintained as hierarchy of XML elements. When serving as a wrapper for internal MSXML Document object ujXML provides specific model of data access. It maintains internal pointer to one element in XML tree, called Current Element. All attribute-access methods, like attrV, attrS, provide access to attributes of this current element. To retrieve/set some data value in XML document application should first navigate to appropriate element, then access the attribute value using one of the methods/properties in Attribute 
+Functional Group. Other functional groups also use Current Element as a reference point 
+for the target elements, which are subjects of the operation. For example, Children Functional 
+Group methods operate on immediate child elements of the Current Element. 
+<p>As we said before ujXML object maintains internal MSXML DOM Document instance, 
+which actually stores the data. Most often ujXML object is the single owner of this internal object. 
+However, it is possible to create several ujXML objects sharing the same internal MSXML DOMDoc instance. 
+You create such ujXML instances by creating Viewers (also ujXML objects) using docCreateViewer method. 
+In this case original ujXML object, the first to be created is referred to as Primary object. 
+Each Viewer can be set to access to a part(sub-tree) of entire document. 
+For this ujXML maintains internal pointer called Top Element, which points to element 
+that is a root element for a sub-tree "viewed" by this ujXML instance. 
+For primary ujXML document Top Element points to the root element of the entire document.
+<p>The following section lists definitions of all basic terms used in this document.
+<p>All ujXML methods and properties are organized in Functional Groups, with each group having 
+its own specific lower-case prefix. Section 1.3 of this document lists all Functional Groups and 
+corresponding prefixes. Chapter 2 of this document lists all ujXML methods organized by functional group, 
+with brief description of method's functionality. 
+<p>The last chapter provides additional information about some specific aspects of using ujXML library.  
+
+
+<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+
+<A name="Terms" />
+<h5>1.2. Basic Terms and Definitions</h5>
+<p>The following table contains basic terms used in this guide and their definitions. 
+<p>&nbsp; 
+<table class="enumtable">
+	<tr><th>Term
+		<th width="80%">Definition/Description
+	<tr><td><EM>DOM Document</EM>
+		<td>Internal MSXML DOM Document object, which acts as actual data storage.  
+	<tr><td><EM>Nodes, Elements and Attributes</EM>
+		<td>DOM Document object is organized internally as a tree of objects. The most 
+		general type is Node, it means any type. ujXML deals mainly with Elements and 
+		Attributes. Elements are organized into parent-child relationships with each other. 
+		Attributes are attached to elements. They cannot have child nodes attached, 
+		and basically have only name and value. 
+	<tr><td><EM>Parent, Child Elements</EM>
+		<td>All elements are organized in parent/child relationships. Each element 
+		can have only one parent, but 0 or more child elements. 
+	<tr><td><EM>Document Root Element</EM>
+		<td>Root element of DOM Document object, the one that embraces all. 
+	<tr><td><EM>Fields and Attributes</EM>
+		<td>Basic approach implemented in ujXML is that Attributes are holders of actual data. 
+		Elements organize attributes together. For example, comparing with ADO Recordset, 
+		Atttributes correspond to Fields in a Record, and Elements - to Records themselves.  
+	<tr><td><EM>Current Element</EM>
+		<td>ujXML maintains internal pointer to one element in XML tree; element 
+		pointed by it is called Current Element. Many of ujXML operations relate to 
+		this current element. 
+	<tr><td><EM>Navigation</EM>
+		<td>The process of changing Current Element pointer to point to different elements
+		  in the tree. 
+	<tr><td><EM>Viewer</EM>
+		<td>Viewer is ujXML object that was created from another ujXML instance (called 
+		primary), and shares with it the same internal MSXML document. Viewers allow to 
+		have several navigational objects over one data document. 
+	<tr><td><EM>Top Element</EM>
+		<td>ujXML maintains a pointer to element which is called TOP Element. For primary, 
+		not Viewers objects, this element is document root. Viewers usually have TOP element
+		different from root element, so this TOP element defines the sub-tree that Viewer is 
+		intended to provide access to. 
+	<tr><td><EM>Bookmark</EM>
+		<td>Bookmark is a marked place (element) in a document where application can navigate
+		by bookmark name - just any unique string. ujXML maintains collection of bookmarks, which
+		is simply a collection of pointers indexed by strings. 
+	<tr><td><EM>History</EM>
+		<td>History is FIFO stack of pointers maintained by ujXML object. It allows application
+		to remember some location (element), navigate to somewhere else, and then return back easily. 
+	<tr><td><EM>Dictionary</EM>
+		<td>Dictionary is a list of attributes allowed to be accessed by application. Specifying a 
+		dictionary allows to prevent "typo" errors when typing attribute names. 
+	<tr><td><a name="Element Status"></a><EM>Element Status</EM>
+		<td>ujXML helps application to maintain modified status for data that is loaded/saved to 
+		database. If this tracking changes functionality is turned ON, then for each 
+		element ujXML maintains its modified status like new, existing, modified, deleted. 
+	<tr><td><a name="EQList" ></a><EM>EQList</EM>
+		<td>Many ujXML functions use string parameters that are EQList. EQ stands for EQual sign. 
+		EQList is a comma-delimited list of expressions, for example: "A=B,C,D=E,F". Each expression
+		is either EQ expression (A=B), or simply a name (like C). Simple name (C) is equivalent to 
+		(C=C). Usually EQList is used to specify source and destination names for copy operations. 
+	<tr><td><a name="Template"></a><EM>Template</EM>
+		<td>Many ujXML methods expect Templates - any string with placeholders like %1, %2, etc. 				ujXML replaces placeholders with values provided separately by application.  
+	<tr><td>
+</table>
+<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<A name="Prefixes" />
+<h5>1.3. Functional Groups and Prefixes</h5>
+<p>All ujXML member methods and properties are classified into functional groups, either by scope of 
+the operation (element, child collection, document) or  operation itself (accessing attributes, SQL, 
+windows forms). Functional group is identified by 2-4 char prefix in method/property name. 
+The following table lists these prefixes with descriptions of functional groups. 
+<p>&nbsp; 
+<table class="enumtable">
+	<tr><th>Prefix
+		<th width="100%">Description
+	<tr><td><EM>attr</EM>
+		<td>Attribute. Methods accessing attributes of current element.  
+	<tr><td><EM>el</EM>
+		<td>Element. Operations related to current element. 
+	<tr><td><EM>nav</EM>
+		<td>Navigation commands
+	<tr><td><EM>ch</EM>
+		<td>Children. Operations on (immediate) child elements.
+	<tr><td><EM>doc</EM>
+		<td>Methods working at document level. 
+	<tr><td><EM>wf</EM>
+		<td>Windows Forms. Methods for copying information to/from Windows Forms controls, like 
+		text boxes, check boxes, etc.
+	<tr><td><EM>rs</EM>
+		<td>Recordset. Methods for copying information from ADO Recordset. 
+	<tr><td><EM>dict</EM>
+		<td>Dictionary. Dictionary-related methods. 
+	<tr><td><EM>bkmk</EM>
+		<td>Bookmarks. Bookmark-related methods. 
+	<tr><td><EM>hist</EM>
+		<td>History-related methods. History is a FIFO stack of references to recent current elements. 
+	<tr><td><EM>tran</EM>
+		<td>Transactions-related methods.
+	<tr><td><EM>tbl</EM>
+		<td>Methods manipulating with tables - element lists that usually hold information from 
+		"lookup" tables in database. 
+	<tr><td><EM>htm</EM>
+		<td>HTML-generating methods.
+	<tr><td><EM>sql</EM>
+		<td>Methods generating SQL statements. 
+	<tr><td><EM>iis</EM>
+		<td>Methods interacting with Microsoft Internet Information Server run-time environment. 
+	<tr><td><EM>ver</EM>
+		<td>Version/Edition information access. 
+	<tr><td><EM>u</EM>
+		<td>General utilities methods. 
+</table>
+<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+
+<HR>
+<A name="Enumerations" />
+<h4>2. Public Enumerations</h4>
+<p>Enumerations define public integer constants used by ujXML class methods. 
+
+<A name="XENUM_ELEM_STATUS" />
+<h5>2.1. XENUM_ELEM_STATUS </H5>
+<table class="enumtable">
+	<tr><th>Constant
+		<th>Description
+	<TR><TD><EM>XES_EXISTING </EM>
+		<td>Element exists in persistent storage and was not modified since having been loaded. 
+	<TR><TD><EM>XES_NEW</EM>
+		<td>Element does not exist in persistent storage and was added. 
+	<TR><TD><EM>XES_MODIFIED</EM>
+		<td>Element exists in persistent storage and was modified since having been loaded. 
+	<TR><TD><EM>XES_DELETED</EM>
+		<td>Element is marked for deleting in persistent storage.
+	<TR><TD><EM>XES_JOINED</EM>
+		<td>Element is phantom, doesn't exist in storage, result of join operation.
+</table>
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<A name="XENUM_COPY_DIR" />
+<h5>2.2. XENUM_COPY_DIR</H5>
+<table class="enumtable">
+	<tr><th>Constant
+		<th>Description
+	<TR><TD><EM>XDIR_IN</EM>
+		<td>Copy information from Windows Form to ujXML object.
+	<TR><TD><EM>XDIR_OUT</EM>
+		<td>Copy information from ujXML object to Windows Form. 
+	<TR><TD><EM>XDIR_XMLCLEAR</EM>
+		<td>Clear information in ujXML object.
+	<TR><TD><EM>XDIR_CTRLCLEAR</EM>
+		<td>Clear information in Windows Form.
+</table>
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<A name="XENUM_OPER" />
+<h5>2.3. XENUM_OPER</H5>
+<table class="enumtable">
+	<tr><th>Constant
+		<th>Description
+	<TR><TD><EM>XOP_MIN</EM>
+		<td>Calculate minimum value of specified numeric attribute 
+	<TR><TD><EM>XOP_MAX</EM>
+		<td>Calculate maximum value of specified numeric attribute 
+	<TR><TD><EM>XOP_SUM</EM>
+		<td>Calculate sum of specified numeric attribute 
+	<TR><TD><EM>XOP_CONCAT</EM>
+		<td>Calculate concatenation string of specified attribute values
+	<TR><TD><EM>XOP_LIST</EM>
+		<td>Similar to <EM>XOP_CONCAT</EM>, with the difference that created list doesn't have 			repeated items. 
+	<TR><TD><EM>XOP_COUNT</EM>
+		<td>Calculate number of elements; attribute itself is not used. May be different from chCount property value as operation involves filtering by attribute values. 
+</table>
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<A name="XENUM_ITER_NAV" />
+<h5>2.4. XENUM_ITER_NAV</H5>
+<table class="enumtable">
+	<tr><th>Constant
+		<th>Description
+	<TR><TD><EM>XNAV_START</EM>
+		<td>Iteration process start. The first call to <a href="ProcessElement">ProcessElement</a> method of iterator. Current element didn't change yet, and is as it was at the moment of iteration start. 
+	<TR><TD><EM>XNAV_TO_CHILD</EM>
+		<td>Iteration process navigated to first child of previously processed element. 
+	<TR><TD><EM>XNAV_TO_NEXT</EM>
+		<td>Iteration process navigated to next sibling of previously processed element. 
+	<TR><TD><EM>XNAV_TO_PARENT</EM>
+		<td>Iteration process navigated to parent  of previously processed element. 
+</table>
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<A name="XENUM_OPTIONS" />
+<h5>2.5. XENUM_OPTIONS</H5>
+<table class="enumtable">
+	<tr><th>Constant
+		<th>Description
+	<TR><TD><EM>XO_USE_DICT</EM>
+		<td>Use dictionary bit. If option is set then all attributes manipulations are subject to dictionary test. 
+	<TR><TD><EM>XO_ISVIEWER </EM>
+		<td>True if ujXML object is a Viewer: it was created by other (primary) ujXML object and shares the same internal MSXML object with this primary ujXML object. 
+	<TR><TD><EM>XO_TRACK_CHANGES </EM>
+		<td>If this bit is ON, ujXML object tracks changes made to attribute values of all elements by maintaining Status of each element. 
+	<TR><TD><EM>XO_NO_SYS_HANDLER </EM>
+		<td>Normally ujXML sets System Exception handler to prevent crashes like "Access Violation". If 		your application sets this handler itself then set this option to TRUE before calling docInit or 			docLoadXML methods, so ujXML will not overwrite handler set by application. 
+	<TR><TD><EM>XO_IIS_RETRIEVED </EM>
+		<td>Contains internal result of last call to <i>iisRestoreLoadTables</i> method. This flag is ON if data was retrieved from IIS cache; false if loaded from database. 
+</table>
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+
+<A name="XENUM_SQLTYPE" />
+<h5>2.6. XENUM_SQLTYPE</H5>
+<p>This enum defines values identifying type of SQL appropriate for update operation for the element. 
+<table class="enumtable">
+	<tr><th>Constant
+		<th>Description
+	<TR><TD><EM>XSQL_NONE </EM>
+		<td>No SQL needed, element is not modified. 
+	<TR><TD><EM>XSQL_UPDATE </EM>
+		<td>UPDATE SQL - element was modified, so UPDATE statement should be executed. 
+	<TR><TD><EM>XSQL_INSERT </EM>
+		<td>INSERT SQL - element was added, so INSERT SQL statement should be executed. 
+	<TR><TD><EM>XSQL_DELETE</EM>
+		<td>DELETE SQL - element was marked for deletion; DELETE SQL statement must be executed.  
+	<TR><TD><EM>XSQL_AUTO</EM>
+		<td>Auto-detect. This value is used when requesting SQL for element; ujXML automatically detects the appropriate SQL type. 
+</table>
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<A name="XENUM_ERR" />
+<h5>2.7. XENUM_ERR</H5>
+<table class="enumtable">
+	<tr><th>Constant
+		<th>Description
+	<TR><TD><EM>XERR_UJXML </EM> 
+		<td>General ujXML error. 
+</table>
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+
+
+<HR>
+<A name="FuncGroups" />
+<h4>3. ujXML Members by Functional Groups</h4>
+
+<A name="Attribute" />
+<h5>3.1 <EM>Attribute</EM> Functional Group</h4>
+<p>Methods in this group provide access to attributes of current element. 
+
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>attrV</b> (ByVal AttrName As String) As Variant
+</table>
+<p>Retrieves/Sets attribute value as Variant. If attribute value is Null, 
+returns Variant Empty value which is safe to assign to any VB variable. 
+For values used for database operation application should use attrV4DB
+property.  
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>attrS</b> (ByVal AttrName As String) As String
+</table>
+<p>Retrieves/Sets attribute value as string.
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>attrI</b> (ByVal AttrName As String) As Long
+</table>
+<p>Retrieves/Sets attribute value as Long.
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>attrB</b> (ByVal AttrName As String) As Boolean
+</table>
+<p>Retrieves/Sets attribute value as Boolean. When assigned to sets attribute 
+			value to "True"/"False" <tr><th>Constant strings. Returns True if attribute 
+			is represented by "True" string <tr><th>Constant; returns false in all other
+			cases. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>attrF</b> (ByVal AttrName As String) As Double
+</table>
+<p>Retrieves/Sets attribute value as Double (Float).
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>attrDt</b> (ByVal AttrName As String) As Date
+</table>
+<p>Retrieves/Sets attribute value as Date VB type.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>attrV4DB</b>(ByVal AttrName As String) As Variant
+</table>
+<p>Retrieves attribute value as variant. Returns Null value as is.
+Can be used instead of attrV property when variant Empty value is not allowed,  
+for ex. for values assigned to ADO Command.Parameters. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>attrEscHtm</b> (ByVal AttrName As String) As String
+</table>
+<p>Returns attribute value with escaped HTML-reserved characters.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>attrEscXml</b> (ByVal AttrName As String) As String
+</table>
+<p>Returns attribute value with escaped XML-reserved characters.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>attrQt</b> (ByVal AttrName As String) As String
+</table>
+<p>Returns attribute value embraced in single quotes and with doubled
+			single quote character inside.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>attrDqt</b> (ByVal AttrName As String) As String
+</table>
+<p>Returns attribute value embraced in double quotes and with doubled
+			double quote character inside.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>attrIsNull</b> (ByVal AttrName As String) As Boolean
+</table>
+<p>Returns True if attribute value is Null, i.e. attribute is absent. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>attrNotEmpty</b> (ByVal AttrName As String) As Boolean
+</table>
+<p>Returns True if attribute value is not Null and not empty string. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>attrNZ</b> (ByVal AttrName As String) As Boolean
+</table>
+<p>Returns True if numeric value of attribute is not zero. Null or empty
+			values are interpreted as zero.
+<table class="Method"><tr><th class="Method">
+	Sub <b>attrSet</b> (ByVal AttrName As String, ByVal Value)
+</table>
+<p>Sets attribute value. Doesn't change element status.
+<table class="Method"><tr><th class="Method">
+	Sub <b>attrSetIfEmpty</b> (ByVal AttrName As String, ByVal Value)
+</table>
+<p>Sets attribute value only if its current value is empty. Can be used to set default 
+			values for missing attributes. 
+
+<table class="Method"><tr><th class="Method">
+	Sub <b>attrSetAsLkpFrom</b>(ByVal AttrName As String, IndexAttr As String, 
+        ByVal FromList As String, Optional ByVal Delim As String = ",")
+</table><p>Retrieves value of IndexAttr attribute (must be integer value), and 
+	uses it as index in FromList list of string values. Picked-up value is assigned 
+	to AttrName attribute. Delim is delimiter in FromList list. 
+
+<table class="Method"><tr><th class="Method">
+	Sub <b>attrSetAsIndexFrom</b>(ByVal AttrName As String, ByVal ValueAttr As String, 
+        ByVal FromList As String, Optional ByVal Delim As String = ",")
+</table><p>Performs opposite to attrSetAsLkpFrom. Retrieves value of ValueAttr and 
+	searches for it in FromList list of values. If value is found then its index in the list
+	is assigned to AttrName attribute. 
+
+<table class="Method"><tr><th class="Method">
+	Sub <b>attrCopy</b> (ByVal xFrom As ujXML, 
+	                Optional ByVal Specs As String = "", 
+        	        Optional ByVal AddToDict As Boolean = False)
+</table>
+<p>Copies attributes from current element xFrom ujXML instance to current element of 
+			current instance. Specs parameter is in EQList format. If AddToDict is True then
+			target attributes are added to Dictionary in current instance.    
+<table class="Method"><tr><th class="Method">
+	Function <b>attrConstruct</b> (ByVal AttrName As String, ByVal Template As String, 
+        		ByVal PrmAttrList As String) As String
+</table>
+<p>Constructs attribute from template by inserting attribute values of current element. 
+			PrmAttrList is list of attribute names that correspond to placeholders (%1, %2, etc.)
+			in template. 			
+<table class="Method"><tr><th class="Method">
+	Function <b>attrGetArr</b> (ByVal AttrList As String, Optional ByVal InsValues) As 				Variant
+</table>
+<p>Returns Variant array of attribute values; AttrList is comma-delimited list of attribute 					names. Optional InsValues parameter is Variant array of values to be inserted 
+			into result array in places of omitted (empty) attribute names in AttrList 
+			(like "Attr1,,Attr3").
+<table class="Method"><tr><th class="Method">
+	Sub <b>attrSetArr</b> (ByVal AttrList As String, ByVal Values)
+</table>
+<p>Sets values of multiple attributes. Attribute names are provided in comma-delimited list in
+			AttrList parameter. Values is variant array of values to be set.
+<table class="Method"><tr><th class="Method">
+	Sub <b>attrRemove</b> (ByVal AttrName As String)
+</table>
+<p>Removes attribute. Equivalent to setting attribute value to Null. 
+
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="Element" />
+<h5>3.2 <EM>Element</EM>  Functional Group</h5>
+<p>Methods in this group manipulate with current element.
+<table class="Method"><tr><th class="Method">
+	Property Get/Set <b>Element</b> () As IXMLDOMElement
+</table>
+<p>Returns/Sets current element pointer. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>elClear</b> ()</b><br>
+</table><p>Clears current element: removes all child elements and attributes.
+<table class="Method"><tr><th class="Method">
+	Function <b>elRemove</b> () As Boolean
+</table><p>Removes current element from document. Current element pointer shifts to 
+	previous sibling of element, if it exists; if element was the first among siblings, pointer shifts to 		next sibling. In both cases function returns True. If element was the only child of its parent then 	parent becomes 	current element, and function returns False. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>elText</b> () As String
+</table><p>Returns/sets text of current element (text that appears in XML between opening and closing tags of the element). 
+<table class="Method"><tr><th class="Method">
+	Sub <b>elRemoveSubElements</b> ()
+</table><p>Removes all child elements of current element. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>elSetModified</b> (ByVal AModified As Boolean)
+</table><p>Sets new modified status of the element. New value depends on current status value and AModified parameter.  
+<table class="Method"><tr><th class="Method">
+	Function <b>elGetAttrList</b> () As String
+</table><p>Returns comma-delimited list of all attributes of current element.
+<table class="Method"><tr><th class="Method">
+	Function <b>elIsFirst</b> () As Boolean
+</table><p>Returns True if element is the first in child list of its parent.
+<table class="Method"><tr><th class="Method">
+	Function <b>elIsLast</b> () As Boolean
+</table><p>Returns True if element is the last in child list of its parent.
+
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elNextSibling</b> () As IXMLDOMElement
+</table><p>Returns pointer to next sibling of current element.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elPrevSibling</b> () As IXMLDOMElement
+</table><p>Returns pointer to previous sibling of current element.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elFirstSibling</b> () As IXMLDOMElement
+</table><p>Returns pointer to the first sibling of current element.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elLastSibling</b> () As IXMLDOMElement
+</table><p>Returns pointer to the last sibling of current element.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elParent</b> () As IXMLDOMElement
+</table><p>Returns pointer to parent element of current element.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elFirstChild</b> () As IXMLDOMElement
+</table><p>Returns pointer to the first child current element.
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elLastChild</b> () As IXMLDOMElement
+</table><p>Returns pointer to the last child current element.
+<table class="Method"><tr><th class="Method">
+	Function <b>elLocateXsl</b> (ByVal Path As String, Optional ByVal Values, 
+		        Optional ByVal RaiseErr As Boolean = True) As Boolean
+</table><p>Searches for element by path relative to current element. 
+	Path may be a template with placeholders (%1, %2, etc.), Values is array of values
+	to be inserted instead of placeholders. 
+	If searched element is not found then either raises error (RaiseErr is True), or returns False.
+	Otherwise returns True. 
+<table class="Method"><tr><th class="Method">
+	Function <b>elGetChildByIndex</b> (ByVal Index As Long) As IXMLDOMElement
+</table><p>Returns pointer to child of current element with specified index in child elements collection.
+<table class="Method"><tr><th class="Method">
+	Function <b>elGetSiblingByIndex</b> (ByVal Index As Long) As IXMLDOMElement
+</table><p>Returns pointer to sibling of current element with specified index.
+<table class="Method"><tr><th class="Method">
+	Sub <b>elMoveTo</b> (Optional ByVal BeforeEl As IXMLDOMElement, 
+			Optional ByVal AfterEl As IXMLDOMElement, Optional ByVal NewPrntEl As IXMLDOMElement)
+</table><p>Moves current element to new location. BeforeEl and AfterEl cannot be both specified. If either of them is specified then NewPrntEl is ignored. Current element remains current in new location. 
+<table class="Method"><tr><th class="Method">
+	Function <b>elMoveNext</b> () As Boolean
+</table><p>Swaps position of current element with its next sibling. 
+<table class="Method"><tr><th class="Method">
+	Function <b>elMovePrev</b> () As Boolean
+</table><p>Swaps position of current element with its previous sibling. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>elCreateSibling</b> (Optional ByVal AnElemName As String, 
+			Optional InsAfter As Boolean = True)
+</table><p>Creates a new sibling of current element. If AnElemName is not provided then ujXML creates element with the same name as current element. If InsAfter is True then newly created element is inserted after current element; if InsAfter is false, element is inserted before.  
+<table class="Method"><tr><th class="Method">
+	Function <b>elIndex</b> () As Long
+</table><p>Returns index of element in child collection of its parent. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elName</b> () As String
+</table><p>Returns element name (Node Tag Name in MSXML terms).
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elIsTop</b> () As Boolean
+</table><p>Returns True if element is Top element of ujXML object. If ujXML object is Viewer Top element maybe different from Document Root Element. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elIsRoot</b> () As Boolean
+</table><p>Returns True if current element is document root element. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elPath</b> () As String
+</table><p>Returns absolute path of current element in XPath format. Element maybe located later using this path.
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>elXML</b> () As String
+</table><p>Returns/sets current element's XML presentation. When you assign value to this property the entire element is replaced with new "XML"-defined element. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>elStatus</b> () As XENUM_ELEM_STATUS
+</table><p>Returns current element status. Status property tracks changes made to each element since document was loaded or element was created. XO_TRACK_CHANGES option flag must be set ON (property docOptions(XO_TRACK_CHANGES) set to True) to activate status tracking. Enumeration <a href="#XENUM_ELEM_STATUS">XENUM_ELEM_STATUS</a> defines available values of element Status. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>elVisible</b> () As Boolean
+</table><p>Returns True if elStatus is not <em>XES_DELETED</em>.
+<table class="Method"><tr><th class="Method">
+	Function <b>elCheckValues</b> (ByVal AttrNames, ByVal AttrValues) As Boolean
+</table><p>Checks if attribute values equal to values in AttrValues array. If they are, function returns True; returns false otherwise. 
+<table class="Method"><tr><th class="Method">
+	Function <b>elJoin</b> (ByVal xWithList As ujXML, ByVal OnAttr As String, 
+		ByVal CopyList As String, Optional ByVal TblBkmk As String)
+</table><p>Performs JOIN operation similar to joining tables in database servers. 
+xWithList represents other ujXML instance containing list to be joined. TblBkmk specifies
+bookmark of the table that contains list (of elements) to be used for lookup. If TblBkmk is not 
+specified then xWithList must be positioned already to the list (its top element). 
+<br>OnAttr specifies attribute that will be used as source of value being looked up. It can be in form "cust_id=CustID", with cust_id is attribute in this instance of ujXML, and CustID being attribute in xWithList. 
+ujXML will retrieve value of cust_id in current element, and then find element in xWithList with the same 
+value of CustID attribute. If OnAttr is in simplified form "CustID", ujXML assumes attribute names to be the same. After matching element in xWithList is located attributes specified in CopyList (which is EQList) are copied from xWithList into current element. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>elForEachElem</b> (ByVal Iterator As Object, Optional Param)
+</table><p>Method implementing iterator. Use this method to iterate all child elements (including grand-,
+grand-grand-children, etc) of current element. Iterator is any VB object (including Forms) that has 
+method <a href="#ProcessElement">ProcessElement</a> which will be called by ujXML when it stops on every element 
+being iterated. See <a href="#ProcessElement">ProcessElement</a> method for more information. 
+
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="Navigation" />
+<h5>3.3. <EM>Navigation</EM> Functional Group</h5>
+<p>Methods in this group provide navigation functionality - various ways to change current element pointer, to make it point to different elements inside document.All of navigation methods are Boolean functions returning True if navigation was successful, False otherwise.
+<table class="Method"><tr><th class="Method">
+	Function <b> navNext</b> () As Boolean
+</table><p>Navigate (change current element pointer) to next sibling of current element.
+<table class="Method"><tr><th class="Method">
+	Function <b> navPrevious</b> () As Boolean
+</table><p>Navigate (change current element pointer) to previous sibling of current element.
+<table class="Method"><tr><th class="Method">
+	Sub <b>navFirst</b> ()
+</table><p>Navigate to first sibling of current element.
+<table class="Method"><tr><th class="Method">
+	Sub <b>navLast</b> ()
+</table><p>Navigate to last sibling of current element.
+<table class="Method"><tr><th class="Method">
+	Function <b> navFirstChild</b> () As Boolean
+</table><p>Navigate to the first child of current element.
+<table class="Method"><tr><th class="Method">
+	Function <b> navLastChild</b> () As Boolean
+</table><p>Navigate to the last child of current element.
+<table class="Method"><tr><th class="Method">
+	Sub <b>navChildByIndex</b> (ByVal Index As Long)
+</table><p>Navigate to the child identified by index in child collection of current element.
+<table class="Method"><tr><th class="Method">
+	Sub <b>navUP</b> ()
+</table><p>Navigate to parent of current element.
+<table class="Method"><tr><th class="Method">
+	Sub <b>navTop</b> ()
+</table><p>Navigate to TOP element of ujXML object. This TOP element may be not necessarily 
+	document's root element, if ujXML object is a Viewer. Viewers provide access to part of the document, 
+	and they can have top element different from document's root. 
+<table class="Method"><tr><th class="Method">
+	Function <b> navLocate</b> (ByVal AnElemName As String, Optional ByVal AttrName As String, Optional ByVal Value As String) As Boolean
+</table><p>Locate child element by element name and attribute value. 
+<table class="Method"><tr><th class="Method">
+	Function <b> navTo</b> (ByVal Path As String, Optional ByVal Index As Long = -1) As Boolean
+</table><p>Navigate to element by XPath string, with optional index. Index specifies element's 
+index in it's immediate parent's children collection. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="Children" />
+<h5>3.4. <EM>Children</EM> Functional Group</h5>
+<p>Methods in this group manipulate with child elements of current element.
+<table class="Method"><tr><th class="Method">
+	Sub <b>chCreate</b> (ByVal AnElemName As String, Optional ByVal NavigateToIt As Boolean = True, 
+        Optional ByVal AsLast As Boolean = True, Optional ByVal MarkAsNew As Boolean = True)
+</table><p>Create child element with specified name. if NavigateToIt is True then newly created child becomes
+current element. If AsLast is True, new child is appended to the end of child collection; otherwise it is inserted as first child. If MarkAsNew is True, and tracking changes is ON (XO_TRACK_CHANGES options flag is ON) then element is marked as New (elStatus = XES_NEW). Otherwise no status information is added - equivalent to Existing status. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>chCount</b> () As Long
+</table><p>Returns number of child elements. 
+<table class="Method"><tr><th class="Method">
+	Function <b> chLocate</b> (Optional ChElemName As String, Optional ByVal AttrNames As String, 
+        Optional ByVal AttrValues) As Boolean
+</table><p>Locates child element by element name and values of attributes. Returns True if element is located, False otherwise. 
+<table class="Method"><tr><th class="Method">
+	Function <b> chLocateByIndex</b> (ByVal Index As Long, Optional ByVal VisOnly As Boolean)
+</table><p>Locates child elements by Index. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>chText</b> (ByVal ChildName As String) As String
+</table><p>Retrieves/Sets Text property of child element. When getting value, ujXML searches for the child with specified name. If found, returns its text. If not found, returns empty string. 
+When property is being assigned ujXML searches for child element with specified name. If found, assigns its text property to specified value. If child element not found creates one, and sets its text to specified value. 
+<p>Use this property to easily assign/retrieve data when you store them not in attributes but in child elements, as often happens. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>chAConstruct</b> (ByVal AttrName As String, ByVal Template As String, ByVal PrmAttrList As String)
+</table><p>Construct new attribute for all child elements of current element. Template may contain placeholders (%1, %2, etc.) which are replaced with values of attributes specified in PrmAttrList for each element. 
+<table class="Method"><tr><th class="Method">
+	Function <b> chCalc</b> (ByVal AttrName As String, ByVal Oper As XENUM_OPER, 
+        Optional ByVal FilterAttr As String, Optional ByVal FilterValues, 
+        Optional ByVal Delim As String = ",") As Variant
+</table><p>Calculates function over child elements of current element. Available functions are min, max, sum, concatenation, list (concatenation without repetitions), and count. Type of function (Operation) is defined by Oper which must be one of values specified by <a href="#ENUM_OPER">XENUM_OPER</a> constants. Method allows filtering which elements are used in operation by specifying list of attributes and their values. If provided only elements with attribute values matching values in FilterValues array are used in calculation. Delim is list delimiter for concatenation and list operations.   
+<table class="Method"><tr><th class="Method">
+	Sub <b>chACopy</b> (ByVal xFrom As ujXML, 
+                Optional ByVal AttrList As String = "")
+</table><p>Copies attribute from current element of xFrom object into current element. Attributes are listed in EQList AttrList. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>chASet</b>(ByVal AttrName As String, ByVal Value, 
+        Optional ByVal FilterAtrs As String, Optional FilterValues)
+</table><p>Sets value of AttrName attribute to Value in all child elements. FilterAtrs is optional list 
+  of attribute names for the filter; FilterValues is variant array with values of attributes. 
+  If these parameters are specified then AttrName attribute is set only in child elements that have 
+  values of attributes listed in FilterAtrs equal to values in FilterValues. 
+
+<table class="Method"><tr><th class="Method">
+	Sub <b>chASetAsLkpFrom</b>(ByVal AttrName As String, IndexAttr As String, 
+        ByVal FromList As String, Optional ByVal Delim As String = ",")
+</table><p>For each child element performs the following. 
+	Retrieves value of IndexAttr attribute (must be integer value), and 
+	uses it as index in FromList list of string values. Picked-up value is assigned 
+	to AttrName attribute. Delim is delimiter in FromList list. 
+
+<table class="Method"><tr><th class="Method">
+	Sub <b>chASetAsIndexFrom</b>(ByVal AttrName As String, ByVal ValueAttr As String, 
+        ByVal FromList As String, Optional ByVal Delim As String = ",")
+</table><p>Performs the reverse action compared to <b>chASetAsLkpFrom</b> method.
+	<p>For each child element performs the following. Retrieves value of ValueAttr and 
+	searches for it in FromList list of values. If value is found then its index in the list
+	is assigned to AttrName attribute. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>chCopyElements</b> (ByVal xFrom As ujXML, Optional ClearExisting As Boolean = True)
+</table><p>Copies child elements of current element in xFrom object into attributes of current element.
+	If ClearExisting is True then existing child elements of current element is cleared. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>chJoinLeft</b> (ByVal xWithList As ujXML, ByVal OnAttr As String, 
+        Optional ByVal CopyList As String, Optional ByVal TblBkmk As String)
+</table><p>Performs operation similiar to LEFT JOIN operation in SQL. 
+	For each child element retrieves OnAttr attribute value, then searches for 
+	child element in xWithList with the same OnAttr value. OnAttr can be either a simple
+	attribute name, or in the form	"FrgnKeyAttr=PrimKeyAttr", so attribute names may be 
+	different in two objects. After locating element in xWithList method copies attributes
+	listed in CopyList (<a href="EQList">EQList</a>) from xWithList into current element. 
+	If TblBkmk is specified then xWithList is positioned to this bookmark at method start; 
+	otherwise xWithList must be already positioned to the root of the list being joined. 
+
+<table class="Method"><tr><th class="Method">
+	Sub <b>chJoinRight</b> (ByVal xWithList As ujXML, ByVal OnAttr As String, 
+        ByVal CopyList As String, ByVal NewElName As String, 
+        Optional ByVal TblBkmk As String, Optional ByVal NewElAttrList As String, 
+        Optional ByVal arrNewElValues)
+</table><p>Performs operation similar to RIGHT JOIN in SQL. For each child element in xWithList searches 
+	for matching element in "this" element. Match is done by values attribute(s) in OnAttr parameter 
+	(which is EQList). If element is found, copies attributes in CopyList parameter (EQList). If element 
+	not found, creates new one in current instance, with name NewElName, and initializes its attributes
+	listed in NewElAttrList with values from variant array arrNewElValues.
+	TblBkmk is a bookmark of table (list) in xWithList. If not specified, then xWithList must be already
+	positioned to the root of the list being joined.  
+<table class="Method"><tr><th class="Method">
+	Sub <b>chSort</b> (ByVal AttrTypeDirSpecs As String, Optional ByVal DefaultDir As String = "asc")
+</table><p>Sort child elements of current element. AttrTypeDirSpecs contains sort specification - 
+	comma-delimited list of <i>AttrName:AttrType:Dir</i> specifications. Elements are sorted in order
+	of specifications from left to right. Each specification contains: 
+	<UL>
+	<LI>AttrName - name of attribute whose	value is used for sorting.
+	<LI>AttrType (optional) - specifies how value should be interpreted. Allowed values are 
+	string, number, date. Before comparing element ujXML will convert 
+	attribute value to specified type, so they are interpreted correctly in comparison operation. 
+	String is default value so if not specified ujXML compares values as strings. 
+	<LI>Dir (Optional) - specifies sorting order for the attribute. Available values are 
+	<i>asc</i> and <i>desc</i>. If not specified ujXML sets it to DefaultDir value. 
+	You must specify AttrType if you specify Dir. 
+	</UL>
+<table class="Method"><tr><th class="Method">
+	Function <b>chFindDuplicates</b>(ByVal AttrList As String,
+        Optional ByVal VisOnly As Boolean = False) As String
+</table><p>Finds groups of elements with duplicate (the same) values of attributes specified in 
+	AttrList. To be considered duplicates two or more elements must have the same values in ALL of
+	attributes in AttrList. If VisOnly is True then method ignores elements with XES_DELETED status. 
+	If any duplicates are found function returns text containing list of duplicate values. 
+	Text may contain several sets of values separated with CRLF character; each set contains values 
+	of attributes (separated with TAB character) from one group of duplicate elements (i.e. elements
+	having the same values). If no duplicates found function returns empty string. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>chRemoveAll</b>()
+</table><p>Removes all child elements of current element. 
+	
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="Document" />
+<h5>3.5. <EM>Document</EM> Functional Group</h5>
+<p>
+<table class="Method"><tr><th class="Method">
+	Sub <b>docInit</b> (ByVal RootElemName As String, Optional ByVal AnOptions)
+</table><p>Initializes ujXML instance by creating new XML DOM document. 
+	Creates root element with name RootElementName. Optinal parameter AnOptions allows 
+	to specify all option flags at once. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docLoadXML</b> (ByVal xmlData As String)
+</table><p>Initializes ujXML instance by creating new XML DOM document and loading XML data in it. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>docProgID</b> () As String
+</table><p>Returns/sets ProgID of internal MSXML document object. 
+	Must be set before calling docInit or docLoadXML methods. If not explicitly set by application
+	ujXML uses <i>MSXML2.DOMDocument</i> ProgID. If you are going to store document in IIS Application
+	object Contents collection, you must set this ProgID explicitly to free-threaded object. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Set <b>docObject</b> () As IXMLDOMDocument
+</table><p>Returns/Sets internal MSXML document object. When this property is set all internal 
+	collections (bookmarks, history) are cleared, Top and Current element pointers are set to 
+	document root element.  
+<table class="Method"><tr><th class="Method">
+	Property Get <b>docRootElem</b> () As IXMLDOMElement
+</table><p>Returns root element of XML DOM Document. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>docOptions</b> (ByVal mask As XENUM_OPTIONS) As Boolean
+</table><p>Retrieves/Sets Options flags. Flag masks are defined by <a href="#XENUM_OPTIONS">XENUM_OPTIONS</a>
+	enumeration. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docSetOptions</b> (ByVal AnOptions As Long)
+</table><p>Sets all option flags at once as Long value. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Let docModified</b> () As Boolean
+</table><p>Returns True if document was modified after it was loaded, or since property was set to False. 
+	ujXML always tracks this property, independently of XO_TRACK_CHANGES option flag value. Whenever 
+	application assigns attribute value which is different from current value, or adds/deletes elements, 
+	this property is set to True. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>docXML</b> () As String
+</table><p>Returns XML representation of TOP element of the document. If TOP element is root element 
+	(when ujXML instance is NOT a Viewer) then XML representation of the entire document is returned. 
+	If ujXML instance is a Viewer (it shares MSXML instance with other ujXML instances) then returned 
+	string is representation of part of the document, i.e. instance's TOP element. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docReadFromFile</b> (ByVal FilePath As String, Optional ByVal CharSet As String = "UNICODE")
+</table><p>Loads XML document from file. CharSet specifies character set used. Available values are 
+	<i>UNICODE</i> and <i>ASCII</i>. If CharSet doesn't match with file's charset then error occurs. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docWriteToFile</b> (ByVal FilePath As String, Optional ByVal CurrElementOnly As Boolean = False, 
+                Optional ByVal CharSet As String = "UNICODE")
+</table><p>Saves XML document in file. If CurrElementOnly is True then only content of current element is 
+	saved; otherwise the entire document is saved. CharSet specifies character set to use when writing 
+	to file. Available values are <i>UNICODE</i> and <i>ASCII</i>.
+<table class="Method"><tr><th class="Method">
+	Sub <b>docAFormat</b> (ByVal AttrList As String, ByVal Fmt As String)
+</table><p>Formats all attributes in AttrList using Fmt formatting string. Use docAFormatDates for formatting 
+	attributes that must be interpreted as dates. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docAFormatDates</b> (ByVal AttrList As String, ByVal Fmt As String, Optional ByVal ZeroAsEmpty As Boolean = True)
+</table><p>Formats all attributes in AttrList using Fmt formatting string. Before formatting converts 
+	attribute values to Date data type. If ZeroAsEmpty is True then dates evaluating to numeric zero are represented 
+	as empty strings. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docAppendXML</b> (ByVal xmlData As String, Optional ByVal bkmkAs As String)
+</table><p>Appends new element constructed from xmlData as last child element of document's root element. 
+	If bkmkAs is specified then bookmarks this newly inserted element. 
+<table class="Method"><tr><th class="Method">
+	Function <b> docXslLocate</b> (ByVal XslPath As String, Optional ByVal Params, 
+        Optional ByVal FromTop As Boolean = True) As Boolean
+</table><p>Locates element in the document using XslPath. XslPath may be a template with placeholders 
+	(%1, %2, etc) - ujXML will insert values from Params variant array instead of placeholders before 
+	using the path. If FromTop is True, then uses Top element as starting (root) point in search; uses
+	current element otherwise. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docPersistPrepare</b> ()
+</table><p>Prepares document to be persisted. Saves bookmarks and dictionary in additional "system"
+	attributes inside document. After this document can be saved as XML. After loading saved XML bookmarks
+	and Dictionary can be restored in new ujXML instance by docPersistRestore method. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docPersistRestore</b> ()
+</table><p>Restores bookmarks and dictionary from system attributes previously saved by docPersistPrepare. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docPersistCleanup</b> ()
+</table><p>Cleans up system attributes used to store bookmarks and dictionary by docPersistPrepare method. 
+<table class="Method"><tr><th class="Method">
+	Function <b> docTopGetAttr</b> (ByVal AttrName As String) As Variant
+</table><p>Returns attribute value of TOP element. This method is convenient way  to reach top element's 
+	attribute without repositioning current pointer. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docTopSetAttr</b> (ByVal AttrName As String, ByVal Value)
+</table><p>Sets attribute value of TOP element. This method is convenient way  to reach top element's 
+	attribute without repositioning current pointer. 
+<table class="Method"><tr><th class="Method">
+	Function <b> docCreateViewer</b> (Optional ByVal UseCurrentAsTop As Boolean = True, 
+            Optional ByVal ADict As String, Optional AnOptions) As ujXML
+</table><p>Creates Viewer - another ujXML object that shares the same internal document object with "this"
+	ujXML instance (primary instance). Viewer may have TOP element different from document root. In this 
+	case it provides access to part of bigger document, and allows navigate it independently. 
+	<p>Let's give an example of situation where you can use Viewers. You can have primary document 
+	containing various information about customer: CustomerPersData (like name, 
+	age, etc.), CustAddresses (list of addresses), CustPreferences (list), CreditCards (list of credit cards), 
+	and others. In this case you may load information from XML into primary ujXML object, and then create 
+	viewers for each piece of information. Parts of your program working with different information
+	will be using then different Viewers to access the document, and will not interfere with each other when 
+	navigating data. 
+	<p>The other example is when you need to make a "double" loop, i.e. nested loop through elements inside 
+	other loop through the same set of elements. In this case you create Viewer to handle the internal, nested loop. This 
+	Viewer will provide you with pointer to current element independent from pointer in primary ujXML instance
+	which will be guided by the outer loop. 
+	<p>If UseCurrentAsTop is True then Viewer's TOP element is set to current element of primary instance; 
+	it is set to TOP element of primary instance otherwise. You can set Dictionary list for the Viewer if you
+	need to using ADict parameter; if ADict is not provided Viewer inherits primary instance's dictionary. 
+	The same with options flag set - you can either specify a new set of options, or Viewer inherits options
+	from primary instance, with one exception: XO_IS_VIEWER flag in Viewer is automatically set to ON (True). 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>docIsViewer</b> () As Boolean
+</table><p>Returns value of XO_IS_VIEWER options flag. This flag is set automatically when ujXML instance 
+	is created as Viewer. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Set <b>docTopElem</b> () As IXMLDOMElement
+</table><p>Returns/sets top element of ujXML instance. For primary (not Viewer) instance it is document's 
+	root element. For Viewer it can be element different from document root. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docAfterUpdate</b> (Optional ByVal DontDeleteElems As String = "")
+</table><p>Adjusts "modified" status of all elements after update operation. You should call this method if 
+	you use tracking changes functionality. When XO_TRACK_CHANGES options flag is ON, ujXML automatically 
+	tracks modified status of each element (new, deleted, modified, etc). After you submit changes to persistent
+	storage the status values of elements should be properly adjusted; for ex. XES_MODIFIED should be changed to 
+	XES_EXISTING as now element reflects the state of the record in persistent storage. That's what this method 
+	is doing. DontDeleteElems is a comma-delimited list of elements that you don't want to be deleted in adjustment
+	process. Normally when element status is XES_DELETED it will be deleted from ujXML document in adjustment process.  However, 
+	sometimes you can have lists of elements that represent "total" list of all options, like preferences, and 
+	for each customer some elements in the list are marked as selected using some attribute like 
+	<i>Selected='True'</i>. Each such selected element has a corresponding record in some join table in database. 
+	When you unselect the option, the element is marked as XES_DELETED, and when submitting to database you delete
+	the record from "join" table. However you may want to preserve the element after adjustment, so that list 
+	always represents full list of options. In this case specify name of this element in DontDeleteElems list, 
+	and docAfterUpdate will not delete it. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>docCreateElem</b> (ByVal ElemName As String, Optional ByVal BeforeEl As IXMLDOMElement, 
+		Optional ByVal AfterEl As IXMLDOMElement, Optional ByVal AsChildOf As IXMLDOMElement)
+</table><p>Creates new element with ElemName as name. If only ElemName is specified then element is appended as
+		last child of document root. BeforeEl and AfterEl cannot be specified both; if either of them is specified
+		then AsChildOf parameter is ignored. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="Bookmarks" />
+<h5>3.6. <EM>Bookmarks</EM> Functional Group</h5>
+<p>Bookmarks provide a convenient way to set a list of "named" locations in XML document and then quickly navigate 
+to them using this name (bookmark name). Bookmarks are heavily used by methods in <i>Tables</i> Functional Group. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>bkmkColl</b> () As Collection
+</table><p>Returns collection of bookmarked elements. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>bkmkSet</b> (ByVal ABkmk As String)
+</table><p>Bookmarks current element with specified name (ABkmk). Previously set bookmark with this name, 
+		if it was set) is discarded. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>bkmkClearAll</b> ()
+</table><p>Clears all bookmarks. 
+<table class="Method"><tr><th class="Method">
+	Function <b> bkmkRemove</b> (ByVal ABkmk As String) As Boolean
+</table><p>Removes specified bookmark.
+<table class="Method"><tr><th class="Method">
+	Function <b> bkmkExists</b> (ByVal ABkmk As String) As Boolean
+</table><p>Returns True if bookmark with name ABkmk exists; returns False otherwise. 
+<table class="Method"><tr><th class="Method">
+	Function <b> bkmkGoto</b> (ByVal ABkmk As String, Optional ByVal RaiseErr As Boolean = True) As Boolean
+</table><p>Navigates to element previously bookmarked with ABkmk name. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="History" />
+<h5>3.7. <EM>History</EM> Functional Group</h5>
+<p>History collection provides an easy way to remember previously "visited" elements and return to them later. 
+History is similar to Bookmarks in the sense that it is also a collection of elements, with the difference 
+that it is FIFO stack, not string-indexed collection like bookmarks. 
+<p>Important note: ujXML does NOT automatically push all visited elements into history collection. Application
+must explicitly call histPush method to make it happen. 
+<table class="Method"><tr><th class="Method">
+	Function <b> histColl</b> () As Collection
+</table><p>Returns history collection of elements. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>histPush</b> ()
+</table><p>Pushes current element into history collection. Application can later return to this location by calling 
+	histGoBack method. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>histCanGoBack</b> () As Boolean
+</table><p>Returns True if there is at least one element in History collection, so histGoBack method can be called. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>histGoBack</b> (Optional ByVal Purge As Boolean = True)
+</table><p>Pops last pushed element from history stack (collection) and makes it current element. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>histPurge</b> ()
+</table><p>Pops last pushed element from history stack (collection), but DOES NOT make it current. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>histClear</b> ()
+</table><p>Clears history collection. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="Dictionary" />
+<h5>3.8. <EM>Dictionary</EM> Functional Group</h5>
+<p>Methods in this functional group help to deal with one serious problem that comes up in applications that 
+work with XML. This problem is mistakes in entering attribute names. For example, programmer may assign 
+attribute <i>CustName</i> in one place, and then try to retrieve it in another place as <i>CustomerName</i>. 
+ujXML tries to find <i>CustomerName</i> attribute, doesn't find it, and interprets it as NULL value (no value).
+<i>attrS</i> property would return empty string. No error is raised in this situation. Mistakes like this 
+are extremely difficult to find. What makes this problem worse is the fact that XML is case-sensitive, 
+so <i>CustName</i> and <i>Custname</i> are absolutely different attributes. 
+<p>ujXML provides a robust solution. You can specify in advance overall list of attribute names that are 
+allowed when accessing your document. This list is called Dictionary. Each time application tries to read 
+or assign attribute ujXML checks attribute name against dictionary. In the situation described above if 
+correct name is <i>CustName</i>, then when application tries to read attribute <i>CustomerName</i> ujXML
+will raise error, and programmer will have to fix the problem. 
+<p>Dictionary checks are controlled by options flag XO_USE_DICT. When application assigns non-empty 
+dictionary list this flag is set to ON, and dictionary checks become enabled from this point on. 
+If application clears dictionary (assigns empty list) this flag is automatically dropped. Application
+may turn on/off dictionary checks by directly setting this flag through docOptions property.  
+<p>Dictionary belongs to ujXML instance, so a Viewer can have dictionary different from dictionary 
+of primary document. 
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>dictList</b> () As String
+</table><p>Returns/sets dictinary for ujXML instance. Dictionary is comma-delimited list of attribute 
+	names that are allowed for ujXML instance. 
+<table class="Method"><tr><th class="Method">
+	Function <b> dictCheckName</b> (ByVal AName As String, 
+        Optional RaiseErr As Boolean = True) As Boolean
+</table><p>Checks attribute name against dictionary. Returns True if AName is in dictionary. If AName
+	is not in dictionary then either returns False (if RaiseErr parameter is False), or raises error 
+	(RaiseErr is True). 
+<table class="Method"><tr><th class="Method">
+	Function <b>dictCheckDoc</b>() As String
+</table><p>Checks all attribute names in entire document (subdocument for Viewer) against the dictionary.
+	Returns comma-delimited list of attributes that failed the test, i.e. that are not in the dictionary. 
+	Returns empty string if document passed the check - all attributes inside document are allowed by 
+	Dictionary. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>dictAdd</b> (ByVal NameList As String)
+</table><p>Adds list of names to dictionary. NameList is a comma-delimited list of attribute names. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>dictRemove</b> (ByVal NameList As String)
+</table><p>Removes list of attribute names from dictionary.
+</table>
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="Tables" />
+<h5>3.9. <EM>Tables</EM> Functional Group</h5>
+<p>This functional group contains methods that manipulate with Tables. <i>Table</i> in ujXML is a specific 
+entity - it is a list of similar elements under "table element". This table element is direct child 
+of document root element, and is bookmarked with bookmark called TableBookmark. Table is identified by 
+TableBookmark in calls to methods in this group. 
+<p>Table methods provide easy ways to manipulate with non-modifiable lists containing data from 
+lookup or reference tables in database. Using these methods you can easily build client-side 
+component containing several (or even all) reference tables for your application, and then 
+use it for data lookups, or filling listboxes, etc. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>tblAdd</b> (ByVal TblBkmk As String, ByVal xmlList As String)
+</table><p>Adds table to ujXML document. Creates new element as child element of document root 
+from xmlList data, and bookmarks it with TblBkmk string. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>tblRemove</b> (ByVal TblBkmk As String)
+</table><p>Removes table identified by TblBkmk from document. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>tblLocate</b> (ByVal TblBkmk As String)
+</table><p>Locates table. Navigates current element pointer to table element. 
+<table class="Method"><tr><th class="Method">
+	Function <b> tblLookup</b> (ByVal TblBkmk As String, 
+        ByVal KeyAtrs As String, ByVal KeyValues, 
+        ByVal ReturnAttr As String) As String
+</table><p>Looks up single value in table. Table is identified by TblBkmk. KeyAtrs is comma-delimited
+list of key attributes, and variant array KeyValues contain corresponding values. Method searches for 
+table element with values of key attributes equal to specified in KeyValues. If it finds such an element, 
+it returns value of ReturnAttr of this element. If element is not found error is raised. 
+<table class="Method"><tr><th class="Method">
+	Function <b> tblLocateElem</b> (ByVal TblBkmk As String, ByVal SrchAttrList As String, ByVal SrchValues) As Boolean
+</table><p>Locates element in table identified by TblBkmk. SrchAttrList is list of key attribute names, 
+	and SrchValues variant array contains corresponding values. You can use this method when you need to 
+	lookup more than one result attribute from one element. 
+<a name="tblLoadTables">
+<table class="Method"><tr><th class="Method">
+	Sub <b>tblLoadTables</b> (ByVal Connection, ByVal TblBkmks As String, 
+            Optional ByVal SQLs, Optional ByVal ExecInBatch As Boolean = True)
+</table><p>Loads tables from database. Connection is either ADODB.Connection object, or Connection string to database
+	containing tables to be loaded. TblBkmks is comma-delimited list of table bookmarks, which also can be 
+	names of real tables in database. SQLs is Variant array of SQL statements used to query the corresponding 
+	table from TblBkmks list. If SQLs is omitted, or one of SQLs members is empty, ujXML assumes that physical 
+	table name is the same as table bookmark, and automatically constructs SELECT SQL statement. If ExecInBatch 
+	is True then ujXML combines all SQLs in one multi-statement batch, and executes it in one roundtrip to 
+	database. This option should be used only for MS SQL and Sybase servers which allow batch execution.  
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="Transactions" />
+<h5>3.10. <EM>Transactions</EM>  Functional Group</h5>
+<p>ujXML provides transactional functionality that mimics transactions in database servers. 
+It allows you to start transaction, then after performing manipulations and modifications 
+on data to Rollback to the state it had at the moment of transaction start.  
+<p>Note: if you have Viewers sharing document with primary ujXML instance then transaction
+rollback performed on primary instance invalidates all viewers, so the MUST be recreated after rollback. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>tranBegin</b> ()
+</table><p>Saves current copy of data in internal buffer. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>tranCommit</b> ()
+</table><p>Discards internal buffer. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>tranRollback</b> ()
+</table><p>Restores data to the state it had at the moment of a call to tranBegin. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>tranSavedXML</b> () As String
+</table><p>Returns saved copy of data as XML string. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="SQL" />
+<h5>3.11. <EM>SQL</EM> Functional Group</h5>
+<p>The two methods in this group generate SQL statements for updating/inserting/deleting 
+database records corresponding to altered elements in ujXML document. Type of generated 
+SQL is determined by current element status, unless explicitly specified by application 
+for sqlElConstruct function. 
+<table class="Method"><tr><th class="Method">
+	Function <b> sqlElConstruct</b> (ByVal TableName As String, 
+            ByVal FldEqAttrList As String, ByVal KeyFldEqAttrList As String, 
+            Optional ByVal SQLType As XENUM_SQLTYPE = XSQL_AUTO) As String
+</table><p>Constructs SQL statement for current element. If SQLType is XSQL_AUTO then 
+	SQL type (Update, Insert or Delete) is determined by element status (elStatus property). 
+	TableName is name of corresponding table in database. FldEqAttrList is EQList specifying 
+	table fields and corresponding attribute names. For example, 
+	<i>"cust_name=CustName,cust_id"</i> specifies that database field cust_name should 
+	be updated with value from CustName attribute, and cust_id field - from cust_id attribute. 
+	KeyFldEqAttrList is similar list of key attributes that are used to identify the record 
+	in WHERE clause of UPDATE statement. 
+<table class="Method"><tr><th class="Method">
+	Function <b> sqlChConstruct</b> (ByVal TableName As String, 
+            ByVal FldEqAttrList As String, ByVal KeyFldEqAttrList As String, 
+            Optional ByVal CascDelTableNames As String, 
+            Optional ByVal CascKeyFldEqAttrList As String) As Variant
+</table><p>Generates SQL statements to update data for child elements of current element. 
+	<p>TableName is primary table to be updated. FldEqAttrList and KeyFldEqAttrList are lists 
+	of all fields/attributes and key fields/attributes (see sqlElConstruct method). When deleting 
+	records in primary table it may be necessary to delete child records in linked tables. 
+	CascDelTableNames specifies list of such table names, and CascKeyFldEqAttrList (EQList) is a list 
+	of key fields/attributes identifying records to be deleted in these linked tables.    
+<table class="Method"><tr><th class="Method">
+	Function <b> sqlElGetDftSQLType</b> () As XENUM_SQLTYPE
+</table><p>Returns default SQL type based on element's status. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right">
+	<a href="#Contents">Contents</a></table>
+
+<a name="Recordset" />
+<h5>3.12. <EM>Recordset</EM> Functional Group</h5>
+<p>Methods in this group support copying data from ADO Recordsets. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>rsElCopy</b> (ByVal AdoRs As Object, Optional ByVal Specs As String, 
+		Optional ByVal AddToDict As Boolean = False)
+</table><p>Copies field values from current record in recordset into attributes of current element. 
+	Specs is EQList, each item in the form <i>AttrName=FieldName</i>. If omitted, then all recordset 
+	fields are copied to attributes with the same names. If AddToDict is True then attributes 
+	(field names) are added to dictionary. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>rsAddAsChildren</b> (ByVal AdoRs As Object, 
+                          Optional ByVal RecElemName As String = "Record", 
+                          Optional ByVal AddToDict As Boolean = False)
+</table><p>Copies data from recordset into child elements of current element. For each 
+	record in recordset method creates element with name RecElemName, attribute names 
+	matching field names in recordset. If AddToDict is True then attributes (field names) are added
+	to dictionary. 
+	<p>This method is a "fast" method of copying data from recordset. ujXML transforms the entire 
+	recordset into XML message using XML methods of ADO library, and then appends this message 
+	to internal XML document. Use this method when you don't need customized attribute names, and 
+	execution speed is a high priority. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>rsAddAsChildrenExt</b> (ByVal AdoRs As Object, ByVal RecElemName As String, 
+            Optional ByVal Specs As String, Optional ByVal AddToDict As Boolean = False)
+</table><p>Adds data from recordset into child elements of current element. Similar to 
+	rsAddAsChildren method, except all attribute names may be specified in Specs (EQList). 
+	Also internally uses different method of copying data which is slower than method used 
+	by rsAddAsChildren.
+<table class="Method"><tr><th class="Method">
+	Sub <b>rsDictAdd</b> (ByVal AdoRs As Object)
+</table><p>Adds all field names from ADO Recordset to dictionary. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="WF" />
+<h5>3.13. <EM>Windows Forms</EM> Functional Group</h5>
+<p>Methods in this group support copying data to/from controls in Windows Forms. Particular direction and operation
+is defined by wfCopyDir property.  
+<table class="Method"><tr><th class="Method">
+	Property Get/Let <b>wfCopyDir</b> () As XENUM_COPY_DIR
+</table><p>Retrieves/Sets copying mode (direction) for copy operations. Can be one of the constants 
+	defined by <a href="#XENUM_COPY_DIR">XENUM_COPY_DIR</a> enumeration. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>wfCopy</b> (ByVal AttrList As String, ByVal arrControls, 
+        Optional ByVal ListCopyText As Boolean = False)
+</table><p>Copies information to/from form controls from/to current elements attributes. 
+	AttrList is comma-delimited list matching controls in variant array arrControls. 
+	if ListCopyText is True, then for list controls (ListBox, Drop-down list) in addition 
+	to list index text property is copied. Attribute name for text property is derived 
+	from attribute for list index by attaching "_" (underscore) prefix and "_Text" suffix. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>wfFill</b> (ByVal Ctrl As Object, 
+                       ByVal TextAttr As String, Optional ByVal DataAttr As String, 
+                       Optional ByVal TblBkmk As String, 
+                       Optional ByVal FilterAtrs As String, Optional ByVal FilterValues As String, 
+                       Optional ByVal SelDataOrIndexes As String)
+</table><p>Fills list control Ctrl (Listbox, combobox) with values from table. If TblBkmk identifies 
+	table/bookmark pointing to the list of elements. TextAttr specifies which attribute contains text 
+	values to be added. DataAttr is attribute containing ItemData (of type Long) values. Elements may 
+	be filtered by FilterAttrs and FilterValues (variant array of attribute values). SelDataOrIndexes 
+	is one or more values specifying either Data values or Indexes (when DataAttr is not provided)
+	 of elements that should be shown as selected/checked in the control. 
+<table class="Method"><tr><th class="Method">
+	Function <b>wfSyncWith</b> (ByVal Ctrl As Object, Optional ByVal TblBkmk As String, 
+        Optional ByVal DataAttr As String) As Boolean
+</table><p>Moves current element pointer to the element corresponding to selected item in list control. 
+	If DataAttr is provided then finds element having the same value of DataAttr as ItemData of selected
+	item in control. If DataAttr is not provided then makes a match by item/element index. Returns true 
+	if element is found, and method is successful. Returns false otherwise. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="html" />
+<h5>3.14. <EM>HTML</EM> Functional Group</h5>
+<p>Two methods in this group allow to easily generate HTML text from Template and data from 
+attributes of elements in ujXML object. HTML Template is a string with placeholders 
+(like %1, %2, etc) which are replaced by attribute values. Control char "%" is default, but 
+may be changed by explicitly specifying it as a parameter. AttrList specifies names of attributes
+that provide values to replace placeholders. Inserted values are automatically HTML-escaped. 
+<p>Generated HTML text is returned as function result, but maybe sent directly to HTTP 
+response if component is executing in IIS environment. 
+<table class="Method"><tr><th class="Method">
+	Function <b>htmElConstruct</b>(ByVal Template As String, ByVal AttrList As String,
+        Optional ByVal SendToIISResponse As Boolean = False, 
+        Optional ByVal CtrlChar As String = "%") As String
+</table><p>Generates HTML text from Template and attribute values of current element. 
+<table class="Method"><tr><th class="Method">
+	Function <b> htmChConstruct</b> (ByVal Template As String, ByVal AttrList As String, 
+        Optional ByVal SendToIISResponse As Boolean = False, 
+        Optional ByVal SelAttr As String, Optional SelValues As String, 
+        Optional ShowSelAs As String = "SELECTED", Optional ByVal CtrlChar As String = "%", 
+        Optional ByVal Crlf As String = "||", Optional ByVal Indent As Long = 8) As String
+</table><p>Generates HTML text by repeating and concatenating Template for each child element 
+	of current element. Template contains placeholders starting with % character and followed by index:
+	%0, %1, %2, etc. Placeholders (except %0) are used to identify
+		places where to insert values of attributes from AttrList. 
+		<p>%0 is a special placeholder. It identifies the place where to insert "SELECTED" tag 
+		(or other specified by ShowSelAs parameter) for the HTML element(s) that are selected 
+		in list-type controls. Selected elements are identified by attributes from SelAttr (list)
+		having values from SelValues. 
+		<p>Crlf and Indent parameters allow creating better outline of result HTML text. Crlf parameter
+		identifies substring in Template that will be substituted with NewLine character. Indent specifies
+		indentation of each line of HTML output. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="IIS" />
+<h5>3.15. <EM>IIS</EM> Functional Group</h5>
+<p>Methods in this group provide interaction with Microsoft Internet Information Server run-time environment. 
+Methods reach IIS built-in objects like Application, Request, Response and communicate with them directly. 
+Most of the methods in this group come in pairs: Sub, and Function with similar name with suffix <i>Safe</i>.
+The two methods do the same, only "safe" method never raises error, so it can be safely called directly from 
+ASP script code. Safe versions are functions returning False if error occurred. In this case application should 
+read iisReport property to retrieve information about error. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>iisInIIS</b> () As Boolean
+</table><p>Returns True if component is executing in IIS environment. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>iisReport</b> () As String
+</table><p>Returns error report about last error that occurred when executing one of methods in this group. 
+<table class="Method"><tr><th class="Method">
+	Property Get <b>iisReportHTML</b> () As String
+</table><p>Returns error report formatted as HTML source text. This text can be sent to http response stream 
+	to show it inside HTML page. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>iisReportWrite</b> ()
+		  <br>Function <b> iisReportWriteSafe</b> () As Boolean
+</table><p>Sends HTML-formatted report directly to http response stream. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>iisReportClear</b> ()
+</table><p>Clears error report. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>iisSaveDoc</b> (ByVal DocName As String)
+		    <br>Function <b> iisSaveDocSafe</b> (ByVal DocName As String) As Boolean
+</table><p>Saves internal MSXML Document in Contents collection of Application object under the key DocName.
+			Document must be created as free-threaded document. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>iisClearDoc</b> (ByVal DocName As String)
+		 <br>Function <b> iisClearDocSafe</b> (ByVal DocName As String) As Boolean
+</table><p>Clears document object in Contents collection of Application object. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>iisRestoreDoc</b> (ByVal DocName As String)
+		  <br>Function <b> iisRestoreDocSafe</b> (ByVal DocName As String) As Boolean
+</table><p>Restores internal MSXML document object from Application's Contents collection. 
+<table class="Method"><tr><th class="Method">
+	Function <b>iisRestoreLoadTablesSafe</b>(ByVal DocName As String, ByVal Connect,
+        ByVal TableNames As String, Optional ByVal SQLs, Optional ByVal ExecInBatch As Boolean, 
+        Optional ByVal MaxAge As Double = 0) As Boolean
+	<br>Sub <b>iisRestoreLoadTables</b>(ByVal DocName As String, ByVal Connect,
+        ByVal TableNames As String, Optional ByVal SQLs, Optional ByVal ExecInBatch As Boolean, 
+        Optional ByVal MaxAge As Double = 0)
+</table><p>Powerful method for creating data cache on WEB server. Method first tries to restore document
+		object cached in Application object. If it fails - cache is empty - it creates new object and fills it with 
+		data retrieved from database.  Then it places created object into Application object's Content collection. 
+		Connect parameter is either connection string to database, or ADO Connection object. 
+		<p>If MaxAge parameter is provided then method verifies time when information was originally loaded 
+		from database. If it's "older" than MaxAge (seconds) then method reloads it from database, and resets 
+		timestamp to current time. MaxAge seconds later information will be reloaded again, and so on.   
+		<p>For other parameters' description see <a href="#tblLoadTables">tblLoadTables</a> 
+<table class="Method"><tr><th class="Method">
+	Sub <b>iisCopy</b> (Optional ByVal AttrList As String)
+		  <br>Function <b> iisCopySafe</b> (Optional ByVal AttrList As String) As Boolean
+</table><p>calls either iisCopyForm or iisCopyQuery depending on request method (GET or POST) .
+		 AttrList is EQList.
+<table class="Method"><tr><th class="Method">
+	Sub <b>iisCopyForm</b> (Optional ByVal AttrList As String)
+		  <br>Function <b> iisCopyFormSafe</b> (Optional ByVal AttrList As String) As Boolean
+</table><p>Copies values from HTTP Form into attributes of current element. 
+	AttrList is EQList, with each item in the form <i>AttrName=FieldName</i>. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>iisCopyQuery</b> (Optional ByVal AttrList As String)
+		  <br>Function <b> iisCopyQuerySafe</b> (Optional AttrList As String) As Boolean
+</table><p>Copies values from query string into attributes of current element. 
+	 AttrList is EQList, with each item in the form <i>AttrName=ItemName</i>, 
+	where ItemName is name of item in query string.  
+<table class="Method"><tr><th class="Method">
+	Function <b> iisPosted</b> () As Boolean
+</table><p>Returns True if HTTP request method was POST
+<table class="Method"><tr><th class="Method">
+	Function <b> iisQueryParams</b> () As String
+		  <br>Function <b> iisQueryParamsSafe</b> () As String
+</table><p>Returns comma-delimited list of names of all parameters in Query string. 
+<table class="Method"><tr><th class="Method">
+	Function <b> iisFormFields</b> () As String
+		  <br>Function <b> iisFormFieldsSafe</b> () As String
+</table><p>Returns comma-delimited list of HTTP Form field names.
+<table class="Method"><tr><th class="Method">
+	Function <b> iisRequestMethod</b> () As String
+		  <br>Function <b> iisRequestMethodSafe</b> () As String
+</table><p>Returns HTTP request method, either GET or POST. 
+<table class="Method"><tr><th class="Method">
+	Sub <b>iisWrite</b> (ByVal HtmlText As String)
+		  <br>Public Function <b> iisWriteSafe</b> (ByVal HtmlText As String) As Boolean
+</table><p>Writes HtmlText to output stream of HTTP response. 
+<table class="Method"><tr><th class="Method">
+	Function <b> iisGetObject</b> (ByVal ObjectName As String) As Object
+		  <br>Function <b> iisGetObjectSafe</b> (ByVal ObjectName As String) As Object
+</table><p>Returns built-in IIS object. Valid values for ObjectName parameter are: 
+	"Application", "Server", "Response", "Request", "Session"
+	
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+<a name="Version" />
+<h5>3.16. <EM>Version</EM>  Functional Group</h5>
+<p>
+<table class="Method"><tr><th class="Method">
+	Property Get <b>verMajor</b>() As Long
+	<br>Property Get <b>verMinor</b>() As Long
+	<br>Property Get <b>verRevision</b>() As Long
+	<br>Function <b>verVersion</b>() As String
+</table><p>Properties ujXML DLL's major, minor version numbers and revision number correspondingly. 
+verVersion function returns all three numbers separated by Dot. 
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+
+<a name="Utilities" />
+<h5>3.17. <EM>Utilities</EM>  Functional Group</h5>
+<p>This functional group contains several utility functions. 
+
+<table class="Method"><tr><th class="Method">
+	Function <b>uEscapeXML</b>(ByVal S As String) As String
+</table><p>Escapes special XML characters inside a string.
+
+<table class="Method"><tr><th class="Method">
+	Function <b>uEscapeHTML</b>(ByVal S As String) As String
+</table><p>Escapes special HTML characters inside a string.
+	
+	
+<!--Contents-->	<table border='0' cellpadding="0" width='100'>
+<tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+
+<HR>
+<A name="Miscellaneous" />
+<h4>4. Miscellaneous</h4>
+<a name="ProcessElement" />
+<h5>4.1. Iterator: ProcessElement Method</h5>
+<p>ujXML provides method elForEachElem that allows application to iterate through all elements of 
+a sub-tree or even the entire tree of XML document. elForEachElem is declared as follows:
+<table class="Method"><tr><th class="Method">
+   Sub <b>elForEachElem</b> (ByVal Iterator As Object, Optional Param)
+</table>
+
+When application calls elForEachElem it provides 
+iterator object as a parameter; this is just a way to provide a callback function that must 
+be called by ujXML for each element. 
+<p>Iterator is any VB object (including Form) that has <b>ProcessElement</b> method declared like 
+this:	
+<table class="Method"><tr><th class="Method">
+     Sub <b>ProcessElement</b>(ByVal xObj As ujXML, ByVal NavAction As XENUM_ITER_NAV,
+        ByRef Param As Variant, ByRef SkipChildren As Boolean)
+</table>
+<p>To iterate through elements application first should set current element to the root of sub-tree 
+it wants to iterate. Then it should call elForEachElem method providing iterator object as a parameter. 
+ujXML starts calling Iterator.ProcessElement method for every element in the sub-tree. 
+The first parameter of ProcessElement is ujXML instance itself. Its current element at the moment of the
+call is set to iterated element, and is being changed with every call. 
+NavAction identifies which navigation action was taken by ujXML just before calling ProcessElement. 
+There may be four possibilities: 
+	<UL>
+	<LI>XNAV_START - no action, the first call on element where we start. 
+	<LI>XNAV_TO_NEXT - navigated to next sibling.
+	<LI>XNAV_TO_CHILD - navigated to the first child of element that was processed just before this. 
+	<LI>XNAV_TO_PARENT - navigated to the parent of previously processed element. This happens 
+		after we process the last element in siblings collection.
+	</UL>
+<p>When processing element with children ujXML first calls ProcessElement for element itself, then 
+iterates all its children. Process element can prevent iterating children if it sets SkipChildren 
+to False. This parameter is initialized to True, and to include children application doesn't need
+to do anything. 
+<p>Finally, Param is a free-form variant that application can use to send some additional information 
+to ProcessElement. Or it can be used by ProcessElement itself to store some information between calls. 
+This parameter is not used by ujXML. 
+
+<!--Contents-->	
+<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right">
+<a href="#Contents">Contents</a></table>
+
+<a name="TrackChanges" />
+<h5>4.2. Tracking Changes Functionality</h5>
+<p>ujXML provides convenient functionality of tracking modified status of the data. 
+<p>First, it maintains instance-level boolean variable available through docModified property that
+is set to True whenever application modifies data, either by assigning new value to an attribute, 
+or by adding/deleting elements in the tree. This property is set automatically to false whenever 
+XML document is created or loaded from XML string, or created as Viewer. 
+<p>docModified property belongs to ujXML instance, not MSXML Document instance, so if you have several 
+Viewer ujXML objects sharing the same document then each Viewer maintains its own docModified variable. 
+Overall Modified status of the entire XML document can be calculated by calculating "OR" boolean operation 
+on  docModified properties of all Viewers. 
+<p>ujXML also provides a way to track changes made to individual elements. It can be used to track 
+modified status of information blocks corresponding to individual records in database table. 
+Data from each table record is stored in attributes of corresponding element in XML document. 
+Application can use elStatus property of the element to detect which operation should be performed 
+on the record (Insert, Update, Delete) when submitting changes to database. This tracking changes 
+functionality is turned ON by setting XO_TRACK_CHANGES options flag. When tracking changes functionality 
+is activated ujXML dynamically maintains modified status of each element in element's attribute <i>__status</i>
+ (double underscore character prefix). Each time when application assigns a value to attribute ujXML 
+ compares new value with old one, and if they are different it modifies appropriately element status. 
+ When doing this ujXML makes one important exception: attributes with names starting with "_"(underscore) 
+ character are not subject to tracking changes control. So when you modify value of such an attribute 
+ it doesn't change element's modified status. This provision is done to allow you to create additional 
+ attributes in elements, which do not store data that will later be updated in database. 
+ Assigning/changing such attributes should not change element status.
+<p>For example, you may have a list of elements containing list of persons, 
+with attributes like FirstName, LastName for each element/person. You may want to construct 
+additional attribute FullName to display full name somewhere in UI. In this case you should 
+name the attribute _FullName. When you calculate values of this attribute and assign them you will 
+not alter elements' statuses. This is exactly what you need -you don't actually modify data - 
+you just construct some additional values for showing them in UI. 
+
+<!--Contents-->	<table border='0' cellpadding="0" width='100'><tr valign='top'><td align="right"><a href="#Contents">Contents</a></table>
+
+</table>
+
+<hr width ="100%">
+<p>Copyright URFIN JUS (<A HREF="http://www.urfinjus.net">www.urfinjus.net</A>), 
+				2002. All Rights Reserved. 
+
+</BODY>
+</HTML>
+
+
+
+<!--
+-->

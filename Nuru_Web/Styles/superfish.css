@@ -1,0 +1,166 @@
+
+/*** ESSENTIAL STYLES 
+	border-top: 1px solid #CFDEFF;
+
+***/
+
+.AspNet-Menu, .AspNet-Menu *
+{
+	padding: .4em 1em .3em 1em;
+	list-style: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #A8A6CE;
+	width: 200px;
+	text-decoration: none;
+}
+.AspNet-Menu {
+	line-height:	1.0;
+}
+.AspNet-Menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			20em; /* left offset of submenus need to match (see below) */
+}
+.AspNet-Menu ul li {
+	width:			100%;
+}
+.AspNet-Menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+.AspNet-Menu li {
+	float:			left;
+	position:		relative;
+}
+.AspNet-Menu a {
+	display:		block;
+	position:		relative;
+}
+.AspNet-Menu li:hover ul,
+.AspNet-Menu li.AspNetHover ul {
+	left:			0;
+	top:			2.5em; /* match top ul list item height */
+	z-index:		99;
+}
+ul.AspNet-Menu li:hover li ul,
+ul.AspNet-Menu li.AspNetHover li ul {
+	top:			-999em;
+}
+ul.AspNet-Menu li li:hover ul,
+ul.AspNet-Menu li li.AspNetHover ul {
+	left:			13em; /* match ul width */
+	top:			0;
+}
+ul.AspNet-Menu li li:hover li ul,
+ul.AspNet-Menu li li.AspNetHover li ul {
+	top:			-999em;
+}
+ul.AspNet-Menu li li li:hover ul,
+ul.AspNet-Menu li li li.AspNetHover ul {
+	left:			13em; /* match ul width */
+	top:			0;
+}
+
+
+
+
+.AspNet-Menu {
+	float:			left;
+	margin-bottom:	1em;
+}
+.AspNet-Menu a
+{
+	padding: .4em 1em .3em 1em;
+	text-decoration: none;
+	color: #696C96;
+}
+.AspNet-Menu a, .AspNet-Menu a:visited
+{
+	/* visited pseudo selector so IE6 applies text colour*/
+	color: #434D78;
+}
+.AspNet-Menu li
+{
+	background-position: center;
+	background: #FFFFFF;
+}
+.AspNet-Menu li li
+{
+	background-position: center;
+	background: #FFFFFF;
+}
+.AspNet-Menu li li li {
+	background:		#9AAEDB;
+}
+.AspNet-Menu li:hover, .AspNet-Menu li.AspNetHover, .AspNet-Menu a:focus, .AspNet-Menu a:hover, .AspNet-Menu a:active
+{
+	border-width: 1px;
+	border-color: #0000FF;
+	background-position: center;
+	background: #ECF1FF;
+	outline: 0;
+}
+
+
+/*** arrows **/
+.AspNet-Menu a.AspNet-with-ul {
+	padding-right: 	2.25em;
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+.AspNet-sub-indicator
+{
+	background-position: -10px -100px;
+	position: absolute;
+	display: block;
+	right: .75em;
+	top: 1.05em; /* IE6 only */
+	width: 10px;
+	height: 10px;
+	text-indent: -999em;
+	overflow: hidden;
+	background: url('~/Styles/Images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+a > .AspNet-sub-indicator {  /* give all except IE6 the correct values */
+	top:			.8em;
+	background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+}
+
+
+/* apply hovers to modern browsers */
+a:focus > .AspNet-sub-indicator,
+a:hover > .AspNet-sub-indicator,
+a:active > .AspNet-sub-indicator,
+li:hover > a > .AspNet-sub-indicator,
+li.AspNetHover > a > .AspNet-sub-indicator {
+	background-position: -10px -100px; /* arrow hovers for modern browsers*/
+}
+
+/* point right for anchors in subs */
+.AspNet-Menu ul .AspNet-sub-indicator { background-position:  -10px 0; }
+.AspNet-Menu ul a > .AspNet-sub-indicator { background-position:  0 0; }
+/* apply hovers to modern browsers */
+.AspNet-Menu ul a:focus > .AspNet-sub-indicator,
+.AspNet-Menu ul a:hover > .AspNet-sub-indicator,
+.AspNet-Menu ul a:active > .AspNet-sub-indicator,
+.AspNet-Menu ul li:hover > a > .AspNet-sub-indicator,
+.AspNet-Menu ul li.AspNetHover > a > .AspNet-sub-indicator {
+	background-position: -10px 0; /* arrow hovers for modern browsers*/
+}
+
+/*** shadows for all but IE6 ***/
+.AspNet-shadow ul
+{
+	background-position: right bottom;
+	background: url('~/Styles/Images/shadow.png') no-repeat right bottom;
+	padding: 0 8px 9px 0;
+	-moz-border-radius-bottomleft: 17px;
+	-moz-border-radius-topright: 17px;
+	-webkit-border-top-right-radius: 17px;
+	-webkit-border-bottom-left-radius: 17px;
+}
+.AspNet-shadow ul.AspNet-shadow-off {
+	background: transparent;
+}
+
+
+

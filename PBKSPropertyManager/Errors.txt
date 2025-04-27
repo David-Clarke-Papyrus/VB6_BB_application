@@ -1,0 +1,10 @@
+Arguments are of the wrong type, are out of acceptable range, or are in conflict with one another. 
+  Time='02/11/07 11:06:48' App='PBKSManualSettings:1.0.0' ADO-version='2.8' Computer='DAVID-LT' 
+  Method: frmMain.Grid1_AfterColUpdate 
+  Number: 3001 = &HBB9 = vbObjectError + 2147224505 = ERRMAP_APP_FIRST + 2147219307 
+  Source: ADODB.Recordset 
+  Description: Arguments are of the wrong type, are out of acceptable range, or are in conflict with one another.
+  Call Stack: frmMain.Grid1_AfterColUpdate(ColIndex=1) ---------------------------------------------
+
+
+

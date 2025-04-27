@@ -1,0 +1,45 @@
+Type=Exe
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
+Reference=*\G{58968145-CF00-4341-995F-2EE093F6ABA3}#2.1#0#..\..\..\PBKS\Executables\dsofile.dll#DSO OLE Document Properties Reader 2.1
+Object={248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0; MSWINSCK.OCX
+Form=frmSynchronizeDateTimewithInternet.frm
+Module=Module1; Module1.bas
+Class=timing; ..\bas\mTiming.cls
+Module=WINDOWS_API; ..\bas\WINDOWS_API.bas
+Module=HuntERR31; ..\bas\HuntERR31_Setup.bas
+IconForm="frmMain"
+Startup="frmMain"
+HelpFile=""
+Title="PBKS_SynchronizeDateTime"
+ExeName32="PBKS_SynchronizeDateTime.exe"
+Path32="..\..\..\PBKS\Executables"
+Command32=""
+Name="PBK_SynchronizeDateTime"
+HelpContextID="0"
+Description="PBK_SynchronizeDateTime with internet"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=0
+AutoIncrementVer=0
+ServerSupportFiles=0
+VersionCompanyName="Papyrus Services"
+CondComp="H_NOCOMPLUS = 1"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

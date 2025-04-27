@@ -1,0 +1,769 @@
+﻿
+* body
+{
+	text-align: center;
+	background-color: #FFFFFF;
+}
+
+#wrapper {width: 1360px; height:900px; margin: 0 auto; text-align: left; } 
+#imgSelected
+{
+	width: 40px;
+	height: 40px;
+	display: block;
+	background-color: #008000;
+	position: relative;
+	left: 25px;
+	top: 0px;
+}
+#Style1
+{
+	background-position: center center;
+	margin: 15px;
+	padding: 10px;
+	list-style-type: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-style: normal;
+	color: #515C95;
+	font-weight: bold;
+	height: 75px;
+}
+.Msg
+{
+	background-color: #EFEFEF;
+	border: 3px solid #808080;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	width: 400px;
+	height: 130px;
+}
+.MsgLabel
+{
+	padding: 10px;
+	margin: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: left;
+	vertical-align: middle;
+	border-style: none;
+	height: 120;
+	width: 350px;
+	position: absolute;
+	top: 30%;
+}
+.MsgButton
+{
+	position: absolute;
+	top: 80%;
+	text-align: center;
+	left: 45%;
+}
+#header
+{
+	height: 70px;
+	margin: 0;
+	border: solid #333;
+	border-width: 0 0 2px 0;
+	text-align: left;
+	font: arial;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+}
+#Instructions
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #008080;
+	text-align: left;
+	font-weight: normal;
+
+}
+#leftBar
+{
+	color: #aaa;
+	padding: 20px;
+	float: left;
+	width: 170px;
+	height: 700px;
+}
+#mainContent
+{
+	border: thin solid #C0C0C0;
+	width: 1100px;
+	height: 700px;
+	padding: 6px;
+	background-color: #F7F5FC;
+	float: left;
+	position: relative;
+}
+#HeaderBar
+{
+	background-position: center center;
+	text-align: center;
+}
+.DottedPanels
+{
+	padding: 4px;
+	margin-bottom:5px;
+}
+.Masterstock_Col1
+{
+	border-style: dotted;
+	width: 250px;
+	overflow: visible;
+}
+#MenuLoginView
+{
+	margin-left: 20px;
+	text-align: center;
+	color: #284E98;
+}
+
+
+#Col1x
+{
+	float: left;
+	height: 700px;
+	width: 300px;
+}
+#Col2x
+{
+	float: right;
+	height: 650px;
+	width: 310px;
+}
+#Col3x
+{
+	float: left;
+	width: 280px;
+	height: 700px;
+	margin-right: 13px;
+}
+
+/*
+#Panel2x
+{
+	border: 7px solid #008000;
+	float: right;
+	width: 250px;
+	background-color: #FF99CC;
+}
+*/
+.wizardContentTemplate
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	vertical-align: middle;
+}
+.ContentHead
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #46507D;
+}
+.accountInfo
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #46507D;
+}
+.failureNotification
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.login
+{
+	border-width: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+
+.CaptureBox
+{
+	margin: 0px 0px 8px 0px;
+	border-width: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	width: 250px;
+	height: 16px;
+}
+.Button1
+{
+	border: 2px outset #C0C0C0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	background-color: #EFEFEF;
+	width: 70px;
+}
+.CaptureLabel
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #284E98;
+	height: 16px;
+	
+}
+.LabelHeading
+{
+	border-width: 2px;
+	border-color: #C5C4D9;
+	padding: 10px 10px 5px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15pt;
+	border-bottom-style: solid;
+	color: #566396;
+	margin-bottom: 6px;
+}
+
+.ValidationMsg1
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	position: relative;
+	top: -6px;
+}
+.InstructionLabel
+{
+	font-size: x-small;
+	margin-bottom: 8px;
+}
+
+.Accordion
+{
+	border: thin solid #C0C0C0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #284E98;
+	width:315px;
+	float:right;
+}
+
+.acc_header
+{
+	padding: 3px;
+	margin: 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #284E98;
+	line-height: 16px;
+	background-color: #E0E2F3;
+}
+.acc_content
+{
+	height: 190px;
+	padding: 5px;
+	margin: 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #284E98;
+	background-color: #F3F3DE;
+}
+.acc_selected
+{
+	padding: 3px;
+	margin: 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	color: #74ADDC;
+	background-color: #2B809F;
+	height: auto;
+}
+.AddRemoveButtons
+{
+	right: 5px;
+	float: right;
+}
+.accLabel
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #939393;
+	line-height: normal;
+}
+.accValue
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	line-height: normal;
+	margin-bottom: 4px;
+}
+
+/*
+========================================================================
+Packing page
+*/
+#txtMain
+{
+
+	text-align:center;
+}
+#packingCol1
+{
+	float: left;
+	height: 500px;
+	width: 95px;
+	
+}
+#packingCol2
+{
+	float: left;
+	height: 500px;
+	width: 500px;
+	margin-bottom: 15px;
+}
+#packingCol3
+{
+	float: left;
+	height: 500px;
+	width: 130px;
+	margin-bottom: 15px;
+}
+
+.PictureFrame
+{
+	margin: 6px;
+	text-align: center;
+	height: 230px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+.passwordEntry
+{
+}
+.RegisterLabel
+{
+	font-family: arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #46507D;
+}
+.RegisterText
+{
+	font-family: arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #46507D;
+}
+/*
+========================================================================
+Manufacturers page
+*/
+
+
+
+.Manufacturers table, td
+{
+	border: 1px solid #CCC;
+	border-collapse: collapse;
+	font: small/1.5 Consolas;
+}
+.Manufacturers table
+{
+	border                :none;
+	border                :1px solid #CCC;
+}
+
+.Manufacturers tbody th
+{
+	background-position: #D1D6E7;
+	background: #BDBDFB;
+	border-top: 1px solid #CCC;
+	text-align: left;
+	font-weight: normal;
+}
+.Manufacturers tbody tr td
+{
+	padding: 2px 10px 2px 10px;
+	color: #454545;
+	line-height: 9px;
+}
+
+.Manufacturers tfoot td,
+tfoot th
+{
+  border-left           : none;
+  border-top            : 1px solid #CCC;
+	padding               : 4px;
+  background            : #FFF url(foot_bck.gif) repeat;
+  color                 : #666;
+}
+.Manufacturers caption
+{
+	text-align            : left;
+	font-size             : 120%;
+	padding               : 10px 0;
+	color                 : #666;
+}
+.Manufacturers table a:link
+{
+	color                 : #666;
+}
+.Manufacturers table a:visited
+{
+	color                 : #666;
+}
+.Manufacturers table a:hover
+{
+	color                 : #003366;
+	text-decoration       : none;
+}
+.Manufacturers table a:active
+{
+	color                 : #003366;
+} 
+.Item_0_1
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 8pt;
+	width: 110px;
+}
+.Item_0_2
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 8pt;
+	width: 230px;
+}
+.Item_0_22
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 8pt;
+	width: 260px;
+}
+
+.Item_0_3
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 8pt;
+	width: 60px;
+}
+.Item_0_dte
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 8pt;
+	width: 80px;
+}
+.Item_0_1ss
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 10pt;
+	width: 110px;
+}
+.Item_0_1s
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 10pt;
+	width: 190px;
+}
+.Item_0_2s
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 10pt;
+	width: 230px;
+}
+.Item_0_dtes
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 10pt;
+	width: 80px;
+}
+.btnEdit
+{
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #aaaec2), color-stop(1, #dfdfdf) );
+	background: -moz-linear-gradient( center top, #aaaec2 5%, #dfdfdf 100% );
+	background-color: #aaaec2;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 1px solid #63677d;
+	display: inline-block;
+	color: #2b3b69;
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}.btnEdit:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #aaaec2) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #aaaec2 100% );
+	background-color:#dfdfdf;
+}.btnEdit:active {
+	position:relative;
+	top:1px;
+}
+/* This imageless css button was generated by CSSButtonGenerator.com */
+.btnCancel
+{
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c2c0aa), color-stop(1, #dedede) );
+	background: -moz-linear-gradient( center top, #c2c0aa 5%, #dedede 100% );
+	background-color: #c2c0aa;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 1px solid #5f6b54;
+	display: inline-block;
+	color: #2b3b69;
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px;
+	text-decoration: none;
+	text-align: center;
+}.btnCancel:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dedede), color-stop(1, #c2c0aa) );
+	background:-moz-linear-gradient( center top, #dedede 5%, #c2c0aa 100% );
+	background-color:#dedede;
+}.btnCancel:active {
+	position:relative;
+	top:1px;
+}
+/* This imageless css button was generated by CSSButtonGenerator.com */
+
+#ts_col1
+{
+	float: left;
+	height: 100px;
+	width: 780px;
+}
+#ts_col2
+{
+	float: left;
+	height: 650px;
+	width: 410px;
+}
+#ts_col3
+{
+	float: left;
+	width: 280px;
+	height: 700px;
+}
+
+.popup_Buttons
+{
+	margin:10px;
+}
+.ModalPopupBG
+{
+	background-color: #C0C0D6;
+	filter: alpha(opacity=40);
+	opacity: 0.7;
+}
+
+.popup_Container
+{
+	background-color: #FFFFEA;
+	border: 2px solid #000000;
+	padding: 0px 0px 0px 0px;
+}
+
+
+
+.popup_Titlebar
+{
+	height: 29px;
+	background-color: #242D68;
+	color: #FFFFFF;
+}
+
+.popup_Body
+{
+	padding:15px 15px 15px 15px;
+	font-family:Arial;
+	font-weight:bold;
+	font-size:12px;
+	color:#000000;
+	line-height:15pt;
+	clear:both;
+	padding:20px;
+	width: 380px;
+	height: 195px;	
+}
+
+.TitlebarLeft 
+{
+	float:left;
+	padding-left:5px;
+	padding-top:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	color:#FFFFFF;
+}
+.TitlebarRight 
+{
+	background:url(Images/cross_icon_normal.png);
+	background-position:right;
+	background-repeat:no-repeat;
+	height:15px;
+	width:16px;
+	float:right;
+	cursor:pointer;
+	margin-right:5px;
+	margin-top:5px;
+}
+
+.popup_Buttons
+{
+	margin:10px;
+}
+.RoundedButton
+{
+	-moz-box-shadow: inset 0px 2px 10px 0px #bee2f9;
+	-webkit-box-shadow: inset 0px 2px 10px 0px #bee2f9;
+	box-shadow: inset 0px 2px 10px 0px #bee2f9;
+	background-color: #B0CAD7;
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 3px;
+	border: 1px solid #3866a3;
+	display: inline-block;
+	color: #14396a;
+	font-family: arial;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 2px 24px;
+	text-decoration: none;
+}.RoundedButton:hover
+{
+	background-color: #D6E4EB;
+}.RoundedButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+.RoundedButton2 {
+	-moz-box-shadow: 0px 0px 0px 1px #eb99eb;
+	-webkit-box-shadow: 0px 0px 0px 1px #eb99eb;
+	box-shadow: 0px 0px 0px 1px #eb99eb;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f50511), color-stop(1, #f77979) );
+	background:-moz-linear-gradient( center top, #f50511 5%, #f77979 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f50511', endColorstr='#f77979');
+	background-color:#f50511;
+	-moz-border-radius:13px;
+	-webkit-border-radius:13px;
+	border-radius:3px;
+	border:1px solid #944d4d;
+	display:inline-block;
+	color:#521515;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 26px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #eb7b7b;
+}.RoundedButton2:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f77979), color-stop(1, #f50511) );
+	background:-moz-linear-gradient( center top, #f77979 5%, #f50511 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f77979', endColorstr='#f50511');
+	background-color:#f77979;
+}.RoundedButton2:active {
+	position:relative;
+	top:1px;
+}
+/* This imageless css button was generated by CSSButtonGenerator.com */
+
+.ajax__myTab .ajax__tab_header
+{
+	font-family: verdana;
+	font-size: 9px;
+	border-bottom: solid 1px #999999;
+}  
+  
+.ajax__myTab .ajax__tab_outer
+{
+	padding-right: 4px;
+	height: 22px;
+	background-color: #D6E4EB;
+	margin-right: 2px;
+	border-right: solid 1px #666666;
+	border-top: solid 1px #aaaaaa;
+	border-bottom: solid 1px #aaaaaa;
+}  
+  
+.ajax__myTab .ajax__tab_inner
+{
+	padding-left: 3px;
+	background-color: #DFEBEC;
+}  
+  
+.ajax__myTab .ajax__tab_tab
+{
+	height: 17px;
+	padding: 2px;
+	margin: 0;
+	font-family: verdana;
+	font-size: 8pt;
+}  
+  
+.ajax__myTab .ajax__tab_hover .ajax__tab_outer
+{
+	background-color: #E9E9E9;
+}  
+  
+.ajax__myTab .ajax__tab_hover .ajax__tab_inner
+{
+	background-color: #E8E8E8;
+}  
+  
+.ajax__myTab .ajax__tab_hover .ajax__tab_tab {  
+}  
+  
+.ajax__myTab .ajax__tab_active .ajax__tab_outer {  
+    background-color: #fff;  
+    border-left: solid 1px #999999;  
+}  
+  
+.ajax__myTab .ajax__tab_active .ajax__tab_inner {  
+    background-color: #fff;  
+}  
+  
+.ajax__myTab .ajax__tab_active .ajax__tab_tab {  
+}  
+  
+.ajax__myTab .ajax__tab_body
+{
+	font-family: verdana;
+	font-size: 9pt;
+	border: 1px solid #999999;
+	border-top: 0;
+	padding: 6px;
+	background-color: #ffffff;
+}
+
+
+.Manufacturersss tbody th
+{
+	background            : #FFF url(th_bck.gif) repeat-x;
+  color                 : #666;  
+	padding               : 5px 10px;
+  border-left           : 1px solid #CCC;
+}
+.Manufacturerssss tbody tr:hover
+{
+	background-position: #DDDDE8 url(tr_bck.gif) repeat;
+	background: #DDDDE8 url(tr_bck.gif) repeat;
+}
+
+.Manufacturerssss tbody tr:hover td
+{
+  color                 : #454545;
+}
+
+.bdoc-c1
+{
+	font-family: Consolas;
+	font-weight: lighter;
+	font-size: 8pt;
+	width: 30px;
+}

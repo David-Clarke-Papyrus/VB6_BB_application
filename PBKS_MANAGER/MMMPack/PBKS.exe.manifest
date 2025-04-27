@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3">
+  <!-- Make My Manifest 0.12.309 -->
+  <assemblyIdentity name="Papyrus.Services.BWPBKS" processorArchitecture="X86" type="win32" version="2.0.0.3" />
+  
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity language="*" name="Microsoft.Windows.Common-Controls" processorArchitecture="X86" publicKeyToken="6595b64144ccf1df" type="win32" version="6.0.0.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity language="*" name="InteropUserControlLibrary1" processorArchitecture="msil"  type="win32" version="1.0.0.0" />
+    </dependentAssembly>
+  </dependency>
+
+
+</assembly>  

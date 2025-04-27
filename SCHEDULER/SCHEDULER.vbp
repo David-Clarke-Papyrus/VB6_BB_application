@@ -1,0 +1,47 @@
+Type=Exe
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\WINNT\system32\STDOLE2.TLB#OLE Automation
+Reference=*\G{420B2830-E718-11CF-893D-00A0C9054228}#1.0#0#..\..\WINNT\system32\SCRRUN.DLL#Microsoft Scripting Runtime
+Reference=*\G{4122C236-219C-42A0-96A9-45665D267B69}#1.0#0#..\..\Program Files\Ariacom\Business Reports\brcom.dll#Ariacom Business Reports Dll Library
+Reference=*\G{F5078F18-C551-11D3-89B9-0000F81FE221}#3.0#0#..\..\WINNT\system32\msxml3.dll#Microsoft XML, v3.0
+Form=frmMain.frm
+Module=WINDOWS_API; ..\bas\WINDOWS_API.bas
+Module=mGetProfileString; ..\bas\PrivateProfileString.bas
+Class=z_TextFile; ..\classes\z_TextFile.cls
+Module=HuntERR31; ..\bas\HuntERR31.bas
+Module=mScheduler; mScheduler.bas
+IconForm="frmMain"
+Startup="Sub Main"
+HelpFile=""
+Title="SCHEDULER"
+ExeName32="PBKSSchedule.exe"
+Path32="..\..\Papyrus_Current_Executables"
+Command32=""
+Name="Scheduler"
+HelpContextID="0"
+Description="Runs scheduled reports"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=0
+AutoIncrementVer=0
+ServerSupportFiles=0
+VersionCompanyName="Papyrus Services"
+CondComp="H_NOCOMPLUS = 1"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

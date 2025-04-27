@@ -1,0 +1,3 @@
+VBGROUP 5.0
+StartupProject=StockTake.vbp
+Project=StockTakeDLL.vbp

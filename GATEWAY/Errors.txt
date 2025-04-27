@@ -1,0 +1,113 @@
+
+[DBNETLIB][ConnectionOpen (Connect()).]Specified SQL server not found. 
+  Time='10/27/03 21:22:16' App='PT_1_D:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: a_connection.OpenDB 
+  Number: -2147467259 = &H80004005 = vbObjectError - 245755 = ERRMAP_APP_FIRST - 250953 
+  Source: Microsoft OLE DB Provider for SQL Server 
+  Description: [DBNETLIB][ConnectionOpen (Connect()).]Specified SQL server not found.
+  Call Stack: a_connection.OpenDB() ----------------------------------------------------------------
+  Call Stack: a_connection.Connect() ---------------------------------------------------------------
+  Call Stack: frmLogin.cmdOK_Click() ---------------------------------------------------------------
+
+
+
+The connection cannot be used to perform this operation. It is either closed or invalid in this context. 
+  Time='11/06/03 16:18:42' App='PT_1_D:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: z_Import.ImportFROMAS400 
+  Number: 3709 = &HE7D = vbObjectError + 2147225213 = ERRMAP_APP_FIRST + 2147220015 
+  Source: ADODB.Recordset 
+  Description: The connection cannot be used to perform this operation. It is either closed or invalid in this context.
+  Call Stack: z_Import.ImportFROMAS400(pError='') --------------------------------------------------
+
+
+
+Failure in Import from AS400 
+  Time='11/06/03 16:18:42' App='PT_1_Auto:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: frmMain.ImportFromAS400 
+  Number: -2147216306 = &H8004144E = vbObjectError + 5198 = ERRMAP_APP_FIRST + 0 = ERR_GENERAL
+  Source: HuntERR.Check 
+  Description: Failure in Import from AS400
+  Call Stack: frmMain.ImportFromAS400() ------------------------------------------------------------
+  Call Stack: frmMain.DoWork() ---------------------------------------------------------------------
+  Call Stack: frmMain.oT_Timer() -------------------------------------------------------------------
+
+
+
+ErrorIn: Error information was lost. To fix: call ErrPreserve before doing anything in error handler. 
+  Time='02/02/04 15:27:52' App='Nielsen_D:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: a_connection.Connect 
+  Number: -2147216306 = &H8004144E = vbObjectError + 5198 = ERRMAP_APP_FIRST + 0 = ERR_GENERAL
+  Source:  
+  Description: ErrorIn: Error information was lost. To fix: call ErrPreserve before doing anything in error handler.
+  Call Stack: a_connection.Connect() ---------------------------------------------------------------
+  Call Stack: frmLogin.cmdOK_Click() ---------------------------------------------------------------
+
+
+
+[DBNETLIB][ConnectionOpen (Connect()).]SQL Server does not exist or access denied. 
+  Time='02/02/04 15:32:31' App='Nielsen_D:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: a_connection.OpenDB 
+  Number: -2147467259 = &H80004005 = vbObjectError - 245755 = ERRMAP_APP_FIRST - 250953 
+  Source: Microsoft OLE DB Provider for SQL Server 
+  Description: [DBNETLIB][ConnectionOpen (Connect()).]SQL Server does not exist or access denied.
+  Call Stack: a_connection.OpenDB() ----------------------------------------------------------------
+  Call Stack: a_connection.Connect() ---------------------------------------------------------------
+  Call Stack: frmLogin.cmdOK_Click() ---------------------------------------------------------------
+
+
+
+Invalid procedure call or argument 
+  Time='04/03/04 21:12:07' App='Nielsen_D:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: z_Export.SendFile 
+  Number: 5 = &H5 = vbObjectError + 2147221509 = ERRMAP_APP_FIRST + 2147216311 
+  Source: Nielsen_D 
+  Description: Invalid procedure call or argument
+  Call Stack: z_Export.SendFile() ------------------------------------------------------------------
+  Call Stack: z_Export.ManageTransmit() ------------------------------------------------------------
+  Call Stack: frmMain.DoWork() ---------------------------------------------------------------------
+  Call Stack: frmMain.oT_Timer() -------------------------------------------------------------------
+
+
+
+Either BOF or EOF is True, or the current record has been deleted. Requested operation requires a current record. 
+  Time='04/05/04 12:12:38' App='Nielsen_D:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: a_Nielsen_P.Fetch 
+  Number: 3021 = &HBCD = vbObjectError + 2147224525 = ERRMAP_APP_FIRST + 2147219327 
+  Source: ADODB.Recordset 
+  Description: Either BOF or EOF is True, or the current record has been deleted. Requested operation requires a current record.
+  Call Stack: a_Nielsen_P.Fetch() ------------------------------------------------------------------
+
+
+
+Either BOF or EOF is True, or the current record has been deleted. Requested operation requires a current record. 
+  Time='04/05/04 12:13:50' App='Nielsen_D:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: a_Nielsen_P.Fetch 
+  Number: 3021 = &HBCD = vbObjectError + 2147224525 = ERRMAP_APP_FIRST + 2147219327 
+  Source: ADODB.Recordset 
+  Description: Either BOF or EOF is True, or the current record has been deleted. Requested operation requires a current record.
+  Call Stack: a_Nielsen_P.Fetch() ------------------------------------------------------------------
+
+
+
+Either BOF or EOF is True, or the current record has been deleted. Requested operation requires a current record. 
+  Time='04/05/04 12:14:28' App='Nielsen_D:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: a_Nielsen_P.Fetch 
+  Number: 3021 = &HBCD = vbObjectError + 2147224525 = ERRMAP_APP_FIRST + 2147219327 
+  Source: ADODB.Recordset 
+  Description: Either BOF or EOF is True, or the current record has been deleted. Requested operation requires a current record.
+  Call Stack: a_Nielsen_P.Fetch() ------------------------------------------------------------------
+
+
+
+Line 1: Incorrect syntax near 'sdfw'. 
+  Time='06/03/04 09:32:52' App='Nielsen_D:1.0.0' ADO-version='2.7' Computer='PAPYRUS-94TNP9S' 
+  Method: z_Split.ExporttoFile 
+  Number: -2147217900 = &H80040E14 = vbObjectError + 3604 = ERRMAP_APP_FIRST - 1594 
+  Source: Microsoft OLE DB Provider for SQL Server 
+  Description: Line 1: Incorrect syntax near 'sdfw'.
+  Call Stack: z_Split.ExporttoFile() ---------------------------------------------------------------
+  Call Stack: frmMain.DoWork() ---------------------------------------------------------------------
+  Call Stack: frmMain.oT_Timer() -------------------------------------------------------------------
+
+
+

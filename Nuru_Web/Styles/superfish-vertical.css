@@ -1,0 +1,65 @@
+/*** adding AspNet-vertical in addition to AspNet-menu creates a vertical menu 
+========================================================================
+
+***/
+.AspNet-Menu-Vertical, .AspNet-Menu-Vertical li {
+    margin:                 0;
+    padding:                0;
+    list-style:             none;
+	padding: .4em 1em .3em 1em;
+	list-style: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #A8A6CE;
+	width: 200px;
+	text-decoration: none;                
+}
+/* this lacks ul at the start of the selector, so the styles from the main CSS file override it where needed */
+.AspNet-Menu-Vertical li:hover ul,
+.AspNet-Menu-Vertical li.AspNetHover ul {
+	left:	13em; /* match ul width */
+	top:	0;
+}
+
+/*** alter arrow directions ***/
+.AspNet-Menu-Vertical .AspNet-sub-indicator { background-position: -10px 0; } /* IE6 gets solid image only */
+.AspNet-Menu-Vertical a > .AspNet-sub-indicator { background-position: 0 0; } /* use translucent arrow for modern browsers*/
+
+/* hover arrow direction for modern browsers*/
+.AspNet-Menu-Vertical a:focus > .AspNet-sub-indicator,
+.AspNet-Menu-Vertical a:hover > .AspNet-sub-indicator,
+.AspNet-Menu-Vertical a:active > .AspNet-sub-indicator,
+.AspNet-Menu-Vertical li:hover > a > .AspNet-sub-indicator,
+.AspNet-Menu-Vertical li.AspNetHover > a > .AspNet-sub-indicator {
+	background-position: -10px 0; /* arrow hovers for modern browsers*/
+}
+
+/* the treeview control */
+.tv1, .tv1 li, .tv1 td
+{
+	border-style: none;
+	width: 13em;
+	font-family: Arial;
+	font-size: small;
+}
+/* this lacks ul at the start of the selector, so the styles from the main CSS file override it where needed */
+.tv1 li:hover ul, .tv1 li.tv1Hover ul
+{
+	border-style: none;
+	left: 13em; /* match ul width */
+	top: 0;
+	background-color: #FFE1FF;
+}
+
+/*** alter arrow directions ***/
+.tv1 .AspNet-sub-indicator { background-position: -10px 0; } /* IE6 gets solid image only */
+.tv1 a > .AspNet-sub-indicator { background-position: 0 0; } /* use translucent arrow for modern browsers*/
+
+/* hover arrow direction for modern browsers*/
+.tv1 a:focus > .AspNet-sub-indicator,
+.tv1 a:hover > .AspNet-sub-indicator,
+.tv1 a:active > .AspNet-sub-indicator,
+.tv1 li:hover > a > .AspNet-sub-indicator,
+.tv1 li.AspNetHover > a > .AspNet-sub-indicator {
+	background-position: -10px 0; /* arrow hovers for modern browsers*/
+}

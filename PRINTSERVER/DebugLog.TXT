@@ -1,0 +1,424 @@
+_____________
+FROM PS at 13/09/2004 01:09 PM
+Printer does not exist (printing invoice): Downstairs1. Using activeprinter: Canon S520 on NE00:
+Filename = \\pbks-svr\pbks_s\Printing\PR1_HLP25.txt
+=============
+_____________
+FROM PS at 17/11/2004 12:24 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR18.txt
+=============
+_____________
+FROM PS at 17/11/2004 12:26 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR18.txt
+=============
+_____________
+FROM PS at 19/11/2004 09:32 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR32.txt
+=============
+_____________
+FROM PS at 19/11/2004 09:33 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR32.txt
+=============
+_____________
+FROM PS at 19/11/2004 09:34 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR32.txt
+=============
+_____________
+FROM PS at 19/11/2004 09:36 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR32.txt
+=============
+_____________
+FROM PS at 19/11/2004 09:37 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR32.txt
+=============
+_____________
+FROM PS at 19/11/2004 09:39 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR32.txt
+=============
+_____________
+FROM PS at 23/11/2004 07:24 AM
+Printer does not exist (printing Appro): \\BACK\SERV-01Filename = \\pbks-svr\pbks_s\Printing\AP_WGA9.txt
+=============
+_____________
+FROM PS at 04/12/2004 02:18 PM
+Printer does not exist (printing order): SERV-01. Using activeprinter: Filename = \\pbks-svr\pbks_s\Printing\CO_LC4529.txt
+=============
+_____________
+FROM PS at 08/12/2004 01:47 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:06 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2387.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:06 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:09 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:09 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:15 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:17 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:17 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:17 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:20 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 02:21 PM
+Printer does not exist (printing Transfers): 
+Filename = C:\PBKS\Printing\TFR_EBT2386.txt
+=============
+_____________
+FROM PS at 08/12/2004 07:48 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR43.txt
+=============
+_____________
+FROM PS at 09/12/2004 11:04 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR32.txt
+=============
+_____________
+FROM PS at 15/12/2004 02:32 PM
+Printer does not exist (printing Return): SERV-01
+Filename = \\pbks-svr\pbks_s\Printing\RT_WGR115.txt
+=============
+_____________
+FROM PS at 15/12/2004 03:18 PM
+Printer does not exist (printing Return): SERV-01
+Filename = \\pbks-svr\pbks_s\Printing\RT_WGR115.txt
+=============
+_____________
+FROM PS at 21/02/2005 06:34 PM
+Printer does not exist (printing Purchase order): \\caca20110012\SECONDARY
+Filename = \\pbks-svr\pbks_s\Printing\PO_EBP18643.txt
+=============
+_____________
+FROM PS at 21/02/2005 06:38 PM
+Printer does not exist (printing Purchase order): \\caca20110012\SECONDARY
+Filename = \\pbks-svr\pbks_s\Printing\PO_EBP18643.txt
+=============
+_____________
+FROM PS at 19/05/2005 10:49 AM
+Printer does not exist (printing Appro): Filename = \\pbks-svr\pbks_s\Printing\AP_EBA11360.txt
+=============
+_____________
+FROM PS at 19/05/2005 10:49 AM
+Printer does not exist (printing Appro): Filename = \\pbks-svr\pbks_s\Printing\AP_EBA11360.txt
+=============
+_____________
+FROM PS at 19/05/2005 05:41 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR332.txt
+=============
+_____________
+FROM PS at 19/05/2005 06:03 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR335.txt
+=============
+_____________
+FROM PS at 19/05/2005 06:04 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR335.txt
+=============
+_____________
+FROM PS at 19/05/2005 06:33 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR336.txt
+=============
+_____________
+FROM PS at 19/05/2005 06:36 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR337.txt
+=============
+_____________
+FROM PS at 19/05/2005 09:26 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR338.txt
+=============
+_____________
+FROM PS at 19/05/2005 09:28 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR338.txt
+=============
+_____________
+FROM PS at 19/05/2005 09:29 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR338.txt
+=============
+_____________
+FROM PS at 19/05/2005 09:32 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR338.txt
+=============
+_____________
+FROM PS at 19/05/2005 09:38 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR338.txt
+=============
+_____________
+FROM PS at 19/05/2005 09:42 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR338.txt
+=============
+_____________
+FROM PS at 19/05/2005 09:51 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR338.txt
+=============
+_____________
+FROM PS at 19/05/2005 10:48 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR315.txt
+=============
+_____________
+FROM PS at 19/05/2005 10:54 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR315.txt
+=============
+_____________
+FROM PS at 19/05/2005 10:55 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_EBR315.txt
+=============
+_____________
+FROM PS at 02/06/2005 08:28 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR430.txt
+=============
+_____________
+FROM PS at 02/06/2005 08:29 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR430.txt
+=============
+_____________
+FROM PS at 02/06/2005 08:31 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR430.txt
+=============
+_____________
+FROM PS at 02/06/2005 08:33 PM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR430.txt
+=============
+_____________
+FROM PS at 03/06/2005 08:33 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR430.txt
+=============
+_____________
+FROM PS at 03/06/2005 08:42 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR430.txt
+=============
+_____________
+FROM PS at 03/06/2005 09:34 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR432.txt
+=============
+_____________
+FROM PS at 03/06/2005 09:40 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR432.txt
+=============
+_____________
+FROM PS at 03/06/2005 09:41 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR432.txt
+=============
+_____________
+FROM PS at 03/06/2005 09:42 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR432.txt
+=============
+_____________
+FROM PS at 03/06/2005 09:43 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR432.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:06 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR432.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:10 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR432.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:13 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:14 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:27 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:29 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:30 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:30 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:34 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:35 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:36 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:37 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:41 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:41 AM
+Printer does not exist (printing Return): 
+Filename = \\pbks-svr\pbks_s\Printing\RT_LR433.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:53 AM
+Printer does not exist (printing Transfers): 
+Filename = \\pbks-svr\pbks_s\Printing\TFR_LT6306.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:54 AM
+Printer does not exist (printing Transfers): 
+Filename = \\pbks-svr\pbks_s\Printing\TFR_LT6306.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:56 AM
+Printer does not exist (printing Transfers): 
+Filename = \\pbks-svr\pbks_s\Printing\TFR_LT6306.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:57 AM
+Printer does not exist (printing Transfers): 
+Filename = \\pbks-svr\pbks_s\Printing\TFR_LT6306.txt
+=============
+_____________
+FROM PS at 03/06/2005 10:59 AM
+Printer does not exist (printing Transfers): 
+Filename = \\pbks-svr\pbks_s\Printing\TFR_LT6306.txt
+=============
+_____________
+FROM PS at 03/06/2005 11:15 AM
+Printer does not exist (printing Appro): Filename = \\pbks-svr\pbks_s\Printing\AP_LA42.txt
+=============
+_____________
+FROM PS at 03/06/2005 11:17 AM
+Printer does not exist (printing Appro): Filename = \\pbks-svr\pbks_s\Printing\AP_LA42.txt
+=============
+_____________
+FROM PS at 03/06/2005 11:23 AM
+Printer does not exist (printing Transfers): 
+Filename = \\pbks-svr\pbks_s\Printing\TFR_LT6307.txt
+=============
+_____________
+FROM PS at 03/06/2005 11:24 AM
+Printer does not exist (printing Transfers): 
+Filename = \\pbks-svr\pbks_s\Printing\TFR_LT6307.txt
+=============
+_____________
+FROM PS at 03/06/2005 11:25 AM
+Printer does not exist (printing appro return): 
+Filename = \\pbks-svr\pbks_s\Printing\APR_LAR5.txt
+=============
+_____________
+FROM PS at 03/06/2005 11:25 AM
+Printer does not exist (printing appro return): 
+Filename = \\pbks-svr\pbks_s\Printing\APR_LAR5.txt
+=============
+_____________
+FROM PS at 03/06/2005 11:26 AM
+Printer does not exist (printing appro return): 
+Filename = \\pbks-svr\pbks_s\Printing\APR_LAR5.txt
+=============
+_____________
+FROM PS at 03/06/2005 11:27 AM
+Printer does not exist (printing appro return): 
+Filename = \\pbks-svr\pbks_s\Printing\APR_LAR5.txt
+=============
+_____________
+FROM PS at 06/06/2005 06:27 PM
+Printer does not exist (printing Purchase order): 
+Filename = \\pbks-svr\pbks_s\Printing\PO_LP17428.txt
+=============
+_____________
+FROM PS at 06/06/2005 06:31 PM
+Printer does not exist (printing Purchase order): 
+Filename = \\pbks-svr\pbks_s\Printing\PO_LP17429.txt
+=============
+_____________
+FROM PS at 04/10/2005 10:49 AM
+Printer does not exist (printing Purchase order): 
+Filename = \\pbks-svr\pbks_s\Printing\PO_LP18100.txt
+=============

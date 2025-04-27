@@ -1,0 +1,1062 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "tabctl32.ocx"
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "TODG6.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
+Begin VB.Form frmMain 
+   BackColor       =   &H00C8B9B3&
+   Caption         =   "Papyrus II dispatcher"
+   ClientHeight    =   6390
+   ClientLeft      =   60
+   ClientTop       =   630
+   ClientWidth     =   10755
+   ControlBox      =   0   'False
+   Icon            =   "frmMain1.frx":0000
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   6390
+   ScaleWidth      =   10755
+   StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton cmdStopStart 
+      BackColor       =   &H00D3D3CB&
+      Caption         =   "Pause processing"
+      Height          =   435
+      Left            =   525
+      Style           =   1  'Graphical
+      TabIndex        =   21
+      Top             =   5190
+      Width           =   2670
+   End
+   Begin VB.CommandButton cmdTest 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Test"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   360
+      Left            =   1500
+      Style           =   1  'Graphical
+      TabIndex        =   16
+      Top             =   6480
+      Width           =   1380
+   End
+   Begin VB.CommandButton cmdOpenErrorLog 
+      BackColor       =   &H00C4BCA4&
+      Caption         =   "&View error log"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   1095
+      Style           =   1  'Graphical
+      TabIndex        =   14
+      Top             =   4860
+      Visible         =   0   'False
+      Width           =   900
+   End
+   Begin VB.TextBox Text1 
+      Height          =   285
+      Left            =   5355
+      TabIndex        =   10
+      Text            =   "Text1"
+      Top             =   6285
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.CommandButton cmdMinimize 
+      BackColor       =   &H00D3D3CB&
+      Caption         =   "Minimize"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   360
+      Left            =   8805
+      Style           =   1  'Graphical
+      TabIndex        =   3
+      Top             =   5220
+      Width           =   1380
+   End
+   Begin TabDlg.SSTab SSTab1 
+      Height          =   5535
+      Left            =   300
+      TabIndex        =   0
+      Top             =   225
+      Width           =   10245
+      _ExtentX        =   18071
+      _ExtentY        =   9763
+      _Version        =   393216
+      TabHeight       =   520
+      BackColor       =   14339533
+      ForeColor       =   -2147483635
+      TabCaption(0)   =   "Email dispatcher"
+      TabPicture(0)   =   "frmMain1.frx":014A
+      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).Control(0)=   "eResult"
+      Tab(0).Control(0).Enabled=   0   'False
+      Tab(0).Control(1)=   "cmdGo"
+      Tab(0).Control(1).Enabled=   0   'False
+      Tab(0).Control(2)=   "File1"
+      Tab(0).Control(2).Enabled=   0   'False
+      Tab(0).Control(3)=   "cmdRefresh"
+      Tab(0).Control(3).Enabled=   0   'False
+      Tab(0).Control(4)=   "cmdClear"
+      Tab(0).Control(4).Enabled=   0   'False
+      Tab(0).Control(5)=   "Timer"
+      Tab(0).Control(5).Enabled=   0   'False
+      Tab(0).ControlCount=   6
+      TabCaption(1)   =   "Printing"
+      TabPicture(1)   =   "frmMain1.frx":0166
+      Tab(1).ControlEnabled=   0   'False
+      Tab(1).Control(0)=   "Label41"
+      Tab(1).Control(0).Enabled=   0   'False
+      Tab(1).Control(1)=   "lvwPrinters"
+      Tab(1).Control(1).Enabled=   0   'False
+      Tab(1).Control(2)=   "chkPreview"
+      Tab(1).Control(2).Enabled=   0   'False
+      Tab(1).Control(3)=   "chkKeepCopies"
+      Tab(1).Control(3).Enabled=   0   'False
+      Tab(1).Control(4)=   "File2"
+      Tab(1).Control(4).Enabled=   0   'False
+      Tab(1).Control(5)=   "Command1"
+      Tab(1).Control(5).Enabled=   0   'False
+      Tab(1).Control(6)=   "Text2"
+      Tab(1).Control(6).Enabled=   0   'False
+      Tab(1).Control(7)=   "cmdClearPrint"
+      Tab(1).Control(7).Enabled=   0   'False
+      Tab(1).Control(8)=   "CommonDialog1"
+      Tab(1).Control(8).Enabled=   0   'False
+      Tab(1).Control(9)=   "Command2"
+      Tab(1).Control(9).Enabled=   0   'False
+      Tab(1).Control(10)=   "cmdRefreshPrint"
+      Tab(1).Control(10).Enabled=   0   'False
+      Tab(1).Control(11)=   "cmdDeletePrinter"
+      Tab(1).Control(11).Enabled=   0   'False
+      Tab(1).ControlCount=   12
+      TabCaption(2)   =   "E.D.I."
+      TabPicture(2)   =   "frmMain1.frx":0182
+      Tab(2).ControlEnabled=   0   'False
+      Tab(2).Control(0)=   "Label1"
+      Tab(2).Control(1)=   "G_EDI"
+      Tab(2).Control(2)=   "cmdRefreshEDI"
+      Tab(2).ControlCount=   3
+      Begin VB.Timer Timer 
+         Enabled         =   0   'False
+         Interval        =   5000
+         Left            =   6990
+         Top             =   4950
+      End
+      Begin VB.CommandButton cmdDeletePrinter 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Delete selected printer"
+         Height          =   405
+         Left            =   -71880
+         Style           =   1  'Graphical
+         TabIndex        =   23
+         Top             =   4170
+         Width           =   3615
+      End
+      Begin VB.CommandButton cmdRefreshPrint 
+         BackColor       =   &H00C4BCA4&
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   -74790
+         Picture         =   "frmMain1.frx":019E
+         Style           =   1  'Graphical
+         TabIndex        =   20
+         Top             =   4185
+         Width           =   615
+      End
+      Begin VB.CommandButton cmdRefreshEDI 
+         BackColor       =   &H00C4BCA4&
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   390
+         Left            =   -74790
+         Picture         =   "frmMain1.frx":0528
+         Style           =   1  'Graphical
+         TabIndex        =   18
+         Top             =   4170
+         Width           =   630
+      End
+      Begin VB.CommandButton Command2 
+         Caption         =   "Find Printers"
+         Height          =   255
+         Left            =   -68895
+         TabIndex        =   15
+         Top             =   4410
+         Visible         =   0   'False
+         Width           =   1575
+      End
+      Begin MSComDlg.CommonDialog CommonDialog1 
+         Left            =   -67650
+         Top             =   3660
+         _ExtentX        =   847
+         _ExtentY        =   847
+         _Version        =   393216
+      End
+      Begin VB.CommandButton cmdClearPrint 
+         BackColor       =   &H00D3D3CB&
+         Caption         =   "Clear folder"
+         Height          =   390
+         Left            =   -73335
+         Style           =   1  'Graphical
+         TabIndex        =   13
+         Top             =   4185
+         Width           =   1290
+      End
+      Begin VB.TextBox Text2 
+         Height          =   345
+         Left            =   -71250
+         TabIndex        =   12
+         Text            =   "Text2"
+         Top             =   4365
+         Visible         =   0   'False
+         Width           =   1755
+      End
+      Begin VB.CommandButton Command1 
+         Caption         =   "Command1"
+         Height          =   405
+         Left            =   -71340
+         TabIndex        =   11
+         Top             =   4140
+         Visible         =   0   'False
+         Width           =   720
+      End
+      Begin VB.CommandButton cmdClear 
+         BackColor       =   &H00C4BCA4&
+         Caption         =   "Clear folder"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   1590
+         Style           =   1  'Graphical
+         TabIndex        =   9
+         Top             =   4155
+         Width           =   1365
+      End
+      Begin VB.FileListBox File2 
+         Height          =   3600
+         Left            =   -74775
+         Pattern         =   "*.html;*.xml"
+         TabIndex        =   8
+         Top             =   510
+         Width           =   2730
+      End
+      Begin VB.CommandButton cmdRefresh 
+         BackColor       =   &H00C4BCA4&
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   240
+         Picture         =   "frmMain1.frx":08B2
+         Style           =   1  'Graphical
+         TabIndex        =   7
+         Top             =   4155
+         Width           =   615
+      End
+      Begin VB.FileListBox File1 
+         Height          =   3600
+         Left            =   210
+         Pattern         =   "*.xml"
+         TabIndex        =   6
+         Top             =   570
+         Width           =   2760
+      End
+      Begin VB.CommandButton cmdGo 
+         BackColor       =   &H00C4BCA4&
+         Caption         =   "Send"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   465
+         Left            =   6810
+         Style           =   1  'Graphical
+         TabIndex        =   5
+         Top             =   4230
+         Width           =   1275
+      End
+      Begin VB.TextBox eResult 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00DBFAFB&
+         Height          =   3555
+         Left            =   3105
+         MultiLine       =   -1  'True
+         ScrollBars      =   2  'Vertical
+         TabIndex        =   4
+         Top             =   585
+         Width           =   4980
+      End
+      Begin VB.CheckBox chkKeepCopies 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Keep copies of document files in local PBKS\BU folder"
+         ForeColor       =   &H8000000D&
+         Height          =   465
+         Left            =   -68130
+         TabIndex        =   2
+         Top             =   990
+         Width           =   3120
+      End
+      Begin VB.CheckBox chkPreview 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Preview only"
+         Enabled         =   0   'False
+         ForeColor       =   &H8000000D&
+         Height          =   375
+         Left            =   -66660
+         TabIndex        =   1
+         Top             =   1590
+         Visible         =   0   'False
+         Width           =   1650
+      End
+      Begin TrueOleDBGrid60.TDBGrid G_EDI 
+         Height          =   3345
+         Left            =   -74775
+         OleObjectBlob   =   "frmMain1.frx":0C3C
+         TabIndex        =   17
+         Top             =   795
+         Width           =   7980
+      End
+      Begin MSComctlLib.ListView lvwPrinters 
+         Height          =   3165
+         Left            =   -71850
+         TabIndex        =   22
+         Top             =   615
+         Width           =   3645
+         _ExtentX        =   6429
+         _ExtentY        =   5583
+         View            =   3
+         Sorted          =   -1  'True
+         LabelWrap       =   -1  'True
+         HideSelection   =   0   'False
+         FullRowSelect   =   -1  'True
+         _Version        =   393217
+         ForeColor       =   -2147483640
+         BackColor       =   -2147483643
+         BorderStyle     =   1
+         Appearance      =   1
+         NumItems        =   1
+         BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Text            =   "Printer"
+            Object.Width           =   7832
+         EndProperty
+      End
+      Begin VB.Label Label41 
+         Caption         =   "Printers usually available (grey indicates not presently connected)"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000D&
+         Height          =   420
+         Left            =   -71715
+         TabIndex        =   24
+         Top             =   555
+         Width           =   3360
+      End
+      Begin VB.Label Label1 
+         Caption         =   "EDI transmission log"
+         ForeColor       =   &H8000000D&
+         Height          =   225
+         Left            =   -73560
+         TabIndex        =   19
+         Top             =   540
+         Width           =   6675
+      End
+   End
+   Begin VB.Label lblStatus 
+      BackStyle       =   0  'Transparent
+      BorderStyle     =   1  'Fixed Single
+      ForeColor       =   &H8000000D&
+      Height          =   435
+      Left            =   300
+      TabIndex        =   25
+      Top             =   5820
+      Width           =   10275
+   End
+   Begin VB.Menu mnuFile 
+      Caption         =   "&File"
+      Begin VB.Menu mnuDebug 
+         Caption         =   "Debug on"
+         Checked         =   -1  'True
+      End
+      Begin VB.Menu mnuErrorLog 
+         Caption         =   "View error log"
+      End
+      Begin VB.Menu mnuExit 
+         Caption         =   "&Exit"
+         Shortcut        =   +^{F2}
+      End
+   End
+End
+Attribute VB_Name = "frmMain"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+Public WithEvents zPrint As z_Printing
+Attribute zPrint.VB_VarHelpID = -1
+Public WithEvents zEMail As z_EMail
+Attribute zEMail.VB_VarHelpID = -1
+Public WithEvents zEDI As z_EDI_Transmission
+Attribute zEDI.VB_VarHelpID = -1
+Public WithEvents zEmailwithLink As z_FTPbased_Email
+Attribute zEmailwithLink.VB_VarHelpID = -1
+Dim cs As String
+Dim ADOConn As New ADODB.Connection
+Dim rsProperty As ADODB.Recordset
+
+Dim XEDI As New XArrayDB
+Dim flgLoading As Boolean
+Dim bCanClose As Boolean
+Private WithEvents fInet As wininet
+Attribute fInet.VB_VarHelpID = -1
+Dim rsEDI As ADODB.Recordset
+'manage tray ---------
+Dim bSysTrayLoaded As Boolean
+Dim SysTrayText As String
+Dim nid As NOTIFYICONDATA
+Dim bMustClose As Boolean
+Private Declare Function GetComputerName Lib "kernel32" Alias "GetComputerNameA" (ByVal sBuffer As String, lSize As Long) As Long
+
+Private Sub cmdClear_Click()
+Dim fs As New FileSystemObject
+Dim fol
+Dim fil
+Dim f
+
+    Set fol = fs.GetFolder(strSharedServerFolder & "\Emails\")
+    Set fil = fol.files
+    For Each f In fil
+        f.Delete True
+    Next
+        File1.Refresh
+
+End Sub
+
+Private Sub cmdClearPrint_Click()
+Dim fs As New FileSystemObject
+Dim fol
+Dim fil
+Dim f
+
+    Set fol = fs.GetFolder(strSharedServerFolder & "\Printing\")
+    Set fil = fol.files
+    For Each f In fil
+        f.Delete True
+    Next
+        File2.Refresh
+
+End Sub
+
+Private Sub cmdRefreshEDI_Click()
+    Set rsEDI = zEDI.GetRecentTransmissions
+    LoadEDIArray
+End Sub
+
+Private Sub cmdRefreshPrint_Click()
+    File2.Refresh
+End Sub
+
+
+Private Sub cmdStopStart_Click()
+
+    If Timer.Enabled Then
+        cmdStopStart.Caption = "Resume processing"
+    Else
+        cmdStopStart.Caption = "Pause processing"
+    End If
+    Timer.Enabled = Not Timer.Enabled
+    If Timer.Enabled = False Then
+        lblStatus.Caption = lblStatus.Caption & "   --Pause has been selected, processing will only pause after the current set of files (those visible in the list) has been processed."
+    Else
+        lblStatus.Caption = ""
+    End If
+    Screen.MousePointer = vbHourglass
+''''    zPrint.EnableTimer (Not zPrint.TimerEnabled)
+''''    zEMail.EnableTimer (Not zEMail.TimerEnabled)
+''''    zEDI.EnableTimer (Not zEDI.TimerEnabled)
+''''    zEmailwithLink.EnableTimer (Not zEDI.TimerEnabled)
+End Sub
+
+Private Sub cmdTest_Click()
+chkPreview.Visible = Not chkPreview.Visible
+chkPreview.Enabled = Not chkPreview.Enabled
+End Sub
+
+Private Sub Command1_Click()
+Dim i As Integer
+Dim p As Printer
+Dim tmp As String
+    For Each p In Printers
+        If Right(p.DeviceName, Len(p.DeviceName) - InStrRev(p.DeviceName, "\")) = Text2 Then
+            tmp = p.DeviceName
+            Exit For
+        End If
+    Next
+
+    Dim wshNetwork, strPrinterPath As String
+    Set wshNetwork = CreateObject("WScript.Network")
+    wshNetwork.SetDefaultPrinter tmp
+    MsgBox tmp & " has been set as your default printer.", , "Action complete"
+End Sub
+
+
+
+Private Sub Command2_Click()
+   Dim BeginPage, EndPage, NumCopies, Orientation, i
+   ' Set Cancel to True.
+   CommonDialog1.CancelError = True
+   On Error GoTo errHandler
+   ' Display the Print dialog box.
+   CommonDialog1.ShowPrinter
+   ' Get user-selected values from the dialog box.
+   BeginPage = CommonDialog1.FromPage
+   EndPage = CommonDialog1.ToPage
+   NumCopies = CommonDialog1.Copies
+   Orientation = CommonDialog1.Orientation
+   For i = 1 To NumCopies
+   ' Put code here to send data to your printer.
+   Next
+   'MsgBox CommonDialog1.FileName
+   Exit Sub
+errHandler:
+   ' User pressed Cancel button.
+   Exit Sub
+End Sub
+
+
+
+
+Private Sub Form_Terminate()
+    Set zPrint = Nothing
+    Set zEMail = Nothing
+End Sub
+
+Private Sub mnuDebug_Click()
+    mnuDebug.Checked = Not mnuDebug.Checked
+    mDebugmodeOn = mnuDebug.Checked
+End Sub
+
+Private Sub mnuErrorLog_Click()
+Dim strPath As String
+
+    strPath = strSharedServerFolder & "\Errors.txt"
+    Shell "NOTEPAD.EXE '" & strPath & "'", vbNormalFocus
+
+End Sub
+
+Private Sub mnuExit_Click()
+    bMustClose = True
+    Screen.MousePointer = vbHourglass
+End Sub
+
+Private Sub Timer_Timer()
+    zPrint.Action
+    zEMail.Action
+    zEDI.Action
+    zEmailwithLink.Action
+    Screen.MousePointer = vbDefault
+    If bMustClose Then
+        Unload Me
+    End If
+End Sub
+
+Private Sub zEDI_STATUS(pMsg As String)
+    Set rsEDI = zEDI.GetRecentTransmissions
+    LoadEDIArray
+End Sub
+Private Sub zEDI_Action(msg As String)
+    lblStatus.Caption = msg
+End Sub
+
+Private Sub zPrint_Status(msg As String)
+    If msg = "FILE" Or msg = "Idle" Then
+        File2.Refresh
+    End If
+End Sub
+Private Sub zPrint_Action(msg As String)
+    lblStatus.Caption = msg
+End Sub
+
+Private Sub zEmail_Status(msg As String)
+    eResult = Right(eResult, 2000)
+    eResult = msg & vbCrLf & eResult
+    DoEvents
+End Sub
+Private Sub zEmail_Action(msg As String)
+    lblStatus.Caption = msg
+End Sub
+
+Private Sub zEmailWithLink_Status(msg As String)
+    eResult = Right(eResult, 2000)
+    eResult = msg & vbCrLf & eResult
+    DoEvents
+End Sub
+Private Sub zEmailWithLink_Action(msg As String)
+    lblStatus.Caption = msg
+End Sub
+
+Private Sub zEMail_Complete()
+    cmdGo.Enabled = True
+    DoEvents
+End Sub
+
+Private Sub chkKeepCopies_Click()
+    SaveSetting "PS", "OPTIONS", "KEEPDOCUMENTS", CStr(chkKeepCopies)
+    zPrint.KeepCopies = (chkKeepCopies = 1)
+End Sub
+
+Private Sub chkPreview_Click()
+    zPrint.Preview = (chkPreview = 1)
+    SaveSetting "PS", "PrintingSettings", "PrintPreview", CStr(chkPreview)
+End Sub
+
+Private Sub cmdGo_Click()
+Dim bOnline As Boolean
+'Dim frm As frmManageconnection
+Dim strMsg As Variant
+Dim lngResult As Long
+
+    Set fInet = New wininet
+    If InternetDialup = True Then
+        lngResult = fInet.StartDUN(0, strConnectionName, True)
+    End If
+    
+    DoEvents
+    Screen.MousePointer = vbHourglass
+    
+    cmdGo.Enabled = False
+    bCanClose = False
+    
+    zEMail.SendMail
+    
+    cmdGo.Enabled = True
+    bCanClose = True
+    File1.Refresh
+    
+    lngResult = fInet.Hangup
+    
+    Screen.MousePointer = vbDefault
+End Sub
+
+Private Sub cmdRefresh_Click()
+    File1.Refresh
+End Sub
+Private Sub Form_Initialize()
+10        On Error GoTo errHandler
+            bMustClose = False
+20        LoadProperties
+          
+30        Set zPrint = New z_Printing
+40        Set zEMail = New z_EMail
+50        Set zEDI = New z_EDI_Transmission
+60        Set zEmailwithLink = New z_FTPbased_Email
+          
+70        zEmailwithLink.SharedRootFolder = strSharedServerFolder
+80        zEmailwithLink.ConnectionString = strMainConnectionString
+90        zEmailwithLink.GetEmailSettings
+100       zEMail.SharedRootFolder = strSharedServerFolder
+110       zEMail.ConnectionString = strMainConnectionString
+120       zEMail.GetEmailSettings
+          
+130       Exit Sub
+errHandler:
+140       If ErrMustStop Then Debug.Assert False: Resume
+150       ErrorIn "frmMain.Form_Initialize"
+End Sub
+
+Private Sub Form_Load()
+      Dim fs As New FileSystemObject
+10        On Error GoTo errHandler
+        Call add_system_tray_icon(Me)
+20        If fs.FileExists(strSharedServerFolder & "\TEMPLATES\" & "Logo.jpg") Then
+30            mApproLogoFilename = strSharedServerFolder & "\TEMPLATES\" & "Logo.jpg"
+40        ElseIf fs.FileExists(strSharedServerFolder & "\TEMPLATES\" & "Logo.bmp") Then
+50            mApproLogoFilename = strSharedServerFolder & "\TEMPLATES\" & "Logo.bmp"
+60        End If
+          
+70        If Not fs.FolderExists(strSharedServerFolder & "\EDI") Then
+80            fs.CreateFolder strSharedServerFolder & "\EDI"
+90        End If
+100       If Not fs.FolderExists(strSharedServerFolder & "\EDI\POs") Then
+110           fs.CreateFolder strSharedServerFolder & "\EDI\POs"
+120       End If
+130       If Not fs.FolderExists(strSharedServerFolder & "\EDI\POs\OUT") Then
+140           fs.CreateFolder strSharedServerFolder & "\EDI\POs\OUT"
+150       End If
+160       If Not fs.FolderExists(strSharedServerFolder & "\Emails") Then
+170           fs.CreateFolder strSharedServerFolder & "\Emails"
+180       End If
+190       If Not fs.FolderExists(strSharedServerFolder & "\Emails_Links") Then
+200           fs.CreateFolder strSharedServerFolder & "\Emails_Links"
+210       End If
+220       chkKeepCopies = GetSetting("PS", "OPTIONS", "KEEPDOCUMENTS", 0)
+230       mnuDebug.Checked = False
+240       zPrint.KeepCopies = (chkKeepCopies = 1)
+250       zPrint.Preview = (1 = chkPreview)
+260       zPrint.InitializeManager strSharedServerFolder & "\TEMPLATES"
+          
+270       File1.Path = strSharedServerFolder & "\Emails\"
+280       File1.Pattern = "*.XML"     '= "*.HTML;*.XML"
+290       File2.Path = strSharedServerFolder & "\Printing\"
+300       File2.Pattern = "*.txt;*.xml"
+310       File1.Refresh
+320       cmdGo.Visible = InternetDialup
+330       bCanClose = True
+340       SSTab1.Tab = 1
+350       SetGridLayout Me.G_EDI, Me.Name
+360       Timer.Enabled = True
+
+      '''''    zPrint.SetTimerEnabled True
+      '''''    zEMail.SetTimerEnabled True
+      '''''    zEDI.SetTimerEnabled True
+      '''''    zEmailwithLink.SetTimerEnabled True
+370       Exit Sub
+errHandler:
+380       If ErrMustStop Then Debug.Assert False: Resume
+390       ErrorIn "frmMain.Form_Load", , EA_NORERAISE
+400       HandleError
+End Sub
+
+Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
+    Cancel = Not bCanClose
+    If Not Cancel Then
+        Cancel = MsgBox("You want to close the dispatch application?", vbQuestion + vbYesNo, "Confirm") = vbNo
+    End If
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    On Error GoTo errHandler
+    Set zPrint = Nothing
+    'Delete Icon from SysTray
+    Call remove_system_tray_icon
+'If bSysTrayLoaded Then UnloadSysTray
+    SaveLayout Me.G_EDI, Me.Name
+
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmMain.Form_Unload(Cancel)", Cancel, EA_NORERAISE
+    HandleError
+End Sub
+
+
+'====================================================================
+' STUFF for TRAY
+'====================================================================
+'Public Sub InitSysTray()
+'    On Error GoTo errHandler
+'    'the form must be fully visible before calling Shell_NotifyIcon
+'Dim res As Boolean
+'Dim cnt As Integer
+'    SysTrayText = "Papyrus dispatcher running" & vbNullChar
+'    With nid
+'        .cbSize = Len(nid)
+'        .hwnd = Me.hwnd
+'        .uID = vbNull
+'        .uFlags = NIF_ICON Or NIF_TIP Or NIF_MESSAGE
+'        .uCallbackMessage = WM_MOUSEMOVE
+'        .hIcon = Me.Icon
+'        .szTip = SysTrayText
+'    End With
+'    cnt = 0
+'    Do While (res = False) And (cnt < 60)
+'        Shell_NotifyIcon NIM_DELETE, nid
+'        res = Shell_NotifyIcon(NIM_ADD, nid)
+'        If res = False Then
+'            EventPause 1
+'            cnt = cnt + 1
+'        End If
+'    Loop
+'    bSysTrayLoaded = True
+'
+'    Exit Sub
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmMain.InitSysTray"
+'End Sub
+
+
+'Private Sub ChangeSysTray(IsRunning As Boolean)
+'Dim res As Boolean
+'Dim cnt As Integer
+'    On Error GoTo errHandler
+'    If IsRunning Then
+'        SysTrayText = "Papyrus dispatcher running" & vbNullChar
+'    Else
+'        SysTrayText = "Papyrus dispatcher stopped" & vbNullChar
+'    End If
+'    With nid
+'        .cbSize = Len(nid)
+'        .hwnd = Me.hwnd
+'        .uID = vbNull
+'        .uFlags = NIF_ICON Or NIF_TIP Or NIF_MESSAGE
+'        .uCallbackMessage = WM_MOUSEMOVE
+'        .hIcon = Me.Icon
+'        .szTip = SysTrayText
+'    End With
+'    Do While (res = False) And (cnt < 2)
+'        res = Shell_NotifyIcon(NIM_MODIFY, nid)
+'        If res = False Then
+'            EventPause 1
+'            cnt = cnt + 1
+'        End If
+'    Loop
+'    Exit Sub
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmMain.ChangeSysTray(IsRunning)", IsRunning
+'End Sub
+'Private Sub UnloadSysTray()
+'    On Error GoTo errHandler
+'Dim res As Boolean
+'Dim cnt As Integer
+'    With nid
+'        .cbSize = Len(nid)
+'        .hwnd = Me.hwnd
+'        .uID = vbNull
+'        .uFlags = NIF_ICON Or NIF_TIP Or NIF_MESSAGE
+'        .uCallbackMessage = WM_MOUSEMOVE
+'        .hIcon = Me.Icon
+'        .szTip = ""
+'    End With
+'
+'    Do While (res = False) And (cnt < 2)
+'        res = Shell_NotifyIcon(NIM_DELETE, nid)
+'        If res = False Then
+'            EventPause 1
+'            cnt = cnt + 1
+'        End If
+'    Loop
+'    Exit Sub
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmMain.UnloadSysTray"
+'End Sub
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As _
+                          Single, Y As Single)
+    'On Error GoTo errHandler
+    On Error Resume Next
+    'this procedure receives the callbacks from the System Tray icon.
+Dim Result As Long
+Dim msg As Long
+    'the value of X will vary depending upon the scalemode setting
+    If Me.ScaleMode = vbPixels Then
+        msg = x
+    Else
+        msg = x / Screen.TwipsPerPixelX
+    End If
+    Select Case msg
+'        Case WM_LBUTTONUP        '514 restore form window
+'            Me.WindowState = vbNormal
+'            Result = SetForegroundWindow(Me.hwnd)
+'            Me.Show
+        Case WM_LBUTTONDBLCLK    '515 restore form window
+            Me.WindowState = vbNormal
+            Result = SetForegroundWindow(Me.hwnd)
+            Me.Show
+'        Case WM_RBUTTONUP        '517 display popup menu
+'            Result = SetForegroundWindow(Me.hwnd)
+'            Me.PopupMenu Me.menPopup
+    End Select
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmMain.Form_MouseMove(Button,Shift,X,Y)", Array(Button, Shift, x, Y), EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub Form_Resize()
+    On Error GoTo errHandler
+    If Me.WindowState = vbMinimized Then
+        Me.Hide
+    Else
+        SaveFormPosition Me.Left, Me.TOP, Me.Height, Me.Width, Me.WindowState
+        Screen.MousePointer = vbDefault
+    End If
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmMain.Form_Resize", , EA_NORERAISE
+    HandleError
+End Sub
+
+Private Sub cmdMinimize_Click()
+Dim bOnline As Boolean
+    Set fInet = New wininet
+    bOnline = fInet.Connected
+    Set fInet = Nothing
+    If bOnline Then
+        MsgBox "It appears that the internet connection has not disconnected. Please check and disconnect if desired.", vbInformation + vbOKOnly, "Warning"
+    End If
+    On Error GoTo errHandler
+    Me.WindowState = vbMinimized
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmMain.cmdMinimize_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+
+Private Sub LoadEDIArray()
+    On Error GoTo errHandler
+Dim i As Integer
+    XEDI.Clear
+    XEDI.ReDim 1, rsEDI.RecordCount, 1, 10
+    For i = 1 To rsEDI.RecordCount
+        With rsEDI
+            XEDI.Value(i, 1) = FNS(rsEDI.fields(2))
+            XEDI.Value(i, 2) = Format(FND(rsEDI.fields(1)), "dd/yy/yy HH:NN")
+           ' XEDI.Value(i, 3) = ""
+            XEDI.Value(i, 3) = FNS(rsEDI.fields(3))
+            XEDI.Value(i, 4) = FNS(rsEDI.fields(4))
+            XEDI.Value(i, 5) = FNS(rsEDI.fields(5))
+            XEDI.Value(i, 6) = FND(rsEDI.fields(1))
+            XEDI.Value(i, 10) = ""
+        End With
+        rsEDI.MoveNext
+    Next
+    XEDI.QuickSort 1, XEDI.UpperBound(1), 6, XORDER_DESCEND, XTYPE_DATE
+    Set G_EDI.Array = XEDI
+    G_EDI.ReBind
+    Exit Sub
+errHandler:
+    ErrorIn "frmMain.LoadEDIArray"
+End Sub
+
+Public Sub FillPrintersList()
+10        On Error GoTo errHandler
+      Dim itmList As ListItem
+      Dim lngIndex As Long
+20        Me.lvwPrinters.ListItems.Clear
+30        For lngIndex = 1 To oPC.Configuration.Printers.Count
+40            Set itmList = lvwPrinters.ListItems.Add(Key:=oPC.Configuration.Printers.Key(oPC.Configuration.Printers.ItemByOrdinalIndex(lngIndex)) & "k")
+50            With itmList
+60                .text = oPC.Configuration.Printers.ItemByOrdinalIndex(lngIndex)
+70                If oPC.Configuration.Printers.ActiveByOrdinal(lngIndex) = False Then
+80                    .ForeColor = COLOR_CANCELLED
+90                End If
+100           End With
+110       Next
+120       Exit Sub
+errHandler:
+130       If ErrMustStop Then Debug.Assert False: Resume
+140       ErrorIn "frmMain.FillPrintersList"
+End Sub
+
+Private Sub cmdDeletePrinter_Click()
+    On Error GoTo errHandler
+    
+    oPC.Configuration.DeletePrinter CLng(Val(lvwPrinters.SelectedItem.Key))
+    FillPrintersList
+    Exit Sub
+errHandler:
+    If ErrMustStop Then Debug.Assert False: Resume
+    ErrorIn "frmMain.cmdDeletePrinter_Click", , EA_NORERAISE
+    HandleError
+End Sub
+
+'Public Function LoadProperties() As Boolean
+'    On Error GoTo errHandler
+'Dim sSQL As String
+'Dim strPCName As String
+'Dim strServerName As String
+'    strPCName = Trim(Me.NameOfPC)
+'
+'    If IsNetConnectionAlive Then
+'        strLocalRootFolder = "\\" & strPCName & "\PBKS_S"
+'    Else
+'        strLocalRootFolder = "C:\PBKS"
+'    End If
+'
+'    strServerName = GetIniKeyValue(strLocalRootFolder & "\PBKSWS.INI", "NETWORK", "MAINSQLSERVER", strPCName)
+'    cs = "Provider=SQLOLEDB.1;Data Source=" & strServerName & ";Initial Catalog=PBKS;User Id=sa;Password=" & strPassword & ";NConnect Timeout=45"
+'    ADOConn.open cs
+'    sSQL = "SELECT * FROM tProperty"
+'    Set rsProperty = New ADODB.Recordset
+'    rsProperty.CursorLocation = adUseClient
+'    rsProperty.open sSQL, ADOConn, adOpenKeyset, adLockOptimistic
+'    Set rsProperty.ActiveConnection = Nothing
+'
+'    ADOConn.Close
+'
+'    Exit Function
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "clsExchange.LoadProperties"
+'End Function
+'Public Property Get NameOfPC() As String
+'    On Error GoTo errHandler
+'Dim NameSize As Long
+'Dim MachineName As String * 16
+'Dim X As Long
+'    MachineName = Space$(16)
+'    NameSize = Len(MachineName)
+'    X = GetComputerName(MachineName, NameSize)
+'    NameOfPC = Left(MachineName, NameSize)
+'    Exit Property
+'errHandler:
+'    If ErrMustStop Then Debug.Assert False: Resume
+'    ErrorIn "frmMain.NameOfPC"
+'End Property
+
+

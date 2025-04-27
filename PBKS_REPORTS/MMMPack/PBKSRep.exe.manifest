@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3">
+  <!-- Make My Manifest 0.12.309 -->
+  <assemblyIdentity name="Papyrus.Services.PBKSRep" processorArchitecture="X86" type="win32" version="1.3.0.57" />
+
+  <Compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <Application>
+        <SupportedOS ID="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>
+    </Application>
+  </Compatibility>  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity language="*" name="Microsoft.Windows.Common-Controls" processorArchitecture="X86" publicKeyToken="6595b64144ccf1df" type="win32" version="6.0.0.0" />
+    </dependentAssembly>
+  </dependency>
+
+
+
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.DDActiveReportsDesigner.dll" size="13824">
+      <assemblyIdentity name="AxInterop.DDActiveReportsDesigner" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>JqdfIh0LjPrxElvplCJNRD4TTEE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.DDActiveReportsDesigner.dll" size="25088">
+      <assemblyIdentity name="Interop.DDActiveReportsDesigner" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>4Rk1RRegYzu6aZpWJo8NtwEUpLA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+
+
+
+  <file name="ExComboBox.dll">
+    <typelib tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{CF170E7A-4391-44BD-8D93-29F8D2801EF7}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" progid="Exontrol.ComboBox.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="ComboBox Class" />
+    <comClass clsid="{8739709B-9538-4237-A3B4-7A1C213F4B7D}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" progid="ExComboBox.Column.1" description="Column Class" />
+    <comClass clsid="{C270941E-90FF-491A-998B-8378C6B08925}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" progid="ExComboBox.Columns.1" description="Columns Class" />
+    <comClass clsid="{28CB5CD2-889A-40F3-8769-60904F7A6611}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" progid="ExComboBox.Items.1" description="Items Class" />
+    <comClass clsid="{F8EAE3B2-E898-4BBC-811F-3E29D203391C}" tlbid="{E6CC263E-5760-49D9-B793-4245D54496CF}" threadingModel="Apartment" description="TemplatePage Class" />
+  </file>
+  <file name="RegionalSet.dll">
+    <typelib tlbid="{13852F1A-9758-48EC-B05E-63CBCFF972D9}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{569C00A0-4ACA-4FE3-8FF2-A27DA4DBA4CF}" tlbid="{13852F1A-9758-48EC-B05E-63CBCFF972D9}" threadingModel="Apartment" progid="RegionalSet.z_RegionalSettings" description="" />
+  </file>
+  <file name="xarraydb.ocx">
+    <typelib tlbid="{0D623539-DBA2-11D1-B5DF-0060976089D0}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{0D62353B-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D623539-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" progid="XArrayDB.XArrayDB.1" description="APEX XArrayDB Object" />
+  </file>
+
+  <file name="comsvcs.dll">
+    <typelib tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{ECABB0A4-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="COM+ Services Security - certificate collection" />
+    <comClass clsid="{ECABB0A5-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="COM+ Services Security - identity collection" />
+    <comClass clsid="{ECABB0A6-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="COM+ Services Security - callers collection" />
+    <comClass clsid="{ECABB0A7-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="COM+ Services Security - call context collection" />
+    <comClass clsid="{7999FC25-D3C6-11CF-ACAB-00A024A55AEF}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="TxCTx.TransactionContext" description="Transaction Context Class" />
+    <comClass clsid="{5CB66670-D3D4-11CF-ACAB-00A024A55AEF}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="TxCTx.TransactionContextEx" description="Transaction Context Extended Class" />
+    <comClass clsid="{ECABB0C8-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" progid="COMSVCS.CServiceConfig.1" description="CServiceConfig Class" />
+    <comClass clsid="{ECABB0C9-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="both" description="ServicePool Class" />
+    <comClass clsid="{ECABB0CA-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="both" description="ServicePoolConfig Class" />
+    <comClass clsid="{2A005C05-A5DE-11CF-9E66-00AA00A3F464}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="Shared Property Class" />
+    <comClass clsid="{2A005C0B-A5DE-11CF-9E66-00AA00A3F464}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" description="SharedPropertyGroup Class" />
+    <comClass clsid="{2A005C11-A5DE-11CF-9E66-00AA00A3F464}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="MTxSpm.SharedPropertyGroupManager.1" description="SharedPropertyGroupManager Class" />
+    <comClass clsid="{ECABB0AB-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" description="MTSEvents Class" />
+    <comClass clsid="{ECABB0AC-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" description="MTSLocator Class" />
+    <comClass clsid="{4B2E958D-0393-11D1-B1AB-00AA00BA3258}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" progid="Mts.MtsGrp" description="MtxGrp Class" />
+    <comClass clsid="{ECABB0BD-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" progid="CrmClerk.CrmClerk.1" description="CRMClerk Class" />
+    <comClass clsid="{ECABB0BE-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" progid="CrmRecoveryClerk.CrmRecoveryClerk.1" description="CRMRecoveryClerk Class" />
+    <comClass clsid="{ECABB0BF-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="QC.MessageMover.1" description="QC MessageMover Class" />
+    <comClass clsid="{ECABAFB5-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Free" description="" />
+    <comClass clsid="{ECABB0C5-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="partition" description="" />
+    <comClass clsid="{ECABB0C7-7F19-11D2-978E-0000F8757E2A}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="soap" description="" />
+    <comClass clsid="{EF24F689-14F8-4D92-B4AF-D7B1F0E70FD4}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="System.EnterpriseServices.Internal.AppDomainHelper" description="" />
+    <comClass clsid="{458AA3B5-265A-4B75-BC05-9BEA4630CF18}" tlbid="{2A005C00-A5DE-11CF-9E66-00AA00A3F464}" threadingModel="Both" progid="System.EnterpriseServices.Internal.AssemblyLocator" description="" />
+  </file>
+  <file name="dsofile.dll">
+    <typelib tlbid="{58968145-CF00-4341-995F-2EE093F6ABA3}" version="2.1" flags="" helpdir="" />
+    <comClass clsid="{58968145-CF05-4341-995F-2EE093F6ABA3}" tlbid="{58968145-CF00-4341-995F-2EE093F6ABA3}" threadingModel="Apartment" progid="DSOFile.OleDocumentProperties" description="DSOFile OleDocumentProperties" />
+  </file>
+  <file name="ARVIEW2.OCX">
+    <typelib tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{21CE2C92-48AF-11D1-AA0B-0060081C43D9}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="Border Style Object" />
+    <comClass clsid="{C1D9E21A-EA25-40C7-BD9D-1D7425220B27}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="ActiveReports Navigation History" />
+    <comClass clsid="{CCC6DCD3-8A14-4ABA-A615-3BC4A69E4E84}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="" />
+    <comClass clsid="{DFEB15D8-6753-4E54-BA71-40C83C2F3A32}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="ActiveReports Table Of Contents" />
+    <comClass clsid="{B31B60C2-64FC-11D1-AA58-0060081C43D9}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="" />
+    <comClass clsid="{0014F800-74B1-46A7-9060-DDD9653306F9}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" progid="DDActiveReports2.Canvas.1" description="Canvas Object" />
+    <comClass clsid="{5C210E01-F309-11D0-A8E9-00A0C90F29FC}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" progid="DDActiveReports2.Printer.1" description="" />
+    <comClass clsid="{4AB670E2-96C7-11D1-8B77-3C346B000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="" />
+    <comClass clsid="{3CB5B0C2-8CF9-11D1-8B5E-9AD7CD000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" description="ActiveReports Toolbar Object" />
+    <comClass clsid="{3CB5B0C4-8CF9-11D1-8B5E-9AD7CD000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" description="" />
+    <comClass clsid="{FA0BFF22-8D3D-11D1-8B5E-9AD7CD000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" description="" />
+    <comClass clsid="{6BFD6850-94D9-11D1-8B70-B25105000000}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" description="ActiveReports OutputFormat PropertyPage" />
+    <comClass clsid="{8569D715-FF88-44BA-8D1D-AD3E59543DDE}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" progid="DDActiveReportsViewer2.ARViewer2.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Data Dynamics ActiveReports Viewer 2.0" />
+    <comClass clsid="{F10AA491-22EA-4B11-A070-4B6A5AFF26FA}" tlbid="{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}" threadingModel="Apartment" description="" />
+  </file>
+  <file name="ardespro2.dll">
+    <typelib tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" version="2.0" flags="" helpdir="" />
+    <comClass clsid="{58ECEC3C-DABA-4B0C-B1DE-B36FDFF8E112}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" description="" />
+    <comClass clsid="{F2205A5E-0833-4E4C-B1CF-CA1037A6E0E0}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" threadingModel="Apartment" progid="DDActiveReportsDesigner.ARDesigner.2" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="Data Dynamics ActiveReports RunTime Designer" />
+    <comClass clsid="{D9B911D5-BE6E-40D6-A3F4-2AB9BFA14238}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" threadingModel="Apartment" description="ActiveReports OutputFormat Property Page" />
+    <comClass clsid="{89A96FEC-4251-4A66-AAB3-6F339B04EB8D}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" threadingModel="Apartment" description="Data Dynamics DAO Control Properties" />
+    <comClass clsid="{4756CBDB-45D5-4971-8EA1-90399040C68D}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" threadingModel="Apartment" description="ActiveReports RDO Property Page" />
+    <comClass clsid="{C11D94ED-8C31-43E4-B681-A7F3FDD817F3}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" threadingModel="Apartment" description="ActiveReports OLEDB Property Page" />
+    <comClass clsid="{4C729278-89EC-4DA4-B571-FE175F6ADDB8}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" threadingModel="Apartment" description="Font Property Sheet" />
+    <comClass clsid="{A94F52CA-48EB-43F8-8C8A-34BC4EA373FC}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" threadingModel="Apartment" description="Border Property Page" />
+    <comClass clsid="{C876EBE3-D4F3-4764-8306-4C80100A8D25}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" threadingModel="Apartment" description="XML Properties" />
+    <comClass clsid="{0D86096D-E6FF-4F02-9B8C-3F28C881676D}" tlbid="{E281C260-6F27-11D1-8AF0-00A0C98CD92B}" threadingModel="Apartment" description="" />
+  </file>
+  <file name="arpro2.dll">
+    <typelib tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" version="2.0" flags="" helpdir="" />
+    <comClass clsid="{21CE2C92-48AF-11D1-AA0B-0060081C43D9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Border Style Object" />
+    <comClass clsid="{C1D9E21A-EA25-40C7-BD9D-1D7425220B27}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports Navigation History" />
+    <comClass clsid="{DFEB15D8-6753-4E54-BA71-40C83C2F3A32}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports Table Of Contents" />
+    <comClass clsid="{0014F800-74B1-46A7-9060-DDD9653306F9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" progid="DDActiveReports2.Canvas.1" description="Canvas Object" />
+    <comClass clsid="{5C210E01-F309-11D0-A8E9-00A0C90F29FC}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" progid="DDActiveReports2.Printer.1" description="" />
+    <comClass clsid="{3CB5B0C2-8CF9-11D1-8B5E-9AD7CD000000}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" description="ActiveReports Toolbar Object" />
+    <comClass clsid="{55CCD8A2-FD9F-11D2-A933-00C04FA372BC}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Report Field Object" />
+    <comClass clsid="{CFDA4F68-E23A-4704-BE78-108ECED908DD}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports Label Control" />
+    <comClass clsid="{8B635B5C-0C12-4E1A-904B-E94FFB443E81}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports Field Object" />
+    <comClass clsid="{9B69B132-2F2C-4D19-8776-61D81C36F4DD}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports Image Control" />
+    <comClass clsid="{C567D337-ABB7-44A8-90F6-7729442476D9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports OLEDB Data Control" />
+    <comClass clsid="{0F0BBB91-18EF-11D1-A95E-0060081C43D9}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports DAO FileBrowser" />
+    <comClass clsid="{F95EFF3C-11D7-41F6-BCC7-19736C333AC8}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReport OLE Object" />
+    <comClass clsid="{1B7607B5-A47D-41C8-981C-9DC5A46BF684}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports CheckBox Control" />
+    <comClass clsid="{365E5E1D-9596-44F0-B292-AC77E740F31F}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Data Dynamics ActiveReports Shape Control" />
+    <comClass clsid="{9A474B20-0E43-4776-8B80-D78D1378569A}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports PageBreak Object" />
+    <comClass clsid="{9EB8768B-CDFA-44DF-8F3E-857A8405E1DB}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" progid="DDActiveReports2.ActiveReport.2" description="ActiveReport Object" />
+    <comClass clsid="{FB759E03-99D3-4A0A-9285-8D0AC65C2A5A}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports RichEdit Control" />
+    <comClass clsid="{1102A4EF-0604-11D2-AB23-00C04FA372BC}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReport Error Object" />
+    <comClass clsid="{BC252217-EEAD-11D2-AD21-00C04FA372BC}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Report Fields Collection" />
+    <comClass clsid="{2FAC5CD7-8133-4D38-8854-139CB0582CA0}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="Page settings for Report" />
+    <comClass clsid="{D6B8644A-6F1E-44F3-B1EF-153DAA316911}" tlbid="{A7973091-BC64-4F16-84D4-A4BE059B4927}" threadingModel="Apartment" description="ActiveReports Barcode Control" />
+  </file>
+
+  <file name="pdfexpt.dll">
+    <typelib tlbid="{013A8BB0-A25B-11D1-8BB6-00A0C98CD92B}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{013A8BB1-A25B-11D1-8BB6-00A0C98CD92B}" tlbid="{013A8BB0-A25B-11D1-8BB6-00A0C98CD92B}" threadingModel="Apartment" progid="ActiveReportsPDFExport.ARExportPDF.1" description="ActiveReports PDF Export" />
+  </file>
+
+  <file name="XpdfPrint.dll">
+    <typelib tlbid="{868DC9E0-7705-11D7-BD2E-08004608C318}" version="3.1" flags="" helpdir="" />
+    <comClass clsid="{8BFD63E0-7705-11D7-BD2E-08004608C318}" tlbid="{868DC9E0-7705-11D7-BD2E-08004608C318}" progid="Xpdf.XpdfPrint.3" description="XpdfPrint Class" />
+  </file>
+  <file name="exclexpt.dll">
+    <typelib tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" version="1.0" flags="" helpdir="" />
+    <comClass clsid="{A31CC8F8-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.DDSheets.1" description="Sheet Collection" />
+    <comClass clsid="{A31CC8F4-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" description="Sheet object for SpreadBuilder" />
+    <comClass clsid="{A31CC8F5-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" description="Spreadsheet Cell used by SpreadBuilder" />
+    <comClass clsid="{1A422D40-A2C4-11D2-ACAA-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.DDRow.1" description="Row Class" />
+    <comClass clsid="{E031E36A-A34B-11D2-ACAA-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.DDColumn.1" description="" />
+    <comClass clsid="{A31CC8EE-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.ARExportExcel.1" description="ActiveReports Excel Export" />
+    <comClass clsid="{A31CC8F2-A0BE-11D2-ACA7-00C04FA372BC}" tlbid="{A31CC8EF-A0BE-11D2-ACA7-00C04FA372BC}" threadingModel="Apartment" progid="ActiveReportsExcelExport.SpreadBuilder.1" description="Generic component to build BIFF files" />
+  </file>
+  <file name="CoolButton.ocx">
+    <typelib tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" version="9.0" flags="control" helpdir="" />
+    <comClass clsid="{73C96E32-B857-416F-B15A-BFCED9D4F5B3}" tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" threadingModel="Apartment" description="" />
+    <comClass clsid="{0EB1737A-8BB9-4538-B9EA-A69032665724}" tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" threadingModel="Apartment" progid="CoolButtonControl.CoolButton" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,actslikebutton,setclientsitefirst" description="" />
+    <comClass clsid="{DD790845-B7C4-436C-9461-0C9DFFBA75BC}" tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" threadingModel="Apartment" description="" />
+    <comClass clsid="{9C38E86E-2644-4ABF-BD8E-652D84728D1F}" tlbid="{BE9AD7B4-2F12-4067-96E1-FBB7FB01D8EA}" threadingModel="Apartment" description="" />
+  </file>
+  <file name="TODG6.OCX">
+    <typelib tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" version="6.0" flags="control" helpdir="" />
+    <comClass clsid="{0D6234E9-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" progid="TrueOleDBGrid60.TDBDropDown" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,alignable,setclientsitefirst" description="The main dropdown object" />
+    <comClass clsid="{0D6234D0-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" progid="TrueOleDBGrid60.TDBGrid" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,alignable,setclientsitefirst" description="The main grid object" />
+    <comClass clsid="{0D6234DE-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" description="(null)" />
+    <comClass clsid="{0D6234E5-DBA2-11D1-B5DF-0060976089D0}" tlbid="{0D6234D1-DBA2-11D1-B5DF-0060976089D0}" threadingModel="Apartment" description="(null)" />
+  </file>
+  <file name="tabctl32.ocx">
+    <typelib tlbid="{BDC217C8-ED16-11CD-956C-0000C04E4C0A}" version="1.1" flags="control" helpdir="" />
+    <comClass clsid="{2334D2B2-713E-11CF-8AE5-00AA00C00905}" tlbid="{BDC217C8-ED16-11CD-956C-0000C04E4C0A}" description="" />
+    <comClass clsid="{2334D2B4-713E-11CF-8AE5-00AA00C00905}" tlbid="{BDC217C8-ED16-11CD-956C-0000C04E4C0A}" description="" />
+    <comClass clsid="{BDC217C5-ED16-11CD-956C-0000C04E4C0A}" tlbid="{BDC217C8-ED16-11CD-956C-0000C04E4C0A}" threadingModel="Apartment" progid="TabDlg.SSTab.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,simpleframe,setclientsitefirst" description="A Tabbed Dialog control that can be used to group controls on separate tabs." />
+  </file>
+  <file name="SYSINFO.OCX">
+    <typelib tlbid="{6FBA474E-43AC-11CE-9A0E-00AA0062BB4C}" version="1.0" flags="control" helpdir="" />
+    <comClass clsid="{6FBA474B-43AC-11CE-9A0E-00AA0062BB4C}" tlbid="{6FBA474E-43AC-11CE-9A0E-00AA0062BB4C}" threadingModel="Apartment" progid="SYSINFO.SysInfo.1" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,invisibleatruntime,nouiactivate,setclientsitefirst" description="Microsoft SysInfo Control 6.0" />
+  </file>
+  <file name="CCubeX.ocx">
+    <typelib tlbid="{CCA2C66D-33FD-11D5-8D72-005004532BDF}" version="1.3" flags="control" helpdir="" />
+    <comClass clsid="{CCA2C672-33FD-11D5-8D72-005004532BDF}" tlbid="{CCA2C66D-33FD-11D5-8D72-005004532BDF}" threadingModel="Single" progid="CCubeX.ContourCubeX" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="ContourCubeX Control" />
+  </file>
+
+  <file name="mscomctl.ocx" asmv2:size="1081616" xmlns="urn:schemas-microsoft-com:asm.v1">
+    <hash xmlns="urn:schemas-microsoft-com:asm.v2">
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>2msOwIHWKMM7FQMn870W07f6Ryk=</dsig:DigestValue>
+    </hash>
+    <typelib tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" version="2.0" helpdir="D:\cmctl198.chm" resourceid="0" flags="CONTROL,HASDISKIMAGE" />
+    <comClass clsid="{1efb6596-857c-11d1-b16a-00c0f0283628}" threadingModel="Apartment" tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" progid="MSComctlLib.TabStrip.2" description="Microsoft TabStrip Control" />
+    <comClass clsid="{66833fe6-8583-11d1-b16a-00c0f0283628}" threadingModel="Apartment" tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" progid="MSComctlLib.Toolbar.2" description="Microsoft Toolbar Control" />
+    <comClass clsid="{8e3867a3-8586-11d1-b16a-00c0f0283628}" threadingModel="Apartment" tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" progid="MSComctlLib.SBarCtrl.2" description="Microsoft StatusBar Control" />
+    <comClass clsid="{35053a22-8589-11d1-b16a-00c0f0283628}" threadingModel="Apartment" tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" progid="MSComctlLib.ProgCtrl.2" description="Microsoft ProgressBar Control" />
+    <comClass clsid="{c74190b6-8589-11d1-b16a-00c0f0283628}" threadingModel="Apartment" tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" progid="MSComctlLib.TreeCtrl.2" description="Displays a hierarchical list of Node objects, each of which consists of a label and an optional bitmap." />
+    <comClass clsid="{bdd1f04b-858b-11d1-b16a-00c0f0283628}" threadingModel="Apartment" tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" progid="MSComctlLib.ListViewCtrl.2" description="Displays a collection of ListItems such as files or folders." />
+    <comClass clsid="{2c247f23-8591-11d1-b16a-00c0f0283628}" threadingModel="Apartment" tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" progid="MSComctlLib.ImageListCtrl.2" description="Contains a collection of ListImage objects, each of which can be referred to by its index or key" />
+    <comClass clsid="{f08df954-8592-11d1-b16a-00c0f0283628}" threadingModel="Apartment" tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" progid="MSComctlLib.Slider.2" description="A calibrated control with a slider for setting or selecting values." />
+    <comClass clsid="{dd9da666-8594-11d1-b16a-00c0f0283628}" threadingModel="Apartment" tlbid="{831fdd16-0c5c-11d2-a9fc-0000f8754da1}" progid="MSComctlLib.ImageComboCtl.2" description="Microsoft ImageComboBox Control" />
+  </file>
+
+  <file name="mscomct2.ocx" asmv2:size="645616" xmlns="urn:schemas-microsoft-com:asm.v1">
+    <hash xmlns="urn:schemas-microsoft-com:asm.v2">
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Alz7OTAzkjQ/nhuIMTehJWvLWO4=</dsig:DigestValue>
+    </hash>
+    <typelib tlbid="{86cf1d34-0c5f-11d2-a9fc-0000f8754da1}" version="2.0" helpdir="D:\cmctl298.chm" resourceid="0" flags="CONTROL,HASDISKIMAGE" />
+    <comClass clsid="{b09de715-87c1-11d1-8be3-0000f8754da1}" threadingModel="Apartment" tlbid="{86cf1d34-0c5f-11d2-a9fc-0000f8754da1}" progid="MSComCtl2.Animation.2" description="Animation Control" />
+    <comClass clsid="{603c7e80-87c2-11d1-8be3-0000f8754da1}" threadingModel="Apartment" tlbid="{86cf1d34-0c5f-11d2-a9fc-0000f8754da1}" progid="MSComCtl2.UpDown.2" description="UpDown Control" />
+    <comClass clsid="{232e456a-87c3-11d1-8be3-0000f8754da1}" threadingModel="Apartment" tlbid="{86cf1d34-0c5f-11d2-a9fc-0000f8754da1}" progid="MSComCtl2.MonthView.2" description="Microsoft MonthView Control" />
+    <comClass clsid="{20dd1b9e-87c4-11d1-8be3-0000f8754da1}" threadingModel="Apartment" tlbid="{86cf1d34-0c5f-11d2-a9fc-0000f8754da1}" progid="MSComCtl2.DTPicker.2" description="Microsoft Date and Time Picker Control" />
+    <comClass clsid="{fe38753a-44a3-11d1-b5b7-0000c09000c4}" threadingModel="Apartment" tlbid="{86cf1d34-0c5f-11d2-a9fc-0000f8754da1}" progid="MSComCtl2.FlatScrollBar.2" description="Microsoft Flat Scrollbar Control" />
+  </file>
+
+  <file name="COMCT332.OCX">
+    <typelib tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" version="1.1" flags="control" helpdir="" />
+    <comClass clsid="{38911D92-E448-11D0-84A3-00DD01104159}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" threadingModel="Apartment" progid="ComCtl3.CoolBar" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,actslikelabel,nouiactivate,alignable,simpleframe,setclientsitefirst" description="Microsoft Coolbar Control, version 6.0" />
+    <comClass clsid="{5522DAF8-06D6-11D2-8D70-00A0C98B28E2}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" progid="ComCtl3.Band" description="Coolbar Band" />
+    <comClass clsid="{5522DAFA-06D6-11D2-8D70-00A0C98B28E2}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" progid="ComCtl3.Bands" description="Coolbar Bands" />
+    <comClass clsid="{5522DB04-06D6-11D2-8D70-00A0C98B28E2}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" progid="ComCtl3.BandProperties" description="" />
+    <comClass clsid="{38911D90-E448-11D0-84A3-00DD01104159}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" threadingModel="Apartment" description="" />
+    <comClass clsid="{38911D8E-E448-11D0-84A3-00DD01104159}" tlbid="{38911DA0-E448-11D0-84A3-00DD01104159}" threadingModel="Apartment" description="" />
+  </file>
+
+
+
+  <file name="CCubeX20.ocx">
+    <typelib tlbid="{801C12A5-BE41-41CD-AE48-C666E77F2F02}" version="2.0" flags="control" helpdir="" />
+    <comClass clsid="{07EE1598-351E-49A8-8B75-84BECBB9F4D0}" tlbid="{801C12A5-BE41-41CD-AE48-C666E77F2F02}" threadingModel="Single" progid="CCubeX2.ContourGridX" miscStatusIcon="recomposeonresize,cantlinkinside,insideout,activatewhenvisible,setclientsitefirst" description="ContourCubeX Control 2.0" />
+    <comClass clsid="{B6C9E94F-D2E2-4876-AE51-3BDBFEC44172}" tlbid="{801C12A5-BE41-41CD-AE48-C666E77F2F02}" threadingModel="Single" description="ContourRect coclass" />
+  </file>
+  <file name="COMDLG32.OCX">
+    <typelib tlbid="{F9043C88-F6F2-101A-A3C9-08002B2F49FB}" version="1.2" flags="control" helpdir="" />
+    <comClass clsid="{F9043C85-F6F2-101A-A3C9-08002B2F49FB}" tlbid="{F9043C88-F6F2-101A-A3C9-08002B2F49FB}" threadingModel="Apartment" progid="MSComDlg.CommonDialog.1" miscStatusIcon="recomposeonresize,onlyiconic,cantlinkinside,insideout,activatewhenvisible,invisibleatruntime,setclientsitefirst" description="Microsoft Common Dialog Control 6.0 (SP6)" />
+  </file>
+</assembly> 

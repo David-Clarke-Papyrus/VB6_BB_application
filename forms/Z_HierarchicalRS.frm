@@ -1,0 +1,226 @@
+VERSION 5.00
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "MSHFLXGD.OCX"
+Begin VB.Form Form1 
+   Caption         =   "Form1"
+   ClientHeight    =   9405
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   14100
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   9405
+   ScaleWidth      =   14100
+   StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton cmdMainTestHRS 
+      Caption         =   "Command1"
+      Height          =   420
+      Left            =   345
+      TabIndex        =   1
+      Top             =   240
+      Width           =   1875
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid MSHFlexGrid1 
+      Bindings        =   "Z_HierarchicalRS.frx":0000
+      Height          =   6960
+      Left            =   405
+      TabIndex        =   0
+      Top             =   795
+      Width           =   12510
+      _ExtentX        =   22066
+      _ExtentY        =   12277
+      _Version        =   393216
+      Rows            =   12
+      Cols            =   14
+      FixedRows       =   0
+      WordWrap        =   -1  'True
+      AllowUserResizing=   3
+      BandDisplay     =   1
+      _NumberOfBands  =   6
+      _Band(0).Cols   =   14
+      _Band(0).GridLinesBand=   1
+      _Band(0).TextStyleBand=   0
+      _Band(0).TextStyleHeader=   0
+      _Band(0).ColHeader=   1
+      _Band(0)._NumMapCols=   13
+      _Band(0)._MapCol(0)._Name=   "Z_ID"
+      _Band(0)._MapCol(0)._RSIndex=   0
+      _Band(0)._MapCol(1)._Name=   "Z_Startdate"
+      _Band(0)._MapCol(1)._RSIndex=   1
+      _Band(0)._MapCol(2)._Name=   "Z_EndDate"
+      _Band(0)._MapCol(2)._RSIndex=   2
+      _Band(0)._MapCol(3)._Name=   "Z_TillPoint"
+      _Band(0)._MapCol(3)._RSIndex=   3
+      _Band(0)._MapCol(4)._Name=   "Z_NominalDate"
+      _Band(0)._MapCol(4)._RSIndex=   4
+      _Band(0)._MapCol(5)._Name=   "Z_Supervisor"
+      _Band(0)._MapCol(5)._RSIndex=   5
+      _Band(0)._MapCol(5)._Alignment=   7
+      _Band(0)._MapCol(6)._Name=   "Z_CashInDrawer"
+      _Band(0)._MapCol(6)._RSIndex=   6
+      _Band(0)._MapCol(6)._Alignment=   7
+      _Band(0)._MapCol(7)._Name=   "Z_ChequesInDrawer"
+      _Band(0)._MapCol(7)._RSIndex=   7
+      _Band(0)._MapCol(7)._Alignment=   7
+      _Band(0)._MapCol(8)._Name=   "Z_VouchersInDrawer"
+      _Band(0)._MapCol(8)._RSIndex=   8
+      _Band(0)._MapCol(8)._Alignment=   7
+      _Band(0)._MapCol(9)._Name=   "Z_CCVouchersInDrawer"
+      _Band(0)._MapCol(9)._RSIndex=   9
+      _Band(0)._MapCol(9)._Alignment=   7
+      _Band(0)._MapCol(10)._Name=   "Z_SalesValue"
+      _Band(0)._MapCol(10)._RSIndex=   10
+      _Band(0)._MapCol(10)._Alignment=   7
+      _Band(0)._MapCol(11)._Name=   "Z_ReturnsValue"
+      _Band(0)._MapCol(11)._RSIndex=   11
+      _Band(0)._MapCol(11)._Alignment=   7
+      _Band(0)._MapCol(12)._Name=   "Z_DiscountsGiven"
+      _Band(0)._MapCol(12)._RSIndex=   12
+      _Band(0)._MapCol(12)._Alignment=   7
+      _Band(1).BandIndent=   1
+      _Band(1).Cols   =   6
+      _Band(1).GridLinesBand=   1
+      _Band(1).TextStyleBand=   0
+      _Band(1).TextStyleHeader=   0
+      _Band(1).ColHeader=   1
+      _Band(1)._ParentBand=   0
+      _Band(1)._NumMapCols=   6
+      _Band(1)._MapCol(0)._Name=   "OPS_ID"
+      _Band(1)._MapCol(0)._RSIndex=   0
+      _Band(1)._MapCol(0)._Alignment=   7
+      _Band(1)._MapCol(1)._Name=   "OPS_Z_ID"
+      _Band(1)._MapCol(1)._RSIndex=   1
+      _Band(1)._MapCol(2)._Name=   "OPS_StartTime"
+      _Band(1)._MapCol(2)._RSIndex=   2
+      _Band(1)._MapCol(3)._Name=   "OPS_EndTime"
+      _Band(1)._MapCol(3)._RSIndex=   3
+      _Band(1)._MapCol(4)._Name=   "OPS_SM_ID"
+      _Band(1)._MapCol(4)._RSIndex=   4
+      _Band(1)._MapCol(4)._Alignment=   7
+      _Band(1)._MapCol(5)._Name=   "OPS_OperatorID"
+      _Band(1)._MapCol(5)._RSIndex=   5
+      _Band(1)._MapCol(5)._Alignment=   7
+      _Band(2).BandIndent=   2
+      _Band(2).Cols   =   9
+      _Band(2).GridLinesBand=   1
+      _Band(2).TextStyleBand=   0
+      _Band(2).TextStyleHeader=   0
+      _Band(2).ColHeader=   1
+      _Band(2)._ParentBand=   1
+      _Band(2)._NumMapCols=   9
+      _Band(2)._MapCol(0)._Name=   "EXCH_ID"
+      _Band(2)._MapCol(0)._RSIndex=   0
+      _Band(2)._MapCol(1)._Name=   "EXCH_SaleDate"
+      _Band(2)._MapCol(1)._RSIndex=   1
+      _Band(2)._MapCol(2)._Name=   "EXCH_CashTotal"
+      _Band(2)._MapCol(2)._RSIndex=   2
+      _Band(2)._MapCol(2)._Alignment=   7
+      _Band(2)._MapCol(3)._Name=   "EXCH_CardTotal"
+      _Band(2)._MapCol(3)._RSIndex=   3
+      _Band(2)._MapCol(3)._Alignment=   7
+      _Band(2)._MapCol(4)._Name=   "EXCH_ChequeTotal"
+      _Band(2)._MapCol(4)._RSIndex=   4
+      _Band(2)._MapCol(4)._Alignment=   7
+      _Band(2)._MapCol(5)._Name=   "EXCH_VoucherTotal"
+      _Band(2)._MapCol(5)._RSIndex=   5
+      _Band(2)._MapCol(5)._Alignment=   7
+      _Band(2)._MapCol(6)._Name=   "EXCH_ZSession_ID"
+      _Band(2)._MapCol(6)._RSIndex=   6
+      _Band(2)._MapCol(7)._Name=   "EXCH_Status"
+      _Band(2)._MapCol(7)._RSIndex=   7
+      _Band(2)._MapCol(8)._Name=   "EXCH_OPSESSION_ID"
+      _Band(2)._MapCol(8)._RSIndex=   8
+      _Band(2)._MapCol(8)._Alignment=   7
+      _Band(3).BandIndent=   3
+      _Band(3).Cols   =   9
+      _Band(3).GridLinesBand=   1
+      _Band(3).TextStyleBand=   0
+      _Band(3).TextStyleHeader=   0
+      _Band(3).ColHeader=   1
+      _Band(3)._ParentBand=   2
+      _Band(3)._NumMapCols=   9
+      _Band(3)._MapCol(0)._Name=   "CSL_ID"
+      _Band(3)._MapCol(0)._RSIndex=   0
+      _Band(3)._MapCol(0)._Alignment=   7
+      _Band(3)._MapCol(1)._Name=   "CSL_EXCH_ID"
+      _Band(3)._MapCol(1)._RSIndex=   1
+      _Band(3)._MapCol(2)._Name=   "CSL_P_ID"
+      _Band(3)._MapCol(2)._RSIndex=   2
+      _Band(3)._MapCol(3)._Name=   "CSL_Qty"
+      _Band(3)._MapCol(3)._RSIndex=   3
+      _Band(3)._MapCol(3)._Alignment=   7
+      _Band(3)._MapCol(4)._Name=   "CSL_Price"
+      _Band(3)._MapCol(4)._RSIndex=   4
+      _Band(3)._MapCol(4)._Alignment=   7
+      _Band(3)._MapCol(5)._Name=   "CSL_Discount"
+      _Band(3)._MapCol(5)._RSIndex=   5
+      _Band(3)._MapCol(6)._Name=   "CSL_TimeOfSale"
+      _Band(3)._MapCol(6)._RSIndex=   6
+      _Band(3)._MapCol(7)._Name=   "CSL_VATRATE"
+      _Band(3)._MapCol(7)._RSIndex=   7
+      _Band(3)._MapCol(8)._Name=   "CSL_Exception_Code"
+      _Band(3)._MapCol(8)._RSIndex=   8
+      _Band(4).BandIndent=   4
+      _Band(4).Cols   =   8
+      _Band(4).GridLinesBand=   1
+      _Band(4).TextStyleBand=   0
+      _Band(4).TextStyleHeader=   0
+      _Band(4).ColHeader=   1
+      _Band(4)._ParentBand=   2
+      _Band(4)._NumMapCols=   8
+      _Band(4)._MapCol(0)._Name=   "PAY_ID"
+      _Band(4)._MapCol(0)._RSIndex=   0
+      _Band(4)._MapCol(0)._Alignment=   7
+      _Band(4)._MapCol(1)._Name=   "PAY_EXCH_ID"
+      _Band(4)._MapCol(1)._RSIndex=   1
+      _Band(4)._MapCol(2)._Name=   "PAY_Amt"
+      _Band(4)._MapCol(2)._RSIndex=   2
+      _Band(4)._MapCol(2)._Alignment=   7
+      _Band(4)._MapCol(3)._Name=   "PAY_Amt_Tendered"
+      _Band(4)._MapCol(3)._RSIndex=   3
+      _Band(4)._MapCol(3)._Alignment=   7
+      _Band(4)._MapCol(4)._Name=   "PAY_PaymentType"
+      _Band(4)._MapCol(4)._RSIndex=   4
+      _Band(4)._MapCol(5)._Name=   "PAY_CCExpiryDate"
+      _Band(4)._MapCol(5)._RSIndex=   5
+      _Band(4)._MapCol(6)._Name=   "PAY_CCLastFour"
+      _Band(4)._MapCol(6)._RSIndex=   6
+      _Band(4)._MapCol(7)._Name=   "PAY_Tot_Received"
+      _Band(4)._MapCol(7)._RSIndex=   7
+      _Band(4)._MapCol(7)._Alignment=   7
+      _Band(5).BandIndent=   5
+      _Band(5).Cols   =   2
+      _Band(5).GridLinesBand=   1
+      _Band(5).TextStyleBand=   0
+      _Band(5).TextStyleHeader=   0
+      _Band(5).ColHeader=   1
+      _Band(5)._ParentBand=   0
+      _Band(5)._NumMapCols=   2
+      _Band(5)._MapCol(0)._Name=   "OPS_ID"
+      _Band(5)._MapCol(0)._RSIndex=   0
+      _Band(5)._MapCol(1)._Name=   "OPS_ENDTIME"
+      _Band(5)._MapCol(1)._RSIndex=   1
+   End
+End
+Attribute VB_Name = "Form1"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Dim rs As ADODB.Recordset
+'Dim DE As New DE
+Private Sub Command1_Click()
+  
+End Sub
+
+Private Sub cmdMainTestHRS_Click()
+Set rs = New ADODB.Recordset
+Dim fs As New FileSystemObject
+  '  rs.ActiveConnection = Nothing
+  '  MsgBox fs.FileExists("c:\PBKS\POSCLI_IN\DRS.RS")
+ '   rs.Open "c:\PBKS\POSSVR_IN\station02-10071044.pos"
+    rs.Open "c:\PBKS\POSSVR_IN\station02-10104046.pos"
+    Set Me.MSHFlexGrid1.Recordset = rs
+'    Set Me.MSHFlexGrid1.DataSource = Null
+'    Set Me.MSHFlexGrid1.DataSource = DataEnvironment1
+ Me.Refresh
+End Sub
+
