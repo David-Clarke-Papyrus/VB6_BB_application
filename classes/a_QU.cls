@@ -13,7 +13,7 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 Private oSM As z_StockManager
-Private oFSo As FileSystemObject
+Private oFSO As FileSystemObject
 
 Dim mPay As Long
 Dim lngFPLessDiscExt_tot As Long
@@ -457,22 +457,22 @@ Private Function GetState() As String
   Dim udtData As QUData
   
   LSet udtData = mudtProps
-  GetState = udtData.Buffer
+  GetState = udtData.buffer
     Exit Function
 errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
     ErrorIn "a_QU.GetState"
 End Function
-Private Sub SetState(Buffer As String)
+Private Sub SetState(buffer As String)
     On Error GoTo errHandler
   Dim udtData As QUData
   
-  udtData.Buffer = Buffer
+  udtData.buffer = buffer
   LSet mudtProps = udtData
     Exit Sub
 errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
-    ErrorIn "a_QU.SetState(buffer)", Buffer
+    ErrorIn "a_QU.SetState(buffer)", buffer
 End Sub
 Public Function GetSuperState() As String
     On Error GoTo errHandler
@@ -490,13 +490,13 @@ errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
     ErrorIn "a_QU.GetSuperState"
 End Function
-Public Sub SetSuperState(Buffer As String)
+Public Sub SetSuperState(buffer As String)
     On Error GoTo errHandler
   Dim objPB As PropertyBag
   Dim arBuffer() As Byte
   
   Set objPB = New PropertyBag
-  arBuffer = Buffer
+  arBuffer = buffer
   With objPB
     .Contents = arBuffer
     SetState .ReadProperty("State")
@@ -506,7 +506,7 @@ Public Sub SetSuperState(Buffer As String)
     Exit Sub
 errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
-    ErrorIn "a_QU.SetSuperState(buffer)", Buffer
+    ErrorIn "a_QU.SetSuperState(buffer)", buffer
 End Sub
 
 
@@ -670,7 +670,7 @@ errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
     ErrorIn "a_QU.IsValid"
 End Property
-Public Function GetSTatus()
+Public Function GetStatus()
     On Error GoTo errHandler
     If IsValid Then
         RaiseEvent Valid("")
@@ -705,7 +705,7 @@ Dim oComp As a_Company
     Next
 
     mudtProps.DiscountRate = 0
-    mudtProps.STATUS = stInProcess
+    mudtProps.Status = stInProcess
     mOriginalStatus = stInProcess
     Set oBillToAddress = New a_Address
     Set oDelToAddress = New a_Address
@@ -734,21 +734,21 @@ errHandler:
     ErrorIn "a_QU.Class_Terminate"
 End Sub
 
-Private Sub mobjValid_BrokenRule(ors As String)
+Private Sub mobjValid_BrokenRule(oRS As String)
     On Error GoTo errHandler
-    RaiseEvent Valid(TranslateErrors(ors))
+    RaiseEvent Valid(TranslateErrors(oRS))
     Exit Sub
 errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
-    ErrorIn "a_QU.mobjValid_BrokenRule(ors)", ors
+    ErrorIn "a_QU.mobjValid_BrokenRule(ors)", oRS
 End Sub
-Private Sub mobjValid_RuleUnbroken(ors As String)
+Private Sub mobjValid_RuleUnbroken(oRS As String)
     On Error GoTo errHandler
-    RaiseEvent Valid(TranslateErrors(ors))
+    RaiseEvent Valid(TranslateErrors(oRS))
     Exit Sub
 errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
-    ErrorIn "a_QU.mobjValid_RuleUnbroken(ors)", ors
+    ErrorIn "a_QU.mobjValid_RuleUnbroken(ors)", oRS
 End Sub
 
 Private Sub mobjValid_NoBrokenRules()
@@ -771,7 +771,7 @@ End Sub
 Public Sub Load(TRID As Long, ReadOnly As Boolean)
     On Error GoTo errHandler
 Dim objPersist As a_QU_P
-Dim oADd As a_Address
+Dim oAdd As a_Address
 Dim oComp As a_Company
 Dim oCurr As a_Currency
     If mcolStack.Count > 0 Then Err.Raise 445
@@ -781,7 +781,7 @@ Dim oCurr As a_Currency
     
     Set objPersist = New a_QU_P
     SetSuperState objPersist.Fetch(TRID)
-    mOriginalStatus = Me.STATUS
+    mOriginalStatus = Me.Status
     mCustomer.Load mudtProps.TPID
     Set oBillToAddress = Nothing
     Set oDelToAddress = Nothing
@@ -1144,18 +1144,18 @@ End Property
 Public Property Let SalesRepName(val As String)
     mudtProps.SalesRepName = val
 End Property
-Public Property Get TPName() As String
+Public Property Get TPNAME() As String
     On Error GoTo errHandler
-    TPName = FNS(mudtProps.TPName)
+    TPNAME = FNS(mudtProps.TPNAME)
     Exit Property
 errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
     ErrorIn "a_QU.TPName"
 End Property
-Public Property Let TPName(val As String)
+Public Property Let TPNAME(val As String)
     On Error GoTo errHandler
     If mcolStack.Count = 0 Then Err.Raise 383
-    mudtProps.TPName = val
+    mudtProps.TPNAME = val
     SetDirty True
     Exit Property
 errHandler:
@@ -1249,7 +1249,7 @@ errHandler:
 End Property
 Public Property Get DOCCodeF() As String
     On Error GoTo errHandler
-    Select Case mudtProps.STATUS
+    Select Case mudtProps.Status
     Case 1
         DOCCodeF = "Voided " & FNS(mudtProps.DOCCode)
     Case 2
@@ -1454,15 +1454,15 @@ End Property
 Private Property Get StatusForPrinting() As String
     On Error GoTo errHandler
         
-    If mudtProps.STATUS = stVOID Then
+    If mudtProps.Status = stVOID Then
         StatusForPrinting = "VOID"
-    ElseIf mudtProps.STATUS = stInProcess Then
+    ElseIf mudtProps.Status = stInProcess Then
         StatusForPrinting = "IN PROCESS"
-    ElseIf mudtProps.STATUS = stISSUED Then
+    ElseIf mudtProps.Status = stISSUED Then
             StatusForPrinting = ""
-    ElseIf mudtProps.STATUS = stCOMPLETE Then
+    ElseIf mudtProps.Status = stCOMPLETE Then
         StatusForPrinting = ""
-    ElseIf mudtProps.STATUS = stCANCELLED Then
+    ElseIf mudtProps.Status = stCANCELLED Then
         StatusForPrinting = "CANCELLED"
     End If
     
@@ -1473,15 +1473,15 @@ errHandler:
 End Property
 Public Property Get StatusF() As String
     On Error GoTo errHandler
-    If mudtProps.STATUS = stVOID Then
+    If mudtProps.Status = stVOID Then
         StatusF = "VOID"
-    ElseIf mudtProps.STATUS = stInProcess Then
+    ElseIf mudtProps.Status = stInProcess Then
         StatusF = "IN PROCESS"
-    ElseIf mudtProps.STATUS = stISSUED Then
+    ElseIf mudtProps.Status = stISSUED Then
             StatusF = "ISSUED"
-    ElseIf mudtProps.STATUS = stCOMPLETE Then
+    ElseIf mudtProps.Status = stCOMPLETE Then
             StatusF = "COMPLETE"
-    ElseIf mudtProps.STATUS = stCANCELLED Then
+    ElseIf mudtProps.Status = stCANCELLED Then
         StatusF = "CANCELLED"
     End If
     Exit Property
@@ -1489,9 +1489,9 @@ errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
     ErrorIn "a_QU.StatusF"
 End Property
-Public Property Get STATUS() As enStatus
+Public Property Get Status() As enStatus
     On Error GoTo errHandler
-    STATUS = mudtProps.STATUS
+    Status = mudtProps.Status
     Exit Property
 errHandler:
     If ErrMustStop Then Debug.Assert False: Resume
@@ -1795,7 +1795,7 @@ Dim bValid As Boolean
         mobjValid.BreakRule "TP", False
     End If
 
-    mobjValid.GetSTatus
+    mobjValid.GetStatus
     SetDirty bValid
     ValidateObject = bValid
     Exit Function
@@ -1824,7 +1824,7 @@ Dim OpenResult As Integer
     End If
     
     If pNewStatus = 0 Then
-        pNewStatus = Me.STATUS
+        pNewStatus = Me.Status
     End If
     If pNewStatus > 0 Then SetStatus pNewStatus
     Post = ""
@@ -1841,7 +1841,7 @@ errHandler:
 End Function
 Public Sub SetStatus(val As enStatus)
     On Error GoTo errHandler
-    mudtProps.STATUS = val
+    mudtProps.Status = val
     SetDirty True
     Exit Sub
 errHandler:
@@ -1921,6 +1921,9 @@ Dim strWorkingFolder As String
 Dim strDispatchMethod As String
 Dim strTemplateName As String
 Dim strExecutable As String
+Dim xslFilePath As String
+Dim pdfFilePath As String
+
 Dim lngNumberOfLines As Long
 
     If DispatchMode = enMail Then
@@ -2315,12 +2318,10 @@ Dim lngNumberOfLines As Long
         End If
     End If
     
-'Send to Outlook
-   ' CreateOutlookMail strXML
     
 'Log the dispatch
     Set oSM = New z_StockManager
-    Set oFSo = New FileSystemObject
+    Set oFSO = New FileSystemObject
     pFilename = strPDFFile
     
     If DispatchMode <> enMail And DispatchMode <> enView Then
@@ -2328,19 +2329,11 @@ Dim lngNumberOfLines As Long
         Log = "Dispatched: by " & strDispatchMethod & "  created: " & Format(Date, "dd/mm/yyyy") & vbCrLf & Log
     End If
     Set oSM = Nothing
-    Set oFSo = Nothing
+    Set oFSO = Nothing
                         p 9
     ExportToXML = True
 
-    '
-'    If DispatchMode = enView Then
-'        strExecutable = GetPDFExecutable(strPDFFile)
-'                If strExecutable = "" Then
-'                    MsgBox "There is no application set on this computer to open the file: " & strPDFFile & ". The document cannot be displayed", vbOKOnly, "Can't do this"
-'                Else
-'                    Shell strExecutable & " " & strPDFFile, vbNormalFocus
-'                End If
-'    End If
+ 
     If (Not fs.FileExists(strPDFFile)) And (DispatchMode = enView Or DispatchMode = enMail) Then
             MsgBox "The PDF file has not been produced: " & strPDFFile & ". Please contact support.", vbOKOnly, "Can't do this"
     Else

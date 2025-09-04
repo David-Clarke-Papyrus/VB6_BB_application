@@ -28,7 +28,7 @@ Dim TN As Double  'Total Nett Of discount
 Dim TNN As Double 'Total Nett of discount, Nett of VAT
 Dim d As Double  'Discount
 Dim DN As Double  'Discount Nett of VAT
-Dim V As Double  'VAT
+Dim v As Double  'VAT
 
 Dim lngLPayableLessVAT_tot As Double
 Dim lngFPayableLessVAT_tot As Double
@@ -66,11 +66,11 @@ Dim arDocTotals() As tTotal
 Dim arDocTotalsF() As tTotal
 Dim RunningTotal As Long
 Dim jTotal As Long
-Public Sub ConvertToNonStandardVATInvoice(V As Double)
+Public Sub ConvertToNonStandardVATInvoice(v As Double)
       Dim oIL As a_InvoiceLine
      For Each oIL In Me.InvoiceLines
         If oIL.VATRate <> 0 Then
-            oIL.VATRate = V
+            oIL.VATRate = v
         End If
      Next
      ApplyEdit
@@ -269,7 +269,7 @@ Dim TN_Vatable As Long 'Total Nett of discount for VATable items only
       TNN = 0
       d = 0
       DN = 0
-      V = 0
+      v = 0
       TN_Vatable = 0
     For Each oIL In mColInvoiceLines
         If (Not oIL.IsDeleted) Then
@@ -285,7 +285,7 @@ Dim TN_Vatable As Long 'Total Nett of discount for VATable items only
                 TN_Vatable = TN_Vatable + (oIL.row_LTN)  'sum all the VATABLE items
             End If
             TNN = TNN + oIL.row_LTNN
-            V = V + oIL.row_LV
+            v = v + oIL.row_LV
             d = d + oIL.row_LDN
             DN = DN + oIL.row_LDN
             TN = TN + oIL.row_LTN
@@ -309,8 +309,8 @@ Dim TN_Vatable As Long 'Total Nett of discount for VATable items only
     FinalVAT = Round(TN_Vatable - (CDbl(TN_Vatable) * 100 / (CDbl(100) + oPC.Configuration.VATRate)))
     mudtProps.TotalVAT = FinalVAT
     mudtProps.TotalNonVAT = TN - FinalVAT  'Calculate the non-Vat value by subtracting the stated Final VAT value from the total extensions
-    mudtProps.TotalVATLineSummed = V
-    mudtProps.VATRoundingAdjustment = V - FinalVAT
+    mudtProps.TotalVATLineSummed = v
+    mudtProps.VATRoundingAdjustment = v - FinalVAT
     mudtProps.TotalExtension = TN
     mudtProps.TotalPayable = mudtProps.TotalExtension - lngLDeposit_tot
     mudtProps.TotalServiceItem = lngTotalServiceItem
@@ -363,7 +363,7 @@ Dim TN_Vatable As Long 'Total Nett of discount for VATable items only
       TNN = 0
       d = 0
       DN = 0
-      V = 0
+      v = 0
       TN_Vatable = 0
     For Each oIL In mColInvoiceLines
         If (Not oIL.IsDeleted) Then
@@ -388,7 +388,7 @@ Dim TN_Vatable As Long 'Total Nett of discount for VATable items only
             TNN = TNN + oIL.row_LTNN
             
             'Accumulate total VAT value
-            V = V + oIL.row_LV
+            v = v + oIL.row_LV
             
             'Accumulate total discount
             d = d + oIL.row_LD
@@ -420,8 +420,8 @@ Dim TN_Vatable As Long 'Total Nett of discount for VATable items only
     FinalVAT = Round(TN_Vatable - (CDbl(TN_Vatable) * 100 / (CDbl(100) + oPC.Configuration.VATRate)))
     mudtProps.TotalVAT_Foreign = FinalVAT
     mudtProps.TotalNonVAT_Foreign = TN - FinalVAT  'Calculate the non-Vat value by subtracting the stated Final VAT value from the total extensions
-    mudtProps.TotalVATLineSummed = V
-    mudtProps.VATRoundingAdjustment = V - FinalVAT
+    mudtProps.TotalVATLineSummed = v
+    mudtProps.VATRoundingAdjustment = v - FinalVAT
     
     If Customer.ShowVAT = False And Customer.VATable = False Then  'We base all calculations on an ex-VAT price
                                                                                                  'see note in CalculateLine regarding this
@@ -3405,10 +3405,9 @@ skip:
 'WRITE THE .PDF FILE IF NECESSARY ------------------------------------------------------------------------------------
     Dim tmp As String
     If (Me.Customer.DispatchMethod = "M" And DispatchMode = enMail) Or DispatchMode = enView Or (DispatchMode = enPrint And QuickPrint = True) Then
-      '  xslFilePath = oPC.SharedFolderRoot & "\Templates\Clarkes\" & strTemplateName
-        xslFilePath = oPC.SharedFolderRoot & "\Templates\" & strTemplateName
+       xslFilePath = oPC.SharedFolderRoot & "\Templates\" & strTemplateName
        pdfFilePath = strWorkingFolder & "IN_" & Me.DOCCode & ".PDF"
-      FOPDebugPath = strWorkingFolder & "FOPDebug.txt"
+       FOPDebugPath = strWorkingFolder & "FOPDebug.txt"
         If UCase(Right(strTemplateName, 4)) = "XSLT" Then
           tmp = oPC.LocalFolder & "Executables\FOP-1.1\"
         Else

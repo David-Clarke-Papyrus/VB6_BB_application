@@ -43,6 +43,7 @@ Dim frmSplash As frmSplash
     Set frmSplash = Nothing
     On Error Resume Next
     
+   
     
     Screen.MousePointer = vbDefault
     Exit Sub

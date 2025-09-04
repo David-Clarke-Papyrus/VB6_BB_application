@@ -400,6 +400,27 @@ Begin VB.Form frmORREQ
       Top             =   6375
       Width           =   1260
    End
+   Begin VB.Label lblMatchStatus 
+      Alignment       =   2  'Center
+      BackColor       =   &H00714942&
+      BackStyle       =   0  'Transparent
+      Caption         =   "Match"
+      BeginProperty Font 
+         Name            =   "Microsoft Sans Serif"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   -1  'True
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00714942&
+      Height          =   270
+      Left            =   5730
+      TabIndex        =   40
+      Top             =   5820
+      Width           =   930
+   End
    Begin VB.Label txtSPRO 
       Alignment       =   2  'Center
       BackColor       =   &H80000016&
@@ -445,10 +466,9 @@ Begin VB.Form frmORREQ
       EndProperty
       ForeColor       =   &H00714942&
       Height          =   270
-      Left            =   5070
+      Left            =   4305
       TabIndex        =   36
-      Top             =   5580
-      Visible         =   0   'False
+      Top             =   5550
       Width           =   1245
    End
    Begin VB.Label lblDepositTaken 
@@ -457,10 +477,9 @@ Begin VB.Form frmORREQ
       BorderStyle     =   1  'Fixed Single
       ForeColor       =   &H00714942&
       Height          =   285
-      Left            =   5070
+      Left            =   4305
       TabIndex        =   35
-      Top             =   5835
-      Visible         =   0   'False
+      Top             =   5805
       Width           =   1320
    End
    Begin VB.Label Label4 
@@ -605,7 +624,7 @@ Dim dblCtrlDeposit As Double
 Dim dblQty As Double
 Dim dblDeposit As Double
 Dim SortedDoc As ujXML
-Dim res As Boolean
+Dim Res As Boolean
 Dim rs As ADODB.Recordset
 Dim dteExchangeDate As Date
 Dim guid_OrderRequest As String
@@ -625,6 +644,7 @@ On Error GoTo errHandler
     Blocked = pLocked
     lblLocked.Visible = Blocked
     cmdOK.Enabled = Not Blocked
+    cmdCancel.Caption = IIf(Blocked, "Close", "Cancel")
     Me.cmdAdd.Enabled = Not Blocked
     Me.cmdClearCust.Enabled = Not Blocked
     Me.cmdDeleteSelected.Enabled = Not Blocked
@@ -643,7 +663,7 @@ Dim strAcno As String
 Dim strTitle As String
 Dim strInitials As String
 Dim strCustname As String
-Dim res As Boolean
+Dim Res As Boolean
     On Error GoTo errHandler
 
         Set xMLDoc = New ujXML
@@ -681,16 +701,16 @@ Dim res As Boolean
         dblCtrlDeposit = val(xMLDoc.Element.text)
         
         If Not xMLDoc.navLocate("Qty") Then
-            res = xMLDoc.navLocate("QTY")
+            Res = xMLDoc.navLocate("QTY")
         End If
-        If res Then   ' some earlier ORs will have XMLDocs with no such node as Qty. Qty therefore must defulat to 1(one).
+        If Res Then   ' some earlier ORs will have XMLDocs with no such node as Qty. Qty therefore must defulat to 1(one).
             dblQty = val(xMLDoc.Element.text)
         Else
             dblQty = 1
         End If
         
         
-        res = xMLDoc.navLocate("ItemList")
+        Res = xMLDoc.navLocate("ItemList")
         Set SortedDoc = xMLDoc.docCreateViewer(True)
         SortedDoc.navTop
         If SortedDoc.chCount > 0 Then
@@ -723,11 +743,11 @@ Dim sQty As String
             If NavAction <> XNAV_TO_PARENT Then
             xObj.navFirstChild
                 sEAN = xObj.Element.text
-                res = xObj.navNext
+                Res = xObj.navNext
                 sPrice = xObj.Element.text
-                res = xObj.navNext
+                Res = xObj.navNext
                 sDescr = xObj.Element.text
-                res = xObj.navNext
+                Res = xObj.navNext
                 sDep = xObj.Element.text
                 
                 rs.AddNew '("EAN", "Descr", "Price", "Dep"),(sEAN,sDescr,sPrice,sDep)
@@ -744,13 +764,13 @@ Dim sQty As String
             If NavAction <> XNAV_TO_PARENT Then
             xObj.navFirstChild
                 sEAN = xObj.Element.text
-                res = xObj.navNext
+                Res = xObj.navNext
                 sPrice = xObj.Element.text
-                res = xObj.navNext
+                Res = xObj.navNext
                 sDescr = xObj.Element.text
-                res = xObj.navNext
+                Res = xObj.navNext
                 sDep = xObj.Element.text
-                res = xObj.navNext
+                Res = xObj.navNext
                 If UCase(xObj.Element.nodeName) = UCase("Qty") Then
                     sQty = xObj.Element.text
                 Else
@@ -790,6 +810,11 @@ Dim i As Integer
         dblTotalDeposit = dblTotalDeposit + ((val(StripToNumerics(IIf(lvw.ListItems(i).SubItems(3) = "", "0", lvw.ListItems(i).SubItems(3))))) * (val(StripToNumerics(IIf(lvw.ListItems(i).SubItems(4) = "", "0", lvw.ListItems(i).SubItems(4))))))
     Next
     Me.txtDeposit = Format(dblTotalDeposit, "###,##0.00")
+    
+    cmdOK.Enabled = (dblCtrlDeposit = dblTotalDeposit) And (Not Blocked)
+    lblMatchStatus.Caption = IIf((dblCtrlDeposit = dblTotalDeposit), "match", "mismatch")
+    lblMatchStatus.ForeColor = IIf((dblCtrlDeposit = dblTotalDeposit), vbBlack, vbRed)
+
 End Sub
 
 Private Sub cmdAdd_Click()
@@ -807,10 +832,12 @@ Dim lstItem As ListItem
         lstItem.SubItems(3) = ""
     End If
     
-    'we can't recalculate the deposit as it has already been taken
-    'RecalculateDeposit
+    RecalculateDeposit
 
-    cmdOK.Enabled = (dblCtrlDeposit = dblTotalDeposit) And (Not Blocked)
+'    cmdOK.Enabled = (dblCtrlDeposit = dblTotalDeposit) And (Not Blocked)
+'    lblMatchStatus.Caption = IIf((dblCtrlDeposit = dblTotalDeposit) And (Not Blocked), "match", "mismatch")
+'    lblMatchStatus.ForeColor = IIf((dblCtrlDeposit = dblTotalDeposit) And (Not Blocked), vbBlack, vbRed)
+
 End Sub
 
 Private Sub cmdCancel_Click()
@@ -840,8 +867,7 @@ Private Sub cmdDeleteSelected_Click()
         Exit Sub
     End If
     lvw.ListItems.Remove (lvw.SelectedItem.Index)
-    'we can't recalculate the deposit as it has already been taken
-    'RecalculateDeposit
+    RecalculateDeposit
     cmdOK.Enabled = (dblCtrlDeposit = dblTotalDeposit) And lvw.ListItems.Count > 0 And (Not Blocked)
 End Sub
 
@@ -915,7 +941,7 @@ Dim ar As New arOrderRequest
     rs.Fields.Append "Qty", adVarChar, 20
     rs.Open , , adOpenDynamic, adLockOptimistic
     
-    res = xMLDoc.navLocate("ItemList")
+    Res = xMLDoc.navLocate("ItemList")
     Set SortedDoc = xMLDoc.docCreateViewer(True)
     SortedDoc.navTop
     SortedDoc.elForEachElem Me, "PRINT"

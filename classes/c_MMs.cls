@@ -54,9 +54,9 @@ Dim i As Long
     OpenResult = oPC.OpenDBSHort
 '-------------------------------
     If oPC.IsMultiStore Then
-        rs.open "SELECT zMM_IncVouchers.*,STORE_CODE FROM zMM_IncVouchers JOIN tPRODUCT ON PID = P_ID LEFT JOIN tPOSClient pc ON Station = StationName LEFT JOIN tStore s ON s.STORE_ID = pc.Store_ID WHERE PID = '" & pPID & "' ORDER BY TR_PROCESSINGDATE", oPC.COShort, adOpenForwardOnly, adLockReadOnly
+        rs.Open "SELECT zMM_IncVouchers.*,STORE_CODE FROM zMM_IncVouchers JOIN tPRODUCT ON PID = P_ID LEFT JOIN tPOSClient pc ON Station = StationName LEFT JOIN tStore s ON s.STORE_ID = pc.Store_ID WHERE PID = '" & pPID & "' ORDER BY TR_PROCESSINGDATE", oPC.COShort, adOpenForwardOnly, adLockReadOnly
     Else
-        rs.open "SELECT * FROM zMM_IncVouchers JOIN tPRODUCT ON PID = P_ID WHERE PID = '" & pPID & "' ORDER BY TR_PROCESSINGDATE", oPC.COShort, adOpenForwardOnly, adLockReadOnly
+        rs.Open "SELECT * FROM zMM_IncVouchers JOIN tPRODUCT ON PID = P_ID WHERE PID = '" & pPID & "' ORDER BY TR_PROCESSINGDATE", oPC.COShort, adOpenForwardOnly, adLockReadOnly
       '  rs.open "SELECT * FROM zMM JOIN tPRODUCT ON PID = P_ID WHERE PID = '" & pPID & "' ORDER BY TR_PROCESSINGDATE", oPC.COShort, adOpenForwardOnly, adLockReadOnly
     End If
     i = 1
@@ -100,7 +100,7 @@ Dim i As Integer
 '-------------------------------
     OpenResult = oPC.OpenDBSHort
 '-------------------------------
-    rs.open "SELECT * FROM zMM_ALL JOIN tPRODUCT ON PID = P_ID WHERE PID = '" & pPID & "' AND TR_CaptureDATE >  {d '" & ReverseDate(pDate) & "'} ORDER BY TR_PROCESSINGDATE", oPC.COShort, adOpenForwardOnly, adLockReadOnly
+    rs.Open "SELECT * FROM zMM_IncVouchers JOIN tPRODUCT ON PID = P_ID WHERE PID = '" & pPID & "' AND TR_CaptureDATE >  {d '" & ReverseDate(pDate) & "'} ORDER BY TR_PROCESSINGDATE", oPC.COShort, adOpenForwardOnly, adLockReadOnly
   i = 1
     
     Do While Not rs.eof

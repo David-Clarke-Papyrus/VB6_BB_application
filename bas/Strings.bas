@@ -368,6 +368,10 @@ Public Function StringToByteArray(strInput As String, _
 End Function
 
 Public Function CLARG(str As String)
+    If str = "" Then
+        CLARG = ""
+        Exit Function
+    End If
     If Mid(str, 1, 1) = "'" Then
         str = Right(str, Len(str) - 1)
     End If

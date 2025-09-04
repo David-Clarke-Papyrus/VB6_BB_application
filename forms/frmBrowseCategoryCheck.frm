@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{A45D986F-3AAF-4A3B-A003-A6C53E8715A2}#1.0#0"; "ARVIEW2.OCX"
-Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "tabctl32.ocx"
-Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "TODG6.OCXB"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "todg6.ocx"
 Begin VB.Form frmCategoryChecks 
    BackColor       =   &H00D3D3CB&
    Caption         =   "Browse category checks"
@@ -45,29 +45,30 @@ Begin VB.Form frmCategoryChecks
       _ExtentY        =   14420
       _Version        =   393216
       Tabs            =   2
-      Tab             =   1
       TabsPerRow      =   2
       TabHeight       =   520
       BackColor       =   13882315
       ForeColor       =   -2147483635
       TabCaption(0)   =   "Category check list"
       TabPicture(0)   =   "frmBrowseCategoryCheck.frx":038A
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "arViewer"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "cmdToPDF"
+      Tab(0).Control(1).Enabled=   0   'False
       Tab(0).Control(2)=   "cmdToExcel"
+      Tab(0).Control(2).Enabled=   0   'False
       Tab(0).ControlCount=   3
       TabCaption(1)   =   "Category check corrections"
       TabPicture(1)   =   "frmBrowseCategoryCheck.frx":03A6
-      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "Grid1"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       Begin VB.CommandButton cmdToExcel 
          BackColor       =   &H00D5D5C1&
          Caption         =   "Spreadsheet"
          Height          =   360
-         Left            =   -73320
+         Left            =   1680
          Style           =   1  'Graphical
          TabIndex        =   5
          Top             =   360
@@ -77,7 +78,7 @@ Begin VB.Form frmCategoryChecks
          BackColor       =   &H00D5D5C1&
          Caption         =   "PDF"
          Height          =   360
-         Left            =   -74775
+         Left            =   225
          Style           =   1  'Graphical
          TabIndex        =   4
          Top             =   360
@@ -85,7 +86,7 @@ Begin VB.Form frmCategoryChecks
       End
       Begin DDActiveReportsViewer2Ctl.ARViewer2 arViewer 
          Height          =   6150
-         Left            =   -74835
+         Left            =   165
          TabIndex        =   2
          Top             =   735
          Width           =   16935
@@ -95,7 +96,7 @@ Begin VB.Form frmCategoryChecks
       End
       Begin TrueOleDBGrid60.TDBGrid Grid1 
          Height          =   7440
-         Left            =   150
+         Left            =   -74850
          OleObjectBlob   =   "frmBrowseCategoryCheck.frx":03FE
          TabIndex        =   3
          Top             =   420
@@ -107,7 +108,7 @@ Begin VB.Form frmCategoryChecks
       Caption         =   "&Close"
       Height          =   615
       Left            =   16575
-      Picture         =   "frmBrowseCategoryCheck.frx":5D90
+      Picture         =   "frmBrowseCategoryCheck.frx":5CF4
       Style           =   1  'Graphical
       TabIndex        =   0
       TabStop         =   0   'False
@@ -183,7 +184,7 @@ End Sub
 Public Sub mnuVoid()
     On Error GoTo errHandler
  '   If Not ((((FNN(rs.fields("CATCHK_Status"))) = 2) Or (((FNN(rs.fields("CATCHK_Status"))) = 3)))) Then Exit Sub
-    If (FNN(rs.fields("CATCHK_Status")) = 4) Then Exit Sub
+    If (FNN(rs.Fields("CATCHK_Status")) = 4) Then Exit Sub
         If oPC.Configuration.SignTransactions = True Then
             If SecurityControl(enSECURITY_ISOPERATOR, , "Void this category check", DOCAPPROVAL) = False Then
                    Exit Sub
@@ -211,7 +212,7 @@ Public Sub component(pCATCHKID As Long, pLabel As String, SignedOffName As Strin
       pEmpty = True
       Exit Sub
     End If
-    Status = FNN(rs.fields("CATCHK_Status"))
+    Status = FNN(rs.Fields("CATCHK_Status"))
 
     strHeading = pLabel
     Me.Caption = strHeading
@@ -404,10 +405,10 @@ Private Sub Form_Load()
     LoadGrid
 
     If rs.eof = False Then
-        lngStaffID = FNN(rs.fields("CATCHK_STAFF_ID"))
-        lngSupervisorID = FNN(rs.fields("CATCHK_Supervisor_ID"))
-        dteUpdatedDate = FND(rs.fields("CATCHK_UPDATEDDATE"))
-        ShowStatus (FNN(rs.fields("CATCHK_Status")))
+        lngStaffID = FNN(rs.Fields("CATCHK_STAFF_ID"))
+        lngSupervisorID = FNN(rs.Fields("CATCHK_Supervisor_ID"))
+        dteUpdatedDate = FND(rs.Fields("CATCHK_UPDATEDDATE"))
+        ShowStatus (FNN(rs.Fields("CATCHK_Status")))
         Set rpt = New arCategoryCheck
         rpt.Printer.Orientation = ddOLandscape
         rpt.PageSettings.PaperSize = 9
@@ -422,8 +423,8 @@ Private Sub Form_Load()
     Else
         MsgBox "No records", vbInformation, "Status"
     End If
-    cmdUpdate.Enabled = ((FNN(rs.fields("CATCHK_Status"))) = 3)
-    cmdOperatorSignoff.Enabled = ((FNN(rs.fields("CATCHK_Status"))) = 2)
+    cmdUpdate.Enabled = ((FNN(rs.Fields("CATCHK_Status"))) = 3)
+    cmdOperatorSignoff.Enabled = ((FNN(rs.Fields("CATCHK_Status"))) = 2)
     Screen.MousePointer = vbDefault
     Exit Sub
 errHandler:
@@ -469,11 +470,11 @@ Dim lngDiffH As Long
     Grid1.Height = NonNegative_Lng(SSTab1.Height - 1200)
     Grid1.Width = NonNegative_Lng(SSTab1.Width - 400)
     Me.cmdOperatorSignoff.Left = NonNegative_Lng(SSTab1.Left + 1000)
-    Me.cmdUpdate.Left = NonNegative_Lng(SSTab1.Left + 3000)
-    Me.cmdOperatorSignoff.TOP = NonNegative_Lng(Me.Height - 1050)
-    Me.cmdUpdate.TOP = NonNegative_Lng(Me.Height - 1050)
+    Me.cmdUpdate.Left = NonNegative_Lng(SSTab1.Left + 3100)
+    Me.cmdOperatorSignoff.TOP = NonNegative_Lng(Me.Height - 1150)
+    Me.cmdUpdate.TOP = NonNegative_Lng(Me.Height - 1150)
     Me.lblStatus.Left = NonNegative_Lng(Me.Width - 3000)
-    Me.cmdClose.TOP = NonNegative_Lng(Me.Height - 1100)
+    Me.cmdClose.TOP = NonNegative_Lng(Me.Height - 1150)
     Me.cmdClose.Left = NonNegative_Lng(Me.Width - 1280)
     Exit Sub
 errHandler:
@@ -584,19 +585,19 @@ Dim lngArrayRows As Long
     Next
     rs.MoveFirst
     Do While Not rs.eof
-            XA.Value(lngIndex, 1) = FNS(rs.fields("EAN"))
-            XA.Value(lngIndex, 2) = FNS(rs.fields("ProductDescription"))
-            XA.Value(lngIndex, 3) = FNS(rs.fields("Author"))
-            XA.Value(lngIndex, 4) = FNS(rs.fields("CATCHKL_SystemQty"))
-            If FNS(rs.fields("P_QtyOnHand")) <> FNS(rs.fields("CATCHKL_SystemQty")) Then
-                XA.Value(lngIndex, 5) = FNS(rs.fields("P_QtyOnHand"))
+            XA.Value(lngIndex, 1) = FNS(rs.Fields("EAN"))
+            XA.Value(lngIndex, 2) = FNS(rs.Fields("ProductDescription"))
+            XA.Value(lngIndex, 3) = FNS(rs.Fields("Author"))
+            XA.Value(lngIndex, 4) = FNS(rs.Fields("CATCHKL_SystemQty"))
+            If FNS(rs.Fields("P_QtyOnHand")) <> FNS(rs.Fields("CATCHKL_SystemQty")) Then
+                XA.Value(lngIndex, 5) = FNS(rs.Fields("P_QtyOnHand"))
             End If
-            If FNS(rs.fields("CATCHKL_Counted")) <> FNS(rs.fields("CATCHKL_SystemQty")) Then
-                XA.Value(lngIndex, 6) = FNS(rs.fields("CATCHKL_Counted"))
+            If FNS(rs.Fields("CATCHKL_Counted")) <> FNS(rs.Fields("CATCHKL_SystemQty")) Then
+                XA.Value(lngIndex, 6) = FNS(rs.Fields("CATCHKL_Counted"))
             End If
-            XA.Value(lngIndex, 13) = FNS(rs.fields("CATCHKL_ID"))
-            XA.Value(lngIndex, 14) = FNS(rs.fields("CATCHKL_Counted"))
-            XA.Value(lngIndex, 15) = FNS(rs.fields("P_ID"))
+            XA.Value(lngIndex, 13) = FNS(rs.Fields("CATCHKL_ID"))
+            XA.Value(lngIndex, 14) = FNS(rs.Fields("CATCHKL_Counted"))
+            XA.Value(lngIndex, 15) = FNS(rs.Fields("P_ID"))
             rs.MoveNext
             lngIndex = lngIndex + 1
     Loop

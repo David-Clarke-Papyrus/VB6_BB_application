@@ -310,6 +310,8 @@ Dim strConnection As String
             Set DBMainConn = New ADODB.Connection
             DBMainConn.Provider = "sqloledb"
             strConnection = "Data provider=sqloledb;Data Source=" & Me.MainSQLServerName & ";Initial Catalog=" & mDBName & ";User Id=sa;Password=" & strPassword & ";"
+          ' strConnection = "Data provider=sqloledb;Data Source=" & "CENTRALBACKUP\PBKSINSTANCE2" & ";Initial Catalog=" & mDBName & ";User Id=sa;Password=" & strPassword & ";"
+          '  DBMainConn.Close
         End If
         If DBMainConn.State = 0 Then
             DBMainConn.Open strConnection

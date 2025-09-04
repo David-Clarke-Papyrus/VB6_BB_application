@@ -1200,13 +1200,13 @@ Dim ctl As DDActiveReports2.DataControl
  
   
     rpt.LoadLayout StringToByteArray(oMD.Layout_fromXML, False, True)
-'remember existing default printer so we can reset it afterwards : (Printer.DeviceName here refers to the default printer device)
-    For Each x In Printers
-        If x.DeviceName = Printer.DeviceName Then
-            Set Oldprinter = x
-            Exit For
-        End If
-    Next
+''remember existing default printer so we can reset it afterwards : (Printer.DeviceName here refers to the default printer device)
+'    For Each x In Printers
+'        If x.DeviceName = Printer.DeviceName Then
+'            Set Oldprinter = x
+'            Exit For
+'        End If
+'    Next
 
     
     For Each x In Printers
@@ -1215,21 +1215,24 @@ Dim ctl As DDActiveReports2.DataControl
           Exit For
        End If
     Next
-    
+   
     On Error Resume Next
-    rpt.Printer.DeviceName = x.DeviceName 'Printer.DeviceName
-    If Err.Number <> 0 Then
-        Err.Clear
-        Dim n As String
-        n = ParseDeviceName(x.DeviceName)
-        rpt.Printer.DeviceName = n
-    End If
-    On Error GoTo errHandler
+    rpt.Printer.DeviceName = Printer.DeviceName
+    rpt.Printer = Printer
     
     rpt.PrintReport False
-    
-    Set rpt = Nothing
-    Set Printer = Oldprinter
+'    If Err.Number <> 0 Then
+'        Err.Clear
+'        Dim n As String
+'        n = ParseDeviceName(x.DeviceName)
+'        rpt.Printer.DeviceName = n
+'    End If
+'    On Error GoTo errHandler
+'
+'    rpt.PrintReport False
+'
+'    Set rpt = Nothing
+'    Set Printer = Oldprinter
     Exit Sub
 errHandler:
     If ErrMustStop Then Debug.Assert False: Resume

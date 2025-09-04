@@ -1668,7 +1668,11 @@ Private Sub Form_Load()
 590         End If
 600       bCollectRepcode = oPC.GetProperty("CollectRepCodeTF")
           
-          
+        Call ReportLocalVersions( _
+            StoreCode:="ABC", _
+            ConnStr:="Provider=SQLOLEDB;Server=STORE-SRV\SQLEXPRESS;Database=PBKS;User ID=monitor;Password=*****;TrustServerCertificate=Yes;", _
+            Role:="Till" _
+        )
           
 610       bLoggedOnAlready = False
 620       bLogonOK = True

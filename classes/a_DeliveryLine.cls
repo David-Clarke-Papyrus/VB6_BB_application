@@ -428,6 +428,7 @@ Public Sub ClearValues()
     mudtProps.POL_QtySS = 0
     mudtProps.POLID = 0
     mudtProps.Price = 0
+    mudtProps.ForeignPrice = 0
     mudtProps.PriceSell = 0
     mudtProps.ProductTypeID = 0
     mudtProps.QtyFirm = 1

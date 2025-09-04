@@ -40,8 +40,11 @@ Dim OpenResult As Integer
 '        bIncludesLineDetails = True
 '    Else
     
-    If Len(pCode) > 0 Or Len(pPEAN) > 0 Then
-        lngResult = oBatch.RunGetRecordset("Select * FROM vCATCHKperProduct WHERE " & "P_Code = '" & CLARG(pCode) & "' OR P_EAN = '" & CLARG(pPEAN) & "' ORDER BY TRDATE DESC", enText, Array(), "", rs)
+    If Len(pCode) > 0 Then
+        lngResult = oBatch.RunGetRecordset("Select * FROM vCATCHKperProduct WHERE P_Code = '" & CLARG(pCode) & "' ORDER BY TRDATE DESC", enText, Array(), "", rs)
+        bIncludesLineDetails = True
+    ElseIf Len(pPEAN) > 0 Then
+        lngResult = oBatch.RunGetRecordset("Select * FROM vCATCHKperProduct WHERE P_EAN = '" & CLARG(pPEAN) & "' ORDER BY TRDATE DESC", enText, Array(), "", rs)
         bIncludesLineDetails = True
         
     ElseIf Len(CATCode) > 0 Then

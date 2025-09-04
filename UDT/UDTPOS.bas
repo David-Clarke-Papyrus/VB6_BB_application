@@ -93,10 +93,10 @@ End Type
 Public Type SaleProps
     ID As Long
     EXCHANGE_GUID As String * 40
-    code As String * 20
+    Code As String * 20
     CodeF As String * 20
     PID As String * 40
-    Title As String * 40
+    title As String * 40
     Author As String * 40
     Counterfoil As String * 30
     DiscountRule As String * 30
@@ -105,7 +105,7 @@ Public Type SaleProps
     Price As Long
     TempPrice As Long
     PriceAlteration As Long
-    VAT As Long
+    VAT As Double
     Discount As Long
     Payable As Long
     DiscountRate As Double
@@ -140,7 +140,7 @@ Public Type CustomerPOSProps
     CreditLimit As Long
     Name As String * 100
     Initials As String * 15
-    Title As String * 10
+    title As String * 10
     AcNo As String * 15
     SoundexName As String * 10
     Phone As String * 25
@@ -165,7 +165,7 @@ Public Type COLPOSProps
     TPID As Long
     TRID As Long
     COLDate As Date
-    code As String * 15
+    Code As String * 15
  '   DocCode As String * 15
     PID As String * 40
     Description As String * 40
@@ -180,23 +180,23 @@ Public Type COLPOSData
      buffer As String * 119
 End Type
 Public Type APPPOSProps
-    AppID As Long
+    APPID As Long
     TPID As Long
     DOCDate As Date
-    DOCCode As String * 15
+    DocCode As String * 15
 End Type
 Public Type APPPOSData
      buffer As String * 24
 End Type
 
 Public Type APPLPOSProps
-    AppID As Long
+    APPID As Long
     APPLID As Long
     TPID As Long
-    Title As String * 100
+    title As String * 100
     Author As String * 30
     CodeF As String * 20
-    code As String * 15
+    Code As String * 15
     QtyOut As Long
     QtyBack As Long
     Price As Long
@@ -206,7 +206,7 @@ Public Type APPLPOSProps
     Total As Long
     PID As String * 40
     
-    DOCCode As String * 15
+    DocCode As String * 15
 End Type
 Public Type APPLPOSData
      buffer As String * 246
@@ -214,7 +214,7 @@ End Type
 
 Public Type InvoicesContainingProps
     TRID As Long
-    DOCCode As String * 30
+    DocCode As String * 30
     DOCDate As Date
     DocValue As Long
     PID As String * 40
