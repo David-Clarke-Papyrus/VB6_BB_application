@@ -1902,15 +1902,15 @@ Dim strPath As String
 Dim strBillto As String
 Dim strDelto As String
 Dim strFOFile As String
-Dim strPDFFile As String
-Dim strXML As String
+Dim strPDFFilePath As String
+Dim strXMLFilePath As String
 Dim strCommand As String
 Dim i As Integer
 Dim strHTML As String
 Dim fs As New FileSystemObject
-Dim objXSL As New MSXML2.DOMDocument60
-Dim opXMLDOC As New MSXML2.DOMDocument60
-Dim objXMLDOC  As New MSXML2.DOMDocument60
+'Dim objXSL As New MSXML2.DOMDocument60
+'Dim opXMLDOC As New MSXML2.DOMDocument60
+'Dim objXMLDOC  As New MSXML2.DOMDocument60
 Dim bReferenceExists As Boolean
 Dim bDiscountExists As Boolean
 Dim bDepositExists As Boolean
@@ -1921,8 +1921,8 @@ Dim strWorkingFolder As String
 Dim strDispatchMethod As String
 Dim strTemplateName As String
 Dim strExecutable As String
-Dim xslFilePath As String
-Dim pdfFilePath As String
+Dim strXSLFilePath As String
+Dim strFOPDebugPath As String
 
 Dim lngNumberOfLines As Long
 
@@ -1998,8 +1998,10 @@ Dim lngNumberOfLines As Long
             .elCreateSibling "TemplateName"
                 If Me.Customer.QuotationTemplateName > "" Then
                     .elText = Me.Customer.QuotationTemplateName
+                ElseIf fs.FileExists(oPC.SharedFolderRoot & "\TEMPLATES\QU_DOC.XSLT") Then
+                    .elText = "QU_DOC.XSLT"
                 Else
-                    .elText = "QU_DOC"
+                    .elText = "QU_DOC_FO.XSL"
                 End If
             strTemplateName = .elText
             
@@ -2249,80 +2251,67 @@ Dim lngNumberOfLines As Long
                                 p 12
 
 'FINALLY PRODUCE THE .XML FILE
-    strXML = strWorkingFolder & "QU_" & Me.DOCCode & ".xml"
+    strXMLFilePath = strWorkingFolder & "QU_" & Me.DOCCode & ".xml"
     With xMLDoc
-        If fs.FileExists(strXML) Then
-            fs.DeleteFile strXML
+        If fs.FileExists(strXMLFilePath) Then
+            fs.DeleteFile strXMLFilePath
         End If
-        .docWriteToFile (strXML), False, "UNICODE", "" 'strHead
+        .docWriteToFile (strXMLFilePath), False, "UNICODE", "" 'strHead
     End With
 
                                 p 13
 
-    If DispatchMode = enMail Then
-        If oPC.EmailPOShowHTML = True Then
-            'WRITE THE .HTML FILE
-            objXSL.async = False
-            objXSL.ValidateOnParse = False
-            objXSL.resolveExternals = False
-            strPath = oPC.SharedFolderRoot & "\Templates\" & strTemplateName & "_HTML.XSLT"
-            Set fs = New FileSystemObject
-            If fs.FileExists(strPath) Then
-                objXSL.Load strPath
-            End If
-            If fs.FileExists(strWorkingFolder & "QU_" & Me.DOCCode & ".HTML") Then
-                fs.DeleteFile strWorkingFolder & "QU_" & Me.DOCCode & ".HTML", True
-            End If
-            oTF.OpenTextFileToAppend strWorkingFolder & "QU_" & Me.DOCCode & ".HTML"
-            pWholeMessage = xMLDoc.docObject.transformNode(objXSL)
-            oTF.WriteToTextFile pWholeMessage
-            oTF.CloseTextFile
-        End If
-    End If
-    
-    
-'WRITE THE .PDF FILE IF NECESSARY
-'Stage 1 apply the .XSLT style sheet to the .XML and produce the .FO file
-    If (Me.Customer.DispatchMethod = "M" And DispatchMode = enMail) Or DispatchMode = enView Or (DispatchMode = enPrint And QuickPrint = True) Then
-        Set objXSL = Nothing
-        Set objXSL = New MSXML2.DOMDocument60
-        objXSL.async = False
-        objXSL.ValidateOnParse = False
-        objXSL.resolveExternals = False
-        strPath = oPC.SharedFolderRoot & "\Templates\" & strTemplateName & "_FO.XSL"
-        Set fs = New FileSystemObject
-        If fs.FileExists(strPath) Then
-            objXSL.Load strPath
-        End If
-                        p 6
-        Set opXMLDOC = New MSXML2.DOMDocument60
-        opXMLDOC.async = False
-        opXMLDOC.ValidateOnParse = False
-        opXMLDOC.resolveExternals = False
-        xMLDoc.docObject.transformNodeToObject objXSL, opXMLDOC
-        
-        strFOFile = strWorkingFolder & "QU_" & Me.DOCCode & ".FO"
-        strPDFFile = strWorkingFolder & "QU_" & Me.DOCCode & ".PDF"
-                        p 7
-        docWriteTostream strFOFile, opXMLDOC, "UNICODE"
-        
-'Stage 2 Convert the .FO file to .PDF and clean up
-        ChDir "\PBKS\Executables\FOP\"
-       ' strCommand = "FOP.BAT" & " " & strFOFile & " " & strPDFFile
-        'ShellandWait strCommand, 100
-        strCommand = GetFOPCommandstring(strFOFile, strPDFFile)
-        F_7_AB_1_ShellAndWaitSimple strCommand, vbHide, 600000
+'    If DispatchMode = enMail Then
+'        If oPC.EmailPOShowHTML = True Then
+'            'WRITE THE .HTML FILE
+'            objXSL.async = False
+'            objXSL.ValidateOnParse = False
+'            objXSL.resolveExternals = False
+'            strPath = oPC.SharedFolderRoot & "\Templates\" & strTemplateName & "_HTML.XSLT"
+'            Set fs = New FileSystemObject
+'            If fs.FileExists(strPath) Then
+'                objXSL.Load strPath
+'            End If
+'            If fs.FileExists(strWorkingFolder & "QU_" & Me.DOCCode & ".HTML") Then
+'                fs.DeleteFile strWorkingFolder & "QU_" & Me.DOCCode & ".HTML", True
+'            End If
+'            oTF.OpenTextFileToAppend strWorkingFolder & "QU_" & Me.DOCCode & ".HTML"
+'            pWholeMessage = xMLDoc.docObject.transformNode(objXSL)
+'            oTF.WriteToTextFile pWholeMessage
+'            oTF.CloseTextFile
+'        End If
+'    End If
 
-        If fs.FileExists(strFOFile) Then
-            fs.DeleteFile strFOFile
-        End If
+    strXSLFilePath = oPC.SharedFolderRoot & "\Templates\" & strTemplateName
+    strPDFFilePath = strWorkingFolder & "QU_" & Me.DOCCode & ".PDF"
+    strFOPDebugPath = oPC.SharedFolderRoot & "\FOPDEBUG.txt"
+
+    Dim pdf As New z_PDFRenderer
+    Dim ok As Boolean
+
+    ok = pdf.Render( _
+            PdfOutPath:=strPDFFilePath, _
+            XmlPath:=strXMLFilePath, _
+            XslPath:=strXSLFilePath, _
+            TemplateName:=strTemplateName, _
+            DebugLogPath:=strFOPDebugPath, _
+            TimeoutMs:=600000, _
+            BaseLocalFolder:=oPC.LocalFolder)
+
+    If Not ok Then
+        LogSaveToFile "FOP failed. Command: " & pdf.LastCommand & _
+                      " ExitCode: " & CStr(pdf.LastExitCode) & _
+                      " Error: " & pdf.LastError
+        MsgBox "The PDF file has not been produced: " & strPDFFilePath & vbCrLf & _
+               "Details: " & pdf.LastError, vbExclamation, "PDF generation failed"
+        Exit Function 'or handle as you already do
     End If
-    
+ 
     
 'Log the dispatch
     Set oSM = New z_StockManager
     Set oFSO = New FileSystemObject
-    pFilename = strPDFFile
+    pFilename = strPDFFilePath
     
     If DispatchMode <> enMail And DispatchMode <> enView Then
         oSM.LogTransmission Me.QuoteID, "Dispatched: by " & strDispatchMethod & " : " & Format(Date, "dd/mm/yyyy") & vbCrLf
@@ -2334,11 +2323,11 @@ Dim lngNumberOfLines As Long
     ExportToXML = True
 
  
-    If (Not fs.FileExists(strPDFFile)) And (DispatchMode = enView Or DispatchMode = enMail) Then
-            MsgBox "The PDF file has not been produced: " & strPDFFile & ". Please contact support.", vbOKOnly, "Can't do this"
+    If (Not fs.FileExists(strPDFFilePath)) And (DispatchMode = enView Or DispatchMode = enMail) Then
+            MsgBox "The PDF file has not been produced: " & strPDFFilePath & ". Please contact support.", vbOKOnly, "Can't do this"
     Else
         If DispatchMode = enView Or DispatchMode = enPrint Then
-            OpenFileWithApplication strPDFFile, enPDF, QuickPrint
+            OpenFileWithApplication strPDFFilePath, enPDF, QuickPrint
         End If
     End If
 

@@ -1428,7 +1428,8 @@ End Function
 Public Function ExportToXML(bForeign As Boolean, DispatchMode As enTransmitType, _
             pFilename As String, _
             Optional pDestinationEmailAddress As String, _
-            Optional pWholeMessage As String, Optional pQtyCopies As Integer, Optional QuickPrint As Boolean) As Boolean
+            Optional pWholeMessage As String, Optional pQtyCopies As Integer, _
+            Optional pTemplateToUse As String, Optional QuickPrint As Boolean) As Boolean
     On Error GoTo errHandler
 Dim oTF As New z_TextFile
 Dim strPath As String
@@ -1448,6 +1449,11 @@ Dim opXMLDOC As New MSXML2.DOMDocument60
 Dim objXMLDOC  As New MSXML2.DOMDocument60
 Dim strWorkingFolder As String
 Dim strDispatchMethod As String
+Dim strTemplateName As String
+Dim strXSLFilePath As String
+Dim strFOPDebugPath As String
+Dim strPDFFilePath As String
+Dim strXMLFilePath As String
 Dim oDC As a_DocumentControl
 Dim strExecutable As String
 Dim cnt As Integer
@@ -1512,8 +1518,18 @@ Dim cnt As Integer
                 End If
                         p 23
             .elCreateSibling "TemplateName"
-                .elText = "PO_DOC"
-            .elCreateSibling "SendersEmail"
+                 If pTemplateToUse > "" Then
+                    .elText = fs.GetBaseName(pTemplateToUse)
+                 Else
+                        If fs.FileExists(oPC.SharedFolderRoot & "\TEMPLATES\PO_DOC.XSLT") Then
+                            .elText = "PO_DOC.XSLT"
+                        Else
+                            .elText = "PO_DOC_FO.XSL"
+                        End If
+                 End If
+                 strTemplateName = .elText
+
+             .elCreateSibling "SendersEmail"
                 If oPC.EmailFrom > "" Then
                     .elText = oPC.EmailFrom
                 Else
@@ -1633,107 +1649,98 @@ Dim cnt As Integer
     End With
                             p 26
 'FINALLY PRODUCE THE .XML FILE
-    strXML = strWorkingFolder & "PO_" & Me.DOCCode & ".xml"
-    With xMLDoc
-        If fs.FileExists(strXML) Then
-            fs.DeleteFile strXML
-        End If
-        .docWriteToFile (strXML), False, "UNICODE", "" 'strHead
-    End With
-                            p 27
-    If DispatchMode = enMail Then
-        If oPC.EmailPOShowHTML = True Then
-'WRITE THE .HTML FILE--------------------------------------------------------------------------------------------------
-            objXSL.async = False
-            objXSL.ValidateOnParse = False
-            objXSL.resolveExternals = False
-            strPath = oPC.SharedFolderRoot & "\Templates\PO_DOC_HTML.xslt"
-            Set fs = New FileSystemObject
-            If fs.FileExists(strPath) Then
-                objXSL.Load strPath
+        strXMLFilePath = strWorkingFolder & "PO_" & Me.DOCCode & ".xml"
+        With xMLDoc
+            If fs.FileExists(strXML) Then
+                fs.DeleteFile strXML
             End If
-        
-            If fs.FileExists(strWorkingFolder & "PO_" & Me.DOCCode & ".HTML") Then
-                fs.DeleteFile strWorkingFolder & "PO_" & Me.DOCCode & ".HTML", True
-            End If
-            oTF.OpenTextFileToAppend strWorkingFolder & "PO_" & Me.DOCCode & ".HTML"
-            pWholeMessage = xMLDoc.docObject.transformNode(objXSL)
-            oTF.WriteToTextFile pWholeMessage 'xMLDoc.docObject.transformNode(objXSL)
-            oTF.CloseTextFile
-        End If
-    End If
-    
+            .docWriteToFile (strXML), False, "UNICODE", "" 'strHead
+        End With
+        strXSLFilePath = oPC.SharedFolderRoot & "\Templates\" & strTemplateName
+        strPDFFilePath = strWorkingFolder & "PO_" & Me.DOCCode & ".PDF"
+        strFOPDebugPath = oPC.SharedFolderRoot & "\FOPDEBUG.txt"
+        Dim pdf As New z_PDFRenderer
+        Dim ok As Boolean
+        ' If you’re using XML+XSL/XSLT:
+        ok = pdf.Render( _
+            PdfOutPath:=strPDFFilePath, _
+            XmlPath:=strXMLFilePath, _
+            XslPath:=strXSLFilePath, _
+            TemplateName:=strTemplateName, _
+            DebugLogPath:=strFOPDebugPath, _
+            TimeoutMs:=20000, _
+            BaseLocalFolder:=oPC.LocalFolder)
                         p 27
 'WRITE THE .PDF FILE IF NECESSARY ------------------------------------------------------------------------------------
 'Stage 1 apply the .XSLT style sheet to the .XML and produce the .FO file
-    If (Me.Supplier.DispatchMethod = "M" And DispatchMode = enMail) Or DispatchMode = enView Or (DispatchMode = enPrint And QuickPrint = True) Then
-        Set objXSL = Nothing
-        Set objXSL = New MSXML2.DOMDocument60
-        objXSL.async = False
-        objXSL.ValidateOnParse = False
-        objXSL.resolveExternals = False
-        strPath = oPC.SharedFolderRoot & "\Templates\PO_DOC_FO.xsl"
-        Set fs = New FileSystemObject
-        If fs.FileExists(strPath) Then
-            objXSL.Load strPath
-        End If
-                        p 6
-        Set opXMLDOC = New MSXML2.DOMDocument60
-        opXMLDOC.async = False
-        opXMLDOC.ValidateOnParse = False
-        opXMLDOC.resolveExternals = False
-        xMLDoc.docObject.transformNodeToObject objXSL, opXMLDOC
-        
-        strFOFile = strWorkingFolder & "PO_" & Me.DOCCode & ".FO"
-        strPDFFile = strWorkingFolder & "PO_" & Me.DOCCode & ".PDF"
-                                p 7
-        If docWriteTostream(strFOFile, opXMLDOC, "UNICODE") = False Then
-            MsgBox "Cannot write to .FO file. Please contact support to check the permissions for writing " & strFOFile & " are correctly set.", vbInformation + vbOKOnly, "Can't do this"
-            oTF.CloseTextFile
-            Exit Function
-        End If
-        p 7, "a"
-'Stage 2 Convert the .FO file to .PDF and clean up
-        If fs.FileExists(strPDFFile) Then
-            On Error Resume Next
-            fs.DeleteFile strPDFFile
-            If Err Then
-                MsgBox "It looks like you have this document open already in your PDF reader. Close the document before re-processing it.", vbInformation + vbOKOnly, "Warning"
-            End If
-        End If
-        p 7, "b"
-        ChDir "\PBKS\Executables\FOP\"
-        strCommand = GetFOPCommandstring(strFOFile, strPDFFile)
-        p 7, "c"
-        Dim fl As New z_TextFile
-        If fs.FileExists("c:\PBKS\TEMP\CREATEPDF.BAT") Then
-          fs.DeleteFile ("c:\PBKS\TEMP\CREATEPDF.BAT")
-        End If
-        fl.OpenTextFile ("c:\PBKS\TEMP\CREATEPDF.BAT")
-        fl.WriteToTextFile (strCommand)
-        fl.CloseTextFile
-        Shell "c:\PBKS\TEMP\CREATEPDF.BAT", vbHide
-        Set fl = Nothing
-        p 7, "d"
-        'IF IT FAILS HERE CHECK THAT JAVA IS INSTALLED
-        'We do the following because the batch file executes and is not waited for by the F_7_AB_1_ShellAndWaitSimple routine
-        'so the FO file is sometimes deleted before the .PDF file is produced.
-    End If
-    
-    MsgWaitObj 3000   ' allow for closing of file after writing
-p 7, "e"
+'    If (Me.Supplier.DispatchMethod = "M" And DispatchMode = enMail) Or DispatchMode = enView Or (DispatchMode = enPrint And QuickPrint = True) Then
+'        Set objXSL = Nothing
+'        Set objXSL = New MSXML2.DOMDocument60
+'        objXSL.async = False
+'        objXSL.ValidateOnParse = False
+'        objXSL.resolveExternals = False
+'        strPath = oPC.SharedFolderRoot & "\Templates\PO_DOC_FO.xsl"
+'        Set fs = New FileSystemObject
+'        If fs.FileExists(strPath) Then
+'            objXSL.Load strPath
+'        End If
+'                        p 6
+'        Set opXMLDOC = New MSXML2.DOMDocument60
+'        opXMLDOC.async = False
+'        opXMLDOC.ValidateOnParse = False
+'        opXMLDOC.resolveExternals = False
+'        xMLDoc.docObject.transformNodeToObject objXSL, opXMLDOC
+'
+'        strFOFile = strWorkingFolder & "PO_" & Me.DOCCode & ".FO"
+'        strPDFFile = strWorkingFolder & "PO_" & Me.DOCCode & ".PDF"
+'                                p 7
+'        If docWriteTostream(strFOFile, opXMLDOC, "UNICODE") = False Then
+'            MsgBox "Cannot write to .FO file. Please contact support to check the permissions for writing " & strFOFile & " are correctly set.", vbInformation + vbOKOnly, "Can't do this"
+'            oTF.CloseTextFile
+'            Exit Function
+'        End If
+'        p 7, "a"
+''Stage 2 Convert the .FO file to .PDF and clean up
+'        If fs.FileExists(strPDFFile) Then
+'            On Error Resume Next
+'            fs.DeleteFile strPDFFile
+'            If Err Then
+'                MsgBox "It looks like you have this document open already in your PDF reader. Close the document before re-processing it.", vbInformation + vbOKOnly, "Warning"
+'            End If
+'        End If
+'        p 7, "b"
+'        ChDir "\PBKS\Executables\FOP\"
+'        strCommand = GetFOPCommandstring(strFOFile, strPDFFile)
+'        p 7, "c"
+'        Dim fl As New z_TextFile
+'        If fs.FileExists("c:\PBKS\TEMP\CREATEPDF.BAT") Then
+'          fs.DeleteFile ("c:\PBKS\TEMP\CREATEPDF.BAT")
+'        End If
+'        fl.OpenTextFile ("c:\PBKS\TEMP\CREATEPDF.BAT")
+'        fl.WriteToTextFile (strCommand)
+'        fl.CloseTextFile
+'        Shell "c:\PBKS\TEMP\CREATEPDF.BAT", vbHide
+'        Set fl = Nothing
+'        p 7, "d"
+'        'IF IT FAILS HERE CHECK THAT JAVA IS INSTALLED
+'        'We do the following because the batch file executes and is not waited for by the F_7_AB_1_ShellAndWaitSimple routine
+'        'so the FO file is sometimes deleted before the .PDF file is produced.
+'    End If
+'
+'    MsgWaitObj 3000   ' allow for closing of file after writing
+'p 7, "e"
 'Prepare EDI file and dispatch---------------------------------------------------------------------------------------------------------
-    If (Me.Supplier.DispatchMethod = "E" And DispatchMode = enEDI) Then
-p 7, "f"
-'        'First create equivalent EDI file (same name different suffix)
-            strEDIFilePath = "C:\PBKS\EDI_Files\" & fs.GetBaseName(strXML) & ".EDI"
-            sFormatFilename = "C:\mec\eagle\formatdescription\edifact.96.a.orders.xml"
-            strCommand = "jstart2.BAT de.mendelson.eagle.converter.edixml.EDIXMLConverter -xmlin " & strXML & " -formatin " & sFormatFilename & " -ediout " & strEDIFilePath & "  -ncs"
-            ChDir "c:\MEC\EAGLE"
-            F_7_AB_1_ShellAndWaitSimple strCommand, vbHide, 600000
-    
-    End If
-'GenerateSAANAMsg
+'    If (Me.Supplier.DispatchMethod = "E" And DispatchMode = enEDI) Then
+'p 7, "f"
+''        'First create equivalent EDI file (same name different suffix)
+'            strEDIFilePath = "C:\PBKS\EDI_Files\" & fs.GetBaseName(strXML) & ".EDI"
+'            sFormatFilename = "C:\mec\eagle\formatdescription\edifact.96.a.orders.xml"
+'            strCommand = "jstart2.BAT de.mendelson.eagle.converter.edixml.EDIXMLConverter -xmlin " & strXML & " -formatin " & sFormatFilename & " -ediout " & strEDIFilePath & "  -ncs"
+'            ChDir "c:\MEC\EAGLE"
+'            F_7_AB_1_ShellAndWaitSimple strCommand, vbHide, 600000
+'
+'    End If
+''GenerateSAANAMsg
                         p 8
 'Log the dispatch
     Set oSM = New z_StockManager
@@ -1749,11 +1756,11 @@ p 7, "f"
                         p 9
                         
     ExportToXML = True
-    If (Not fs.FileExists(strPDFFile)) And (DispatchMode = enView Or DispatchMode = enMail) Then
-            MsgBox "The PDF file has not been produced: " & strPDFFile & ". Please contact support.", vbOKOnly, "Can't do this"
+    If (Not fs.FileExists(strPDFFilePath)) And (DispatchMode = enView Or DispatchMode = enMail) Then
+            MsgBox "The PDF file has not been produced: " & strPDFFilePath & ". Please contact support.", vbOKOnly, "Can't do this"
     Else
         If DispatchMode = enView Or DispatchMode = enPrint Then
-            OpenFileWithApplication strPDFFile, enPDF, QuickPrint
+            OpenFileWithApplication strPDFFilePath, enPDF, QuickPrint
         End If
     End If
     Exit Function

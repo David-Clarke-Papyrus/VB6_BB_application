@@ -2820,8 +2820,6 @@ Dim strBillto As String
 Dim strDelto As String
 Dim strFOFile As String
 Dim XMLFilePath As String
-Dim xslFilePath As String
-Dim pdfFilePath As String
 Dim FOPDebugPath As String
 
 Dim strXML As String
@@ -2829,9 +2827,9 @@ Dim strCommand As String
 Dim i As Integer
 Dim strHTML As String
 Dim fs As New FileSystemObject
-Dim objXSL As New MSXML2.DOMDocument60
-Dim opXMLDOC As New MSXML2.DOMDocument60
-Dim objXMLDOC  As New MSXML2.DOMDocument60
+'Dim objXSL As New MSXML2.DOMDocument60
+'Dim opXMLDOC As New MSXML2.DOMDocument60
+'Dim objXMLDOC  As New MSXML2.DOMDocument60
 Dim bReferenceExists As Boolean
 Dim bDiscountExists As Boolean
 Dim bDepositExists As Boolean
@@ -2847,11 +2845,15 @@ Dim strTmpRep As String
 Dim flgFirst As Boolean
 Dim cnt As Integer
 Dim lngNumberOfLines As Long
+Dim strXSLFilePath As String
+Dim strFOPDebugPath As String
+Dim strPDFFilePath As String
+Dim strXMLFilePath As String
+
+
 
 Dim zSQL As New z_SQL
 
- '   MsgBox "Fiddling with oPC.SharedFolderRoot"
-  '  oPC.SharedFolderRoot = "\\DAVID-PC\PBKS_S"
     If DispatchMode = enMail Then
         If oPC.UsesOutlookForINVEmail Then
             strWorkingFolder = oPC.LocalFolder & "TEMP\"
@@ -3388,48 +3390,47 @@ skip:
                                 p 12
 
 'FINALLY PRODUCE THE .XML FILE
-    strWorkingFolder = oPC.LocalFolder & "PDF\"
-    XMLFilePath = strWorkingFolder & "IN_" & Me.DOCCode & ".xml"
+        strWorkingFolder = oPC.LocalFolder & "PDF\"
+        strXMLFilePath = strWorkingFolder & "IN_" & Me.DOCCode & ".xml"
+    
+        With xMLDoc
+            If fs.FileExists(strXMLFilePath) Then
+                fs.DeleteFile strXMLFilePath
+            End If
+            .docWriteToFile (strXMLFilePath), False, "UNICODE", "" 'strHead
+        End With
+        strXSLFilePath = oPC.SharedFolderRoot & "\Templates\" & strTemplateName
+        strPDFFilePath = strWorkingFolder & "IN_" & Me.DOCCode & ".PDF"
+        strFOPDebugPath = oPC.SharedFolderRoot & "\FOPDEBUG.txt"
 
-    With xMLDoc
-        If fs.FileExists(XMLFilePath) Then
-            fs.DeleteFile XMLFilePath
-        End If
-        .docWriteToFile (XMLFilePath), False, "UNICODE", "" 'strHead
-    End With
-      If Not fs.FileExists(XMLFilePath) Then
-          MsgBox "Cannot write XML file.(" & XMLFilePath & ")", vbOKOnly, "Can't do this"
-          Exit Function
-      End If
-                                p 13
-'WRITE THE .PDF FILE IF NECESSARY ------------------------------------------------------------------------------------
-    Dim tmp As String
-    If (Me.Customer.DispatchMethod = "M" And DispatchMode = enMail) Or DispatchMode = enView Or (DispatchMode = enPrint And QuickPrint = True) Then
-       xslFilePath = oPC.SharedFolderRoot & "\Templates\" & strTemplateName
-       pdfFilePath = strWorkingFolder & "IN_" & Me.DOCCode & ".PDF"
-       FOPDebugPath = strWorkingFolder & "FOPDebug.txt"
-        If UCase(Right(strTemplateName, 4)) = "XSLT" Then
-          tmp = oPC.LocalFolder & "Executables\FOP-1.1\"
-        Else
-          tmp = oPC.LocalFolder & "Executables\FOP\"
-        End If
-        strCommand = tmp & "FOP.BAT -xml " & XMLFilePath & " -xsl " & xslFilePath & " -pdf " & pdfFilePath & " 2>" & FOPDebugPath
-            LogSaveToFile "strCommand = " & strCommand
-            
-'Allow 2 minutes to produce the PDF file
-        F_7_AB_1_ShellAndWaitSimple strCommand, vbHide, 600000
-        'IF IT FAILS HERE CHECK THAT JAVA IS INSTALLED
-        cnt = 0
-        Do While Not fs.FileExists(pdfFilePath) And cnt < 40
-            MsgWaitObj 1000
-            cnt = cnt + 1
-        Loop
+        
+    Dim pdf As New z_PDFRenderer
+    Dim ok As Boolean
+    ' If you’re using XML+XSL/XSLT:
+    ok = pdf.Render( _
+            PdfOutPath:=strPDFFilePath, _
+            XmlPath:=strXMLFilePath, _
+            XslPath:=strXSLFilePath, _
+            TemplateName:=strTemplateName, _
+            DebugLogPath:=strFOPDebugPath, _
+            TimeoutMs:=20000, _
+            BaseLocalFolder:=oPC.LocalFolder)
+
+
+
+    If Not ok Then
+        LogSaveToFile "FOP failed. Command: " & pdf.LastCommand & _
+                      " ExitCode: " & CStr(pdf.LastExitCode) & _
+                      " Error: " & pdf.LastError
+        MsgBox "The PDF file has not been produced: " & strPDFFilePath & vbCrLf & _
+               "Details: " & pdf.LastError, vbExclamation, "PDF generation failed"
+        Exit Function 'or handle as you already do
     End If
                         p 158
-        If fs.FileExists(pdfFilePath) Then
+        If fs.FileExists(strPDFFilePath) Then
             On Error Resume Next
-            SetFileProperty pdfFilePath, "Title", Me.Customer.AcNo
-            SetFileProperty pdfFilePath, "Author", Me.Customer.Name
+            SetFileProperty strPDFFilePath, "Title", Me.Customer.AcNo
+            SetFileProperty strPDFFilePath, "Author", Me.Customer.Name
             On Error GoTo errHandler
         End If
                         p 16
@@ -3437,7 +3438,7 @@ skip:
 'Log the dispatch
     Set oSM = New z_StockManager
     Set oFSO = New FileSystemObject
-    pFilename = pdfFilePath
+    pFilename = strPDFFilePath
     
     If DispatchMode <> enMail And DispatchMode <> enView Then
         oSM.LogTransmission Me.InvoiceID, "Dispatched: by " & strDispatchMethod & " : " & Format(Date, "dd/mm/yyyy") & vbCrLf
@@ -3450,11 +3451,11 @@ skip:
     Set oTF = Nothing
     ExportToXML = True
     '
-    If (Not fs.FileExists(pdfFilePath)) And (DispatchMode = enView Or DispatchMode = enMail) Then
-            MsgBox "The PDF file has not been produced: " & pdfFilePath & ". Please contact support.", vbOKOnly, "Can't do this"
+    If (Not fs.FileExists(strPDFFilePath)) And (DispatchMode = enView Or DispatchMode = enMail) Then
+            MsgBox "The PDF file has not been produced: " & strPDFFilePath & ". Please contact support.", vbOKOnly, "Can't do this"
     Else
         If DispatchMode = enView Or enPrint Then
-            OpenFileWithApplication pdfFilePath, enPDF, QuickPrint
+            OpenFileWithApplication strPDFFilePath, enPDF, QuickPrint
         End If
     End If
 
